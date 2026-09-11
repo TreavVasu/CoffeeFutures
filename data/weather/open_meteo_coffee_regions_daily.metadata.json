@@ -1,0 +1,79 @@
+{
+  "source": "https://archive-api.open-meteo.com/v1/archive",
+  "docs": "https://open-meteo.com/en/docs/historical-weather-api",
+  "regions": {
+    "brazil_minas_gerais": {
+      "latitude": -21.55,
+      "longitude": -45.43,
+      "timezone": "America/Sao_Paulo"
+    },
+    "colombia_huila": {
+      "latitude": 2.93,
+      "longitude": -75.28,
+      "timezone": "America/Bogota"
+    },
+    "vietnam_dak_lak": {
+      "latitude": 12.67,
+      "longitude": 108.05,
+      "timezone": "Asia/Ho_Chi_Minh"
+    }
+  },
+  "start_date": "2000-01-03",
+  "end_date": "2026-09-09",
+  "variables": [
+    "temperature_2m_mean",
+    "temperature_2m_max",
+    "temperature_2m_min",
+    "precipitation_sum",
+    "rain_sum",
+    "relative_humidity_2m_mean",
+    "wind_speed_10m_mean",
+    "shortwave_radiation_sum",
+    "et0_fao_evapotranspiration",
+    "soil_moisture_0_to_100cm_mean",
+    "soil_temperature_0_to_100cm_mean",
+    "vapour_pressure_deficit_max"
+  ],
+  "present_regions": [
+    "brazil_minas_gerais",
+    "colombia_huila",
+    "vietnam_dak_lak"
+  ],
+  "refresh_successes": {
+    "brazil_minas_gerais": {
+      "rows": 9747,
+      "columns": [
+        "weather_brazil_minas_gerais_temperature_2m_mean",
+        "weather_brazil_minas_gerais_temperature_2m_max",
+        "weather_brazil_minas_gerais_temperature_2m_min",
+        "weather_brazil_minas_gerais_precipitation_sum",
+        "weather_brazil_minas_gerais_rain_sum",
+        "weather_brazil_minas_gerais_relative_humidity_2m_mean",
+        "weather_brazil_minas_gerais_wind_speed_10m_mean",
+        "weather_brazil_minas_gerais_shortwave_radiation_sum",
+        "weather_brazil_minas_gerais_et0_fao_evapotranspiration",
+        "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean",
+        "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean",
+        "weather_brazil_minas_gerais_vapour_pressure_deficit_max"
+      ]
+    },
+    "colombia_huila": {
+      "rows": 9747,
+      "columns": [
+        "weather_colombia_huila_temperature_2m_mean",
+        "weather_colombia_huila_temperature_2m_max",
+        "weather_colombia_huila_temperature_2m_min",
+        "weather_colombia_huila_precipitation_sum",
+        "weather_colombia_huila_rain_sum",
+        "weather_colombia_huila_relative_humidity_2m_mean",
+        "weather_colombia_huila_wind_speed_10m_mean",
+        "weather_colombia_huila_shortwave_radiation_sum",
+        "weather_colombia_huila_et0_fao_evapotranspiration",
+        "weather_colombia_huila_soil_moisture_0_to_100cm_mean",
+        "weather_colombia_huila_soil_temperature_0_to_100cm_mean",
+        "weather_colombia_huila_vapour_pressure_deficit_max"
+      ]
+    }
+  },
+  "refresh_errors": {}
+}

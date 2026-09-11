@@ -1,0 +1,25 @@
+{
+  "objective": "Walk-forward validation for 5D Arabica direction using release-safe COT, crop-weather features, global classifiers, ensembles, and regime-specific classifiers.",
+  "fold_design": "For each test year, train on data before the prior calendar year, validate on the prior calendar year, then refit on train+validation and test on the target calendar year.",
+  "start_year": 2012,
+  "end_year": 2026,
+  "fold_count": 15,
+  "overall": {
+    "rows": 3687,
+    "accuracy": 0.4928125847572552,
+    "precision": 0.47761928184948355,
+    "recall": 0.5458122540753232,
+    "f1": 0.5094438614900315,
+    "roc_auc": 0.490837372419669,
+    "first_test_date": "2012-01-03",
+    "last_test_date": "2026-09-01"
+  },
+  "feature_counts": {
+    "yahoo": 8,
+    "release_safe_cot": 8,
+    "generic_weather": 57,
+    "crop_weather": 27,
+    "total": 100
+  },
+  "cot_release_policy": "COT report values are first usable four business days after the Tuesday report date, approximating the next trading day after Friday release."
+}

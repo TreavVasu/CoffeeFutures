@@ -1,0 +1,384 @@
+{
+  "target": "5-trading-day future Arabica Coffee C return",
+  "best_model": "extra_trees_depth_6",
+  "features": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "realized_vol_20d",
+    "close_vs_ma_63",
+    "range_pct",
+    "close_to_open_pct",
+    "volume_change_pct",
+    "managed_money_weekly_net_change",
+    "noncommercial_weekly_net_change",
+    "commercial_weekly_net_change",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll7",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll30",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll7",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll30",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll30_vs_252",
+    "weather_brazil_minas_gerais_precipitation_sum_roll7",
+    "weather_brazil_minas_gerais_precipitation_sum_roll30",
+    "weather_brazil_minas_gerais_precipitation_sum_roll30_vs_252",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll7",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll7",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_brazil_minas_gerais_stress_index",
+    "weather_colombia_huila_temperature_2m_mean_roll7",
+    "weather_colombia_huila_temperature_2m_mean_roll30",
+    "weather_colombia_huila_temperature_2m_mean_roll30_vs_252",
+    "weather_colombia_huila_temperature_2m_max_roll7",
+    "weather_colombia_huila_temperature_2m_max_roll30",
+    "weather_colombia_huila_temperature_2m_max_roll30_vs_252",
+    "weather_colombia_huila_precipitation_sum_roll7",
+    "weather_colombia_huila_precipitation_sum_roll30",
+    "weather_colombia_huila_precipitation_sum_roll30_vs_252",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll7",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll30",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll7",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll30",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_colombia_huila_stress_index",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll7",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll30",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll7",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll30",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll30_vs_252",
+    "weather_vietnam_dak_lak_precipitation_sum_roll7",
+    "weather_vietnam_dak_lak_precipitation_sum_roll30",
+    "weather_vietnam_dak_lak_precipitation_sum_roll30_vs_252",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll7",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll30",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll7",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll30",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_vietnam_dak_lak_stress_index"
+  ],
+  "feature_counts": {
+    "yahoo": 8,
+    "top3_cot": 3,
+    "weather": 57,
+    "total": 68
+  },
+  "regions": {
+    "brazil_minas_gerais": "Brazil Minas Gerais",
+    "colombia_huila": "Colombia Huila",
+    "vietnam_dak_lak": "Vietnam Dak Lak"
+  },
+  "top3_cot_features": [
+    "managed_money_weekly_net_change",
+    "noncommercial_weekly_net_change",
+    "commercial_weekly_net_change"
+  ],
+  "selection_policy": {
+    "rule": "Choose the highest validation directional accuracy among models within 0.5% of the best validation RMSE.",
+    "best_validation_rmse": 0.050732233446040484,
+    "selected_model_validation_rmse": 0.0508305284953258,
+    "selected_model_validation_directional_accuracy": 0.5104685942173479
+  },
+  "validation_results": [
+    {
+      "model": "ada_boost_tree",
+      "model_group": "base",
+      "valid_mae": 0.038748915777426916,
+      "valid_rmse": 0.050732233446040484,
+      "valid_r2": -0.024343204600025814,
+      "valid_directional_accuracy": 0.5054835493519442
+    },
+    {
+      "model": "ensemble_top3_weighted_rmse",
+      "model_group": "ensemble",
+      "valid_mae": 0.038750443557807615,
+      "valid_rmse": 0.05076895750771585,
+      "valid_r2": -0.025826744982360372,
+      "valid_directional_accuracy": 0.5004985044865404
+    },
+    {
+      "model": "ensemble_top3_mean",
+      "model_group": "ensemble",
+      "valid_mae": 0.0387509276427924,
+      "valid_rmse": 0.05076943479259413,
+      "valid_r2": -0.025846032906265082,
+      "valid_directional_accuracy": 0.5004985044865404
+    },
+    {
+      "model": "extra_trees_depth_6",
+      "model_group": "base",
+      "valid_mae": 0.038620281195655276,
+      "valid_rmse": 0.0508305284953258,
+      "valid_r2": -0.028316434305951654,
+      "valid_directional_accuracy": 0.5104685942173479
+    },
+    {
+      "model": "gradient_boosting",
+      "model_group": "base",
+      "valid_mae": 0.03910422567584258,
+      "valid_rmse": 0.05109766939037092,
+      "valid_r2": -0.03915351354515528,
+      "valid_directional_accuracy": 0.5034895314057827
+    },
+    {
+      "model": "bagged_trees",
+      "model_group": "base",
+      "valid_mae": 0.038868030963421535,
+      "valid_rmse": 0.051160502748529804,
+      "valid_r2": -0.0417107201835718,
+      "valid_directional_accuracy": 0.4965104685942173
+    },
+    {
+      "model": "extra_trees_depth_8",
+      "model_group": "base",
+      "valid_mae": 0.038798369533823714,
+      "valid_rmse": 0.0512192251458955,
+      "valid_r2": -0.044103458888348435,
+      "valid_directional_accuracy": 0.5064805583250249
+    },
+    {
+      "model": "random_forest_depth_6",
+      "model_group": "base",
+      "valid_mae": 0.038963433809052136,
+      "valid_rmse": 0.051254666660222596,
+      "valid_r2": -0.04554890873242812,
+      "valid_directional_accuracy": 0.49252243270189433
+    },
+    {
+      "model": "random_forest_depth_8",
+      "model_group": "base",
+      "valid_mae": 0.0392275218083481,
+      "valid_rmse": 0.05164536897980908,
+      "valid_r2": -0.06154961088718558,
+      "valid_directional_accuracy": 0.5124626121635095
+    },
+    {
+      "model": "bayesian_ridge",
+      "model_group": "base",
+      "valid_mae": 0.04101573712443559,
+      "valid_rmse": 0.052624911178846705,
+      "valid_r2": -0.102199673327666,
+      "valid_directional_accuracy": 0.5473579262213359
+    },
+    {
+      "model": "decision_tree_shallow",
+      "model_group": "base",
+      "valid_mae": 0.040766168091199026,
+      "valid_rmse": 0.052967044234732176,
+      "valid_r2": -0.11657783607920047,
+      "valid_directional_accuracy": 0.5014955134596212
+    },
+    {
+      "model": "knn_25_distance",
+      "model_group": "base",
+      "valid_mae": 0.04031364532068711,
+      "valid_rmse": 0.05327091553676638,
+      "valid_r2": -0.1294261735400386,
+      "valid_directional_accuracy": 0.4905284147557328
+    },
+    {
+      "model": "elastic_net",
+      "model_group": "base",
+      "valid_mae": 0.042808505811344266,
+      "valid_rmse": 0.05408515502307846,
+      "valid_r2": -0.16421632287506438,
+      "valid_directional_accuracy": 0.5333998005982054
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "model_group": "base",
+      "valid_mae": 0.041774052079953494,
+      "valid_rmse": 0.05530848580458501,
+      "valid_r2": -0.2174778367758372,
+      "valid_directional_accuracy": 0.5024925224327019
+    },
+    {
+      "model": "ridge_alpha_3",
+      "model_group": "base",
+      "valid_mae": 0.05016431153206392,
+      "valid_rmse": 0.06173905765051749,
+      "valid_r2": -0.5170417011931883,
+      "valid_directional_accuracy": 0.5314057826520439
+    },
+    {
+      "model": "ridge_alpha_1",
+      "model_group": "base",
+      "valid_mae": 0.05369210876196884,
+      "valid_rmse": 0.0657001787772177,
+      "valid_r2": -0.7179504318605279,
+      "valid_directional_accuracy": 0.5304087736789631
+    },
+    {
+      "model": "huber",
+      "model_group": "base",
+      "valid_mae": 0.05695206125588157,
+      "valid_rmse": 0.07028302566038379,
+      "valid_r2": -0.9659769660764379,
+      "valid_directional_accuracy": 0.53938185443669
+    }
+  ],
+  "holdout_model_comparison": [
+    {
+      "model": "ada_boost_tree",
+      "model_group": "base",
+      "holdout_mae": 0.04305815450500203,
+      "holdout_rmse": 0.05424430039027782,
+      "holdout_r2": -0.03821870825275764,
+      "holdout_directional_accuracy": 0.5074775672981057
+    },
+    {
+      "model": "ensemble_top3_weighted_rmse",
+      "model_group": "ensemble",
+      "holdout_mae": 0.0422740189629743,
+      "holdout_rmse": 0.05314137111835255,
+      "holdout_r2": 0.00357150873602341,
+      "holdout_directional_accuracy": 0.5274177467597209
+    },
+    {
+      "model": "ensemble_top3_mean",
+      "model_group": "ensemble",
+      "holdout_mae": 0.0422733670351813,
+      "holdout_rmse": 0.05314077992189078,
+      "holdout_r2": 0.003593679098182534,
+      "holdout_directional_accuracy": 0.5274177467597209
+    },
+    {
+      "model": "extra_trees_depth_6",
+      "model_group": "base",
+      "holdout_mae": 0.04200197369691723,
+      "holdout_rmse": 0.05285903745052335,
+      "holdout_r2": 0.014131190622801437,
+      "holdout_directional_accuracy": 0.5423728813559322
+    },
+    {
+      "model": "gradient_boosting",
+      "model_group": "base",
+      "holdout_mae": 0.04224961703126548,
+      "holdout_rmse": 0.05319344352795422,
+      "holdout_r2": 0.0016177821835947626,
+      "holdout_directional_accuracy": 0.5284147557328016
+    },
+    {
+      "model": "bagged_trees",
+      "model_group": "base",
+      "holdout_mae": 0.04220879204826092,
+      "holdout_rmse": 0.05319265235960139,
+      "holdout_r2": 0.0016474806760481409,
+      "holdout_directional_accuracy": 0.5353938185443669
+    },
+    {
+      "model": "extra_trees_depth_8",
+      "model_group": "base",
+      "holdout_mae": 0.04207238844789896,
+      "holdout_rmse": 0.05294412750552721,
+      "holdout_r2": 0.010954623114306616,
+      "holdout_directional_accuracy": 0.53938185443669
+    },
+    {
+      "model": "random_forest_depth_6",
+      "model_group": "base",
+      "holdout_mae": 0.04227148654843503,
+      "holdout_rmse": 0.05317783968181509,
+      "holdout_r2": 0.002203430209224644,
+      "holdout_directional_accuracy": 0.5353938185443669
+    },
+    {
+      "model": "random_forest_depth_8",
+      "model_group": "base",
+      "holdout_mae": 0.0427108300813152,
+      "holdout_rmse": 0.053763964020378814,
+      "holdout_r2": -0.019913145489009576,
+      "holdout_directional_accuracy": 0.5204386839481555
+    },
+    {
+      "model": "bayesian_ridge",
+      "model_group": "base",
+      "holdout_mae": 0.04240629445176573,
+      "holdout_rmse": 0.05403322648393802,
+      "holdout_r2": -0.03015465288176844,
+      "holdout_directional_accuracy": 0.4865403788634098
+    },
+    {
+      "model": "decision_tree_shallow",
+      "model_group": "base",
+      "holdout_mae": 0.04384726865947212,
+      "holdout_rmse": 0.05542339259193575,
+      "holdout_r2": -0.08384415189429961,
+      "holdout_directional_accuracy": 0.49252243270189433
+    },
+    {
+      "model": "knn_25_distance",
+      "model_group": "base",
+      "holdout_mae": 0.0442201551945005,
+      "holdout_rmse": 0.05568612074603303,
+      "holdout_r2": -0.09414418180087214,
+      "holdout_directional_accuracy": 0.5094715852442672
+    }
+  ],
+  "holdout": {
+    "mae": 0.04200197369691723,
+    "rmse": 0.05285903745052335,
+    "r2": 0.014131190622801437,
+    "directional_accuracy": 0.5423728813559322,
+    "date_start": "2022-09-07",
+    "date_end": "2026-09-01",
+    "rows": 1003
+  },
+  "region_permutation_impact": [
+    {
+      "region": "colombia_huila",
+      "region_label": "Colombia Huila",
+      "baseline_rmse": 0.05285903745052335,
+      "permuted_rmse": 0.05292541559186772,
+      "rmse_increase": 6.637814134436565e-05,
+      "feature_count": 19
+    },
+    {
+      "region": "brazil_minas_gerais",
+      "region_label": "Brazil Minas Gerais",
+      "baseline_rmse": 0.05285903745052335,
+      "permuted_rmse": 0.05287656704201853,
+      "rmse_increase": 1.7529591495174524e-05,
+      "feature_count": 19
+    },
+    {
+      "region": "vietnam_dak_lak",
+      "region_label": "Vietnam Dak Lak",
+      "baseline_rmse": 0.05285903745052335,
+      "permuted_rmse": 0.05287478337109186,
+      "rmse_increase": 1.5745920568507876e-05,
+      "feature_count": 19
+    }
+  ],
+  "region_feature_importance": [
+    {
+      "region": "brazil_minas_gerais",
+      "region_label": "Brazil Minas Gerais",
+      "tree_importance_sum": 0.3032198203189899
+    },
+    {
+      "region": "vietnam_dak_lak",
+      "region_label": "Vietnam Dak Lak",
+      "tree_importance_sum": 0.2439355814438386
+    },
+    {
+      "region": "colombia_huila",
+      "region_label": "Colombia Huila",
+      "tree_importance_sum": 0.21281030056057404
+    }
+  ]
+}

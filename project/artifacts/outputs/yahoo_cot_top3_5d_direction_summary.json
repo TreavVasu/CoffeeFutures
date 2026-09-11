@@ -1,0 +1,10 @@
+{
+  "accuracy": 0.5164506480558325,
+  "precision_up": 0.5115273775216138,
+  "recall_up": 0.7085828343313373,
+  "f1_up": 0.5941422594142259,
+  "true_down_flat": 163,
+  "false_up": 339,
+  "false_down_flat": 146,
+  "true_up": 355
+}

@@ -1,0 +1,241 @@
+{
+  "selected": {
+    "model": "extra_trees_depth_6",
+    "model_group": "base",
+    "valid_mae": 0.038620281195655276,
+    "valid_rmse": 0.0508305284953258,
+    "valid_r2": -0.028316434305951654,
+    "valid_directional_accuracy": 0.5104685942173479,
+    "feature_set": "current_all_features",
+    "feature_count": 68,
+    "holdout_mae": 0.04200197369691723,
+    "holdout_rmse": 0.05285903745052335,
+    "holdout_r2": 0.014131190622801437,
+    "holdout_directional_accuracy": 0.5423728813559322
+  },
+  "features": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "realized_vol_20d",
+    "close_vs_ma_63",
+    "range_pct",
+    "close_to_open_pct",
+    "volume_change_pct",
+    "managed_money_weekly_net_change",
+    "noncommercial_weekly_net_change",
+    "commercial_weekly_net_change",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll7",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll30",
+    "weather_brazil_minas_gerais_temperature_2m_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll7",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll30",
+    "weather_brazil_minas_gerais_temperature_2m_max_roll30_vs_252",
+    "weather_brazil_minas_gerais_precipitation_sum_roll7",
+    "weather_brazil_minas_gerais_precipitation_sum_roll30",
+    "weather_brazil_minas_gerais_precipitation_sum_roll30_vs_252",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll7",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30",
+    "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll7",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30",
+    "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_brazil_minas_gerais_stress_index",
+    "weather_colombia_huila_temperature_2m_mean_roll7",
+    "weather_colombia_huila_temperature_2m_mean_roll30",
+    "weather_colombia_huila_temperature_2m_mean_roll30_vs_252",
+    "weather_colombia_huila_temperature_2m_max_roll7",
+    "weather_colombia_huila_temperature_2m_max_roll30",
+    "weather_colombia_huila_temperature_2m_max_roll30_vs_252",
+    "weather_colombia_huila_precipitation_sum_roll7",
+    "weather_colombia_huila_precipitation_sum_roll30",
+    "weather_colombia_huila_precipitation_sum_roll30_vs_252",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll7",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll30",
+    "weather_colombia_huila_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll7",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll30",
+    "weather_colombia_huila_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_colombia_huila_stress_index",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll7",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll30",
+    "weather_vietnam_dak_lak_temperature_2m_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll7",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll30",
+    "weather_vietnam_dak_lak_temperature_2m_max_roll30_vs_252",
+    "weather_vietnam_dak_lak_precipitation_sum_roll7",
+    "weather_vietnam_dak_lak_precipitation_sum_roll30",
+    "weather_vietnam_dak_lak_precipitation_sum_roll30_vs_252",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll7",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll30",
+    "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll7",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll30",
+    "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll7",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll30",
+    "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll30_vs_252",
+    "weather_vietnam_dak_lak_stress_index"
+  ],
+  "aggregate_features": [],
+  "reference_importance_top_30": [
+    {
+      "feature": "realized_vol_20d",
+      "importance": 0.05265221862848782,
+      "rank": 1
+    },
+    {
+      "feature": "return_20d",
+      "importance": 0.04867555214192985,
+      "rank": 2
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_temperature_2m_mean_roll30_vs_252",
+      "importance": 0.0429131804865,
+      "rank": 3
+    },
+    {
+      "feature": "managed_money_weekly_net_change",
+      "importance": 0.035559427440643526,
+      "rank": 4
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_mean_roll7",
+      "importance": 0.035311692955771974,
+      "rank": 5
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_temperature_2m_max_roll30_vs_252",
+      "importance": 0.0345570969548781,
+      "rank": 6
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_temperature_2m_mean_roll30",
+      "importance": 0.0334616653216937,
+      "rank": 7
+    },
+    {
+      "feature": "noncommercial_weekly_net_change",
+      "importance": 0.033408518489456786,
+      "rank": 8
+    },
+    {
+      "feature": "commercial_weekly_net_change",
+      "importance": 0.027516663739572726,
+      "rank": 9
+    },
+    {
+      "feature": "close_vs_ma_63",
+      "importance": 0.026738870397177764,
+      "rank": 10
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_max_roll7",
+      "importance": 0.025267899223571404,
+      "rank": 11
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll7",
+      "importance": 0.024995911314815693,
+      "rank": 12
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_mean_roll30_vs_252",
+      "importance": 0.0227935513026628,
+      "rank": 13
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_mean_roll30",
+      "importance": 0.02272323091435042,
+      "rank": 14
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_temperature_2m_max_roll7",
+      "importance": 0.020514844255977764,
+      "rank": 15
+    },
+    {
+      "feature": "weather_colombia_huila_temperature_2m_max_roll30_vs_252",
+      "importance": 0.019325848862277638,
+      "rank": 16
+    },
+    {
+      "feature": "weather_colombia_huila_vapour_pressure_deficit_max_roll30_vs_252",
+      "importance": 0.019292646012833474,
+      "rank": 17
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_max_roll30_vs_252",
+      "importance": 0.01884531153523899,
+      "rank": 18
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30",
+      "importance": 0.018709099054574428,
+      "rank": 19
+    },
+    {
+      "feature": "weather_colombia_huila_temperature_2m_mean_roll30_vs_252",
+      "importance": 0.018697354582728736,
+      "rank": 20
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+      "importance": 0.0186448123999593,
+      "rank": 21
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_precipitation_sum_roll7",
+      "importance": 0.017782622520155958,
+      "rank": 22
+    },
+    {
+      "feature": "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll30_vs_252",
+      "importance": 0.017676534569932942,
+      "rank": 23
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30_vs_252",
+      "importance": 0.017218007088163338,
+      "rank": 24
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll30",
+      "importance": 0.016287672346209703,
+      "rank": 25
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll30_vs_252",
+      "importance": 0.015680391548137336,
+      "rank": 26
+    },
+    {
+      "feature": "weather_vietnam_dak_lak_temperature_2m_max_roll30",
+      "importance": 0.015509766015034726,
+      "rank": 27
+    },
+    {
+      "feature": "weather_colombia_huila_relative_humidity_2m_mean_roll30_vs_252",
+      "importance": 0.015224790549465444,
+      "rank": 28
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_temperature_2m_max_roll30",
+      "importance": 0.014516823441042362,
+      "rank": 29
+    },
+    {
+      "feature": "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll30_vs_252",
+      "importance": 0.013729245867227943,
+      "rank": 30
+    }
+  ],
+  "feature_set_count": 6,
+  "model_count_per_set": 7
+}

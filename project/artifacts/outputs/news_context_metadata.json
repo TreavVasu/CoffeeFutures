@@ -1,0 +1,16 @@
+{
+  "approach": "Public news search plus deterministic keyword impact scoring. Ollama is optional and disabled unless --use-ollama is passed.",
+  "sources": [
+    "GDELT 2.1 Doc API",
+    "DuckDuckGo HTML fallback"
+  ],
+  "lookback_days": 4,
+  "lookahead_days": 7,
+  "top_n_error_dates": 25,
+  "ollama_used": false,
+  "outputs": {
+    "summary": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/news_context_by_error_date.csv",
+    "articles": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/news_articles_by_error_date.csv",
+    "plots": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/plots"
+  }
+}

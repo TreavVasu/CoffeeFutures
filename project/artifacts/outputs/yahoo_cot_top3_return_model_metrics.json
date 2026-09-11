@@ -1,0 +1,91 @@
+{
+  "target": "5-trading-day future Arabica Coffee C return",
+  "features": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "realized_vol_20d",
+    "close_vs_ma_63",
+    "range_pct",
+    "close_to_open_pct",
+    "volume_change_pct",
+    "managed_money_weekly_net_change",
+    "commercial_weekly_net_change",
+    "noncommercial_weekly_net_change"
+  ],
+  "top3_cot_features": [
+    "managed_money_weekly_net_change",
+    "commercial_weekly_net_change",
+    "noncommercial_weekly_net_change"
+  ],
+  "best_model": "extra_trees",
+  "validation_results": [
+    {
+      "model": "extra_trees",
+      "valid_mae": 0.0383897932016651,
+      "valid_rmse": 0.05044819128613518,
+      "valid_r2": -0.012905027122380952,
+      "valid_directional_accuracy": 0.5164506480558325
+    },
+    {
+      "model": "random_forest",
+      "valid_mae": 0.0387513146914303,
+      "valid_rmse": 0.05091862548463747,
+      "valid_r2": -0.031883978813499025,
+      "valid_directional_accuracy": 0.5084745762711864
+    },
+    {
+      "model": "ridge",
+      "valid_mae": 0.03870438916849492,
+      "valid_rmse": 0.0510829732602272,
+      "valid_r2": -0.03855586048802162,
+      "valid_directional_accuracy": 0.4995014955134596
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "valid_mae": 0.03895986905120195,
+      "valid_rmse": 0.051275404249567544,
+      "valid_r2": -0.04639513607576662,
+      "valid_directional_accuracy": 0.5044865403788634
+    }
+  ],
+  "holdout": {
+    "mae": 0.0423654319163805,
+    "rmse": 0.05347277096554843,
+    "r2": -0.008895083258498637,
+    "directional_accuracy": 0.5164506480558325,
+    "date_start": "2022-09-07T00:00:00",
+    "date_end": "2026-09-01T00:00:00",
+    "rows": 1003,
+    "direction_accuracy_matrix_5d": {
+      "Predicted Down/Flat": {
+        "Actual Down/Flat": 163,
+        "Actual Up": 146
+      },
+      "Predicted Up": {
+        "Actual Down/Flat": 339,
+        "Actual Up": 355
+      }
+    },
+    "direction_accuracy_matrix_5d_pct": {
+      "Predicted Down/Flat": {
+        "Actual Down/Flat": 0.3247,
+        "Actual Up": 0.2914
+      },
+      "Predicted Up": {
+        "Actual Down/Flat": 0.6753,
+        "Actual Up": 0.7086
+      }
+    },
+    "direction_summary_5d": {
+      "accuracy": 0.5164506480558325,
+      "precision_up": 0.5115273775216138,
+      "recall_up": 0.7085828343313373,
+      "f1_up": 0.5941422594142259,
+      "true_down_flat": 163,
+      "false_up": 339,
+      "false_down_flat": 146,
+      "true_up": 355
+    }
+  }
+}

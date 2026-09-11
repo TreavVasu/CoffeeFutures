@@ -1,0 +1,145 @@
+{
+  "target": "5-trading-day future return",
+  "central_data": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/centralData/yahoo_cot_full_outer_by_date.csv",
+  "weather_cache": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/weather/open_meteo_coffee_regions_daily.csv",
+  "model_selection": {
+    "best_regressor": "extra_trees_depth_8_leaf_15",
+    "best_classifier": "logistic_l2",
+    "validation_regression": {
+      "ridge_alpha_1": {
+        "mae": 0.0636936520565679,
+        "rmse": 0.08463823117964529,
+        "r2": -1.8510884030087444,
+        "correlation": 0.020634237384417112,
+        "directional_accuracy_from_return": 0.5284147557328016
+      },
+      "extra_trees_depth_8_leaf_15": {
+        "mae": 0.03857620722651224,
+        "rmse": 0.05089436350576761,
+        "r2": -0.030900857901801748,
+        "correlation": 0.037196458698045796,
+        "directional_accuracy_from_return": 0.5024925224327019
+      },
+      "hist_gbr_l2_005": {
+        "mae": 0.039085910590847345,
+        "rmse": 0.05192338509744408,
+        "r2": -0.07300939015022645,
+        "correlation": 0.11454327305842071,
+        "directional_accuracy_from_return": 0.522432701894317
+      },
+      "rf_depth_6_leaf_20": {
+        "mae": 0.03856478568482735,
+        "rmse": 0.05092701132763064,
+        "r2": -0.0322238909578243,
+        "correlation": 0.05242469640556209,
+        "directional_accuracy_from_return": 0.5004985044865404
+      },
+      "rf_depth_10_leaf_10": {
+        "mae": 0.03865295950831278,
+        "rmse": 0.05127528522976946,
+        "r2": -0.04639027832398113,
+        "correlation": 0.06869077294122819,
+        "directional_accuracy_from_return": 0.5134596211365903
+      }
+    },
+    "validation_classification": {
+      "logistic_l2": {
+        "accuracy": 0.5284147557328016,
+        "precision": 0.5299837925445705,
+        "recall": 0.6411764705882353,
+        "f1": 0.580301685891748,
+        "roc_auc": 0.5230680507497116
+      },
+      "extra_trees_classifier_depth_8": {
+        "accuracy": 0.48753738783649053,
+        "precision": 0.4861111111111111,
+        "recall": 0.13725490196078433,
+        "f1": 0.21406727828746178,
+        "roc_auc": 0.4565883148391202
+      },
+      "hist_gbc_l2_005": {
+        "accuracy": 0.4985044865403789,
+        "precision": 0.5123674911660777,
+        "recall": 0.28431372549019607,
+        "f1": 0.3656998738965952,
+        "roc_auc": 0.5129936761722944
+      },
+      "rf_classifier_depth_6": {
+        "accuracy": 0.49750747756729813,
+        "precision": 0.5238095238095238,
+        "recall": 0.12941176470588237,
+        "f1": 0.20754716981132076,
+        "roc_auc": 0.4769597900011931
+      }
+    }
+  },
+  "holdout_test": {
+    "regression": {
+      "mae": 0.04183724026551462,
+      "rmse": 0.05304035055652593,
+      "r2": 0.007356284623644904,
+      "correlation": 0.11590787364436939,
+      "directional_accuracy_from_return": 0.5244267198404786
+    },
+    "classification": {
+      "accuracy": 0.4965104685942173,
+      "precision": 0.49130434782608695,
+      "recall": 0.22554890219560877,
+      "f1": 0.3091655266757866,
+      "roc_auc": 0.4772645943173414
+    },
+    "confusion_matrix": [
+      [
+        385,
+        117
+      ],
+      [
+        388,
+        113
+      ]
+    ],
+    "date_start": "2022-09-07T00:00:00",
+    "date_end": "2026-09-01T00:00:00",
+    "rows": 1003
+  },
+  "features": {
+    "numeric_count": 407,
+    "dropped_count": 25,
+    "dropped_features": [
+      "Close",
+      "Date",
+      "High",
+      "Low",
+      "Open",
+      "Pct_of_Open_Interest_All",
+      "Pct_of_Open_Interest_Old",
+      "Pct_of_Open_Interest_Other",
+      "Volume",
+      "cot_release_date",
+      "cot_report_date",
+      "high_low_spread",
+      "ma_10",
+      "ma_20",
+      "ma_5",
+      "ma_60",
+      "open_close_spread",
+      "target_close_5d",
+      "target_direction_5d",
+      "target_return_5d",
+      "volume_ma_10",
+      "volume_ma_20",
+      "volume_ma_5",
+      "volume_ma_60",
+      "year"
+    ],
+    "uses_weather": true,
+    "uses_cot_release_lag": true,
+    "cot_release_lag_days": 3,
+    "removed_useless_metadata": true
+  },
+  "artifacts": {
+    "model": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/models/arabica_returns_model.joblib",
+    "predictions": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/arabica_holdout_predictions.csv",
+    "plots_dir": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/plots"
+  }
+}

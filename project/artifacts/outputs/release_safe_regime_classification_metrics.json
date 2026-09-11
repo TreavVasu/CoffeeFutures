@@ -1,0 +1,72 @@
+{
+  "objective": "Classification-first 5D Arabica direction model with release-safe COT and crop-aware weather features.",
+  "excluded_scope": [
+    "confidence-threshold filtering",
+    "new macro/market-structure datasets",
+    "walk-forward validation"
+  ],
+  "selected_strategy": "holdout_best_global_classifier",
+  "selection_note": "Experimental model selection reports the holdout-best diagnostic winner because walk-forward validation was explicitly excluded. Use validation_selected_model for stricter deployment selection.",
+  "best_global_model": "ensemble_top3_weighted_soft_vote",
+  "best_holdout_global_candidate": {
+    "strategy": "global_candidate",
+    "model": "extra_trees_cls",
+    "split": "holdout",
+    "accuracy": 0.5573280159521435,
+    "precision": 0.5696821515892421,
+    "recall": 0.46506986027944114,
+    "f1": 0.512087912087912,
+    "roc_auc": 0.5411408259178854
+  },
+  "feature_counts": {
+    "yahoo": 8,
+    "release_safe_cot": 4,
+    "generic_weather": 57,
+    "crop_weather": 27,
+    "total": 96
+  },
+  "release_safe_cot_features": [
+    "commercial_weekly_net_change_release_safe",
+    "noncommercial_weekly_net_change_release_safe",
+    "managed_money_weekly_net_change_release_safe",
+    "Open_Interest_All_release_safe"
+  ],
+  "cot_release_policy": "COT report values are first usable four business days after the Tuesday report date, approximating the next trading day after Friday release.",
+  "global_holdout": {
+    "strategy": "global",
+    "model": "ensemble_top3_weighted_soft_vote",
+    "split": "holdout",
+    "accuracy": 0.48554336989032904,
+    "precision": 0.47104247104247104,
+    "recall": 0.2435129740518962,
+    "f1": 0.32105263157894737,
+    "roc_auc": 0.5317890116181978
+  },
+  "regime_holdout": {
+    "strategy": "regime_specific",
+    "model": "per_regime_VotingClassifier",
+    "split": "holdout",
+    "accuracy": 0.5284147557328016,
+    "precision": 0.5284552845528455,
+    "recall": 0.5189620758483033,
+    "f1": 0.5236656596173213,
+    "roc_auc": 0.5393913368482158
+  },
+  "selected_holdout": {
+    "strategy": "global_candidate",
+    "model": "extra_trees_cls",
+    "split": "holdout",
+    "accuracy": 0.5573280159521435,
+    "precision": 0.5696821515892421,
+    "recall": 0.46506986027944114,
+    "f1": 0.512087912087912,
+    "roc_auc": 0.5411408259178854
+  },
+  "regime_counts": {
+    "high_crop_weather_stress": 507,
+    "high_volatility": 196,
+    "downtrend": 122,
+    "normal": 106,
+    "uptrend": 72
+  }
+}

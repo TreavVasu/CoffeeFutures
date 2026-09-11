@@ -1,0 +1,89 @@
+{
+  "target": "5-trading-day future return",
+  "central_data": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/centralData/yahoo_cot_full_outer_by_date.csv",
+  "weather_cache": null,
+  "model_selection": {
+    "best_regressor": "rf_depth_6_leaf_20",
+    "best_classifier": "logistic_l2",
+    "validation_regression": {
+      "ridge_alpha_1": {
+        "mae": 0.07686945398148742,
+        "rmse": 0.10736338642768585,
+        "r2": -3.587646321761346,
+        "correlation": 0.005580942512484996,
+        "directional_accuracy_from_return": 0.5004985044865404
+      },
+      "rf_depth_6_leaf_20": {
+        "mae": 0.03834674100851269,
+        "rmse": 0.05085170547092445,
+        "r2": -0.029173445592812985,
+        "correlation": 0.0981016236767265,
+        "directional_accuracy_from_return": 0.5194416749750748
+      },
+      "rf_depth_10_leaf_10": {
+        "mae": 0.0388057225055884,
+        "rmse": 0.051478894610556075,
+        "r2": -0.05471701453646283,
+        "correlation": 0.07010597083737352,
+        "directional_accuracy_from_return": 0.5304087736789631
+      }
+    },
+    "validation_classification": {
+      "logistic_l2": {
+        "accuracy": 0.522432701894317,
+        "precision": 0.5265866209262435,
+        "recall": 0.6019607843137255,
+        "f1": 0.5617566331198536,
+        "roc_auc": 0.5154476395020483
+      },
+      "rf_classifier_depth_6": {
+        "accuracy": 0.5044865403788634,
+        "precision": 0.543046357615894,
+        "recall": 0.1607843137254902,
+        "f1": 0.2481089258698941,
+        "roc_auc": 0.505653661058744
+      }
+    }
+  },
+  "holdout_test": {
+    "regression": {
+      "mae": 0.04207863533425135,
+      "rmse": 0.05341904927531807,
+      "r2": -0.006868918455973594,
+      "correlation": 0.08886487865808253,
+      "directional_accuracy_from_return": 0.5004985044865404
+    },
+    "classification": {
+      "accuracy": 0.5044865403788634,
+      "precision": 0.5217391304347826,
+      "recall": 0.09580838323353294,
+      "f1": 0.16188870151770657,
+      "roc_auc": 0.5014671851516093
+    },
+    "confusion_matrix": [
+      [
+        458,
+        44
+      ],
+      [
+        453,
+        48
+      ]
+    ],
+    "date_start": "2022-09-07T00:00:00",
+    "date_end": "2026-09-01T00:00:00",
+    "rows": 1003
+  },
+  "features": {
+    "numeric_count": 282,
+    "text_column": "text_blob",
+    "uses_weather": false,
+    "uses_cot_release_lag": true,
+    "cot_release_lag_days": 3
+  },
+  "artifacts": {
+    "model": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/models_no_weather/arabica_returns_model.joblib",
+    "predictions": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/outputs_no_weather/arabica_holdout_predictions.csv",
+    "plots_dir": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/plots_no_weather"
+  }
+}
