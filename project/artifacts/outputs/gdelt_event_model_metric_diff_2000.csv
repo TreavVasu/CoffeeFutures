@@ -1,0 +1,4 @@
+feature_set,model,rows,rmse,rmse_delta_vs_baseline,mae,mae_delta_vs_baseline,directional_accuracy,directional_accuracy_delta_vs_baseline,r2,r2_delta_vs_baseline,notes
+baseline_no_events,extra_trees_shallow,11,0.06397011958035974,0.0,0.05586058380493054,0.0,0.6363636363636364,0.0,-2.0471231464456845,0.0,Yahoo + top COT + compact weather features only.
+event_scored_explanatory,extra_trees_shallow,11,0.09208126499846403,0.02811114541810429,0.07991306948816361,0.024052485683233073,0.36363636363636365,-0.2727272727272727,-5.313617028630544,-3.2664938821848595,Adds weekly Ollama/final impact scores. Explanatory/audit only because scoring used price/COT context.
+event_safe,extra_trees_shallow,11,0.09852948445264319,0.03455936487228345,0.08761119769892793,0.031750613893997394,0.36363636363636365,-0.2727272727272727,-6.228831501985708,-4.181708355540023,Adds raw weekly event-count/intensity/direction features only; avoids Ollama/final scores.

@@ -1,0 +1,12 @@
+period_id,ollama_period_impact_score_0_1,ollama_direction,ollama_confidence_0_1,ollama_rationale,ollama_key_drivers,ollama_status
+2000-05-15,0.5862199980195847,neutral,0.8160656457801089,"Bullish events dominate, but neutral and bearish events also present. Coffee C price reaction supports a bullish outlook.",bullish_event_count; top_event_digest,scored
+2000-05-29,0.35,neutral,0.5,"Low explicit coffee events and no significant weather or logistics disruptions, keeping the score neutral.",low_explicit_coffee_events,scored
+2000-07-17,0.6855275690567297,neutral,0.6855275690567297,Low coffee-related news and no explicit coffee events.,Politics; Conflict,scored
+2000-10-09,0.6821452019671952,bullish,0.5104166509413378,High impact score due to bullish events and strong coffee-producing countries,Coffee C price reaction; COT/open-interest context,scored
+2000-10-23,0.5628090034939547,neutral,0.6845921596637076,"Low coffee-related events, but bearish sentiment dominates.",bearish event count,scored
+2000-12-11,0.4688645431019176,neutral,0.7358872031829798,"High coffee-related events, but bullish sentiment dominates.",bullish event count,scored
+2000-12-18,0.49251108287177164,neutral,0.49251108287177164,Low coffee-related news and no explicit coffee events.,Politics; Conflict,scored
+2000-05-22,0.5889929356567234,neutral,0.5889929356567234,Low coffee-related news and no explicit coffee events.,Politics; Conflict,scored
+2000-07-10,0.35,neutral,0.5,"No explicit coffee events, low politics/conflict impact.",Weather,scored
+2000-07-24,0.38,neutral,0.85,Low coffee-related news and no explicit coffee events.,Politics,scored
+2000-10-16,0.35,neutral,0.5,No explicit coffee events and low COT/open-interest context.,Low COT/open-interest,scored

@@ -1,0 +1,136 @@
+{
+  "year": 2000,
+  "objective": "Compare Arabica 5D return model performance with weekly GDELT event features over the event-covered period.",
+  "period_scope": {
+    "start": "2000-05-15",
+    "end": "2000-12-22",
+    "rows": 54,
+    "weekly_periods": 11
+  },
+  "split": {
+    "train": {
+      "start": "2000-05-15",
+      "end": "2000-10-11",
+      "rows": 32
+    },
+    "valid": {
+      "start": "2000-10-12",
+      "end": "2000-10-26",
+      "rows": 11
+    },
+    "test": {
+      "start": "2000-10-27",
+      "end": "2000-12-22",
+      "rows": 11
+    }
+  },
+  "feature_sets": {
+    "baseline_no_events": {
+      "feature_count": 13,
+      "notes": "Yahoo + top COT + compact weather features only."
+    },
+    "event_safe": {
+      "feature_count": 32,
+      "notes": "Adds raw weekly event-count/intensity/direction features only; avoids Ollama/final scores."
+    },
+    "event_scored_explanatory": {
+      "feature_count": 39,
+      "notes": "Adds weekly Ollama/final impact scores. Explanatory/audit only because scoring used price/COT context."
+    }
+  },
+  "selected_results": [
+    {
+      "feature_set": "baseline_no_events",
+      "model": "extra_trees_shallow",
+      "split": "test",
+      "selected": true,
+      "rows": 11,
+      "date_start": "2000-10-27",
+      "date_end": "2000-12-22",
+      "mae": 0.05586058380493054,
+      "rmse": 0.06397011958035974,
+      "r2": -2.0471231464456845,
+      "directional_accuracy": 0.6363636363636364,
+      "mean_predicted_return": 0.070992075787362,
+      "mean_actual_return": 0.01728474328371959,
+      "notes": "Yahoo + top COT + compact weather features only."
+    },
+    {
+      "feature_set": "event_scored_explanatory",
+      "model": "extra_trees_shallow",
+      "split": "test",
+      "selected": true,
+      "rows": 11,
+      "date_start": "2000-10-27",
+      "date_end": "2000-12-22",
+      "mae": 0.07991306948816361,
+      "rmse": 0.09208126499846403,
+      "r2": -5.313617028630544,
+      "directional_accuracy": 0.36363636363636365,
+      "mean_predicted_return": -0.06262832620444402,
+      "mean_actual_return": 0.01728474328371959,
+      "notes": "Adds weekly Ollama/final impact scores. Explanatory/audit only because scoring used price/COT context."
+    },
+    {
+      "feature_set": "event_safe",
+      "model": "extra_trees_shallow",
+      "split": "test",
+      "selected": true,
+      "rows": 11,
+      "date_start": "2000-10-27",
+      "date_end": "2000-12-22",
+      "mae": 0.08761119769892793,
+      "rmse": 0.09852948445264319,
+      "r2": -6.228831501985708,
+      "directional_accuracy": 0.36363636363636365,
+      "mean_predicted_return": -0.07032645441520835,
+      "mean_actual_return": 0.01728474328371959,
+      "notes": "Adds raw weekly event-count/intensity/direction features only; avoids Ollama/final scores."
+    }
+  ],
+  "metric_diff_vs_baseline": [
+    {
+      "feature_set": "baseline_no_events",
+      "model": "extra_trees_shallow",
+      "rows": 11,
+      "rmse": 0.06397011958035974,
+      "rmse_delta_vs_baseline": 0.0,
+      "mae": 0.05586058380493054,
+      "mae_delta_vs_baseline": 0.0,
+      "directional_accuracy": 0.6363636363636364,
+      "directional_accuracy_delta_vs_baseline": 0.0,
+      "r2": -2.0471231464456845,
+      "r2_delta_vs_baseline": 0.0,
+      "notes": "Yahoo + top COT + compact weather features only."
+    },
+    {
+      "feature_set": "event_scored_explanatory",
+      "model": "extra_trees_shallow",
+      "rows": 11,
+      "rmse": 0.09208126499846403,
+      "rmse_delta_vs_baseline": 0.02811114541810429,
+      "mae": 0.07991306948816361,
+      "mae_delta_vs_baseline": 0.024052485683233073,
+      "directional_accuracy": 0.36363636363636365,
+      "directional_accuracy_delta_vs_baseline": -0.2727272727272727,
+      "r2": -5.313617028630544,
+      "r2_delta_vs_baseline": -3.2664938821848595,
+      "notes": "Adds weekly Ollama/final impact scores. Explanatory/audit only because scoring used price/COT context."
+    },
+    {
+      "feature_set": "event_safe",
+      "model": "extra_trees_shallow",
+      "rows": 11,
+      "rmse": 0.09852948445264319,
+      "rmse_delta_vs_baseline": 0.03455936487228345,
+      "mae": 0.08761119769892793,
+      "mae_delta_vs_baseline": 0.031750613893997394,
+      "directional_accuracy": 0.36363636363636365,
+      "directional_accuracy_delta_vs_baseline": -0.2727272727272727,
+      "r2": -6.228831501985708,
+      "r2_delta_vs_baseline": -4.181708355540023,
+      "notes": "Adds raw weekly event-count/intensity/direction features only; avoids Ollama/final scores."
+    }
+  ],
+  "leakage_note": "event_safe uses raw/event-count features only. event_scored_explanatory includes Ollama/final period scores that were produced with Coffee C price/COT context and should be treated as explanatory/audit features, not deployment-safe predictors."
+}

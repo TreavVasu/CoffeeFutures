@@ -1,0 +1,20 @@
+{
+  "year": 2000,
+  "source_candidates": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_candidates_2000.csv",
+  "period": "weekly",
+  "date_column": "trading_date",
+  "source_rows": 77670,
+  "period_rows": 11,
+  "ollama_requested": true,
+  "ollama_model": "llama3.2:latest",
+  "ollama_scored_periods": 11,
+  "batch_size": 2,
+  "top_events_per_period": 5,
+  "outputs": {
+    "row_period_dump": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/events/gdelt_coffee_event_candidates_2000_weekly_period_dump.csv",
+    "aggregate": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_weekly_aggregate_2000.csv",
+    "ollama_scores": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_weekly_ollama_scores_2000.csv",
+    "scored_periods": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_weekly_scored_2000.csv",
+    "raw_batches": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_weekly_ollama_batches_2000.jsonl"
+  }
+}

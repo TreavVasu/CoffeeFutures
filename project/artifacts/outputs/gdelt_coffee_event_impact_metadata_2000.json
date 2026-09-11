@@ -1,0 +1,28 @@
+{
+  "year": 2000,
+  "zip_path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/EventsData/Zip/2000.zip",
+  "price_path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv",
+  "date_source": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/yahoo_price_drift_events.csv",
+  "scan_full_year": false,
+  "target_window_before": 5,
+  "target_window_after": 7,
+  "rows_after_filtering": 77670,
+  "selected_event_rows": 132,
+  "daily_rows": 36,
+  "price_point_rows": 4,
+  "ollama_requested": true,
+  "ollama_model": "llama3.2:latest",
+  "ollama_scored_rows": 12,
+  "ollama_status_counts": {
+    "not_selected_for_ollama": 77658,
+    "scored": 12
+  },
+  "score_meaning": "final_impact_score_0_1 is 0=no plausible Coffee C impact and 1=highest likely one-week Coffee C futures impact.",
+  "outputs": {
+    "selected_event_detail": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_impact_2000.csv",
+    "all_scored_candidates": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_candidates_2000.csv",
+    "filtered_extract_all_scored_candidates": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/events/gdelt_coffee_events_2000_filtered.csv",
+    "daily_summary": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_daily_impact_2000.csv",
+    "price_point_summary": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/gdelt_coffee_event_price_points_2000.csv"
+  }
+}
