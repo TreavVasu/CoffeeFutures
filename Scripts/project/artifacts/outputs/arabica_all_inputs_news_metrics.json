@@ -1,0 +1,584 @@
+{
+  "objective": "Predict Arabica Coffee C five-trading-day futures returns from Yahoo price history, COT positioning, weather and text-derived news features.",
+  "target_formula": "Close[t+5] / Close[t] - 1",
+  "forecast_timing": "after close on Date",
+  "inputs": {
+    "prepared_market_cot_weather": "data/centralData/arabica_ml_model_ready.csv",
+    "daily_news": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv",
+    "weekly_news": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv"
+  },
+  "data_audit": {
+    "input_rows": 6690,
+    "unique_sorted_rows": 6690,
+    "date_start": "2000-01-03",
+    "date_end": "2026-09-09",
+    "duplicate_dates_removed": 0,
+    "core_missing_rows": 0,
+    "target_rows": 6685,
+    "positive_target_rate": 0.4922961854899028,
+    "numeric_infinite_values_after_cleanup": 0
+  },
+  "feature_audit": {
+    "max_training_missing_rate": 0.2,
+    "group_counts": {
+      "price_history": 26,
+      "technical_ohlcv": 31,
+      "hedonic_weather_cot": 216,
+      "cot_contract_stress": 34,
+      "threshold_ar": 8,
+      "integrated": 230
+    },
+    "dropped_by_group": {
+      "price_history": {},
+      "technical_ohlcv": {},
+      "hedonic_weather_cot": {},
+      "cot_contract_stress": {},
+      "threshold_ar": {},
+      "integrated": {
+        "news_weekly_text_support": "unique_count=1"
+      }
+    },
+    "weather_feature_count": 144,
+    "cot_feature_count": 46,
+    "news_feature_count": 10,
+    "regime_feature_count": 0
+  },
+  "source_feature_counts": {
+    "yahoo_price": 31,
+    "cot_positioning": 46,
+    "weather": 144,
+    "news": 9,
+    "news_text_subset": 2
+  },
+  "source_features": {
+    "yahoo_price": [
+      "Close",
+      "High",
+      "Low",
+      "Open",
+      "Volume",
+      "return_1d",
+      "return_2d",
+      "return_5d",
+      "return_10d",
+      "return_20d",
+      "range_pct",
+      "close_to_open_pct",
+      "volume_change_pct",
+      "close_vs_ma_5",
+      "volatility_5",
+      "volume_vs_ma_5",
+      "close_vs_ma_10",
+      "volatility_10",
+      "volume_vs_ma_10",
+      "close_vs_ma_20",
+      "volatility_20",
+      "volume_vs_ma_20",
+      "close_vs_ma_60",
+      "volatility_60",
+      "volume_vs_ma_60",
+      "log_return_1d",
+      "month",
+      "quarter",
+      "day_of_week",
+      "month_sin",
+      "month_cos"
+    ],
+    "cot_positioning": [
+      "Open_Interest_All",
+      "NonRept_Positions_Long_All",
+      "NonRept_Positions_Short_All",
+      "Change_in_Open_Interest_All",
+      "Pct_of_OI_NonRept_Long_All",
+      "Pct_of_OI_NonRept_Short_All",
+      "Conc_Gross_LE_4_TDR_Long_All",
+      "Conc_Gross_LE_4_TDR_Short_All",
+      "Conc_Gross_LE_8_TDR_Long_All",
+      "Conc_Gross_LE_8_TDR_Short_All",
+      "Conc_Net_LE_4_TDR_Long_All",
+      "Conc_Net_LE_4_TDR_Short_All",
+      "Conc_Net_LE_8_TDR_Long_All",
+      "Conc_Net_LE_8_TDR_Short_All",
+      "NonComm_Positions_Long_All",
+      "NonComm_Positions_Short_All",
+      "NonComm_Postions_Spread_All",
+      "Comm_Positions_Long_All",
+      "Comm_Positions_Short_All",
+      "Change_in_NonComm_Long_All",
+      "Change_in_NonComm_Short_All",
+      "Change_in_Comm_Long_All",
+      "Change_in_Comm_Short_All",
+      "Pct_of_OI_NonComm_Long_All",
+      "Pct_of_OI_NonComm_Short_All",
+      "Pct_of_OI_Comm_Long_All",
+      "Pct_of_OI_Comm_Short_All",
+      "commercial_net",
+      "noncommercial_net",
+      "commercial_weekly_net_change",
+      "noncommercial_weekly_net_change",
+      "open_interest_change_pct",
+      "cot_days_since_report",
+      "days_since_cot_release",
+      "commercial_net_pct_oi",
+      "noncommercial_net_pct_oi",
+      "npi_proxy",
+      "npi_z_3y",
+      "npi_abs_z_3y",
+      "position_extreme_proxy",
+      "per_proxy_13w",
+      "npi_change_5d",
+      "commercial_vs_speculator_spread_pct_oi",
+      "open_interest_z_1y",
+      "cot_position_reversal_proxy",
+      "strategic_default_stress_proxy"
+    ],
+    "weather": [
+      "weather_vietnam_dak_lak_temperature_2m_mean",
+      "weather_vietnam_dak_lak_temperature_2m_max",
+      "weather_vietnam_dak_lak_temperature_2m_min",
+      "weather_vietnam_dak_lak_precipitation_sum",
+      "weather_vietnam_dak_lak_rain_sum",
+      "weather_vietnam_dak_lak_relative_humidity_2m_mean",
+      "weather_vietnam_dak_lak_wind_speed_10m_mean",
+      "weather_vietnam_dak_lak_shortwave_radiation_sum",
+      "weather_vietnam_dak_lak_et0_fao_evapotranspiration",
+      "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean",
+      "weather_vietnam_dak_lak_soil_temperature_0_to_100cm_mean",
+      "weather_vietnam_dak_lak_vapour_pressure_deficit_max",
+      "weather_brazil_minas_gerais_temperature_2m_mean",
+      "weather_brazil_minas_gerais_temperature_2m_max",
+      "weather_brazil_minas_gerais_temperature_2m_min",
+      "weather_brazil_minas_gerais_precipitation_sum",
+      "weather_brazil_minas_gerais_rain_sum",
+      "weather_brazil_minas_gerais_relative_humidity_2m_mean",
+      "weather_brazil_minas_gerais_wind_speed_10m_mean",
+      "weather_brazil_minas_gerais_shortwave_radiation_sum",
+      "weather_brazil_minas_gerais_et0_fao_evapotranspiration",
+      "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean",
+      "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean",
+      "weather_brazil_minas_gerais_vapour_pressure_deficit_max",
+      "weather_colombia_huila_temperature_2m_mean",
+      "weather_colombia_huila_temperature_2m_max",
+      "weather_colombia_huila_temperature_2m_min",
+      "weather_colombia_huila_precipitation_sum",
+      "weather_colombia_huila_rain_sum",
+      "weather_colombia_huila_relative_humidity_2m_mean",
+      "weather_colombia_huila_wind_speed_10m_mean",
+      "weather_colombia_huila_shortwave_radiation_sum",
+      "weather_colombia_huila_et0_fao_evapotranspiration",
+      "weather_colombia_huila_soil_moisture_0_to_100cm_mean",
+      "weather_colombia_huila_soil_temperature_0_to_100cm_mean",
+      "weather_colombia_huila_vapour_pressure_deficit_max",
+      "weather_vietnam_dak_lak_temperature_2m_mean_roll5",
+      "weather_vietnam_dak_lak_temperature_2m_mean_roll20",
+      "weather_vietnam_dak_lak_temperature_2m_mean_diff5",
+      "weather_vietnam_dak_lak_temperature_2m_max_roll5",
+      "weather_vietnam_dak_lak_temperature_2m_max_roll20",
+      "weather_vietnam_dak_lak_temperature_2m_max_diff5",
+      "weather_vietnam_dak_lak_temperature_2m_min_roll5",
+      "weather_vietnam_dak_lak_temperature_2m_min_roll20",
+      "weather_vietnam_dak_lak_temperature_2m_min_diff5",
+      "weather_vietnam_dak_lak_precipitation_sum_roll5",
+      "weather_vietnam_dak_lak_precipitation_sum_roll20",
+      "weather_vietnam_dak_lak_precipitation_sum_diff5",
+      "weather_vietnam_dak_lak_rain_sum_roll5",
+      "weather_vietnam_dak_lak_rain_sum_roll20",
+      "weather_vietnam_dak_lak_rain_sum_diff5",
+      "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll5",
+      "weather_vietnam_dak_lak_relative_humidity_2m_mean_roll20",
+      "weather_vietnam_dak_lak_relative_humidity_2m_mean_diff5",
+      "weather_vietnam_dak_lak_wind_speed_10m_mean_roll5",
+      "weather_vietnam_dak_lak_wind_speed_10m_mean_roll20",
+      "weather_vietnam_dak_lak_wind_speed_10m_mean_diff5",
+      "weather_vietnam_dak_lak_shortwave_radiation_sum_roll5",
+      "weather_vietnam_dak_lak_shortwave_radiation_sum_roll20",
+      "weather_vietnam_dak_lak_shortwave_radiation_sum_diff5",
+      "weather_vietnam_dak_lak_et0_fao_evapotranspiration_roll5",
+      "weather_vietnam_dak_lak_et0_fao_evapotranspiration_roll20",
+      "weather_vietnam_dak_lak_et0_fao_evapotranspiration_diff5",
+      "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll5",
+      "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_roll20",
+      "weather_vietnam_dak_lak_soil_moisture_0_to_100cm_mean_diff5",
+      "weather_vietnam_dak_lak_soil_temperature_0_to_100cm_mean_roll5",
+      "weather_vietnam_dak_lak_soil_temperature_0_to_100cm_mean_roll20",
+      "weather_vietnam_dak_lak_soil_temperature_0_to_100cm_mean_diff5",
+      "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll5",
+      "weather_vietnam_dak_lak_vapour_pressure_deficit_max_roll20",
+      "weather_vietnam_dak_lak_vapour_pressure_deficit_max_diff5",
+      "weather_brazil_minas_gerais_temperature_2m_mean_roll5",
+      "weather_brazil_minas_gerais_temperature_2m_mean_roll20",
+      "weather_brazil_minas_gerais_temperature_2m_mean_diff5",
+      "weather_brazil_minas_gerais_temperature_2m_max_roll5",
+      "weather_brazil_minas_gerais_temperature_2m_max_roll20",
+      "weather_brazil_minas_gerais_temperature_2m_max_diff5",
+      "weather_brazil_minas_gerais_temperature_2m_min_roll5",
+      "weather_brazil_minas_gerais_temperature_2m_min_roll20",
+      "weather_brazil_minas_gerais_temperature_2m_min_diff5",
+      "weather_brazil_minas_gerais_precipitation_sum_roll5",
+      "weather_brazil_minas_gerais_precipitation_sum_roll20",
+      "weather_brazil_minas_gerais_precipitation_sum_diff5",
+      "weather_brazil_minas_gerais_rain_sum_roll5",
+      "weather_brazil_minas_gerais_rain_sum_roll20",
+      "weather_brazil_minas_gerais_rain_sum_diff5",
+      "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll5",
+      "weather_brazil_minas_gerais_relative_humidity_2m_mean_roll20",
+      "weather_brazil_minas_gerais_relative_humidity_2m_mean_diff5",
+      "weather_brazil_minas_gerais_wind_speed_10m_mean_roll5",
+      "weather_brazil_minas_gerais_wind_speed_10m_mean_roll20",
+      "weather_brazil_minas_gerais_wind_speed_10m_mean_diff5",
+      "weather_brazil_minas_gerais_shortwave_radiation_sum_roll5",
+      "weather_brazil_minas_gerais_shortwave_radiation_sum_roll20",
+      "weather_brazil_minas_gerais_shortwave_radiation_sum_diff5",
+      "weather_brazil_minas_gerais_et0_fao_evapotranspiration_roll5",
+      "weather_brazil_minas_gerais_et0_fao_evapotranspiration_roll20",
+      "weather_brazil_minas_gerais_et0_fao_evapotranspiration_diff5",
+      "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll5",
+      "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll20",
+      "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_diff5",
+      "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean_roll5",
+      "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean_roll20",
+      "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean_diff5",
+      "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll5",
+      "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll20",
+      "weather_brazil_minas_gerais_vapour_pressure_deficit_max_diff5",
+      "weather_colombia_huila_temperature_2m_mean_roll5",
+      "weather_colombia_huila_temperature_2m_mean_roll20",
+      "weather_colombia_huila_temperature_2m_mean_diff5",
+      "weather_colombia_huila_temperature_2m_max_roll5",
+      "weather_colombia_huila_temperature_2m_max_roll20",
+      "weather_colombia_huila_temperature_2m_max_diff5",
+      "weather_colombia_huila_temperature_2m_min_roll5",
+      "weather_colombia_huila_temperature_2m_min_roll20",
+      "weather_colombia_huila_temperature_2m_min_diff5",
+      "weather_colombia_huila_precipitation_sum_roll5",
+      "weather_colombia_huila_precipitation_sum_roll20",
+      "weather_colombia_huila_precipitation_sum_diff5",
+      "weather_colombia_huila_rain_sum_roll5",
+      "weather_colombia_huila_rain_sum_roll20",
+      "weather_colombia_huila_rain_sum_diff5",
+      "weather_colombia_huila_relative_humidity_2m_mean_roll5",
+      "weather_colombia_huila_relative_humidity_2m_mean_roll20",
+      "weather_colombia_huila_relative_humidity_2m_mean_diff5",
+      "weather_colombia_huila_wind_speed_10m_mean_roll5",
+      "weather_colombia_huila_wind_speed_10m_mean_roll20",
+      "weather_colombia_huila_wind_speed_10m_mean_diff5",
+      "weather_colombia_huila_shortwave_radiation_sum_roll5",
+      "weather_colombia_huila_shortwave_radiation_sum_roll20",
+      "weather_colombia_huila_shortwave_radiation_sum_diff5",
+      "weather_colombia_huila_et0_fao_evapotranspiration_roll5",
+      "weather_colombia_huila_et0_fao_evapotranspiration_roll20",
+      "weather_colombia_huila_et0_fao_evapotranspiration_diff5",
+      "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll5",
+      "weather_colombia_huila_soil_moisture_0_to_100cm_mean_roll20",
+      "weather_colombia_huila_soil_moisture_0_to_100cm_mean_diff5",
+      "weather_colombia_huila_soil_temperature_0_to_100cm_mean_roll5",
+      "weather_colombia_huila_soil_temperature_0_to_100cm_mean_roll20",
+      "weather_colombia_huila_soil_temperature_0_to_100cm_mean_diff5",
+      "weather_colombia_huila_vapour_pressure_deficit_max_roll5",
+      "weather_colombia_huila_vapour_pressure_deficit_max_roll20",
+      "weather_colombia_huila_vapour_pressure_deficit_max_diff5"
+    ],
+    "news": [
+      "news_daily_event_count_log_5d",
+      "news_daily_bull_minus_bear_share_5d",
+      "news_weekly_event_count_log",
+      "news_weekly_bull_minus_bear_share",
+      "news_weekly_direction_concentration",
+      "news_weekly_explicit_coffee_share",
+      "news_weekly_mean_event_intensity",
+      "news_weekly_text_disruption",
+      "news_weekly_text_coffee"
+    ],
+    "news_text_subset": [
+      "news_weekly_text_disruption",
+      "news_weekly_text_coffee"
+    ]
+  },
+  "split": {
+    "method": "chronological train/validation/test with a 5-row target purge before validation and test",
+    "train": {
+      "start": "2000-01-03",
+      "end": "2018-09-04",
+      "rows": 4674
+    },
+    "validation_context_purge": {
+      "start": "2018-09-05",
+      "end": "2018-09-11",
+      "rows": 5
+    },
+    "validation": {
+      "start": "2018-09-12",
+      "end": "2022-08-29",
+      "rows": 998
+    },
+    "development_train_for_test": {
+      "start": "2000-01-03",
+      "end": "2022-08-29",
+      "rows": 5677
+    },
+    "test_context_purge": {
+      "start": "2022-08-30",
+      "end": "2022-09-06",
+      "rows": 5
+    },
+    "test": {
+      "start": "2022-09-07",
+      "end": "2026-09-01",
+      "rows": 1003
+    }
+  },
+  "learner": "hist_gradient_boosting",
+  "validation_learner_metrics": {
+    "ridge": {
+      "rows": 998,
+      "mae": 0.045929139447627956,
+      "rmse": 0.05997429313729237,
+      "r2": -0.4304921800345003,
+      "directional_accuracy": 0.5100200400801603
+    },
+    "hist_gradient_boosting": {
+      "rows": 998,
+      "mae": 0.04068202480566577,
+      "rmse": 0.05422659482435719,
+      "r2": -0.16944520961243237,
+      "directional_accuracy": 0.5040080160320641
+    }
+  },
+  "learner_selection": "Choose recipe using without-news validation RMSE; use identical recipe, rows and splits in all ablations.",
+  "selected_variant_by_validation": "without_news",
+  "comparison": [
+    {
+      "phase": "validation",
+      "variant": "without_news",
+      "learner": "hist_gradient_boosting",
+      "rows": 998,
+      "mae": 0.04068202480566577,
+      "rmse": 0.05422659482435719,
+      "r2": -0.16944520961243237,
+      "directional_accuracy": 0.5040080160320641
+    },
+    {
+      "phase": "test",
+      "variant": "without_news",
+      "learner": "hist_gradient_boosting",
+      "rows": 1003,
+      "mae": 0.04330390962771666,
+      "rmse": 0.055054838386520644,
+      "r2": -0.06947739614162884,
+      "directional_accuracy": 0.5064805583250249
+    },
+    {
+      "phase": "validation",
+      "variant": "structured_news",
+      "learner": "hist_gradient_boosting",
+      "rows": 998,
+      "mae": 0.04083498021008132,
+      "rmse": 0.054440523194521216,
+      "r2": -0.17869052527010187,
+      "directional_accuracy": 0.49599198396793587
+    },
+    {
+      "phase": "test",
+      "variant": "structured_news",
+      "learner": "hist_gradient_boosting",
+      "rows": 1003,
+      "mae": 0.04315723189758039,
+      "rmse": 0.05511138524889189,
+      "r2": -0.07167544630988476,
+      "directional_accuracy": 0.5054835493519442
+    },
+    {
+      "phase": "validation",
+      "variant": "all_inputs",
+      "learner": "hist_gradient_boosting",
+      "rows": 998,
+      "mae": 0.04083498021008132,
+      "rmse": 0.054440523194521216,
+      "r2": -0.17869052527010187,
+      "directional_accuracy": 0.49599198396793587
+    },
+    {
+      "phase": "test",
+      "variant": "all_inputs",
+      "learner": "hist_gradient_boosting",
+      "rows": 1003,
+      "mae": 0.04315723189758039,
+      "rmse": 0.05511138524889189,
+      "r2": -0.07167544630988476,
+      "directional_accuracy": 0.5054835493519442
+    }
+  ],
+  "yearly_test_metrics": {
+    "2022": {
+      "without_news": {
+        "rows": 81,
+        "mae": 0.04451437337930128,
+        "rmse": 0.054551652515994496,
+        "r2": -0.3870183726193608,
+        "directional_accuracy": 0.37037037037037035
+      },
+      "structured_news": {
+        "rows": 81,
+        "mae": 0.043575510296417985,
+        "rmse": 0.05348507112636627,
+        "r2": -0.33331126076819584,
+        "directional_accuracy": 0.37037037037037035
+      },
+      "all_inputs": {
+        "rows": 81,
+        "mae": 0.043575510296417985,
+        "rmse": 0.05348507112636627,
+        "r2": -0.33331126076819584,
+        "directional_accuracy": 0.37037037037037035
+      }
+    },
+    "2023": {
+      "without_news": {
+        "rows": 251,
+        "mae": 0.03865186937389999,
+        "rmse": 0.04788967637239722,
+        "r2": 0.001126578701166725,
+        "directional_accuracy": 0.5617529880478087
+      },
+      "structured_news": {
+        "rows": 251,
+        "mae": 0.038816319785778604,
+        "rmse": 0.048225838437395245,
+        "r2": -0.01294584336589999,
+        "directional_accuracy": 0.5099601593625498
+      },
+      "all_inputs": {
+        "rows": 251,
+        "mae": 0.038816319785778604,
+        "rmse": 0.048225838437395245,
+        "r2": -0.01294584336589999,
+        "directional_accuracy": 0.5099601593625498
+      }
+    },
+    "2024": {
+      "without_news": {
+        "rows": 252,
+        "mae": 0.040526527444546066,
+        "rmse": 0.05337900189163408,
+        "r2": -0.2301211649567656,
+        "directional_accuracy": 0.4642857142857143
+      },
+      "structured_news": {
+        "rows": 252,
+        "mae": 0.04044754069136676,
+        "rmse": 0.053365646033481595,
+        "r2": -0.22950566943108996,
+        "directional_accuracy": 0.4801587301587302
+      },
+      "all_inputs": {
+        "rows": 252,
+        "mae": 0.04044754069136676,
+        "rmse": 0.053365646033481595,
+        "r2": -0.22950566943108996,
+        "directional_accuracy": 0.4801587301587302
+      }
+    },
+    "2025": {
+      "without_news": {
+        "rows": 252,
+        "mae": 0.049251367030677715,
+        "rmse": 0.06089551532664586,
+        "r2": -0.05379431084505493,
+        "directional_accuracy": 0.5277777777777778
+      },
+      "structured_news": {
+        "rows": 252,
+        "mae": 0.04926162907072494,
+        "rmse": 0.06154753693079707,
+        "r2": -0.07648153503243305,
+        "directional_accuracy": 0.5436507936507936
+      },
+      "all_inputs": {
+        "rows": 252,
+        "mae": 0.04926162907072494,
+        "rmse": 0.06154753693079707,
+        "r2": -0.07648153503243305,
+        "directional_accuracy": 0.5436507936507936
+      }
+    },
+    "2026": {
+      "without_news": {
+        "rows": 167,
+        "mae": 0.04492520055252162,
+        "rmse": 0.058469632923748495,
+        "r2": -0.03201539183541735,
+        "directional_accuracy": 0.5209580838323353
+      },
+      "structured_news": {
+        "rows": 167,
+        "mae": 0.044356168940034364,
+        "rmse": 0.05783702280170837,
+        "r2": -0.009804492454489333,
+        "directional_accuracy": 0.5449101796407185
+      },
+      "all_inputs": {
+        "rows": 167,
+        "mae": 0.044356168940034364,
+        "rmse": 0.05783702280170837,
+        "r2": -0.009804492454489333,
+        "directional_accuracy": 0.5449101796407185
+      }
+    }
+  },
+  "news_delta_vs_without_news": {
+    "rmse_delta": 5.6546862371248396e-05,
+    "rmse_relative_change_pct": 0.10271006877589084,
+    "directional_accuracy_delta_pp": -0.09970089730807485,
+    "mae_delta": -0.00014667773013626872
+  },
+  "news_bootstrap_vs_without_news": {
+    "reference": "without_news",
+    "block_sessions": 20,
+    "repetitions": 1000,
+    "positive_means_news_improvement": true,
+    "rmse_reduction_95pct_interval": [
+      -0.0006964096747617247,
+      0.0005225096100262911
+    ],
+    "directional_accuracy_gain_95pct_interval": [
+      -0.03090727816550349,
+      0.029935194416749727
+    ]
+  },
+  "features_used_by_fitted_model": {
+    "evaluation": {
+      "yahoo_price": 24,
+      "cot_positioning": 42,
+      "weather": 99,
+      "news": 7,
+      "news_text_subset": 0
+    },
+    "production": {
+      "yahoo_price": 21,
+      "cot_positioning": 42,
+      "weather": 101,
+      "news": 8,
+      "news_text_subset": 1
+    }
+  },
+  "existing_research_ensemble_same_dates": {
+    "rows": 1003,
+    "mae": 0.04229102061434174,
+    "rmse": 0.053443390785665956,
+    "r2": -0.007786729404843484,
+    "directional_accuracy": 0.5014955134596212
+  },
+  "news_method": "Ten candidate structured/text indicators from local GDELT summaries. Text uses fixed disruption, support and coffee-relevance term counts in event digests. Training-constant features are dropped. All news delayed six trading sessions because upstream event selection used future five-session returns. No impact scores or future-price fields are features.",
+  "conclusion": "Adding news did not improve both test RMSE and direction accuracy; see separate metric changes.",
+  "limitations": [
+    "The earlier 61.35% directional accuracy and positive news-lift conclusion are withdrawn: the impact scores and event selection used future returns.",
+    "The stored daily-cap selection uses future five-session returns. Even counts and intensity are delayed until those returns have matured; this evaluates delayed selected-news summaries, not immediate news sentiment. Raw unfiltered history is not available locally.",
+    "No original publication-time snapshots are available. The base prediction pipeline is reused, not independently certified as point-in-time correct. No separately identified Astra artifact was found.",
+    "Five-session returns overlap. Block-bootstrap intervals and chronological checks describe this local sample; the previously inspected holdout is not a new untouched test set.",
+    "The direct all-input model is a separate experiment from the notebook's price-only selected ensemble. COT represents aggregate participant positioning, not individual counterparty records.",
+    "The local text is structured event-summary text; these rule-based indicators are not a trained article-sentiment model. Delayed, retrospectively selected news cannot establish immediate news alpha."
+  ],
+  "evaluation_model_fit_end": "2022-08-29",
+  "production_model_fit_end": "2026-09-01",
+  "latest_prediction_date": "2026-09-09"
+}

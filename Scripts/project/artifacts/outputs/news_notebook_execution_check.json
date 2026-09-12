@@ -1,0 +1,9 @@
+{
+  "notebook": "ResearchModelTrainingNews.ipynb",
+  "executed_code_cells": 14,
+  "error_outputs": 0,
+  "widget_combinations_tested": 4,
+  "holdout_predictions_reproduced": true,
+  "nonblank_dashboard_images": true,
+  "final_widget_state": "latest/all_inputs/30 rows/0.5% threshold"
+}

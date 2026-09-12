@@ -1,0 +1,378 @@
+{
+  "schema_version": 2,
+  "objective": "Check incremental forecasting value of delayed local news summaries.",
+  "method": "Price-derived news scores are excluded. All news summaries are delayed six trading sessions because upstream row selection used five-session future returns. All calibration/validation/test boundaries purge labels whose maturity is on or after the next period's first date. Base-only calibration and news blends share a fixed Ridge alpha=3. No cloud scoring or downloads.",
+  "inputs": {
+    "base_predictions": "Scripts/project/artifacts/outputs/arabica_holdout_predictions.csv",
+    "weekly_news": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv",
+    "daily_news": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv",
+    "price_calendar": "data/centralData/yahoo_cot_full_outer_by_date.csv"
+  },
+  "audit": {
+    "base_rows": 1003,
+    "daily_rows": 6692,
+    "weekly_rows": 1393,
+    "weekly_match_rate": 1.0,
+    "news_delay_trading_sessions": 6,
+    "feature_missing_rates": {
+      "news_daily_event_count_log_5d": 0.0,
+      "news_daily_bull_minus_bear_share_5d": 0.0,
+      "news_weekly_event_count_log": 0.0,
+      "news_weekly_bull_minus_bear_share": 0.0,
+      "news_weekly_direction_concentration": 0.0,
+      "news_weekly_explicit_coffee_share": 0.0,
+      "news_weekly_mean_event_intensity": 0.0,
+      "news_weekly_text_disruption": 0.0,
+      "news_weekly_text_support": 0.0,
+      "news_weekly_text_coffee": 0.0
+    },
+    "excluded_inputs": [
+      "all price-response, rule-impact, final-impact, deterministic-period and LLM scores"
+    ],
+    "daily_source_columns": [
+      "trading_date",
+      "event_count",
+      "bullish_events",
+      "bearish_events"
+    ],
+    "weekly_source_columns": [
+      "period_id",
+      "period_end",
+      "event_count",
+      "bullish_event_count",
+      "bearish_event_count",
+      "explicit_coffee_event_count",
+      "mean_event_intensity_score_0_1",
+      "top_event_digest"
+    ],
+    "lookahead_policy": "Use news counts/intensity after source date + 5-session return maturity + 1 session.",
+    "base_identity": "Existing Arabica ExtraTrees return predictions; Astra identity unverified."
+  },
+  "limitations": [
+    "The earlier 61.35% directional accuracy and positive news-lift conclusion are withdrawn: the impact scores and event selection used future returns.",
+    "The stored daily-cap selection uses future five-session returns. Even counts and intensity are delayed until those returns have matured; this evaluates delayed selected-news summaries, not immediate news sentiment. Raw unfiltered history is not available locally.",
+    "No original publication-time snapshots are available. The base prediction pipeline is reused, not independently certified as point-in-time correct. No separately identified Astra artifact was found.",
+    "Five-session returns overlap. Block-bootstrap intervals and chronological checks describe this local sample; the previously inspected holdout is not a new untouched test set."
+  ],
+  "split": {
+    "calibration": {
+      "start": "2022-09-14",
+      "end": "2024-08-26",
+      "rows": 491
+    },
+    "test": {
+      "start": "2024-09-04",
+      "end": "2026-09-01",
+      "rows": 502
+    },
+    "initial_base_boundary_rows_excluded": 5,
+    "calibration_last_label_date": "2024-09-03",
+    "purged_boundary_rows": 5
+  },
+  "news_features": [
+    "news_daily_event_count_log_5d",
+    "news_daily_bull_minus_bear_share_5d",
+    "news_weekly_event_count_log",
+    "news_weekly_bull_minus_bear_share",
+    "news_weekly_direction_concentration",
+    "news_weekly_explicit_coffee_share",
+    "news_weekly_mean_event_intensity",
+    "news_weekly_text_disruption",
+    "news_weekly_text_support",
+    "news_weekly_text_coffee"
+  ],
+  "selected_model": "base_model",
+  "selection": {
+    "criterion": "minimum inner validation RMSE",
+    "train": {
+      "start": "2022-09-14",
+      "end": "2024-01-17",
+      "rows": 338
+    },
+    "validation": {
+      "start": "2024-01-25",
+      "end": "2024-08-26",
+      "rows": 148
+    },
+    "metrics": {
+      "base_model": {
+        "rows": 148,
+        "mae": 0.036567272326518005,
+        "rmse": 0.04853071124759206,
+        "r2": 0.027410309566031632,
+        "directional_accuracy": 0.5743243243243243
+      },
+      "calibrated_base": {
+        "rows": 148,
+        "mae": 0.038066206499087235,
+        "rmse": 0.04972479956911821,
+        "r2": -0.021039237116590614,
+        "directional_accuracy": 0.46621621621621623
+      },
+      "news_only": {
+        "rows": 148,
+        "mae": 0.04288477352343314,
+        "rmse": 0.05424042163489622,
+        "r2": -0.21490540142553627,
+        "directional_accuracy": 0.40540540540540543
+      },
+      "final_news_blend": {
+        "rows": 148,
+        "mae": 0.042664673041974896,
+        "rmse": 0.05408063007424755,
+        "r2": -0.20775775508756888,
+        "directional_accuracy": 0.41216216216216217
+      }
+    }
+  },
+  "calibration_metrics_in_sample": {
+    "base_model": {
+      "rows": 491,
+      "mae": 0.038516946351803215,
+      "rmse": 0.048379280395490575,
+      "r2": 0.017221183800813722,
+      "directional_accuracy": 0.515274949083503
+    },
+    "calibrated_base": {
+      "rows": 491,
+      "mae": 0.03857168662105668,
+      "rmse": 0.04835893235572639,
+      "r2": 0.0180477118858533,
+      "directional_accuracy": 0.5193482688391039
+    },
+    "news_only": {
+      "rows": 491,
+      "mae": 0.03792977912542041,
+      "rmse": 0.04686317108677615,
+      "r2": 0.07785264821468574,
+      "directional_accuracy": 0.5661914460285132
+    },
+    "final_news_blend": {
+      "rows": 491,
+      "mae": 0.03759549018514164,
+      "rmse": 0.046633713102013995,
+      "r2": 0.08686083310338866,
+      "directional_accuracy": 0.560081466395112
+    }
+  },
+  "test_metrics": {
+    "base_model": {
+      "rows": 502,
+      "mae": 0.04530262690959644,
+      "rmse": 0.05752027691832592,
+      "r2": -0.0028830168522895327,
+      "directional_accuracy": 0.5318725099601593
+    },
+    "calibrated_base": {
+      "rows": 502,
+      "mae": 0.04524566781115596,
+      "rmse": 0.05733979056516036,
+      "r2": 0.0034007748069606603,
+      "directional_accuracy": 0.5179282868525896
+    },
+    "news_only": {
+      "rows": 502,
+      "mae": 0.04870706988261119,
+      "rmse": 0.06155949583680213,
+      "r2": -0.14867838588338667,
+      "directional_accuracy": 0.4701195219123506
+    },
+    "final_news_blend": {
+      "rows": 502,
+      "mae": 0.04854884232825114,
+      "rmse": 0.06162316402763816,
+      "r2": -0.1510556663798055,
+      "directional_accuracy": 0.4701195219123506
+    }
+  },
+  "walk_forward": {
+    "folds": [
+      {
+        "fold": 1,
+        "train": {
+          "start": "2022-09-14",
+          "end": "2024-08-26",
+          "rows": 491
+        },
+        "test": {
+          "start": "2024-09-04",
+          "end": "2025-05-05",
+          "rows": 168
+        },
+        "metrics": {
+          "base_model": {
+            "rows": 168,
+            "mae": 0.04574202864771447,
+            "rmse": 0.05771066663056292,
+            "r2": -0.10874718566416242,
+            "directional_accuracy": 0.48214285714285715
+          },
+          "calibrated_base": {
+            "rows": 168,
+            "mae": 0.04544898111431364,
+            "rmse": 0.05716966977512956,
+            "r2": -0.08805717150313597,
+            "directional_accuracy": 0.5297619047619048
+          },
+          "news_only": {
+            "rows": 168,
+            "mae": 0.04538159602757889,
+            "rmse": 0.05524028337812736,
+            "r2": -0.015855986155995927,
+            "directional_accuracy": 0.5297619047619048
+          },
+          "final_news_blend": {
+            "rows": 168,
+            "mae": 0.04542454113531619,
+            "rmse": 0.05604578594177264,
+            "r2": -0.04569799664335572,
+            "directional_accuracy": 0.49404761904761907
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "train": {
+          "start": "2022-09-14",
+          "end": "2025-04-28",
+          "rows": 659
+        },
+        "test": {
+          "start": "2025-05-06",
+          "end": "2025-12-31",
+          "rows": 167
+        },
+        "metrics": {
+          "base_model": {
+            "rows": 167,
+            "mae": 0.04564458707195159,
+            "rmse": 0.05757110372221392,
+            "r2": 0.021371089555468514,
+            "directional_accuracy": 0.592814371257485
+          },
+          "calibrated_base": {
+            "rows": 167,
+            "mae": 0.04604934559989115,
+            "rmse": 0.057801321239089626,
+            "r2": 0.013528683652279216,
+            "directional_accuracy": 0.49700598802395207
+          },
+          "news_only": {
+            "rows": 167,
+            "mae": 0.05124005884492386,
+            "rmse": 0.06292596605901143,
+            "r2": -0.16914590712975253,
+            "directional_accuracy": 0.41916167664670656
+          },
+          "final_news_blend": {
+            "rows": 167,
+            "mae": 0.05072744904429667,
+            "rmse": 0.062056748258656355,
+            "r2": -0.13706936876338127,
+            "directional_accuracy": 0.437125748502994
+          }
+        }
+      },
+      {
+        "fold": 3,
+        "train": {
+          "start": "2022-09-14",
+          "end": "2025-12-23",
+          "rows": 826
+        },
+        "test": {
+          "start": "2026-01-02",
+          "end": "2026-09-01",
+          "rows": 167
+        },
+        "metrics": {
+          "base_model": {
+            "rows": 167,
+            "mae": 0.0445186338609908,
+            "rmse": 0.05727706673327174,
+            "r2": 0.0096539412224933,
+            "directional_accuracy": 0.5209580838323353
+          },
+          "calibrated_base": {
+            "rows": 167,
+            "mae": 0.04503663756233235,
+            "rmse": 0.057539955276694546,
+            "r2": 0.0005421580087927591,
+            "directional_accuracy": 0.47305389221556887
+          },
+          "news_only": {
+            "rows": 167,
+            "mae": 0.04608932813661703,
+            "rmse": 0.05890634353168384,
+            "r2": -0.047489242435220014,
+            "directional_accuracy": 0.4550898203592814
+          },
+          "final_news_blend": {
+            "rows": 167,
+            "mae": 0.04527678236489264,
+            "rmse": 0.05813472663288304,
+            "r2": -0.02022675650986905,
+            "directional_accuracy": 0.49700598802395207
+          }
+        }
+      }
+    ],
+    "aggregate_metrics": {
+      "base_model": {
+        "rows": 502,
+        "mae": 0.04530262690959644,
+        "rmse": 0.05752027691832592,
+        "r2": -0.0028830168522895327,
+        "directional_accuracy": 0.5318725099601593
+      },
+      "calibrated_base": {
+        "rows": 502,
+        "mae": 0.04551152991094824,
+        "rmse": 0.05750356816674062,
+        "r2": -0.0023004574390979027,
+        "directional_accuracy": 0.5
+      },
+      "news_only": {
+        "rows": 502,
+        "mae": 0.04756596764651511,
+        "rmse": 0.05910014291579855,
+        "r2": -0.058730446947037995,
+        "directional_accuracy": 0.4681274900398406
+      },
+      "final_news_blend": {
+        "rows": 502,
+        "mae": 0.04713950110770466,
+        "rmse": 0.05879321749920723,
+        "r2": -0.047762368665836386,
+        "directional_accuracy": 0.4760956175298805
+      }
+    }
+  },
+  "uncertainty_vs_calibrated_base": {
+    "reference": "calibrated_base",
+    "block_sessions": 20,
+    "repetitions": 1000,
+    "positive_means_news_improvement": true,
+    "rmse_reduction_95pct_interval": [
+      -0.009408761310160378,
+      1.3500852601472096e-06
+    ],
+    "directional_accuracy_gain_95pct_interval": [
+      -0.16733067729083664,
+      0.06374501992031872
+    ]
+  },
+  "test_delta_vs_base": {
+    "mae_delta": 0.003246215418654705,
+    "rmse_delta": 0.004102887109312239,
+    "r2_delta": -0.14817264952751596,
+    "directional_accuracy_delta": -0.06175298804780871
+  },
+  "test_delta_vs_calibrated_base": {
+    "mae_delta": 0.003303174517095185,
+    "rmse_delta": 0.004283373462477799,
+    "r2_delta": -0.15445644118676616,
+    "directional_accuracy_delta": -0.047808764940239
+  },
+  "conclusion": "Delayed news does not improve RMSE or direction accuracy against the calibrated base on this holdout. This is exploratory evidence from previously selected local news summaries."
+}

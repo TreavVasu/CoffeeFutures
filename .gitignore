@@ -13,6 +13,10 @@ __pycache__/
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
 .matplotlib-cache/
+**/.matplotlib/
+
+# Local working notes, intentionally excluded from GitHub
+/docs/
 
 # Large downloaded or generated event data
 /EventsData/Zip/*.zip
