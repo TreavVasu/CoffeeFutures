@@ -12,8 +12,8 @@ mlp_price_history,267,235,251,250
 elm_price_history,239,263,221,280
 hedonic_weather_cot_ridge,454,48,447,54
 threshold_ar_npi,204,298,194,307
-cot_contract_stress_forest,347,155,268,233
-hist_gradient_boosting_integrated,309,193,245,256
-xgboost_integrated,350,152,235,266
-xgboost_regime_aware,338,164,226,275
+cot_contract_stress_forest,178,324,167,334
+hist_gradient_boosting_integrated,343,159,342,159
+xgboost_integrated,325,177,317,184
+xgboost_regime_aware,299,203,286,215
 research_ensemble,271,231,269,232
