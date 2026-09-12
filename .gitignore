@@ -1,0 +1,26 @@
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.venv/
+
+# OS, notebook, Python, and plotting caches
+.DS_Store
+**/.DS_Store
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.matplotlib-cache/
+
+# Large downloaded or generated event data
+/EventsData/Zip/*.zip
+/Scripts/EventsData/Zip/*.zip
+/project/artifacts/outputs/gdelt_coffee_event_candidates_*.csv
+/Scripts/project/artifacts/outputs/gdelt_coffee_event_candidates_*.csv
+/data/events/gdelt_coffee_event_candidates_*_weekly_period_dump.csv
+/data/events/gdelt_coffee_events_*_filtered*.csv
+
+# Oversized raw CFTC workbook retained locally
+/data/raw_cot_data/disaggregated_futures_only/fut_disagg_xls_hist_2006_2016/F_DisAgg06_15.xls
