@@ -1,0 +1,890 @@
+{
+  "method": "Regime thresholds are calibrated only on the initial training split. Metrics are then reported separately on validation and untouched test rows. Segments under 20 rows are omitted.",
+  "definitions": {
+    "volatility_regime": {
+      "source": "volatility_20",
+      "low_threshold": 0.017016973656517734,
+      "high_threshold": 0.021552482404054,
+      "quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "labels": [
+        "low_volatility",
+        "normal_volatility",
+        "high_volatility"
+      ],
+      "calibration_non_missing_rows": 4664
+    },
+    "trend_regime": {
+      "source": "return_20d",
+      "low_threshold": -0.0381781435481027,
+      "high_threshold": 0.0279870378590962,
+      "quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "labels": [
+        "downtrend",
+        "range",
+        "uptrend"
+      ],
+      "calibration_non_missing_rows": 4654
+    },
+    "cot_positioning_regime": {
+      "source": "npi_z_3y",
+      "low_threshold": -1.0815492796906754,
+      "high_threshold": 1.0971152539029634,
+      "quantiles": [
+        0.2,
+        0.8
+      ],
+      "labels": [
+        "speculative_short",
+        "balanced_positioning",
+        "speculative_long"
+      ],
+      "calibration_non_missing_rows": 4419
+    },
+    "liquidity_regime": {
+      "source": "volume_vs_ma_20",
+      "low_threshold": -0.9556093587751645,
+      "high_threshold": 0.4350983688991338,
+      "quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "labels": [
+        "low_volume",
+        "normal_volume",
+        "high_volume"
+      ],
+      "calibration_non_missing_rows": 4665
+    },
+    "news_supply_regime": {
+      "source": "news_supply_shock_proxy",
+      "low_threshold": 2.8511337165920003,
+      "high_threshold": 4.464157271705938,
+      "quantiles": [
+        0.5,
+        0.85
+      ],
+      "labels": [
+        "quiet_news",
+        "normal_news",
+        "supply_shock_news"
+      ],
+      "calibration_non_missing_rows": 4674
+    },
+    "brazil_weather_regime": {
+      "source": "training_standardized_brazil_weather_stress",
+      "components": {
+        "weather_brazil_minas_gerais_temperature_2m_max_roll20": {
+          "mean": 25.077096722780702,
+          "std": 1.981941232652932,
+          "stress_sign": 1.0
+        },
+        "weather_brazil_minas_gerais_vapour_pressure_deficit_max_roll20": {
+          "mean": 1.5505154596906745,
+          "std": 0.3782395118325638,
+          "stress_sign": 1.0
+        },
+        "weather_brazil_minas_gerais_soil_moisture_0_to_100cm_mean_roll20": {
+          "mean": 0.3979541985401527,
+          "std": 0.054568842560634837,
+          "stress_sign": -1.0
+        },
+        "weather_brazil_minas_gerais_precipitation_sum_roll20": {
+          "mean": 3.288458512197064,
+          "std": 3.1631011299635783,
+          "stress_sign": -1.0
+        }
+      },
+      "low_threshold": -0.33196271632057905,
+      "high_threshold": 0.2567329250780954,
+      "quantiles": [
+        0.3333333333333333,
+        0.6666666666666666
+      ],
+      "labels": [
+        "favorable_weather",
+        "normal_weather",
+        "weather_stress"
+      ],
+      "calibration_non_missing_rows": 4665
+    }
+  },
+  "eligible_test_segment_model_rows": 527,
+  "test_rmse_winners": [
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "favorable_weather",
+      "model": "xgboost_integrated",
+      "rows": 130,
+      "rmse": 0.050093751639844614,
+      "mae": 0.04160096994520003,
+      "directional_accuracy": 0.5846153846153846,
+      "roc_auc": 0.6065849555395337
+    },
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "normal_weather",
+      "model": "threshold_ar_npi",
+      "rows": 321,
+      "rmse": 0.05837010292654593,
+      "mae": 0.04596854842920954,
+      "directional_accuracy": 0.5327102803738317,
+      "roc_auc": 0.5068952084144915
+    },
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "weather_stress",
+      "model": "xgboost_integrated",
+      "rows": 552,
+      "rmse": 0.047280912967814295,
+      "mae": 0.03641449999189674,
+      "directional_accuracy": 0.6648550724637681,
+      "roc_auc": 0.7152628262353621
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2022",
+      "model": "xgboost_integrated",
+      "rows": 81,
+      "rmse": 0.04977413974842583,
+      "mae": 0.040318107944786595,
+      "directional_accuracy": 0.5555555555555556,
+      "roc_auc": 0.7055256064690026
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2023",
+      "model": "xgboost_regime_aware",
+      "rows": 251,
+      "rmse": 0.04426882847849195,
+      "mae": 0.0353921501759822,
+      "directional_accuracy": 0.6294820717131474,
+      "roc_auc": 0.7041984732824428
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2024",
+      "model": "threshold_ar_npi",
+      "rows": 252,
+      "rmse": 0.048753372707705626,
+      "mae": 0.03785829880041055,
+      "directional_accuracy": 0.5912698412698413,
+      "roc_auc": 0.6284569656241923
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2025",
+      "model": "xgboost_regime_aware",
+      "rows": 252,
+      "rmse": 0.05889888290627888,
+      "mae": 0.046718501723630707,
+      "directional_accuracy": 0.5952380952380952,
+      "roc_auc": 0.6059343434343434
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2026",
+      "model": "xgboost_regime_aware",
+      "rows": 167,
+      "rmse": 0.0552366101034538,
+      "mae": 0.04168989041088095,
+      "directional_accuracy": 0.6586826347305389,
+      "roc_auc": 0.6605797101449276
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "balanced_positioning",
+      "model": "xgboost_regime_aware",
+      "rows": 592,
+      "rmse": 0.051303053813773786,
+      "mae": 0.03940946236304754,
+      "directional_accuracy": 0.6300675675675675,
+      "roc_auc": 0.6505302299958684
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "speculative_long",
+      "model": "elm_price_history",
+      "rows": 219,
+      "rmse": 0.05371275911737168,
+      "mae": 0.04208019490526056,
+      "directional_accuracy": 0.5570776255707762,
+      "roc_auc": 0.5880672268907563
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "speculative_short",
+      "model": "xgboost_integrated",
+      "rows": 192,
+      "rmse": 0.04982489445724482,
+      "mae": 0.04019473307975451,
+      "directional_accuracy": 0.625,
+      "roc_auc": 0.6776895943562611
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "high_volume",
+      "model": "xgboost_regime_aware",
+      "rows": 323,
+      "rmse": 0.04717671877324322,
+      "mae": 0.037349536085159535,
+      "directional_accuracy": 0.6501547987616099,
+      "roc_auc": 0.7080807305655744
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "low_volume",
+      "model": "ar_ridge",
+      "rows": 372,
+      "rmse": 0.05013989894694744,
+      "mae": 0.03797542250216187,
+      "directional_accuracy": 0.5188172043010753,
+      "roc_auc": 0.5881780660377358
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "normal_volume",
+      "model": "xgboost_regime_aware",
+      "rows": 308,
+      "rmse": 0.05709022728223793,
+      "mae": 0.04549266592912132,
+      "directional_accuracy": 0.5941558441558441,
+      "roc_auc": 0.6571265778401122
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "normal_news",
+      "model": "xgboost_regime_aware",
+      "rows": 681,
+      "rmse": 0.050579360005942715,
+      "mae": 0.03950453969879167,
+      "directional_accuracy": 0.6138032305433186,
+      "roc_auc": 0.6577009507346586
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "quiet_news",
+      "model": "xgboost_integrated",
+      "rows": 237,
+      "rmse": 0.05412816798209372,
+      "mae": 0.0399597849958095,
+      "directional_accuracy": 0.6075949367088608,
+      "roc_auc": 0.5718309859154929
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "supply_shock_news",
+      "model": "cot_contract_stress_forest",
+      "rows": 85,
+      "rmse": 0.05476901272119143,
+      "mae": 0.04533349743604092,
+      "directional_accuracy": 0.6705882352941176,
+      "roc_auc": 0.6434285714285715
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "downtrend",
+      "model": "xgboost_integrated",
+      "rows": 320,
+      "rmse": 0.049462061160539555,
+      "mae": 0.039666393368319744,
+      "directional_accuracy": 0.634375,
+      "roc_auc": 0.6660019550342131
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "range",
+      "model": "xgboost_regime_aware",
+      "rows": 285,
+      "rmse": 0.04850151109472179,
+      "mae": 0.0374798297083183,
+      "directional_accuracy": 0.6105263157894737,
+      "roc_auc": 0.6643747526711514
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "uptrend",
+      "model": "cot_contract_stress_forest",
+      "rows": 398,
+      "rmse": 0.05555647639430236,
+      "mae": 0.042748035681265124,
+      "directional_accuracy": 0.592964824120603,
+      "roc_auc": 0.6010260056887444
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__high_volatility",
+      "model": "xgboost_integrated",
+      "rows": 151,
+      "rmse": 0.0477069519873961,
+      "mae": 0.037497869058183156,
+      "directional_accuracy": 0.6821192052980133,
+      "roc_auc": 0.7178890876565296
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__low_volatility",
+      "model": "xgboost_integrated",
+      "rows": 41,
+      "rmse": 0.0463175954098821,
+      "mae": 0.03689074018557679,
+      "directional_accuracy": 0.5609756097560976,
+      "roc_auc": 0.6595238095238095
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__normal_volatility",
+      "model": "xgboost_integrated",
+      "rows": 128,
+      "rmse": 0.05238465821419337,
+      "mae": 0.04311365080053135,
+      "directional_accuracy": 0.6015625,
+      "roc_auc": 0.615024630541872
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "range__high_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 148,
+      "rmse": 0.041496727687989024,
+      "mae": 0.0320135641298094,
+      "directional_accuracy": 0.5945945945945946,
+      "roc_auc": 0.63014450338394
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "range__normal_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 116,
+      "rmse": 0.053061165802431434,
+      "mae": 0.04191682917356428,
+      "directional_accuracy": 0.6379310344827587,
+      "roc_auc": 0.7079964061096136
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__high_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 286,
+      "rmse": 0.05098176638522068,
+      "mae": 0.03898492330359534,
+      "directional_accuracy": 0.6083916083916084,
+      "roc_auc": 0.6354458216713315
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__low_volatility",
+      "model": "elm_price_history",
+      "rows": 32,
+      "rmse": 0.0609673437265715,
+      "mae": 0.05315491763390577,
+      "directional_accuracy": 0.71875,
+      "roc_auc": 0.748917748917749
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__normal_volatility",
+      "model": "ar_ridge",
+      "rows": 80,
+      "rmse": 0.06301141361880243,
+      "mae": 0.04739293258591152,
+      "directional_accuracy": 0.5375,
+      "roc_auc": 0.5484677923702314
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "high_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 585,
+      "rmse": 0.048056309437400434,
+      "mae": 0.03697920733879519,
+      "directional_accuracy": 0.6205128205128205,
+      "roc_auc": 0.6633567251461989
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "low_volatility",
+      "model": "elm_price_history",
+      "rows": 94,
+      "rmse": 0.057846834153585505,
+      "mae": 0.04640428625066236,
+      "directional_accuracy": 0.5957446808510638,
+      "roc_auc": 0.6268518518518519
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "normal_volatility",
+      "model": "xgboost_integrated",
+      "rows": 324,
+      "rmse": 0.0562309165909382,
+      "mae": 0.043575456486874546,
+      "directional_accuracy": 0.6049382716049383,
+      "roc_auc": 0.6198369151044048
+    }
+  ],
+  "test_direction_winners": [
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "favorable_weather",
+      "model": "hedonic_weather_cot_ridge",
+      "rows": 130,
+      "directional_accuracy": 0.6076923076923076,
+      "roc_auc": 0.6080269166065849,
+      "rmse": 0.053316736748745944
+    },
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "normal_weather",
+      "model": "cot_contract_stress_forest",
+      "rows": 321,
+      "directional_accuracy": 0.573208722741433,
+      "roc_auc": 0.5895208414491624,
+      "rmse": 0.05856478461082244
+    },
+    {
+      "regime_family": "brazil_weather_regime",
+      "regime": "weather_stress",
+      "model": "xgboost_integrated",
+      "rows": 552,
+      "directional_accuracy": 0.6648550724637681,
+      "roc_auc": 0.7152628262353621,
+      "rmse": 0.047280912967814295
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2022",
+      "model": "xgboost_regime_aware",
+      "rows": 81,
+      "directional_accuracy": 0.5802469135802469,
+      "roc_auc": 0.6455525606469003,
+      "rmse": 0.050219750983524054
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2023",
+      "model": "cot_contract_stress_forest",
+      "rows": 251,
+      "directional_accuracy": 0.6573705179282868,
+      "roc_auc": 0.7052162849872775,
+      "rmse": 0.044990471748714796
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2024",
+      "model": "quadratic_trend_252d",
+      "rows": 252,
+      "directional_accuracy": 0.6349206349206349,
+      "roc_auc": 0.6549495993796847,
+      "rmse": 0.07393471396910675
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2025",
+      "model": "xgboost_integrated",
+      "rows": 252,
+      "directional_accuracy": 0.5992063492063492,
+      "roc_auc": 0.6017676767676767,
+      "rmse": 0.05935135013270656
+    },
+    {
+      "regime_family": "calendar_year",
+      "regime": "2026",
+      "model": "xgboost_regime_aware",
+      "rows": 167,
+      "directional_accuracy": 0.6586826347305389,
+      "roc_auc": 0.6605797101449276,
+      "rmse": 0.0552366101034538
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "balanced_positioning",
+      "model": "xgboost_regime_aware",
+      "rows": 592,
+      "directional_accuracy": 0.6300675675675675,
+      "roc_auc": 0.6505302299958684,
+      "rmse": 0.051303053813773786
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "speculative_long",
+      "model": "threshold_ar_npi",
+      "rows": 219,
+      "directional_accuracy": 0.6210045662100456,
+      "roc_auc": 0.6599159663865546,
+      "rmse": 0.05375005734246368
+    },
+    {
+      "regime_family": "cot_positioning_regime",
+      "regime": "speculative_short",
+      "model": "cot_contract_stress_forest",
+      "rows": 192,
+      "directional_accuracy": 0.6458333333333334,
+      "roc_auc": 0.6768077601410936,
+      "rmse": 0.05031639002942298
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "high_volume",
+      "model": "xgboost_regime_aware",
+      "rows": 323,
+      "directional_accuracy": 0.6501547987616099,
+      "roc_auc": 0.7080807305655744,
+      "rmse": 0.04717671877324322
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "low_volume",
+      "model": "xgboost_integrated",
+      "rows": 372,
+      "directional_accuracy": 0.6129032258064516,
+      "roc_auc": 0.6035377358490566,
+      "rmse": 0.05080772219281957
+    },
+    {
+      "regime_family": "liquidity_regime",
+      "regime": "normal_volume",
+      "model": "xgboost_integrated",
+      "rows": 308,
+      "directional_accuracy": 0.6201298701298701,
+      "roc_auc": 0.6601507713884993,
+      "rmse": 0.0574719626529824
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "normal_news",
+      "model": "xgboost_integrated",
+      "rows": 681,
+      "directional_accuracy": 0.6167400881057269,
+      "roc_auc": 0.6597407087294728,
+      "rmse": 0.05076171701042811
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "quiet_news",
+      "model": "xgboost_regime_aware",
+      "rows": 237,
+      "directional_accuracy": 0.6118143459915611,
+      "roc_auc": 0.5787249814677539,
+      "rmse": 0.05414080855515467
+    },
+    {
+      "regime_family": "news_supply_regime",
+      "regime": "supply_shock_news",
+      "model": "cot_contract_stress_forest",
+      "rows": 85,
+      "directional_accuracy": 0.6705882352941176,
+      "roc_auc": 0.6434285714285715,
+      "rmse": 0.05476901272119143
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "downtrend",
+      "model": "xgboost_regime_aware",
+      "rows": 320,
+      "directional_accuracy": 0.6375,
+      "roc_auc": 0.6423460410557185,
+      "rmse": 0.04995694508819709
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "range",
+      "model": "xgboost_integrated",
+      "rows": 285,
+      "directional_accuracy": 0.624561403508772,
+      "roc_auc": 0.6684804115552039,
+      "rmse": 0.048785268874516396
+    },
+    {
+      "regime_family": "trend_regime",
+      "regime": "uptrend",
+      "model": "cot_contract_stress_forest",
+      "rows": 398,
+      "directional_accuracy": 0.592964824120603,
+      "roc_auc": 0.6010260056887444,
+      "rmse": 0.05555647639430236
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__high_volatility",
+      "model": "xgboost_integrated",
+      "rows": 151,
+      "directional_accuracy": 0.6821192052980133,
+      "roc_auc": 0.7178890876565296,
+      "rmse": 0.0477069519873961
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__low_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 41,
+      "directional_accuracy": 0.5853658536585366,
+      "roc_auc": 0.6,
+      "rmse": 0.04731591902085835
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "downtrend__normal_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 128,
+      "directional_accuracy": 0.6171875,
+      "roc_auc": 0.596551724137931,
+      "rmse": 0.052591808698126775
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "range__high_volatility",
+      "model": "xgboost_integrated",
+      "rows": 148,
+      "directional_accuracy": 0.5945945945945946,
+      "roc_auc": 0.64404609475032,
+      "rmse": 0.04180268780990984
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "range__normal_volatility",
+      "model": "xgboost_integrated",
+      "rows": 116,
+      "directional_accuracy": 0.6551724137931034,
+      "roc_auc": 0.694219826295298,
+      "rmse": 0.05344512121763866
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__high_volatility",
+      "model": "xgboost_integrated",
+      "rows": 286,
+      "directional_accuracy": 0.6188811188811189,
+      "roc_auc": 0.6201519392243102,
+      "rmse": 0.05121860088606234
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__low_volatility",
+      "model": "elm_price_history",
+      "rows": 32,
+      "directional_accuracy": 0.71875,
+      "roc_auc": 0.748917748917749,
+      "rmse": 0.0609673437265715
+    },
+    {
+      "regime_family": "trend_volatility_regime",
+      "regime": "uptrend__normal_volatility",
+      "model": "simple_exp_smoothing",
+      "rows": 80,
+      "directional_accuracy": 0.5875,
+      "roc_auc": 0.5853658536585367,
+      "rmse": 0.06421725967407416
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "high_volatility",
+      "model": "xgboost_integrated",
+      "rows": 585,
+      "directional_accuracy": 0.629059829059829,
+      "roc_auc": 0.6622456140350876,
+      "rmse": 0.048084157211166816
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "low_volatility",
+      "model": "elm_price_history",
+      "rows": 94,
+      "directional_accuracy": 0.5957446808510638,
+      "roc_auc": 0.6268518518518519,
+      "rmse": 0.057846834153585505
+    },
+    {
+      "regime_family": "volatility_regime",
+      "regime": "normal_volatility",
+      "model": "xgboost_regime_aware",
+      "rows": 324,
+      "directional_accuracy": 0.6111111111111112,
+      "roc_auc": 0.6178555098308185,
+      "rmse": 0.05630164554563604
+    }
+  ],
+  "test_model_regime_robustness": [
+    {
+      "model": "xgboost_integrated",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": 0.023860716186894004,
+      "positive_rmse_improvement_segments": 27,
+      "median_directional_accuracy": 0.6099071207430341,
+      "worst_directional_accuracy": 0.46875,
+      "median_roc_auc": 0.64404609475032
+    },
+    {
+      "model": "cot_contract_stress_forest",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": 0.018487932847657595,
+      "positive_rmse_improvement_segments": 27,
+      "median_directional_accuracy": 0.5709876543209876,
+      "worst_directional_accuracy": 0.4878048780487805,
+      "median_roc_auc": 0.60304114490161
+    },
+    {
+      "model": "xgboost_regime_aware",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": 0.023193112095111434,
+      "positive_rmse_improvement_segments": 25,
+      "median_directional_accuracy": 0.6083916083916084,
+      "worst_directional_accuracy": 0.5,
+      "median_roc_auc": 0.6354458216713315
+    },
+    {
+      "model": "arima_111",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": 0.0006085529054215,
+      "positive_rmse_improvement_segments": 21,
+      "median_directional_accuracy": 0.515625,
+      "worst_directional_accuracy": 0.38271604938271603,
+      "median_roc_auc": 0.4913122999542753
+    },
+    {
+      "model": "simple_exp_smoothing",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.00019812781636452392,
+      "positive_rmse_improvement_segments": 13,
+      "median_directional_accuracy": 0.49493243243243246,
+      "worst_directional_accuracy": 0.3918918918918919,
+      "median_roc_auc": 0.4912741960067063
+    },
+    {
+      "model": "ar_ridge",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.004552009056297823,
+      "positive_rmse_improvement_segments": 13,
+      "median_directional_accuracy": 0.47863247863247865,
+      "worst_directional_accuracy": 0.345679012345679,
+      "median_roc_auc": 0.48566419945461625
+    },
+    {
+      "model": "hist_gradient_boosting_integrated",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.012027854538509741,
+      "positive_rmse_improvement_segments": 12,
+      "median_directional_accuracy": 0.5546875,
+      "worst_directional_accuracy": 0.4878048780487805,
+      "median_roc_auc": 0.6022701189000598
+    },
+    {
+      "model": "threshold_ar_npi",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.002853839888375509,
+      "positive_rmse_improvement_segments": 11,
+      "median_directional_accuracy": 0.5121951219512195,
+      "worst_directional_accuracy": 0.3950617283950617,
+      "median_roc_auc": 0.5010060362173039
+    },
+    {
+      "model": "research_ensemble",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.0017380140084646278,
+      "positive_rmse_improvement_segments": 11,
+      "median_directional_accuracy": 0.5050675675675675,
+      "worst_directional_accuracy": 0.39072847682119205,
+      "median_roc_auc": 0.511455525606469
+    },
+    {
+      "model": "holt_winters_5d",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.0012284163656230973,
+      "positive_rmse_improvement_segments": 11,
+      "median_directional_accuracy": 0.5,
+      "worst_directional_accuracy": 0.4050632911392405,
+      "median_roc_auc": 0.464848798139054
+    },
+    {
+      "model": "elm_price_history",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.010559410028457172,
+      "positive_rmse_improvement_segments": 8,
+      "median_directional_accuracy": 0.5076923076923077,
+      "worst_directional_accuracy": 0.4230769230769231,
+      "median_roc_auc": 0.5236231884057971
+    },
+    {
+      "model": "linear_technical",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.014542317215520129,
+      "positive_rmse_improvement_segments": 6,
+      "median_directional_accuracy": 0.4876543209876543,
+      "worst_directional_accuracy": 0.3125,
+      "median_roc_auc": 0.5428985507246377
+    },
+    {
+      "model": "mlp_price_history",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.11657303781926509,
+      "positive_rmse_improvement_segments": 0,
+      "median_directional_accuracy": 0.5123456790123457,
+      "worst_directional_accuracy": 0.3125,
+      "median_roc_auc": 0.5162878787878789
+    },
+    {
+      "model": "hedonic_weather_cot_ridge",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.15194540698175873,
+      "positive_rmse_improvement_segments": 0,
+      "median_directional_accuracy": 0.4933920704845815,
+      "worst_directional_accuracy": 0.40625,
+      "median_roc_auc": 0.4769620811287478
+    },
+    {
+      "model": "random_forest_technical",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -0.025528440967551802,
+      "positive_rmse_improvement_segments": 0,
+      "median_directional_accuracy": 0.4927536231884058,
+      "worst_directional_accuracy": 0.33112582781456956,
+      "median_roc_auc": 0.5091178650852484
+    },
+    {
+      "model": "linear_trend_252d",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -1.4975706183346316,
+      "positive_rmse_improvement_segments": 0,
+      "median_directional_accuracy": 0.49122807017543857,
+      "worst_directional_accuracy": 0.34375,
+      "median_roc_auc": 0.5284552845528456
+    },
+    {
+      "model": "quadratic_trend_252d",
+      "evaluated_segments": 31,
+      "median_rmse_improvement_vs_zero_pct": -1.6552323180340318,
+      "positive_rmse_improvement_segments": 0,
+      "median_directional_accuracy": 0.4847972972972973,
+      "worst_directional_accuracy": 0.36470588235294116,
+      "median_roc_auc": 0.4609557912133315
+    }
+  ],
+  "paired_model_comparisons": [
+    {
+      "left_model": "xgboost_regime_aware",
+      "right_model": "xgboost_integrated",
+      "paired_segments": 31,
+      "left_lower_rmse_segments": 17,
+      "left_higher_direction_accuracy_segments": 11,
+      "left_higher_roc_auc_segments": 11
+    },
+    {
+      "left_model": "xgboost_integrated",
+      "right_model": "hist_gradient_boosting_integrated",
+      "paired_segments": 31,
+      "left_lower_rmse_segments": 29,
+      "left_higher_direction_accuracy_segments": 28,
+      "left_higher_roc_auc_segments": 28
+    }
+  ],
+  "warning": "Regime results are diagnostic subgroup estimates, not additional tuning targets. Small segments and repeated model comparisons can make apparent winners unstable.",
+  "calibration_period": {
+    "start": "2000-01-03",
+    "end": "2018-09-04",
+    "rows": 4674
+  }
+}

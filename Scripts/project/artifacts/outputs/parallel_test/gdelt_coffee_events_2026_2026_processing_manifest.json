@@ -1,0 +1,48 @@
+{
+  "source": "https://data.gdeltproject.org/events/index.html",
+  "start_year": 2026,
+  "end_year": 2026,
+  "completed_archives": [
+    {
+      "name": "20260102.export.CSV.zip",
+      "url": "https://data.gdeltproject.org/events/20260102.export.CSV.zip",
+      "kind": "daily",
+      "start_date": "2026-01-02",
+      "end_date": "2026-01-02",
+      "size_text": "4.6MB",
+      "md5": "3830928057e2b792bea5de89186a6ebf",
+      "rows_processed": 73887,
+      "rows_relevant_before_price_map": 969,
+      "rows_scored_before_daily_cap": 969,
+      "rows_kept_before_global_dedupe": 5,
+      "rows_kept": 5,
+      "max_rows_per_trading_day": 5,
+      "status": "complete",
+      "processed_at_utc": "2026-09-11T21:44:43.709316+00:00"
+    },
+    {
+      "name": "20260101.export.CSV.zip",
+      "url": "https://data.gdeltproject.org/events/20260101.export.CSV.zip",
+      "kind": "daily",
+      "start_date": "2026-01-01",
+      "end_date": "2026-01-01",
+      "size_text": "3.8MB",
+      "md5": "00daacf3be4d521a8c75bd0981471461",
+      "rows_processed": 63029,
+      "rows_relevant_before_price_map": 917,
+      "rows_scored_before_daily_cap": 917,
+      "rows_kept_before_global_dedupe": 5,
+      "rows_kept": 5,
+      "max_rows_per_trading_day": 5,
+      "status": "complete",
+      "processed_at_utc": "2026-09-11T21:44:45.287781+00:00"
+    }
+  ],
+  "failures": [],
+  "last_updated_utc": "2026-09-11T21:44:45.413214+00:00",
+  "output_path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/events/parallel_test/gdelt_coffee_events_2026_2026_filtered_scored.csv",
+  "daily_summary_path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/parallel_test/gdelt_coffee_events_2026_2026_daily_summary.csv",
+  "weekly_summary_path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/project/artifacts/outputs/parallel_test/gdelt_coffee_events_2026_2026_weekly_summary.csv",
+  "filter_mode": "strict",
+  "final_rows": 10
+}

@@ -1,6 +1,6 @@
 {
-  "input": "data/centralData/yahoo_cot_full_outer_by_date.csv",
-  "output": "data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv",
+  "input": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/centralData/yahoo_cot_full_outer_by_date.csv",
+  "output": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv",
   "rows": 7748,
   "cot_fill_columns": [
     "cot_report_date",
