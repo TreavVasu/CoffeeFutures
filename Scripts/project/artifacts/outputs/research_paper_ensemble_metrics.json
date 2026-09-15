@@ -1557,7 +1557,7 @@
       "residual_autocorrelation_lag5": -0.07517222125911883,
       "residual_autocorrelation_lag20": -0.031237908274034186,
       "residual_std": 0.05016953612683478,
-      "fit_predict_seconds": 0.005465416004881263
+      "fit_predict_seconds": 0.010431000031530857
     },
     {
       "model": "ar_ridge",
@@ -1605,7 +1605,7 @@
       "residual_autocorrelation_lag5": -0.023065936680249092,
       "residual_autocorrelation_lag20": 0.03830001092763533,
       "residual_std": 0.05020943919937882,
-      "fit_predict_seconds": 0.018815207993611693
+      "fit_predict_seconds": 0.02012150001246482
     },
     {
       "model": "arima_111",
@@ -1653,7 +1653,7 @@
       "residual_autocorrelation_lag5": -0.07091995074150892,
       "residual_autocorrelation_lag20": -0.031201479244197732,
       "residual_std": 0.050154154410565505,
-      "fit_predict_seconds": 0.02985237498069182
+      "fit_predict_seconds": 0.030545041896402836
     },
     {
       "model": "simple_exp_smoothing",
@@ -1701,7 +1701,7 @@
       "residual_autocorrelation_lag5": -0.07070431903887962,
       "residual_autocorrelation_lag20": -0.03120119579200855,
       "residual_std": 0.05015342055484826,
-      "fit_predict_seconds": 0.010768416977953166
+      "fit_predict_seconds": 0.01061404193751514
     },
     {
       "model": "holt_winters_5d",
@@ -1749,7 +1749,7 @@
       "residual_autocorrelation_lag5": -0.06883705827995502,
       "residual_autocorrelation_lag20": -0.033125561571763655,
       "residual_std": 0.05022525034891476,
-      "fit_predict_seconds": 0.09928441699594259
+      "fit_predict_seconds": 0.09799929196015
     },
     {
       "model": "linear_trend_252d",
@@ -1797,7 +1797,7 @@
       "residual_autocorrelation_lag5": 0.8608084786933614,
       "residual_autocorrelation_lag20": 0.5444139607052264,
       "residual_std": 0.09957377026884152,
-      "fit_predict_seconds": 0.02375766698969528
+      "fit_predict_seconds": 0.024071166990324855
     },
     {
       "model": "quadratic_trend_252d",
@@ -1845,7 +1845,7 @@
       "residual_autocorrelation_lag5": 0.8030759309850041,
       "residual_autocorrelation_lag20": 0.26299105617111834,
       "residual_std": 0.08805052513846325,
-      "fit_predict_seconds": 0.02712920802878216
+      "fit_predict_seconds": 0.02670912502799183
     },
     {
       "model": "linear_technical",
@@ -1893,7 +1893,7 @@
       "residual_autocorrelation_lag5": -0.03248023911046537,
       "residual_autocorrelation_lag20": 0.047829014325288965,
       "residual_std": 0.05031005556492758,
-      "fit_predict_seconds": 0.013214084028732032
+      "fit_predict_seconds": 0.020991083001717925
     },
     {
       "model": "random_forest_technical",
@@ -1941,7 +1941,7 @@
       "residual_autocorrelation_lag5": -0.056051947125919904,
       "residual_autocorrelation_lag20": 0.02193642571583997,
       "residual_std": 0.05014927865189851,
-      "fit_predict_seconds": 4.390057249984238
+      "fit_predict_seconds": 4.644332290976308
     },
     {
       "model": "mlp_price_history",
@@ -1989,7 +1989,7 @@
       "residual_autocorrelation_lag5": -0.06700151770090017,
       "residual_autocorrelation_lag20": 0.10645931462825634,
       "residual_std": 0.06215629829689002,
-      "fit_predict_seconds": 0.8372982089640573
+      "fit_predict_seconds": 0.8939774580067024
     },
     {
       "model": "elm_price_history",
@@ -2037,7 +2037,7 @@
       "residual_autocorrelation_lag5": -0.008220458856939051,
       "residual_autocorrelation_lag20": 0.04728172036972936,
       "residual_std": 0.05054270142026918,
-      "fit_predict_seconds": 0.01414479099912569
+      "fit_predict_seconds": 0.01772358303423971
     },
     {
       "model": "hedonic_weather_cot_ridge",
@@ -2085,7 +2085,7 @@
       "residual_autocorrelation_lag5": 0.18790403632967448,
       "residual_autocorrelation_lag20": 0.1095724308311968,
       "residual_std": 0.055995088886374986,
-      "fit_predict_seconds": 0.0537184170098044
+      "fit_predict_seconds": 0.05788287497125566
     },
     {
       "model": "threshold_ar_npi",
@@ -2133,7 +2133,7 @@
       "residual_autocorrelation_lag5": -0.018527390793812878,
       "residual_autocorrelation_lag20": 0.012833791884681348,
       "residual_std": 0.05052491211105121,
-      "fit_predict_seconds": 0.0102228750474751
+      "fit_predict_seconds": 0.010581709095276892
     },
     {
       "model": "cot_contract_stress_forest",
@@ -2181,7 +2181,7 @@
       "residual_autocorrelation_lag5": -0.05816312010769832,
       "residual_autocorrelation_lag20": 0.01639778658077872,
       "residual_std": 0.050420051397215934,
-      "fit_predict_seconds": 4.401737082982436
+      "fit_predict_seconds": 4.743162458995357
     },
     {
       "model": "hist_gradient_boosting_integrated",
@@ -2229,7 +2229,7 @@
       "residual_autocorrelation_lag5": 0.18827213566025405,
       "residual_autocorrelation_lag20": 0.10664236939675166,
       "residual_std": 0.05308156590238955,
-      "fit_predict_seconds": 1.2276201670174487
+      "fit_predict_seconds": 1.2623807500349358
     },
     {
       "model": "xgboost_integrated",
@@ -2277,7 +2277,7 @@
       "residual_autocorrelation_lag5": 0.0403600062795532,
       "residual_autocorrelation_lag20": 0.03592285918140621,
       "residual_std": 0.050871288716875296,
-      "fit_predict_seconds": 0.5897732500452548
+      "fit_predict_seconds": 0.5916568340035155
     },
     {
       "model": "xgboost_regime_aware",
@@ -2325,7 +2325,7 @@
       "residual_autocorrelation_lag5": 0.06936357603091615,
       "residual_autocorrelation_lag20": 0.05237771056232106,
       "residual_std": 0.0513716662508689,
-      "fit_predict_seconds": 0.6500588329508901
+      "fit_predict_seconds": 0.611176791950129
     },
     {
       "model": "research_ensemble",
@@ -2423,7 +2423,7 @@
       "residual_autocorrelation_lag5": 0.09063418152946928,
       "residual_autocorrelation_lag20": -0.13386355943057326,
       "residual_std": 0.053263082014906454,
-      "fit_predict_seconds": 0.0036955420509912074
+      "fit_predict_seconds": 0.0034869170049205422
     },
     {
       "model": "ar_ridge",
@@ -2471,7 +2471,7 @@
       "residual_autocorrelation_lag5": 0.13706607342336513,
       "residual_autocorrelation_lag20": -0.05311225862417713,
       "residual_std": 0.05334730637213369,
-      "fit_predict_seconds": 0.012640749977435917
+      "fit_predict_seconds": 0.013434708002023399
     },
     {
       "model": "arima_111",
@@ -2519,7 +2519,7 @@
       "residual_autocorrelation_lag5": 0.09399607844911527,
       "residual_autocorrelation_lag20": -0.13402901107449985,
       "residual_std": 0.05326892148775806,
-      "fit_predict_seconds": 0.039332790998741984
+      "fit_predict_seconds": 0.04029158398043364
     },
     {
       "model": "simple_exp_smoothing",
@@ -2567,7 +2567,7 @@
       "residual_autocorrelation_lag5": 0.09414256320704575,
       "residual_autocorrelation_lag20": -0.13403484375596803,
       "residual_std": 0.053269449363230255,
-      "fit_predict_seconds": 0.011877499986439943
+      "fit_predict_seconds": 0.011862791958265007
     },
     {
       "model": "holt_winters_5d",
@@ -2615,7 +2615,7 @@
       "residual_autocorrelation_lag5": 0.09990419991362648,
       "residual_autocorrelation_lag20": -0.1349696691468992,
       "residual_std": 0.053406424035354644,
-      "fit_predict_seconds": 0.10926891700364649
+      "fit_predict_seconds": 0.11071616702247411
     },
     {
       "model": "linear_trend_252d",
@@ -2663,7 +2663,7 @@
       "residual_autocorrelation_lag5": 0.9113979459080542,
       "residual_autocorrelation_lag20": 0.5974370890339743,
       "residual_std": 0.13335730810638316,
-      "fit_predict_seconds": 0.023996667005121708
+      "fit_predict_seconds": 0.024415916996076703
     },
     {
       "model": "quadratic_trend_252d",
@@ -2711,7 +2711,7 @@
       "residual_autocorrelation_lag5": 0.906966167101642,
       "residual_autocorrelation_lag20": 0.5562357386405077,
       "residual_std": 0.13978735779265195,
-      "fit_predict_seconds": 0.02676483296090737
+      "fit_predict_seconds": 0.0281194580020383
     },
     {
       "model": "linear_technical",
@@ -2759,7 +2759,7 @@
       "residual_autocorrelation_lag5": 0.09630343292584057,
       "residual_autocorrelation_lag20": -0.028891727009455664,
       "residual_std": 0.053319975186513796,
-      "fit_predict_seconds": 0.015331875008996576
+      "fit_predict_seconds": 0.015813915990293026
     },
     {
       "model": "random_forest_technical",
@@ -2807,7 +2807,7 @@
       "residual_autocorrelation_lag5": 0.18031369332368577,
       "residual_autocorrelation_lag20": -0.0007990142058834016,
       "residual_std": 0.054142546310180506,
-      "fit_predict_seconds": 5.452383708034176
+      "fit_predict_seconds": 5.666091250022873
     },
     {
       "model": "mlp_price_history",
@@ -2855,7 +2855,7 @@
       "residual_autocorrelation_lag5": 0.17622565382075658,
       "residual_autocorrelation_lag20": -0.04552581751303325,
       "residual_std": 0.05933228740548024,
-      "fit_predict_seconds": 1.002588083036244
+      "fit_predict_seconds": 1.0091568330535665
     },
     {
       "model": "elm_price_history",
@@ -2903,7 +2903,7 @@
       "residual_autocorrelation_lag5": 0.14070121540788705,
       "residual_autocorrelation_lag20": -0.0461012263968642,
       "residual_std": 0.05400068187362315,
-      "fit_predict_seconds": 0.01658745895838365
+      "fit_predict_seconds": 0.016050917096436024
     },
     {
       "model": "hedonic_weather_cot_ridge",
@@ -2951,7 +2951,7 @@
       "residual_autocorrelation_lag5": 0.23712062841926596,
       "residual_autocorrelation_lag20": 0.02253593890220301,
       "residual_std": 0.05646951793198484,
-      "fit_predict_seconds": 0.06388958398019895
+      "fit_predict_seconds": 0.06263654108624905
     },
     {
       "model": "threshold_ar_npi",
@@ -2999,7 +2999,7 @@
       "residual_autocorrelation_lag5": 0.13939336423885165,
       "residual_autocorrelation_lag20": -0.0729192437387422,
       "residual_std": 0.05355973493396291,
-      "fit_predict_seconds": 0.010929042007774115
+      "fit_predict_seconds": 0.01079254096839577
     },
     {
       "model": "cot_contract_stress_forest",
@@ -3047,7 +3047,7 @@
       "residual_autocorrelation_lag5": 0.14931226054667393,
       "residual_autocorrelation_lag20": -0.06954163007920386,
       "residual_std": 0.053625840383794615,
-      "fit_predict_seconds": 5.636500291991979
+      "fit_predict_seconds": 5.892110374988988
     },
     {
       "model": "hist_gradient_boosting_integrated",
@@ -3095,7 +3095,7 @@
       "residual_autocorrelation_lag5": 0.22897866984649587,
       "residual_autocorrelation_lag20": -0.016129855657057355,
       "residual_std": 0.05575381446573929,
-      "fit_predict_seconds": 1.3155742500093766
+      "fit_predict_seconds": 1.3195672079455107
     },
     {
       "model": "xgboost_integrated",
@@ -3143,7 +3143,7 @@
       "residual_autocorrelation_lag5": 0.1925625857336259,
       "residual_autocorrelation_lag20": -0.05315818578978785,
       "residual_std": 0.0542236848346696,
-      "fit_predict_seconds": 0.6353970000054687
+      "fit_predict_seconds": 0.6420031659072265
     },
     {
       "model": "xgboost_regime_aware",
@@ -3191,7 +3191,7 @@
       "residual_autocorrelation_lag5": 0.18613936247122326,
       "residual_autocorrelation_lag20": -0.049828256022586795,
       "residual_std": 0.054066830304818944,
-      "fit_predict_seconds": 0.6664705000002868
+      "fit_predict_seconds": 0.6733123749727383
     },
     {
       "model": "research_ensemble",
@@ -4780,5 +4780,5 @@
     "regime_summary": "Scripts/project/artifacts/outputs/research_paper_regime_summary.json",
     "plots_dir": "Scripts/project/artifacts/plots"
   },
-  "runtime_seconds": 83.3824700419791
+  "runtime_seconds": 86.67539737501647
 }

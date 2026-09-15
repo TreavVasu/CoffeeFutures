@@ -6,6 +6,8 @@ Updated 2026-09-12. The scope is to predict **Arabica Coffee C five-trading-day 
 
 A direct histogram gradient boosting model has now been trained with all four requested sources. This is a new all-input experiment, separate from the existing notebook ensemble.
 
+The companion [ResearchModelTrainingNews.ipynb](ResearchModelTrainingNews.ipynb) preserves the original notebook's stages and adds an interactive news dashboard. Its tabs cover inputs, predictions, dashboard, news impact and source context; both latest-refit and pre-test holdout modes are available. The original notebook remains unchanged. See the [saved dashboard](Scripts/project/artifacts/plots/latest_arabica_news_prediction_console.png) and the execution check in `Scripts/project/artifacts/outputs/news_notebook_execution_check.json`.
+
 | Source | Features supplied | Local input |
 | --- | ---: | --- |
 | Yahoo Finance futures history | 31 | Prepared OHLCV, returns, technical and calendar features |
@@ -15,6 +17,8 @@ A direct histogram gradient boosting model has now been trained with all four re
 | Total | 230 | 221 without news; 230 with news |
 
 Market, COT and weather features come from `data/centralData/arabica_ml_model_ready.csv`. News comes from the existing `gdelt_coffee_events_2000_2026_daily_summary.csv` and `gdelt_coffee_events_2000_2026_weekly_summary.csv` under `Scripts/project/artifacts/outputs/`. All data and outputs remain inside this repository; this work downloaded no data and made no cloud-model scoring calls.
+
+The news/event transformation logic is documented in [NEWS_EVENT_TRANSFORMATION.md](Scripts/project/docs/NEWS_EVENT_TRANSFORMATION.md). It traces raw GDELT extraction, daily and weekly transformations, six-session availability timing, as-of joins, leakage exclusions and the final news-impact calculation used for scoring.
 
 The two text indicators count disruption terms and coffee-related terms in local event digests. A third candidate, support terms, was constant in training and was dropped. These are simple text proxies, not a trained article-sentiment model. COT describes aggregate participant categories, not individual counterparty transactions.
 

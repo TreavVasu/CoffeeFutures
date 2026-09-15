@@ -1,0 +1,41 @@
+{
+  "browser": "Chromium / Jupyter Notebook 7",
+  "run_all_cells": "passed",
+  "prediction_buttons": "latest and holdout passed",
+  "tabs": "all five checked",
+  "notebook_error_outputs": 0,
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ],
+  "tab_labels_not_clipped": true,
+  "push_performed": false,
+  "tab_label_measurements": [
+    {
+      "text": "Inputs",
+      "width": 35,
+      "scroll": 35
+    },
+    {
+      "text": "Latest Prediction",
+      "width": 97,
+      "scroll": 97
+    },
+    {
+      "text": "Dashboard",
+      "width": 64,
+      "scroll": 64
+    },
+    {
+      "text": "News Impact",
+      "width": 75,
+      "scroll": 75
+    },
+    {
+      "text": "Context",
+      "width": 45,
+      "scroll": 45
+    }
+  ],
+  "mobile_tab_strip": "Horizontally scrollable, full labels"
+}

@@ -25,6 +25,8 @@ The companion predicts five-trading-day Arabica Coffee C returns using 230 featu
 
 These results cover the same 1,003 dates from 2022-09-07 through 2026-09-01. **News did not demonstrate an accuracy gain.** The earlier 61.35% result is withdrawn because it used future-price-derived scores. Corrected news features exclude those scores and wait six trading sessions because historical event selection also used subsequent returns. See [the full summary](Summary.MD) for limits and source audits.
 
+The detailed event-to-feature transformation is documented in [`NEWS_EVENT_TRANSFORMATION.md`](Scripts/project/docs/NEWS_EVENT_TRANSFORMATION.md), including raw GDELT filtering, daily/weekly feature timing, text indicators, join keys, excluded leakage-prone columns and the final scoring interpretation.
+
 The console has **Inputs**, **Latest Prediction**, **Dashboard**, **News Impact**, and **Context** tabs. It supports the all-input and no-news models, adjustable row counts and signal thresholds, and two distinct modes:
 
 - **Latest refit:** estimates from the final model using the latest local data.

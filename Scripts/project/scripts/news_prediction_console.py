@@ -229,10 +229,16 @@ class NewsPredictionConsole:
                                              readout_format=".1%", continuous_update=False, layout=control_layout, style=style)
         self.run_button = widgets.Button(description="Run Prediction", button_style="primary", icon="play")
         self.status = widgets.HTML("<b>Ready</b>")
-        self.prediction_out, self.news_out, self.context_out = widgets.Output(), widgets.Output(), widgets.Output()
+        self.prediction_out = widgets.Output(layout=widgets.Layout(width="100%", overflow="auto"))
+        self.news_out = widgets.Output(layout=widgets.Layout(width="100%", overflow="auto"))
+        self.context_out = widgets.Output(layout=widgets.Layout(width="100%", overflow="auto"))
         self.dashboard_image = widgets.Image(format="png", layout=widgets.Layout(width="100%", height="auto"))
         self.dashboard_box = widgets.VBox([self.dashboard_image])
-        header = widgets.HTML("<h3 style='margin:8px 0'>Arabica Coffee C / Returns</h3>")
+        header = widgets.HTML("""<style>
+            .arabica-news-console .lm-TabBar-content {overflow-x:auto!important;overflow-y:hidden!important;flex-wrap:nowrap!important;}
+            .arabica-news-console .lm-TabBar-tab {flex:0 0 auto!important;min-width:max-content!important;max-width:none!important;padding-inline:10px;}
+            .arabica-news-console .lm-TabBar {min-height:36px!important;}
+            </style><h3 style='margin:8px 0'>Arabica Coffee C / Returns</h3>""")
         inputs = widgets.VBox([header, self.model, self.view, self.rows, self.threshold,
                                widgets.HBox([self.run_button]), self.status])
         self.tabs = widgets.Tab(children=[inputs, self.prediction_out, self.dashboard_box, self.news_out, self.context_out],
@@ -264,10 +270,13 @@ class NewsPredictionConsole:
             self.prediction_out.clear_output(wait=True)
             with self.prediction_out:
                 display(HTML(f"<h3>{'Holdout replay' if self.view.value == 'holdout' else 'Latest refit estimates'}</h3>"))
-                display(output.tail(10).style.format({"Close": "{:.2f}", "predicted_return_5d": "{:+.2%}",
-                    "predicted_close_5d": "{:.2f}", "news_model_delta": "{:+.3%}",
-                    "all_inputs_return_5d": "{:+.2%}", "without_news_return_5d": "{:+.2%}",
-                    "return_low_90": "{:+.2%}", "return_high_90": "{:+.2%}"}))
+                table = output[["Date", "forecast_target_date", "predicted_return_5d", "predicted_close_5d", "signal", "news_model_delta"]].tail(10).copy()
+                table["news_model_delta"] *= 100
+                table.columns = ["As of", "Target date", "5D return", "Implied close", "Signal", "News delta (pp)"]
+                display(table.style.hide(axis="index").format({
+                    "As of": lambda date: date.strftime("%Y-%m-%d"),
+                    "Target date": lambda date: date.strftime("%Y-%m-%d"),
+                    "5D return": "{:+.2%}", "Implied close": "{:.2f}", "News delta (pp)": "{:+.3f}"}))
             self.news_out.clear_output(wait=True)
             with self.news_out:
                 display(HTML(f"<h3>News model difference: {latest.news_model_delta * 100:+.3f} percentage points</h3>"

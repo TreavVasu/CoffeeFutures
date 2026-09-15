@@ -56,10 +56,26 @@
         "weather_brazil_minas_gerais_soil_temperature_0_to_100cm_mean",
         "weather_brazil_minas_gerais_vapour_pressure_deficit_max"
       ]
+    },
+    "colombia_huila": {
+      "rows": 9747,
+      "columns": [
+        "weather_colombia_huila_temperature_2m_mean",
+        "weather_colombia_huila_temperature_2m_max",
+        "weather_colombia_huila_temperature_2m_min",
+        "weather_colombia_huila_precipitation_sum",
+        "weather_colombia_huila_rain_sum",
+        "weather_colombia_huila_relative_humidity_2m_mean",
+        "weather_colombia_huila_wind_speed_10m_mean",
+        "weather_colombia_huila_shortwave_radiation_sum",
+        "weather_colombia_huila_et0_fao_evapotranspiration",
+        "weather_colombia_huila_soil_moisture_0_to_100cm_mean",
+        "weather_colombia_huila_soil_temperature_0_to_100cm_mean",
+        "weather_colombia_huila_vapour_pressure_deficit_max"
+      ]
     }
   },
   "refresh_errors": {
-    "colombia_huila": "429 Client Error: Too Many Requests for url: https://archive-api.open-meteo.com/v1/archive?latitude=2.93&longitude=-75.28&start_date=2000-01-03&end_date=2026-09-09&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crain_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_mean%2Cshortwave_radiation_sum%2Cet0_fao_evapotranspiration&timezone=America%2FBogota",
     "vietnam_dak_lak": "429 Client Error: Too Many Requests for url: https://archive-api.open-meteo.com/v1/archive?latitude=12.67&longitude=108.05&start_date=2000-01-03&end_date=2026-09-09&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crain_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_mean%2Cshortwave_radiation_sum%2Cet0_fao_evapotranspiration&timezone=Asia%2FHo_Chi_Minh"
   }
 }
