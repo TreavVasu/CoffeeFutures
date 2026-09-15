@@ -1,167 +1,139 @@
-# News And Event Transformation Logic
+# News And Event Transformation
 
-This note documents how local GDELT news/events are transformed into model features and joined into the Arabica Coffee C return scoring build.
+I built this transformation to add local GDELT event information to the Arabica Coffee C return model without directly exposing the model to later price outcomes.
 
-The final modeling target is `target_return_5d = Close[t+5] / Close[t] - 1`. News is treated as an independent input only after applying the timing rules below.
+My modeling target is:
 
-## Source Files
+```text
+target_return_5d = Close[t+5] / Close[t] - 1
+```
 
-The final all-input news model reads local files only:
+I treat news as an independent input only after applying the availability rules below.
+
+## Inputs
 
 | Layer | File |
 | --- | --- |
-| Market, COT, weather model-ready data | `data/centralData/arabica_ml_model_ready.csv` |
+| Market, COT, and weather data | `data/centralData/arabica_ml_model_ready.csv` |
 | Daily news summary | `Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv` |
 | Weekly news summary | `Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv` |
 | Final training script | `Scripts/project/scripts/train_all_inputs_news_model.py` |
-| News feature helpers | `Scripts/project/scripts/integrate_news_scores_final_model.py` |
+| News helpers | `Scripts/project/scripts/integrate_news_scores_final_model.py` |
 
-The large row-level raw event file, when regenerated locally, is written under `data/events/`. It is not required to run the saved notebook/dashboard model.
+I use the committed summaries for the final experiment. The much larger row-level event file under `data/events/` is only required when I rebuild the upstream extraction.
 
-## Raw Event Extraction
+## Upstream Event Selection
 
-Raw events are built by `gdelt_stream_all_years_coffee_events.py` and `gdelt_coffee_event_impact.py`.
+The extraction scripts read GDELT archives in chunks, retain events with coffee or producing-region context, map calendar dates to Coffee C trading dates, and build compact daily and weekly summaries.
 
-The extraction pipeline:
+The upstream process also attached price context and used later returns in event ranking. As a result, fields such as price-response, direction-alignment, rule-impact, final-impact, future-return, and optional LLM/Ollama scores are retrospective diagnostics. I do not use them as predictive features.
 
-1. Reads GDELT event archives in chunks.
-2. Keeps only events that match either explicit coffee terms or coffee-producing country/region context.
-3. Maps each event calendar date to the next Coffee C trading date within the allowed lag window.
-4. Attaches Yahoo price/COT context for interpretation and event ranking.
-5. Builds an event summary string from actors, event code, tone, Goldstein score and location.
-6. Computes relevance, event intensity, expected direction and rule impact fields.
-7. Writes daily and weekly summaries used by downstream experiments.
+More importantly, the retained set itself was selected using a five-session future-return window. I therefore assume that every aggregate derived from the selected rows is unavailable until that window has matured.
 
-Important: the raw row-level event scores include fields such as `price_response_score_0_1`, `direction_alignment_score_0_1`, `rule_impact_score_0_1`, `final_impact_score_0_1`, future returns and optional LLM/Ollama scores. Those are useful for retrospective diagnostics and for creating compact historical summaries, but they are not valid direct inputs for the final predictive scoring model because some of them depend on subsequent Coffee C returns.
+## Daily Features
 
-## Daily Transformation
+I create daily features in `daily_news_features()` from:
 
-Daily features are created by `daily_news_features()` in `integrate_news_scores_final_model.py`.
-
-Input columns:
-
-| Source column | Use |
+| Source field | Use |
 | --- | --- |
-| `trading_date` | Join key after converting to `Date` |
-| `event_count` | Local event volume |
-| `bullish_events` | Count of events with bullish inferred direction |
-| `bearish_events` | Count of events with bearish inferred direction |
+| `trading_date` | Trading-calendar join key |
+| `event_count` | Retained event volume |
+| `bullish_events` | Count with bullish inferred direction |
+| `bearish_events` | Count with bearish inferred direction |
 
-Transformation:
+I then:
 
-1. Reindex the daily summary to the Coffee C trading calendar.
-2. Convert counts to numeric values.
-3. Build `news_daily_event_count_log_5d = log1p(event_count)`.
-4. Build `news_daily_bull_minus_bear_share_5d = (bullish_events - bearish_events) / event_count`.
-5. Shift both daily series by `NEWS_DELAY = 6` trading sessions.
-6. Apply a rolling 5-session mean with `min_periods=1`.
-7. Add `daily_latest_source_date` to show which source trading date the delayed feature represents.
+1. reindex the summary to the Coffee C trading calendar;
+2. convert counts to numeric values;
+3. calculate `log1p(event_count)`;
+4. calculate `(bullish_events - bearish_events) / event_count`;
+5. shift both series by six trading sessions;
+6. calculate a five-session rolling mean with `min_periods=1`;
+7. retain the latest source date for auditability.
 
-The six-session delay is deliberate: the upstream selected-event summaries were produced with a five-session future-return ranking step, so the final model waits for that five-session outcome to mature plus one additional session before using even the non-price daily counts.
+The final columns are `news_daily_event_count_log_5d` and `news_daily_bull_minus_bear_share_5d`.
 
-## Weekly Transformation
+## Weekly Features
 
-Weekly features are created by `weekly_news_features()` in `integrate_news_scores_final_model.py`.
+I create weekly features in `weekly_news_features()`. For each source week, I find the final Coffee C trading session on or before `period_end`, add six Coffee C sessions, and store that date as `weekly_available_date`.
 
-Input columns:
+I derive:
 
-| Source column | Use |
+| Final field | Definition |
 | --- | --- |
-| `period_id` | Weekly period identifier |
-| `period_end` | Calendar end of the source week |
-| `event_count` | Weekly event volume |
-| `bullish_event_count` | Weekly bullish count |
-| `bearish_event_count` | Weekly bearish count |
-| `explicit_coffee_event_count` | Explicit coffee-related event count |
-| `mean_event_intensity_score_0_1` | Non-price event intensity average |
-| `top_event_digest` | Short digest used for fixed text indicators |
+| `news_weekly_event_count_log` | `log1p(event_count)` |
+| `news_weekly_bull_minus_bear_share` | Bullish minus bearish events divided by event count |
+| `news_weekly_direction_concentration` | Absolute bullish-minus-bearish share |
+| `news_weekly_explicit_coffee_share` | Explicit coffee events divided by event count |
+| `news_weekly_mean_event_intensity` | Stored non-price mean event intensity |
+| `news_weekly_text_disruption` | Log-transformed disruption-term count |
+| `news_weekly_text_coffee` | Log-transformed coffee-term count |
 
-Transformation:
-
-1. Convert `period_end` to a timestamp.
-2. Find the last Coffee C trading session at or before `period_end`.
-3. Set `weekly_available_date = last_source_session + 6 trading sessions`.
-4. Drop weeks whose delayed availability date falls outside the local price calendar.
-5. Convert numeric weekly columns to numeric values.
-6. Build `news_weekly_event_count_log = log1p(event_count)`.
-7. Build `news_weekly_bull_minus_bear_share = (bullish_event_count - bearish_event_count) / event_count`.
-8. Build `news_weekly_direction_concentration = abs(news_weekly_bull_minus_bear_share)`.
-9. Build `news_weekly_explicit_coffee_share = explicit_coffee_event_count / event_count`.
-10. Carry forward `news_weekly_mean_event_intensity = mean_event_intensity_score_0_1`.
-11. Add text indicators from `top_event_digest`.
-12. Sort by `weekly_available_date` so the model can use an as-of join.
-
-The final model uses `pd.merge_asof()` so each market date receives the latest weekly news row whose `weekly_available_date` is not after the market date.
+I sort the weekly table by `weekly_available_date` and use a backward `merge_asof`. A market date can therefore receive only the most recent weekly row whose delayed availability date is not later than the market date.
 
 ## Text Indicators
 
-Text features are created by `text_news_features()` from the weekly `top_event_digest`.
+I use fixed word-boundary dictionaries against `top_event_digest`:
 
-These are fixed dictionary counts, not a trained sentiment model:
-
-| Feature | Terms counted |
+| Indicator | Terms |
 | --- | --- |
-| `news_weekly_text_disruption` | frost, drought, flood, wildfire, strike, conflict, war, sanctions, blockade, disease, shortage, export ban |
-| `news_weekly_text_support` | bumper, recovery, surplus, ceasefire, agreement, reopen |
-| `news_weekly_text_coffee` | coffee, arabica, cafe, caffeine, roaster |
+| Disruption | frost, drought, flood, wildfire, strike, conflict, war, sanctions, blockade, disease, shortage, export ban |
+| Support | bumper, recovery, surplus, ceasefire, agreement, reopen |
+| Coffee | coffee, arabica, cafe, caffeine, roaster |
 
-Each feature is `log1p(term_count)` using word-boundary matching. If a text feature is constant in the training slice, the feature-selection step drops it.
+Each value is `log1p(term_count)`. The support indicator is constant in the training slice and is removed by feature selection. I use these variables for transparent event characterization; they are not a trained sentiment model.
 
-## Join Into The Scoring Build
+## Join And Split
 
-The all-input training frame is assembled by `build_frame()` in `train_all_inputs_news_model.py`.
+I assemble the final frame in `build_frame()`:
 
-Join order:
+1. I load the prepared market, COT, and weather data.
+2. I verify the five-session target against `Close`.
+3. I add derived COT positioning features.
+4. I use the prepared `Date` values as the Coffee C calendar.
+5. I left-join the delayed daily features on exact `Date` with a one-to-one validation.
+6. I backward-as-of join the delayed weekly features.
+7. I add `_row_id` for split and audit bookkeeping.
+8. I split chronologically and purge five rows at the train/validation and validation/test boundaries.
 
-1. Load `arabica_ml_model_ready.csv` through the existing prepared-data helper.
-2. Verify `target_return_5d` equals `Close.shift(-5) / Close - 1`.
-3. Add derived COT positioning features.
-4. Use the prepared market `Date` values as the Coffee C trading calendar.
-5. Left-merge daily news features on exact `Date` with `validate="one_to_one"`.
-6. As-of-merge weekly news features on `Date >= weekly_available_date`.
-7. Add `_row_id` for split/audit bookkeeping.
+## Matched Comparison
 
-The resulting frame is then split chronologically with a five-row purge between train, validation and test periods.
-
-## Final Feature Groups
-
-The direct all-input experiment compares three matched feature variants:
+I compare three variants:
 
 | Variant | Inputs |
 | --- | --- |
-| `without_news` | Yahoo price, COT positioning and weather |
-| `structured_news` | `without_news` plus structured daily/weekly news indicators |
-| `all_inputs` | `structured_news` plus weekly text indicators |
+| `without_news` | Price, COT, and weather |
+| `structured_news` | Base inputs plus structured daily and weekly news |
+| `all_inputs` | Structured-news inputs plus usable text counts |
 
-The same learner recipe, rows and chronological split are used for all variants. The learner is selected using the no-news validation RMSE, then fitted separately to each feature variant for a fair comparison.
+I keep the learner recipe, sample rows, split dates, and preprocessing fixed across variants. I select the learner using no-news validation RMSE so that news does not influence the choice of algorithm before the matched comparison.
 
-## Excluded From Final Model Features
+## Excluded Fields
 
-The final predictive scoring model does not use these retrospective fields as features:
+I explicitly exclude:
 
-- Future returns: `future_return_1d`, `future_return_5d`, `future_return_10d`, `future_return_20d`
-- Price-response scores
-- Direction-alignment scores
-- Rule/final impact scores
-- Deterministic period scores
-- LLM/Ollama period scores
-- Any row-level price response or post-event outcome columns
+- `future_return_1d`, `future_return_5d`, `future_return_10d`, and `future_return_20d`;
+- price-response and direction-alignment scores;
+- rule-impact and final-impact scores;
+- deterministic-period scores;
+- LLM/Ollama period scores;
+- row-level post-event outcome fields.
 
-They remain in some artifact files for auditability and diagnostic plots, but the corrected final model only uses delayed event counts, direction shares, intensity, explicit-coffee share and fixed text indicators.
+I retain some of these columns in artifact files for retrospective audit only.
 
-## Scoring Output Interpretation
+## News Impact
 
-In the dashboard and latest forecast output, `news impact` is computed as the difference between two separately fitted models:
+In the dashboard, I calculate:
 
 ```text
-news impact = all-input predicted 5-day return - no-news predicted 5-day return
+news impact = all-input predicted return - no-news predicted return
 ```
 
-This is not causal attribution. It is a model-difference diagnostic showing how the model with delayed news features differs from the matched model trained without news.
+This quantity shows model sensitivity to the delayed news feature set. Because the two models are fitted separately and the inputs are observational, I do not describe it as causal attribution.
 
-## Known Limits
+## Result
 
-- The available summaries are retrospectively selected. The full unfiltered publication-time event history is not available locally.
-- The six-session delay reduces leakage risk but means the experiment evaluates delayed selected-news summaries, not immediate article sentiment.
-- COT and weather alignment follows the prepared dataset; this note focuses on the news/event transformation layer.
-- The local text indicators are simple term-count proxies, not an LLM sentiment system.
+The news-integrated candidate achieved 5.5111% holdout RMSE and 50.55% direction accuracy, compared with 5.5055% and 50.65% without news. I found no evidence of an incremental forecasting benefit from the current news summaries.
+
+I retain this implementation because it provides an auditable baseline for future work with a complete point-in-time news archive. The final decision is in [../../../Approach.md](../../../Approach.md), and the interpretation constraints are in [../../../Limitations.md](../../../Limitations.md).
+

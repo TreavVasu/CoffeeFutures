@@ -1,57 +1,63 @@
 # Corrected Local News Evaluation
 
-Delayed news does not improve RMSE or direction accuracy against the calibrated base on this holdout. This is exploratory evidence from previously selected local news summaries.
+I reran the local news experiment after removing future-price-derived news scores and correcting event availability. The delayed news candidate did not improve RMSE or direction accuracy relative to the calibrated base on this holdout. I treat this result as exploratory because the local summaries were selected retrospectively.
 
-This report supersedes the earlier evaluation and saved model.
+This report supersedes the earlier local-news evaluation and saved model.
 
 | Model | RMSE | MAE | Direction accuracy |
 | --- | ---: | ---: | ---: |
-| base_model | 0.05752 | 0.04530 | 53.19% |
-| calibrated_base | 0.05734 | 0.04525 | 51.79% |
-| news_only | 0.06156 | 0.04871 | 47.01% |
-| final_news_blend | 0.06162 | 0.04855 | 47.01% |
+| Base model | 0.05752 | 0.04530 | 53.19% |
+| Calibrated base | 0.05734 | 0.04525 | 51.79% |
+| News only | 0.06156 | 0.04871 | 47.01% |
+| Final news blend | 0.06162 | 0.04855 | 47.01% |
 
-Test: {'start': '2024-09-04', 'end': '2026-09-01', 'rows': 502}. Calibration: {'start': '2022-09-14', 'end': '2024-08-26', 'rows': 491}.
-
-Recommendation selected on calibration validation RMSE: `base_model`.
+I evaluated 502 test rows from 2024-09-04 through 2026-09-01 after using 491 calibration rows from 2022-09-14 through 2024-08-26. Calibration validation RMSE selected the base model.
 
 ## Method
 
-Price-derived news scores are excluded. All news summaries are delayed six trading sessions because upstream row selection used five-session future returns. All calibration/validation/test boundaries purge labels whose maturity is on or after the next period's first date. Base-only calibration and news blends share a fixed Ridge alpha=3. No cloud scoring or downloads.
+I excluded all price-derived news scores. I delayed every news summary by six Coffee C trading sessions because the upstream row selection used five-session future returns. At every calibration, validation, and test boundary, I purged labels whose target maturity reached the next period.
 
-Daily features average five eligible trading sessions. Weekly features become eligible six price-calendar sessions after the week's last trading session. Missing news is imputed from training only. Counts describe retained events, not total news volume.
+I fixed Ridge alpha at 3 for the calibrated base and news blends and used the same fitted preprocessing, training rows, and test dates. I calculated daily news features over five eligible sessions. I made each weekly row available six price-calendar sessions after its source week's last trading session. I fitted missing-value handling on training data only.
 
-`gdelt_coffee_event_impact.py:score_events` includes future returns in impact scores; `gdelt_stream_all_years_coffee_events.py:update_day_buffers` selects events using those scores. `gdelt_weekly_ollama_batch_score.py:add_deterministic_period_score` also uses future returns and full-sample normalization. These scores are excluded from the corrected features.
+The retained event counts describe the upstream selected rows, not total news volume. I made no cloud-scoring calls and downloaded no additional data for this evaluation.
 
-## Validation
+My leakage audit found three specific upstream issues:
 
-All fitted comparisons use the same preprocessing, Ridge alpha=3, training rows and test dates. Selection uses an inner purged calibration split; no test-driven tuning is performed. The bundle retains that selection plus the news candidate and base control, fitted on calibration only.
+- `gdelt_coffee_event_impact.py:score_events` used future returns in impact scores;
+- `gdelt_stream_all_years_coffee_events.py:update_day_buffers` selected events using those scores;
+- `gdelt_weekly_ollama_batch_score.py:add_deterministic_period_score` used future returns and full-sample normalization.
 
-| Walk-forward model | RMSE | Direction accuracy |
+I excluded the affected scores from the corrected feature set and applied the six-session maturity delay to the remaining selected-summary aggregates.
+
+## Walk-Forward Validation
+
+| Candidate | Pooled RMSE | Direction accuracy |
 | --- | ---: | ---: |
-| base_model | 0.05752 | 53.19% |
-| calibrated_base | 0.05750 | 50.00% |
-| news_only | 0.05910 | 46.81% |
-| final_news_blend | 0.05879 | 47.61% |
+| Base model | 0.05752 | 53.19% |
+| Calibrated base | 0.05750 | 50.00% |
+| News only | 0.05910 | 46.81% |
+| Final news blend | 0.05879 | 47.61% |
 
-Three expanding-window folds are pooled above. Paired 20-session moving-block bootstrap versus calibrated base (1,000 samples; positive means improvement):
+I pooled three expanding-window folds. I also ran a paired 20-session moving-block bootstrap against the calibrated base using 1,000 samples. Positive values represent improvement:
 
-- RMSE reduction, 95% interval: [-0.009408761310160378, 1.3500852601472096e-06]
-- Direction accuracy gain, 95% interval: [-0.16733067729083664, 0.06374501992031872]
+- RMSE reduction 95% interval: [-0.0094087613, 0.0000013501]
+- Direction-accuracy gain 95% interval: [-0.1673306773, 0.0637450199]
 
-## Limits
+Both comparisons fail to establish a reliable news benefit.
 
-- The earlier 61.35% directional accuracy and positive news-lift conclusion are withdrawn: the impact scores and event selection used future returns.
-- The stored daily-cap selection uses future five-session returns. Even counts and intensity are delayed until those returns have matured; this evaluates delayed selected-news summaries, not immediate news sentiment. Raw unfiltered history is not available locally.
-- No original publication-time snapshots are available. The base prediction pipeline is reused, not independently certified as point-in-time correct. No separately identified Astra artifact was found.
-- Five-session returns overlap. Block-bootstrap intervals and chronological checks describe this local sample; the previously inspected holdout is not a new untouched test set.
+## Interpretation
 
-## Reproduce
+I withdrew the earlier 61.35% direction result and its positive-news-lift conclusion because it contained future-price information. The corrected experiment evaluates delayed, selected summaries rather than publication-time news sentiment.
 
-Run from the repository root:
+The overlapping five-session targets create serial dependence, and this holdout has been reviewed during prior research. I therefore use these metrics as an internal diagnostic rather than a final unbiased estimate of live performance.
+
+## Reproduction
+
+From the repository root, I run:
 
 ```bash
 .venv/bin/python Scripts/project/scripts/integrate_news_scores_final_model.py
 ```
 
-No network access or external data is used. The `.joblib` bundle's `model` is the validation-selected pipeline and `features` is its ordered input list. When `model` is `None`, use the existing base prediction unchanged. `news_blend_model` always retains the evaluated news candidate. The saved pipelines reproduce evaluation predictions; they are not refitted on test labels.
+The saved `.joblib` bundle keeps the validation-selected pipeline and its ordered input list. When `model` is `None`, I use the existing base prediction unchanged. The `news_blend_model` field retains the evaluated news candidate. These pipelines reproduce the saved evaluation predictions and are not refitted on test labels.
+

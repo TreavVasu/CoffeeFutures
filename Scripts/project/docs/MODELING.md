@@ -1,80 +1,98 @@
-# Arabica Futures Return Model
+# Modeling Workflow
 
-This project trains a 5-trading-day Arabica Coffee C futures return model from:
+I built the pipeline to forecast the five-trading-day return of Arabica Coffee C futures from price, COT positioning, regional weather, and an optional delayed-news layer.
 
-- Yahoo OHLCV price history in `data/centralData/yahoo_cot_full_outer_by_date.csv`
-- CFTC COT positioning data from the same central file
-- Optional Open-Meteo historical weather features for Brazil Minas Gerais, Colombia Huila, and Vietnam Dak Lak
+## Modeling Objective
 
-The training pipeline uses a chronological train/validation/test split. COT features are shifted by a 3-calendar-day release lag before they are carried forward, so the model does not use report data before it would have been available.
+I define the regression target as:
 
-Source/archive/code/date metadata and raw price level columns are intentionally excluded from the feature set. The model keeps market-state features such as returns, volatility, relative volume, normalized price-vs-average measures, COT positioning, COT percent-of-open-interest, COT trader counts, concentration, and weather features.
-
-The end-to-end workflow is documented in `notebooks/Arabica_Futures_Model_Workflow.ipynb`.
-
-For spreadsheet-style daily analysis, a forward-filled COT copy is available at `data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv`. It carries the latest COT report values into the daily Yahoo rows between reports while leaving Yahoo price, return, and future-target columns unchanged. Rebuild it with:
-
-```bash
-.venv/bin/python Scripts/project/scripts/fill_cot_forward_daily.py
+```text
+target_return_5d = Close[t+5] / Close[t] - 1
 ```
 
-## Train
+I use RMSE as the primary selection metric because large return errors matter materially in this market. I report MAE to show typical error and direction accuracy to show how often the predicted sign matches the realized sign.
+
+## Data Assembly
+
+I start from `data/centralData/arabica_ml_model_ready.csv`. I verify the target against the close series, add derived positioning features, and align all inputs to the Coffee C trading calendar.
+
+I apply a three-calendar-day release lag to COT observations before carrying them forward. I use cached Open-Meteo observations for Minas Gerais, Huila, and Dak Lak. For news, I use exact-date daily joins and backward as-of weekly joins after a six-trading-session maturity delay.
+
+I exclude source metadata, archive identifiers, raw target components that would create leakage, and all future-price-derived news scores.
+
+## Chronological Evaluation
+
+I do not randomly shuffle this time series. I use chronological training, validation, and holdout partitions and purge five rows at each boundary. The purge ensures that a training or validation label cannot use a future close from the following partition.
+
+For the final matched news comparison, I use:
+
+| Partition | Dates | Rows |
+| --- | --- | ---: |
+| Training | 2000-01-03 to 2018-09-04 | 4,674 |
+| Validation | 2018-09-12 to 2022-08-29 | 998 |
+| Holdout | 2022-09-07 to 2026-09-01 | 1,003 |
+
+I select the learner recipe using no-news validation RMSE. I then fit the no-news, structured-news, and structured-plus-text candidates on the same observations with the same hyperparameters. This prevents the news comparison from benefiting from a different sample or tuning process.
+
+## Final Model Decision
+
+The existing `research_ensemble` remains my production choice because it achieved the best holdout RMSE among the deployable candidates.
+
+| Candidate | Holdout RMSE | Holdout MAE | Direction accuracy |
+| --- | ---: | ---: | ---: |
+| Price + COT + weather | 5.5055% | 4.3304% | 50.65% |
+| Price + COT + weather + delayed news | 5.5111% | 4.3157% | 50.55% |
+| `research_ensemble` | **5.3443%** | **4.2291%** | 50.15% |
+
+The news model is retained for analysis, but I do not promote it as the primary forecast. The measured news difference is too small and statistically inconclusive.
+
+## Training
+
+I train the base project model with:
 
 ```bash
 .venv/bin/python Scripts/project/scripts/train_arabica_model.py
 ```
 
-To run the slower experimental XGBoost candidates, add `--include-xgboost`.
+I add `--include-xgboost` only when I want to run the slower experimental XGBoost candidates.
 
-Outputs:
+I train the corrected matched news comparison with:
 
-- `Scripts/project/artifacts/models/arabica_returns_model.joblib`
-- `Scripts/project/artifacts/outputs/arabica_model_metrics.json`
-- `Scripts/project/artifacts/outputs/arabica_holdout_predictions.csv`
-- `Scripts/project/artifacts/plots/regression_metrics.png`
-- `Scripts/project/artifacts/plots/classification_accuracy_metrics.png`
-- `Scripts/project/artifacts/plots/roc_curve.png`
-- `Scripts/project/artifacts/plots/actual_vs_predicted_returns.png`
-- `Scripts/project/artifacts/plots/real_vs_predicted_price.png`
-- `Scripts/project/artifacts/plots/feature_importance.png`
-- `Scripts/project/artifacts/plots/prediction_error_drift.png`
-- `Scripts/project/artifacts/plots/rolling_direction_accuracy.png`
-- `Scripts/project/artifacts/plots/feature_drift_top.png`
-- `Scripts/project/artifacts/plots/cot_target_correlation.png`
-- `Scripts/project/artifacts/plots/cot_error_correlation.png`
-- `Scripts/project/artifacts/plots/cot_drift_vs_error_correlation.png`
-- `Scripts/project/artifacts/outputs/feature_drift_cot_correlation_report.csv`
-- `Scripts/project/artifacts/outputs/worst_error_dates_with_drift_context.csv`
-- `Scripts/project/artifacts/outputs/news_context_by_error_date.csv`
-- `Scripts/project/artifacts/outputs/news_articles_by_error_date.csv`
-- `Scripts/project/artifacts/plots/news_impact_vs_return.png`
-- `Scripts/project/artifacts/plots/news_strength_vs_model_error.png`
-- `Scripts/project/artifacts/plots/news_article_count_by_error_date.png`
+```bash
+.venv/bin/python Scripts/project/scripts/train_all_inputs_news_model.py
+```
 
-## Predict
+The main model artifacts are written under `Scripts/project/artifacts/models/`; metrics, comparisons, and predictions are written under `Scripts/project/artifacts/outputs/`; diagnostic figures are written under `Scripts/project/artifacts/plots/`.
+
+## Prediction
+
+I generate recent base-model predictions with:
 
 ```bash
 .venv/bin/python Scripts/project/scripts/predict_arabica_returns.py --latest-rows 10
 ```
 
-This loads the saved model and writes `Scripts/project/artifacts/outputs/latest_arabica_predictions.csv`.
+For news-aware inspection, I use `ResearchModelTrainingNews.ipynb`. Its holdout replay uses the saved pre-test weights, while latest-refit mode uses the final locally refitted candidate.
 
-## Notes
+## Verification
 
-Open-Meteo may rate-limit long historical pulls. The trainer caches successful weather data in `data/weather/` and records any region-level fetch errors in the metadata JSON. The default model uses the cached weather when present.
-
-To retry missing weather regions without overwriting good cached data:
+I run the focused news integration tests with:
 
 ```bash
-.venv/bin/python Scripts/project/scripts/refresh_weather_cache.py
+.venv/bin/python -m unittest discover -s Scripts/project/tests -p 'test_news_integration.py' -v
 ```
 
-The refresh utility saves per-region files and backs up the combined cache before writing an updated `data/weather/open_meteo_coffee_regions_daily.csv`.
+I verify feature maturity, exchange-session joins, purged boundaries, exclusion of future-price-derived scores, text matching, model comparability, and saved prediction reproduction.
 
-The news context layer is intentionally separate from the base model. Run it with:
+## Interpretation
 
-```bash
-.venv/bin/python Scripts/project/scripts/news_context_analysis.py --top-n 25 --max-articles 8
+I treat the dashboard's news-impact value as a model sensitivity:
+
+```text
+all-input predicted return - no-news predicted return
 ```
 
-It uses GDELT first and DuckDuckGo HTML fallback, then scores whether dated news looked bullish/bearish enough to plausibly affect the next week of Arabica prices. Ollama is optional and only used when `--use-ollama` is passed.
+I do not interpret it as a causal effect. I also treat the residual-based forecast range as an empirical historical range rather than a guaranteed confidence interval.
+
+My final design rationale is in [../../../Approach.md](../../../Approach.md), and the unresolved risks are in [../../../Limitations.md](../../../Limitations.md).
+

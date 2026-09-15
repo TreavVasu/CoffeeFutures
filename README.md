@@ -1,219 +1,157 @@
 # Arabica Futures Research Workspace
 
-Arabica Coffee Futures research workspace for building, evaluating, and running a 5-trading-day return model with Yahoo price data, COT positioning data, weather context, and optional GDELT/news event features.
+I built this repository to research and evaluate five-trading-day return forecasts for Arabica Coffee C futures. My workflow combines Yahoo Finance price history, CFTC Commitments of Traders positioning, coffee-region weather, and a corrected GDELT-derived news layer.
 
-![Arabica Coffee C dashboard with news impact, weather, COT positioning and return forecasts](Scripts/project/artifacts/plots/latest_arabica_news_prediction_console.png)
+![My Arabica Coffee C dashboard with news, weather, COT positioning, and return forecasts](Scripts/project/artifacts/plots/latest_arabica_news_prediction_console.png)
 
-## Start Here
+## Final Research Position
 
-- [`ResearchModelTrainingNews.ipynb`](ResearchModelTrainingNews.ipynb) - news-integrated companion with the same staged workflow, working prediction widgets, news impact tab, and saved dashboard.
-- `ResearchModelTraining.ipynb` - original research-ensemble notebook, preserved unchanged.
-- `data/centralData/arabica_ml_model_ready.csv` - prepared model-ready dataset used by the notebook.
-- `Scripts/project/artifacts/models/research_paper_ensemble.joblib` - saved trained model bundle used for local prediction/dashboard output.
-- `Scripts/project/` - reusable Python scripts, source modules, tests, requirements, generated models, outputs, and plots.
-- `Scripts/notebooks/` - earlier/supporting notebooks.
-- `Scripts/researchpapers/` - research paper references used to document the modeling approach.
+My selected deployable model is the existing `research_ensemble`. I keep the news-integrated model as a companion experiment and dashboard diagnostic because delayed news did not improve the matched holdout result.
 
-## News-Integrated Model
-
-The companion predicts five-trading-day Arabica Coffee C returns using 230 features: 31 from Yahoo price history, 46 from COT positioning, 144 from weather, and 9 from local news, including two text indicators. It reads the included daily/weekly summaries and does not require the missing large raw-event file or a cloud model.
-
-| Paired model | Holdout direction accuracy | Five-day return RMSE |
+| Candidate | Holdout direction accuracy | Five-day return RMSE |
 | --- | ---: | ---: |
 | Price + COT + weather | 50.65% | 5.5055% |
-| Same model with news/text | 50.55% | 5.5111% |
+| Same model with delayed news and text | 50.55% | 5.5111% |
+| Selected `research_ensemble` | 50.15% | **5.3443%** |
 
-These results cover the same 1,003 dates from 2022-09-07 through 2026-09-01. **News did not demonstrate an accuracy gain.** The earlier 61.35% result is withdrawn because it used future-price-derived scores. Corrected news features exclude those scores and wait six trading sessions because historical event selection also used subsequent returns. See [the full summary](Summary.MD) for limits and source audits.
+I evaluated the matched news comparison on 1,003 dates from 2022-09-07 through 2026-09-01. I withdrew the earlier 61.35% direction result because its event scores included future-price information. In the corrected experiment, I exclude future-price-derived scores and delay the remaining news summaries by six trading sessions.
 
-The detailed event-to-feature transformation is documented in [`NEWS_EVENT_TRANSFORMATION.md`](Scripts/project/docs/NEWS_EVENT_TRANSFORMATION.md), including raw GDELT filtering, daily/weekly feature timing, text indicators, join keys, excluded leakage-prone columns and the final scoring interpretation.
+My conclusion is deliberately narrow: the stored, retrospectively selected news summaries did not improve this forecasting setup. This does not test a complete real-time article feed.
 
-The console has **Inputs**, **Latest Prediction**, **Dashboard**, **News Impact**, and **Context** tabs. It supports the all-input and no-news models, adjustable row counts and signal thresholds, and two distinct modes:
+- [Summary.MD](Summary.MD) records my final result and decision.
+- [Approach.md](Approach.md) explains the final news-aware methodology.
+- [Limitations.md](Limitations.md) defines the boundaries of the evidence.
+- [NEWS_EVENT_TRANSFORMATION.md](Scripts/project/docs/NEWS_EVENT_TRANSFORMATION.md) documents the exact news transformations and joins.
 
-- **Latest refit:** estimates from the final model using the latest local data.
-- **Holdout replay:** predictions from pre-test model weights, verified against the saved holdout CSV.
+## Main Files
 
-News impact is the difference between separately fitted models, not causal attribution. Future target dates beyond the stored calendar use weekday estimates. The notebook includes a static dashboard image for GitHub readers; live controls require Jupyter.
+- [ResearchModelTrainingNews.ipynb](ResearchModelTrainingNews.ipynb) is my news-integrated notebook with input, prediction, dashboard, news-impact, and context views.
+- `ResearchModelTraining.ipynb` is my original ensemble notebook, preserved for reproducibility.
+- `data/centralData/arabica_ml_model_ready.csv` is the prepared modeling table.
+- `Scripts/project/artifacts/models/research_paper_ensemble.joblib` is the selected model bundle.
+- `Scripts/project/artifacts/models/arabica_all_inputs_news_model.joblib` is the corrected news experiment bundle.
+- `Scripts/project/` contains my reusable scripts, tests, generated artifacts, and technical documentation.
 
-The original notebook ensemble is preserved. The all-input model is a separate experiment, not a replacement selected for better performance.
+## Notebook Workflow
 
-### Open The News Notebook
-
-With the repository's virtual environment active and dependencies installed:
+With the project environment active, I open the companion notebook with:
 
 ```bash
 python -m notebook ResearchModelTrainingNews.ipynb
 ```
 
-Run all cells. The default `RETRAIN = False` uses the saved bundle; set it to `True` to repeat local training. No data refresh is needed for this notebook.
+The default `RETRAIN = False` loads my saved bundle. I set it to `True` only when I want to repeat training from the local prepared data.
 
-To reproduce the executed notebook and its widget checks:
+The notebook supports two forecast modes:
+
+- `Latest refit` uses the model refitted on all locally available labeled data.
+- `Holdout replay` uses the saved pre-test weights and reproduces the committed holdout predictions.
+
+I calculate the dashboard's news impact as the difference between separately fitted all-input and no-news models. I use it as a sensitivity diagnostic, not causal attribution. Forecast dates beyond the stored exchange calendar are weekday estimates, and the displayed uncertainty range is based on empirical holdout residuals.
+
+To execute every notebook cell and verify its saved views, I run:
 
 ```bash
 python Scripts/project/scripts/check_news_notebook.py
 ```
 
-The automated check executes all 14 code cells, exercises all four view/model combinations, verifies holdout prediction equality, and checks that dashboard images are nonblank.
+This check exercises all four view/model combinations, verifies the holdout replay against the saved CSV, and confirms that the dashboard images are nonblank.
 
-## Fresh GitHub Clone: Run Locally
-
-These steps are for someone who only has the GitHub version of this repository.
-
-1. Clone and enter the repo.
+## Run From A Fresh Clone
 
 ```bash
 git clone https://github.com/TreavVasu/CoffeeFutures.git
 cd CoffeeFutures
-```
-
-2. Create and activate a virtual environment.
-
-```bash
 python3 -m venv .venv
 source .venv/bin/activate
-```
-
-3. Install the project dependencies.
-
-```bash
 pip install --upgrade pip
 pip install -r Scripts/project/requirements.txt
-```
-
-4. Check or rebuild missing local data.
-
-```bash
 bash Scripts/fetch_missing_data.sh
-```
-
-This verifies the committed Yahoo/COT base file, refreshes weather if needed, forward-fills COT if needed, and rebuilds the prepared model dataset if it is missing.
-
-On Windows, run the same command from Git Bash or WSL.
-
-5. Start Jupyter.
-
-```bash
-python -m pip install notebook
 jupyter notebook
 ```
 
-6. Open and run:
+I then open `ResearchModelTrainingNews.ipynb` and run all cells. The committed prepared data, summaries, and model bundles are sufficient for the saved model and dashboard workflow.
 
-```text
-ResearchModelTrainingNews.ipynb
-```
+On Windows, I run the shell command from Git Bash or WSL.
 
-The news companion runs from the GitHub version using the committed prepared dataset, summaries and saved model bundle. The original `ResearchModelTraining.ipynb` remains available; its optional raw-event workflow requires the large local event file.
+## Data Checks And Rebuilds
 
-## One-Command Data Check
-
-The helper script is the easiest way to repair a clone where derived data is missing:
+For a normal local integrity check, I use:
 
 ```bash
 bash Scripts/fetch_missing_data.sh
 ```
 
-That script checks the committed base Yahoo/COT file, refreshes weather if needed, forward-fills COT data if needed, and rebuilds `data/centralData/arabica_ml_model_ready.csv` if needed.
+This verifies the committed Yahoo/COT base file, refreshes weather when required, forward-fills released COT values, and rebuilds the prepared model table if it is absent.
 
-Force all refresh/rebuild steps:
+To force every supported refresh and rebuild:
 
 ```bash
 bash Scripts/fetch_missing_data.sh --force
 ```
 
-To also regenerate the large ignored GDELT/news event file locally, run:
+To regenerate the large ignored GDELT event file as well:
 
 ```bash
 bash Scripts/fetch_missing_data.sh --with-events
 ```
 
-The event rebuild can take a long time and creates large ignored files that should stay out of GitHub.
+The event rebuild is slow and produces files that exceed the intended GitHub footprint.
 
-## What Is Included In GitHub
-
-The GitHub version includes the files needed to open the main notebook and run the saved model/dashboard workflow:
-
-- `ResearchModelTraining.ipynb`
-- `ResearchModelTrainingNews.ipynb`, including executed outputs and saved widget state
-- `Scripts/project/artifacts/models/arabica_all_inputs_news_model.joblib`
-- `Scripts/project/artifacts/outputs/arabica_all_inputs_news_metrics.json`
-- `Scripts/project/artifacts/outputs/arabica_all_inputs_news_holdout_predictions.csv`
-- `Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv`
-- `Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv`
-- `data/centralData/arabica_ml_model_ready.csv`
-- `data/centralData/yahoo_cot_full_outer_by_date.csv`
-- `data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv`
-- `data/weather/open_meteo_coffee_regions_daily.csv`
-- `Scripts/project/artifacts/models/research_paper_ensemble.joblib`
-- `Scripts/project/artifacts/outputs/research_paper_ensemble_metrics.json`
-- `Scripts/project/artifacts/outputs/research_paper_model_comparison.csv`
-- `Scripts/project/artifacts/outputs/research_paper_model_cv_summary.csv`
-- `Scripts/project/artifacts/outputs/research_paper_model_holdout_predictions.csv`
-
-## What Is Not Included
-
-Large raw/generated event files are intentionally ignored because they exceed GitHub's file-size limits. This mainly affects full raw-data reproduction and event-enriched retraining.
-
-The local `docs/` folder, environment files, browser/runtime files and plotting caches are excluded from GitHub.
-
-Ignored examples:
-
-- `data/events/gdelt_coffee_events_2000_2026_filtered_scored.csv`
-- `data/events/gdelt_coffee_event_candidates_*_weekly_period_dump.csv`
-- `Scripts/EventsData/Zip/*.zip`
-- `Scripts/project/artifacts/outputs/gdelt_coffee_event_candidates_*.csv`
-
-The notebook handles the missing local GDELT file by running without event features. The saved model and prepared model-ready data are still available for local prediction and dashboard generation.
-
-## Optional: Refresh Or Rebuild Data
-
-Run the full local check/rebuild wrapper:
-
-```bash
-bash Scripts/fetch_missing_data.sh
-```
-
-Refresh weather cache:
+I can also run the stages individually:
 
 ```bash
 python Scripts/project/scripts/refresh_weather_cache.py --force-all
-```
-
-Forward-fill released COT data:
-
-```bash
 python Scripts/project/scripts/fill_cot_forward_daily.py
-```
-
-Rebuild the prepared model dataset from committed central data and weather cache:
-
-```bash
 python Scripts/project/scripts/prepare_ml_dataset.py
-```
-
-Retrain the research ensemble without the large local event file:
-
-```bash
 python Scripts/project/scripts/train_research_paper_ensemble.py --skip-events
+python Scripts/project/scripts/train_all_inputs_news_model.py
 ```
 
-Retrain with local GDELT/news event features only after regenerating or restoring the ignored event file locally:
+## Files Included In The Repository
+
+I commit the inputs and artifacts required to open the notebooks, replay predictions, and inspect the final evaluation:
+
+- both research notebooks and their saved output states;
+- the prepared Yahoo/COT/weather model table;
+- daily and weekly news summaries;
+- the production and news-experiment model bundles;
+- model metrics, comparison tables, holdout predictions, and dashboard images.
+
+The principal committed artifacts are:
+
+```text
+data/centralData/arabica_ml_model_ready.csv
+data/centralData/yahoo_cot_full_outer_by_date.csv
+data/centralData/yahoo_cot_full_outer_by_date_cot_ffill.csv
+data/weather/open_meteo_coffee_regions_daily.csv
+Scripts/project/artifacts/models/research_paper_ensemble.joblib
+Scripts/project/artifacts/models/arabica_all_inputs_news_model.joblib
+Scripts/project/artifacts/outputs/arabica_all_inputs_news_metrics.json
+Scripts/project/artifacts/outputs/arabica_all_inputs_news_holdout_predictions.csv
+Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv
+Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv
+```
+
+## Files I Intentionally Exclude
+
+I do not commit the largest raw or generated event files:
+
+```text
+data/events/gdelt_coffee_events_2000_2026_filtered_scored.csv
+data/events/gdelt_coffee_event_candidates_*_weekly_period_dump.csv
+Scripts/EventsData/Zip/*.zip
+Scripts/project/artifacts/outputs/gdelt_coffee_event_candidates_*.csv
+```
+
+These exclusions affect full raw-event reconstruction, but they do not prevent the saved notebook, model bundle, or dashboard from running. To repeat the original row-level event extraction, I regenerate the files locally with `--with-events` before retraining.
+
+## Verification
+
+I run the focused news tests with:
 
 ```bash
-python Scripts/project/scripts/train_research_paper_ensemble.py
+.venv/bin/python -m unittest discover -s Scripts/project/tests -p 'test_news_integration.py' -v
 ```
 
-## Latest Dashboard Artifacts
-
-- `Scripts/project/artifacts/plots/latest_arabica_news_prediction_console.png`
-- `Scripts/project/artifacts/outputs/latest_arabica_news_console_predictions.csv`
-- `Scripts/project/artifacts/plots/arabica_all_inputs_news_evaluation.png`
-- `Scripts/project/artifacts/outputs/news_notebook_execution_check.json`
-- `Scripts/project/artifacts/outputs/latest_research_paper_return_predictions.csv`
-- `Scripts/project/artifacts/plots/latest_research_paper_return_prediction_console.png`
-
-## Notes
-
-- The model target is a 5-trading-day forward Arabica futures return.
-- Positive/negative indications are based on the notebook's decision threshold.
-- The shaded forecast range in the dashboard is empirical model error from holdout residuals, not a guarantee.
-- To fully reproduce the original event-enriched raw pipeline, regenerate the ignored GDELT/news data locally before retraining with events enabled.
+The suite checks news maturity, exchange-session alignment, boundary purging, exclusion of future-price-derived scores, text matching, baseline comparability, and repository path behavior.
