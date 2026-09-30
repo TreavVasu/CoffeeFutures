@@ -1,0 +1,22 @@
+{
+  "artifact_metrics_verified": true,
+  "verified_command": ".venv/bin/python MonthFu/scripts/check_notebook.py --artifacts-only",
+  "horizons": 5,
+  "common_holdout_origins": 1148,
+  "cached_origin": "2026-09-09",
+  "verification_scope": [
+    "holdout JSON and CSV metrics",
+    "CV selected metrics",
+    "per-year metrics",
+    "common-date horizon comparison",
+    "retuned previous comparison",
+    "quarterly label maturity",
+    "latest forecast origin and units"
+  ],
+  "notebook_json_and_code_syntax_verified": true,
+  "notebook_execution_verified": false,
+  "notebook_execution_status": "Initial nbclient execution failed before kernel launch: PermissionError [Errno 1] Operation not permitted on local loopback bind. Required escalated execution was aborted by user. No further kernel run or alternative execution was attempted.",
+  "dashboard_preview_generated": false,
+  "historical_replay_design": "Reads saved holdout_predictions.csv scores; notebook code does not load final fitted weights or perform historical model inference.",
+  "historical_widget_runtime_verified": false
+}

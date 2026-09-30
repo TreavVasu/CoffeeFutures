@@ -1,0 +1,484 @@
+{
+  "recipe": {
+    "name": "blend_0_shrink_0.5",
+    "weights": {
+      "price_extra": 0.5
+    },
+    "cv_rmse": 0.09569236389091813,
+    "cv_skill_vs_zero": 0.01752631497895052
+  },
+  "previous_cv_recipe": {
+    "name": "previous_cv_ensemble",
+    "weights": {
+      "previous_rf": 0.25
+    },
+    "cv_rmse": 0.09595003217621739,
+    "cv_skill_vs_zero": 0.012228229996776196
+  },
+  "candidates": [
+    {
+      "name": "zero",
+      "group": "monthly_core",
+      "kind": "zero",
+      "strength": 1.0,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "historical_mean",
+      "group": "monthly_core",
+      "kind": "mean",
+      "strength": 1.0,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "compact_legacy",
+      "group": "compact_legacy",
+      "kind": "hist",
+      "strength": 10,
+      "leaf": 40,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "previous_rf",
+      "group": "previous_technical",
+      "kind": "previous_forest",
+      "strength": 1,
+      "leaf": 10,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "previous_ar",
+      "group": "previous_history",
+      "kind": "ridge",
+      "strength": 2,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "previous_hw",
+      "group": "previous_technical",
+      "kind": "holt_winters",
+      "strength": 1.0,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_ridge_100",
+      "group": "price",
+      "kind": "ridge",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_ridge_1000",
+      "group": "price",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_ridge_10000",
+      "group": "price",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_hist",
+      "group": "price",
+      "kind": "hist",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_extra",
+      "group": "price",
+      "kind": "extra",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_ridge_100",
+      "group": "price_cot",
+      "kind": "ridge",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_ridge_1000",
+      "group": "price_cot",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_ridge_10000",
+      "group": "price_cot",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_hist",
+      "group": "price_cot",
+      "kind": "hist",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_extra",
+      "group": "price_cot",
+      "kind": "extra",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_weather_ridge_100",
+      "group": "price_cot_weather",
+      "kind": "ridge",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_weather_ridge_1000",
+      "group": "price_cot_weather",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_weather_ridge_10000",
+      "group": "price_cot_weather",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_weather_hist",
+      "group": "price_cot_weather",
+      "kind": "hist",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_weather_extra",
+      "group": "price_cot_weather",
+      "kind": "extra",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_100",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_1000",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_10000",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_hist",
+      "group": "monthly_core",
+      "kind": "hist",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_extra",
+      "group": "monthly_core",
+      "kind": "extra",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_ridge_100",
+      "group": "engineered",
+      "kind": "ridge",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_ridge_1000",
+      "group": "engineered",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_ridge_10000",
+      "group": "engineered",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_hist",
+      "group": "engineered",
+      "kind": "hist",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_extra",
+      "group": "engineered",
+      "kind": "extra",
+      "strength": 1,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_hist_low_l2",
+      "group": "monthly_core",
+      "kind": "hist",
+      "strength": 0.01,
+      "leaf": 100,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_recent10y",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 10,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_recent5y",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 5,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_ridge_recent10y",
+      "group": "engineered",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 10,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_ridge_decay",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 5
+    },
+    {
+      "name": "engineered_elastic",
+      "group": "engineered",
+      "kind": "elastic",
+      "strength": 0.003,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_vol_ridge",
+      "group": "monthly_core",
+      "kind": "ridge",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": true,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_vol_ridge",
+      "group": "engineered",
+      "kind": "ridge",
+      "strength": 10000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": true,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_vol_hist",
+      "group": "monthly_core",
+      "kind": "hist",
+      "strength": 10,
+      "leaf": 100,
+      "train_years": 0,
+      "normalized": true,
+      "half_life_years": 0
+    },
+    {
+      "name": "price_cot_elm",
+      "group": "price_cot",
+      "kind": "elm",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_elm",
+      "group": "monthly_core",
+      "kind": "elm",
+      "strength": 100,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_elm",
+      "group": "engineered",
+      "kind": "elm",
+      "strength": 1000,
+      "leaf": 60,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_xgb",
+      "group": "monthly_core",
+      "kind": "xgb",
+      "strength": 10,
+      "leaf": 80,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "engineered_xgb",
+      "group": "engineered",
+      "kind": "xgb",
+      "strength": 30,
+      "leaf": 100,
+      "train_years": 0,
+      "normalized": false,
+      "half_life_years": 0
+    },
+    {
+      "name": "monthly_core_xgb_recent10y",
+      "group": "monthly_core",
+      "kind": "xgb",
+      "strength": 20,
+      "leaf": 100,
+      "train_years": 10,
+      "normalized": false,
+      "half_life_years": 0
+    }
+  ],
+  "holdout_start": "2022-01-01",
+  "refit_policy": "Quarterly; only labels ending strictly before refit",
+  "primary_metric": "Pooled expanding-CV RMSE; horizons compared by skill vs zero",
+  "horizon_selection": "30 calendar days fixed as primary before holdout; alternatives are sensitivity experiments"
+}

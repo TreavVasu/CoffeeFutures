@@ -1,0 +1,218 @@
+{
+  "status": "passed",
+  "experiments": [
+    {
+      "experiment": "30calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1157,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 180,
+      "cot_audit_rows": 2279,
+      "latest_bundle_replay_absolute_error": 3.9898639947466563e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.11111444781372001,
+      "skill_vs_zero": 0.030058637709293734,
+      "rmse_improvement_vs_transferred": 0.0488426940206802,
+      "rmse_improvement_vs_retuned_previous": 0.05037361617965419,
+      "majority_direction_accuracy": 0.4814174589455488,
+      "selected_direction_accuracy": 0.5496974935177182,
+      "empirical_band_coverage": 0.7623163353500432,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.5",
+        "weights": {
+          "price_extra": 0.5
+        },
+        "cv_rmse": 0.10005445896710595,
+        "cv_skill_vs_zero": 0.01577997109732099
+      },
+      "selected_groups": [
+        "price"
+      ],
+      "selected_minus_zero_interval": [
+        -0.003737931173259585,
+        0.0002966894393840861
+      ],
+      "selected_minus_retuned_interval": [
+        -0.010052152694348221,
+        -0.0025881521920536736
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "21sessions",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1157,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 180,
+      "cot_audit_rows": 2279,
+      "latest_bundle_replay_absolute_error": 7.632783294297951e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.11557944039143385,
+      "skill_vs_zero": -0.07653591387580527,
+      "rmse_improvement_vs_transferred": -0.0015104265859384736,
+      "rmse_improvement_vs_retuned_previous": 0.0,
+      "majority_direction_accuracy": 0.4840103716508211,
+      "selected_direction_accuracy": 0.5159896283491789,
+      "empirical_band_coverage": 0.7320656871218669,
+      "selected_recipe": {
+        "name": "previous_cv_ensemble",
+        "weights": {
+          "previous_rf": 0.5
+        },
+        "cv_rmse": 0.10028678479985648,
+        "cv_skill_vs_zero": 0.015463352687737353
+      },
+      "selected_groups": [
+        "previous_technical"
+      ],
+      "selected_minus_zero_interval": [
+        -0.0004981942044001636,
+        0.010206814972266953
+      ],
+      "selected_minus_retuned_interval": [
+        0.0,
+        0.0
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "28calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1159,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 180,
+      "cot_audit_rows": 2279,
+      "latest_bundle_replay_absolute_error": 6.765421556309548e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.10623225939284649,
+      "skill_vs_zero": 0.035999993414596476,
+      "rmse_improvement_vs_transferred": 0.0469205638529131,
+      "rmse_improvement_vs_retuned_previous": 0.02695803346390624,
+      "majority_direction_accuracy": 0.4771354616048318,
+      "selected_direction_accuracy": 0.5608283002588438,
+      "empirical_band_coverage": 0.7411561691113029,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.5",
+        "weights": {
+          "price_extra": 0.5
+        },
+        "cv_rmse": 0.09569236389091813,
+        "cv_skill_vs_zero": 0.01752631497895052
+      },
+      "selected_groups": [
+        "price"
+      ],
+      "selected_minus_zero_interval": [
+        -0.0038903058693803964,
+        -0.0001558261341049882
+      ],
+      "selected_minus_retuned_interval": [
+        -0.004403679986799498,
+        -0.001396443215730142
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "21calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1164,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 180,
+      "cot_audit_rows": 2279,
+      "latest_bundle_replay_absolute_error": 2.5153490401663703e-17,
+      "noncritical_code_changes": [],
+      "rmse": 0.09217198331828949,
+      "skill_vs_zero": 0.022233950138502157,
+      "rmse_improvement_vs_transferred": 0.027582016013340316,
+      "rmse_improvement_vs_retuned_previous": 0.014745896446444973,
+      "majority_direction_accuracy": 0.4896907216494845,
+      "selected_direction_accuracy": 0.5300687285223368,
+      "empirical_band_coverage": 0.7353951890034365,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.5",
+        "weights": {
+          "price_extra": 0.5
+        },
+        "cv_rmse": 0.08261160728345938,
+        "cv_skill_vs_zero": 0.014616156303562722
+      },
+      "selected_groups": [
+        "price"
+      ],
+      "selected_minus_zero_interval": [
+        -0.0023871003668436593,
+        0.0003867362678091238
+      ],
+      "selected_minus_retuned_interval": [
+        -0.0023868144120384725,
+        -0.00042200341161354956
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "30sessions",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1148,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 180,
+      "cot_audit_rows": 2279,
+      "latest_bundle_replay_absolute_error": 4.85722573273506e-17,
+      "noncritical_code_changes": [],
+      "rmse": 0.1302936733047883,
+      "skill_vs_zero": -0.0536170804380367,
+      "rmse_improvement_vs_transferred": 0.03578645264189695,
+      "rmse_improvement_vs_retuned_previous": 0.0,
+      "majority_direction_accuracy": 0.4651567944250871,
+      "selected_direction_accuracy": 0.4259581881533101,
+      "empirical_band_coverage": 0.6925087108013938,
+      "selected_recipe": {
+        "name": "previous_cv_ensemble",
+        "weights": {
+          "previous_rf": 0.25
+        },
+        "cv_rmse": 0.11982198502010508,
+        "cv_skill_vs_zero": 0.011106773392335234
+      },
+      "selected_groups": [
+        "previous_technical"
+      ],
+      "selected_minus_zero_interval": [
+        0.0004132945006263641,
+        0.007108345721911013
+      ],
+      "selected_minus_retuned_interval": [
+        0.0,
+        0.0
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    }
+  ],
+  "pending": [],
+  "horizon_comparison": {
+    "status": "passed",
+    "common_origin_rows": 1148
+  }
+}

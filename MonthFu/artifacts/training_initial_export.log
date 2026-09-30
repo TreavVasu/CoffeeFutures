@@ -1,0 +1,208 @@
+[30calendar] Building targets and availability-aware features
+[21sessions] Building targets and availability-aware features
+[21sessions] CV 1/4: 3445 mature train rows; 2013-11-12–2015-11-12
+[30calendar] CV 1/4: 3445 mature train rows; 2013-11-12–2015-11-12
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.148351e-02, tolerance: 2.817e-03
+  model = cd_fast.enet_coordinate_descent(
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.758670e-02, tolerance: 2.838e-03
+  model = cd_fast.enet_coordinate_descent(
+[30calendar] CV 2/4: 3948 mature train rows; 2015-11-13–2017-11-15
+[21sessions] CV 2/4: 3949 mature train rows; 2015-11-13–2017-11-15
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.082349e-03, tolerance: 3.670e-03
+  model = cd_fast.enet_coordinate_descent(
+[21sessions] CV 3/4: 4453 mature train rows; 2017-11-16–2019-11-18
+[30calendar] CV 3/4: 4452 mature train rows; 2017-11-16–2019-11-18
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.254558e-02, tolerance: 3.951e-03
+  model = cd_fast.enet_coordinate_descent(
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.836416e-02, tolerance: 3.911e-03
+  model = cd_fast.enet_coordinate_descent(
+[21sessions] CV 4/4: 4957 mature train rows; 2019-11-19–2021-11-17
+[30calendar] CV 4/4: 4957 mature train rows; 2019-11-19–2021-11-17
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.262331e-02, tolerance: 4.198e-03
+  model = cd_fast.enet_coordinate_descent(
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.637417e-02, tolerance: 4.235e-03
+  model = cd_fast.enet_coordinate_descent(
+[30calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.5', 'weights': {'price_extra': 0.5}, 'cv_rmse': 0.10005445896710595, 'cv_skill_vs_zero': 0.01577997109732099}
+[30calendar] Walk-forward 2022Q1
+[21sessions] Frozen CV recipe: {'name': 'previous_cv_ensemble', 'weights': {'previous_rf': 0.5}, 'cv_rmse': 0.10028678479985648, 'cv_skill_vs_zero': 0.015463352687737353}
+[21sessions] Walk-forward 2022Q1
+[21sessions] Walk-forward 2022Q2
+[30calendar] Walk-forward 2022Q2
+[21sessions] Walk-forward 2022Q3
+[21sessions] Walk-forward 2022Q4
+[30calendar] Walk-forward 2022Q3
+[21sessions] Walk-forward 2023Q1
+[21sessions] Walk-forward 2023Q2
+[30calendar] Walk-forward 2022Q4
+[21sessions] Walk-forward 2023Q3
+[30calendar] Walk-forward 2023Q1
+[21sessions] Walk-forward 2023Q4
+[21sessions] Walk-forward 2024Q1
+[30calendar] Walk-forward 2023Q2
+[21sessions] Walk-forward 2024Q2
+[21sessions] Walk-forward 2024Q3
+[30calendar] Walk-forward 2023Q3
+[21sessions] Walk-forward 2024Q4
+[21sessions] Walk-forward 2025Q1
+[30calendar] Walk-forward 2023Q4
+[21sessions] Walk-forward 2025Q2
+[30calendar] Walk-forward 2024Q1
+[21sessions] Walk-forward 2025Q3
+[21sessions] Walk-forward 2025Q4
+[30calendar] Walk-forward 2024Q2
+[21sessions] Walk-forward 2026Q1
+[21sessions] Walk-forward 2026Q2
+[30calendar] Walk-forward 2024Q3
+[21sessions] Walk-forward 2026Q3
+[30calendar] Walk-forward 2024Q4
+[28calendar] Building targets and availability-aware features
+[28calendar] CV 1/4: 3446 mature train rows; 2013-11-12–2015-11-12
+[30calendar] Walk-forward 2025Q1
+[30calendar] Walk-forward 2025Q2
+[30calendar] Walk-forward 2025Q3
+[30calendar] Walk-forward 2025Q4
+[30calendar] Walk-forward 2026Q1
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.886358e-02, tolerance: 2.615e-03
+  model = cd_fast.enet_coordinate_descent(
+[30calendar] Walk-forward 2026Q2
+[28calendar] CV 2/4: 3950 mature train rows; 2015-11-13–2017-11-15
+[30calendar] Walk-forward 2026Q3
+[21calendar] Building targets and availability-aware features
+[21calendar] CV 1/4: 3451 mature train rows; 2013-11-12–2015-11-12
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 8.225757e-03, tolerance: 3.393e-03
+  model = cd_fast.enet_coordinate_descent(
+[28calendar] CV 3/4: 4454 mature train rows; 2017-11-16–2019-11-18
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.044693e-03, tolerance: 1.992e-03
+  model = cd_fast.enet_coordinate_descent(
+[21calendar] CV 2/4: 3955 mature train rows; 2015-11-13–2017-11-15
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 8.698188e-03, tolerance: 3.610e-03
+  model = cd_fast.enet_coordinate_descent(
+[28calendar] CV 4/4: 4958 mature train rows; 2019-11-19–2021-11-17
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.591289e-03, tolerance: 2.559e-03
+  model = cd_fast.enet_coordinate_descent(
+[21calendar] CV 3/4: 4459 mature train rows; 2017-11-16–2019-11-18
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.407123e-02, tolerance: 3.880e-03
+  model = cd_fast.enet_coordinate_descent(
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.982158e-03, tolerance: 2.735e-03
+  model = cd_fast.enet_coordinate_descent(
+[28calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.5', 'weights': {'price_extra': 0.5}, 'cv_rmse': 0.09569236389091813, 'cv_skill_vs_zero': 0.01752631497895052}
+[28calendar] Walk-forward 2022Q1
+[21calendar] CV 4/4: 4963 mature train rows; 2019-11-19–2021-11-17
+[28calendar] Walk-forward 2022Q2
+[28calendar] Walk-forward 2022Q3
+[28calendar] Walk-forward 2022Q4
+[28calendar] Walk-forward 2023Q1
+[28calendar] Walk-forward 2023Q2
+[28calendar] Walk-forward 2023Q3
+[28calendar] Walk-forward 2023Q4
+[28calendar] Walk-forward 2024Q1
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.279098e-02, tolerance: 2.947e-03
+  model = cd_fast.enet_coordinate_descent(
+[21calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.5', 'weights': {'price_extra': 0.5}, 'cv_rmse': 0.08261160728345938, 'cv_skill_vs_zero': 0.014616156303562722}
+[21calendar] Walk-forward 2022Q1
+[28calendar] Walk-forward 2024Q2
+[21calendar] Walk-forward 2022Q2
+[28calendar] Walk-forward 2024Q3
+[21calendar] Walk-forward 2022Q3
+[28calendar] Walk-forward 2024Q4
+[21calendar] Walk-forward 2022Q4
+[28calendar] Walk-forward 2025Q1
+[21calendar] Walk-forward 2023Q1
+[28calendar] Walk-forward 2025Q2
+[21calendar] Walk-forward 2023Q2
+[28calendar] Walk-forward 2025Q3
+[21calendar] Walk-forward 2023Q3
+[28calendar] Walk-forward 2025Q4
+[21calendar] Walk-forward 2023Q4
+[28calendar] Walk-forward 2026Q1
+[21calendar] Walk-forward 2024Q1
+[21calendar] Walk-forward 2024Q2
+[28calendar] Walk-forward 2026Q2
+[21calendar] Walk-forward 2024Q3
+[28calendar] Walk-forward 2026Q3
+[21calendar] Walk-forward 2024Q4
+[30sessions] Building targets and availability-aware features
+[30sessions] CV 1/4: 3436 mature train rows; 2013-11-12–2015-11-12
+[21calendar] Walk-forward 2025Q1
+[21calendar] Walk-forward 2025Q2
+[21calendar] Walk-forward 2025Q3
+[21calendar] Walk-forward 2025Q4
+[21calendar] Walk-forward 2026Q1
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.357294e-03, tolerance: 3.606e-03
+  model = cd_fast.enet_coordinate_descent(
+[30sessions] CV 2/4: 3940 mature train rows; 2015-11-13–2017-11-15
+[21calendar] Walk-forward 2026Q2
+[21calendar] Walk-forward 2026Q3
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.928937e-02, tolerance: 4.859e-03
+  model = cd_fast.enet_coordinate_descent(
+[30sessions] CV 3/4: 4444 mature train rows; 2017-11-16–2019-11-18
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.860171e-02, tolerance: 5.161e-03
+  model = cd_fast.enet_coordinate_descent(
+[30sessions] CV 4/4: 4948 mature train rows; 2019-11-19–2021-11-17
+/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:842: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.798728e-02, tolerance: 5.532e-03
+  model = cd_fast.enet_coordinate_descent(
+[30sessions] Frozen CV recipe: {'name': 'previous_cv_ensemble', 'weights': {'previous_rf': 0.25}, 'cv_rmse': 0.11982198502010508, 'cv_skill_vs_zero': 0.011106773392335234}
+[30sessions] Walk-forward 2022Q1
+[30sessions] Walk-forward 2022Q2
+[30sessions] Walk-forward 2022Q3
+[30sessions] Walk-forward 2022Q4
+[30sessions] Walk-forward 2023Q1
+[30sessions] Walk-forward 2023Q2
+[30sessions] Walk-forward 2023Q3
+[30sessions] Walk-forward 2023Q4
+[30sessions] Walk-forward 2024Q1
+[30sessions] Walk-forward 2024Q2
+[30sessions] Walk-forward 2024Q3
+[30sessions] Walk-forward 2024Q4
+[30sessions] Walk-forward 2025Q1
+[30sessions] Walk-forward 2025Q2
+[30sessions] Walk-forward 2025Q3
+[30sessions] Walk-forward 2025Q4
+[30sessions] Walk-forward 2026Q1
+[30sessions] Walk-forward 2026Q2
+[30sessions] Walk-forward 2026Q3
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/process.py", line 264, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/scripts/run_experiments.py", line 22, in run_one
+    return train(args)
+           ^^^^^^^^^^^
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/scripts/train.py", line 224, in train
+    (out / "metrics.json").write_text(json.dumps(summary,indent=2,default=str,allow_nan=False))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 398, in _iterencode_dict
+    yield _floatstr(value)
+          ^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/json/encoder.py", line 240, in floatstr
+    raise ValueError(
+ValueError: Out of range float values are not JSON compliant: nan
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/scripts/run_experiments.py", line 93, in <module>
+    main()
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/scripts/run_experiments.py", line 88, in main
+    future.result()
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+ValueError: Out of range float values are not JSON compliant: nan

@@ -1,0 +1,8 @@
+# Ephemeral Jupyter connection files contain per-kernel authentication keys.
+artifacts/.jupyter_runtime/
+artifacts/.ipython/
+artifacts/.jupyter_config/
+artifacts/.jupyter_data/
+artifacts/.jupyter_home/
+artifacts/.matplotlib/
+artifacts/.cache/
