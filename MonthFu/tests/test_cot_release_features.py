@@ -74,10 +74,108 @@ class COTAvailabilityTests(unittest.TestCase):
         legacy["source_dataset"] = "legacy_futures_only"
         pd.concat([frame, legacy]).to_csv(self.root / "data/COT/coffee_c_all_cot_data.csv", index=False)
         prices = pd.DataFrame({"Date": pd.bdate_range("2009-08-24", "2009-09-15")})
-        features, _, metadata = build_cot_features(prices, self.root)
-        self.assertEqual(metadata["excluded_prelaunch_disaggregated_backcasts"], 1)
+        features, audit, metadata = build_cot_features(prices, self.root)
+        self.assertEqual(metadata["excluded_prelaunch_disaggregated_backcasts"], 0)
+        self.assertEqual(metadata["retained_prelaunch_disaggregated_backcasts"], 1)
+        archive = audit.loc[audit.historical_backcast]
+        self.assertEqual(len(archive), 1)
+        self.assertEqual(archive.publication_date.iloc[0], pd.Timestamp("2009-10-20"))
         self.assertTrue(features.loc[features.Date.le("2009-09-04"), "cot_disagg_managed_money_net_oi"].isna().all())
         self.assertTrue(features.loc[features.Date.eq("2009-09-07"), "cot_disagg_managed_money_net_change_1w"].isna().all())
+
+    def test_pre_2009_legacy_reports_are_retained_and_used(self):
+        self.write_reports(["2000-01-04", "2006-06-13", "2009-08-25"], [10, 20, 30])
+        prices = pd.DataFrame({"Date": pd.bdate_range("2000-01-03", "2009-09-04")})
+        features, audit, metadata = build_cot_features(prices, self.root)
+        self.assertEqual(len(audit), 3)
+        self.assertEqual(metadata["reports"], 3)
+        self.assertFalse(audit.historical_backcast.any())
+        series = features.set_index("Date").cot_legacy_commercial_net_oi
+        self.assertEqual(series.loc["2000-01-10"], 0.1)
+        self.assertEqual(series.loc["2006-06-19"], 0.2)
+        self.assertEqual(series.loc["2009-08-31"], 0.3)
+
+    def test_archive_activates_rolling_history_without_replacing_live_positions(self):
+        dates = pd.date_range("2008-01-01", "2009-10-27", freq="W-TUE")
+        frame = self.write_reports(dates, np.linspace(5, 90, len(dates)), "disaggregated_futures_only")
+        prices = pd.DataFrame({"Date": pd.bdate_range("2008-01-01", "2009-11-03")})
+        features, audit, metadata = build_cot_features(prices, self.root)
+        series = features.set_index("Date")
+        self.assertEqual(len(audit), len(frame))
+        self.assertGreater(metadata["retained_prelaunch_disaggregated_backcasts"], 0)
+        self.assertTrue(series.loc[:"2009-09-04", "cot_disagg_managed_money_net_oi"].isna().all())
+        # Sep/early-Oct live reports continue to arrive before archive release.
+        first = frame.loc[pd.to_datetime(frame.Report_Date_as_MM_DD_YYYY).eq("2009-09-01"), "M_Money_Positions_Long_ALL"].iloc[0] / 100
+        self.assertAlmostEqual(series.loc["2009-09-07", "cot_disagg_managed_money_net_oi"], first)
+        self.assertTrue(series.loc[:"2009-10-20", "cot_disagg_managed_money_net_z_52w"].isna().all())
+        # The release enriches the latest snapshot's historical window on Oct21.
+        self.assertTrue(np.isfinite(series.loc["2009-10-21", "cot_disagg_managed_money_net_z_52w"]))
+        self.assertEqual(series.loc["2009-10-20", "cot_disagg_backcast_history_available"], 0)
+        self.assertEqual(series.loc["2009-10-21", "cot_disagg_backcast_history_available"], 1)
+        self.assertEqual(series.cot_disagg_backcast_history_new_session.sum(), 1)
+        self.assertEqual(series.loc["2009-10-21", "cot_disagg_snapshot_age_days"], 8)
+        self.assertEqual(series.loc["2009-10-20", "cot_disagg_managed_money_net_oi"], series.loc["2009-10-21", "cot_disagg_managed_money_net_oi"])
+        # Altering backcasts cannot alter any prediction features before release.
+        frame.loc[pd.to_datetime(frame.Report_Date_as_MM_DD_YYYY).lt("2009-09-01"), "M_Money_Positions_Long_ALL"] *= 10
+        frame.to_csv(self.root / "data/COT/coffee_c_all_cot_data.csv", index=False)
+        changed, _, _ = build_cot_features(prices, self.root)
+        assert_frame_equal(features.loc[features.Date.le("2009-10-20")], changed.loc[changed.Date.le("2009-10-20")])
+        self.assertNotEqual(series.loc["2009-10-21", "cot_disagg_managed_money_net_z_52w"], changed.set_index("Date").loc["2009-10-21", "cot_disagg_managed_money_net_z_52w"])
+
+    def test_all_numeric_measurements_have_explicit_source_features(self):
+        frame = self.write_reports(["2024-01-09"], [10])
+        measurements = {
+            "NonComm_Postions_Spread_All": 5,
+            "Comm_Positions_Long_Old": 40,
+            "NonRept_Positions_Short_Other": 2,
+            "Pct_of_OI_Comm_Long_Old": 35,
+            "Traders_NonComm_Spead_Old": 4,
+            "Conc_Gross_LE_8_TDR_Long_Other": 65,
+            "Change_in_Comm_Long_All": -10,
+            "Open_Interest_Other": 25,
+        }
+        for name, value in measurements.items():
+            frame[name] = value
+        frame["CFTC_Contract_Market_Code"] = 83731
+        frame["As_of_Date_In_Form_YYMMDD"] = 240109
+        frame.to_csv(self.root / "data/COT/coffee_c_all_cot_data.csv", index=False)
+        features, _, metadata = build_cot_features(pd.DataFrame({"Date": pd.bdate_range("2024-01-08", "2024-01-18")}), self.root)
+        coverage = metadata["source_field_coverage"]["legacy_futures_only"]
+        for name in measurements:
+            with self.subTest(name=name):
+                predictor = coverage["included_source_fields"][name]["feature"]
+                self.assertTrue(features[predictor].notna().any())
+        self.assertEqual(coverage["excluded_source_fields"]["CFTC_Contract_Market_Code"], "identifier_or_text_metadata")
+        self.assertNotIn("M_Money_Positions_Long_ALL", coverage["included_source_fields"])
+        self.assertAlmostEqual(features.cot_legacy_source_change_in_comm_long_all.dropna().iloc[0], -0.1)
+        self.assertAlmostEqual(features.cot_legacy_source_pct_of_oi_comm_long_old.dropna().iloc[0], 0.35)
+
+    def test_backcast_override_delays_expanded_history_but_preserves_live_reports(self):
+        self.write_reports(["2009-08-25", "2009-09-01", "2009-09-08"], [90, 10, 30], "disaggregated_futures_only")
+        pd.DataFrame({"report_date": ["2009-08-25"], "publication_date": ["2009-10-23"], "source": ["verified archive correction"]}).to_csv(self.root / "data/COT/cot_release_overrides.csv", index=False)
+        prices = pd.DataFrame({"Date": pd.bdate_range("2009-08-24", "2009-10-27")})
+        features, audit, _ = build_cot_features(prices, self.root)
+        series = features.set_index("Date")
+        self.assertEqual(series.loc["2009-09-07", "cot_disagg_managed_money_net_oi"], 0.1)
+        self.assertEqual(series.loc["2009-10-23", "cot_disagg_backcast_history_available"], 0)
+        self.assertEqual(series.loc["2009-10-26", "cot_disagg_backcast_history_available"], 1)
+        self.assertEqual(series.loc["2009-10-26", "cot_disagg_managed_money_net_oi"], 0.3)
+        self.assertEqual(audit.loc[audit.historical_backcast, "raw_value_available_date"].iloc[0], pd.Timestamp("2009-10-23"))
+
+    def test_future_report_prefix_is_invariant_with_activated_archive_history(self):
+        dates = pd.date_range("2008-01-01", "2010-06-29", freq="W-TUE")
+        frame = self.write_reports(dates, np.arange(len(dates)), "disaggregated_futures_only")
+        prices = pd.DataFrame({"Date": pd.bdate_range("2008-01-01", "2010-07-09")})
+        full, audit, _ = build_cot_features(prices, self.root)
+        future_index = int(np.flatnonzero(dates >= pd.Timestamp("2010-04-06"))[0])
+        cutoff = audit.loc[audit.report_date.eq(dates[future_index]), "first_usable_session"].iloc[0]
+        frame.iloc[:future_index].to_csv(self.root / "data/COT/coffee_c_all_cot_data.csv", index=False)
+        truncated, _, _ = build_cot_features(prices, self.root)
+        assert_frame_equal(full.loc[full.Date.lt(cutoff)], truncated.loc[truncated.Date.lt(cutoff)])
+        frame.loc[future_index:, "M_Money_Positions_Long_ALL"] = 999999
+        frame.to_csv(self.root / "data/COT/coffee_c_all_cot_data.csv", index=False)
+        changed, _, _ = build_cot_features(prices, self.root)
+        assert_frame_equal(full.loc[full.Date.lt(cutoff)], changed.loc[changed.Date.lt(cutoff)])
 
     def test_future_values_cannot_change_previous_features(self):
         dates = pd.date_range("2021-01-05", periods=110, freq="W-TUE")

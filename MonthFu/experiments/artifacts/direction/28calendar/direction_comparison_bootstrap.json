@@ -1,0 +1,221 @@
+{
+  "30": {
+    "rows": 1159,
+    "block_sessions": 30,
+    "requested_block_sessions": 30,
+    "bootstrap_draws": 1000,
+    "seed": 42,
+    "difference_sign": "positive_favors_selected",
+    "metrics": {
+      "macro_f1": {
+        "selected": 0.5277249901481025,
+        "baseline": 0.5450257399016678,
+        "difference": -0.017300749753565325,
+        "difference_95pct_block_interval": [
+          -0.08954225934704109,
+          0.05733716356776141
+        ]
+      },
+      "balanced_accuracy": {
+        "selected": 0.5279617925626198,
+        "baseline": 0.5534632577181768,
+        "difference": -0.025501465155557068,
+        "difference_95pct_block_interval": [
+          -0.09695016007611967,
+          0.04494349568443037
+        ]
+      },
+      "accuracy": {
+        "selected": 0.5280414150129422,
+        "baseline": 0.5608283002588438,
+        "difference": -0.032786885245901565,
+        "difference_95pct_block_interval": [
+          -0.10442191544434859,
+          0.04147972389991364
+        ]
+      },
+      "up_precision": {
+        "selected": 0.5506003430531733,
+        "baseline": 0.5630689206762028,
+        "difference": -0.012468577623029553,
+        "difference_95pct_block_interval": [
+          -0.0814280280713647,
+          0.05588629769450783
+        ]
+      },
+      "up_recall": {
+        "selected": 0.5297029702970297,
+        "baseline": 0.7145214521452146,
+        "difference": -0.18481848184818483,
+        "difference_95pct_block_interval": [
+          -0.31239408784279027,
+          -0.07186650815217391
+        ]
+      },
+      "down_precision": {
+        "selected": 0.5052083333333334,
+        "baseline": 0.5564102564102564,
+        "difference": -0.05120192307692306,
+        "difference_95pct_block_interval": [
+          -0.14231620344024146,
+          0.04071228908198347
+        ]
+      },
+      "down_recall": {
+        "selected": 0.5262206148282098,
+        "baseline": 0.3924050632911392,
+        "difference": 0.1338155515370706,
+        "difference_95pct_block_interval": [
+          0.01889953316475393,
+          0.26239517061885476
+        ]
+      }
+    }
+  },
+  "60": {
+    "rows": 1159,
+    "block_sessions": 60,
+    "requested_block_sessions": 60,
+    "bootstrap_draws": 1000,
+    "seed": 42,
+    "difference_sign": "positive_favors_selected",
+    "metrics": {
+      "macro_f1": {
+        "selected": 0.5277249901481025,
+        "baseline": 0.5450257399016678,
+        "difference": -0.017300749753565325,
+        "difference_95pct_block_interval": [
+          -0.09525031193210287,
+          0.04637614523305027
+        ]
+      },
+      "balanced_accuracy": {
+        "selected": 0.5279617925626198,
+        "baseline": 0.5534632577181768,
+        "difference": -0.025501465155557068,
+        "difference_95pct_block_interval": [
+          -0.10405889405971604,
+          0.038685171799570955
+        ]
+      },
+      "accuracy": {
+        "selected": 0.5280414150129422,
+        "baseline": 0.5608283002588438,
+        "difference": -0.032786885245901565,
+        "difference_95pct_block_interval": [
+          -0.10698878343399476,
+          0.0319240724762726
+        ]
+      },
+      "up_precision": {
+        "selected": 0.5506003430531733,
+        "baseline": 0.5630689206762028,
+        "difference": -0.012468577623029553,
+        "difference_95pct_block_interval": [
+          -0.0843406575582091,
+          0.0531510354360789
+        ]
+      },
+      "up_recall": {
+        "selected": 0.5297029702970297,
+        "baseline": 0.7145214521452146,
+        "difference": -0.18481848184818483,
+        "difference_95pct_block_interval": [
+          -0.32154326138555106,
+          -0.08131529006198195
+        ]
+      },
+      "down_precision": {
+        "selected": 0.5052083333333334,
+        "baseline": 0.5564102564102564,
+        "difference": -0.05120192307692306,
+        "difference_95pct_block_interval": [
+          -0.1522722589349811,
+          0.027109775575193392
+        ]
+      },
+      "down_recall": {
+        "selected": 0.5262206148282098,
+        "baseline": 0.3924050632911392,
+        "difference": 0.1338155515370706,
+        "difference_95pct_block_interval": [
+          0.0033731582216130224,
+          0.2750140814558059
+        ]
+      }
+    }
+  },
+  "90": {
+    "rows": 1159,
+    "block_sessions": 90,
+    "requested_block_sessions": 90,
+    "bootstrap_draws": 1000,
+    "seed": 42,
+    "difference_sign": "positive_favors_selected",
+    "metrics": {
+      "macro_f1": {
+        "selected": 0.5277249901481025,
+        "baseline": 0.5450257399016678,
+        "difference": -0.017300749753565325,
+        "difference_95pct_block_interval": [
+          -0.10610235530903024,
+          0.044894181606861726
+        ]
+      },
+      "balanced_accuracy": {
+        "selected": 0.5279617925626198,
+        "baseline": 0.5534632577181768,
+        "difference": -0.025501465155557068,
+        "difference_95pct_block_interval": [
+          -0.11189016469166428,
+          0.035950549603257304
+        ]
+      },
+      "accuracy": {
+        "selected": 0.5280414150129422,
+        "baseline": 0.5608283002588438,
+        "difference": -0.032786885245901565,
+        "difference_95pct_block_interval": [
+          -0.11561691113028472,
+          0.0319240724762726
+        ]
+      },
+      "up_precision": {
+        "selected": 0.5506003430531733,
+        "baseline": 0.5630689206762028,
+        "difference": -0.012468577623029553,
+        "difference_95pct_block_interval": [
+          -0.09396345860012284,
+          0.05711096601050739
+        ]
+      },
+      "up_recall": {
+        "selected": 0.5297029702970297,
+        "baseline": 0.7145214521452146,
+        "difference": -0.18481848184818483,
+        "difference_95pct_block_interval": [
+          -0.3189456300813008,
+          -0.09351711927102134
+        ]
+      },
+      "down_precision": {
+        "selected": 0.5052083333333334,
+        "baseline": 0.5564102564102564,
+        "difference": -0.05120192307692306,
+        "difference_95pct_block_interval": [
+          -0.15634244539870726,
+          0.020093554488420692
+        ]
+      },
+      "down_recall": {
+        "selected": 0.5262206148282098,
+        "baseline": 0.3924050632911392,
+        "difference": 0.1338155515370706,
+        "difference_95pct_block_interval": [
+          -0.022895497987927588,
+          0.2941478834524463
+        ]
+      }
+    }
+  }
+}

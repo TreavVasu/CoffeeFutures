@@ -1,0 +1,2913 @@
+{
+  "horizon": 21,
+  "horizon_unit": "sessions",
+  "selection": {
+    "name": "blend_0_shrink_0.25",
+    "weights": {
+      "engineered_extra": 0.25
+    },
+    "cv_rmse": 0.10126186560897459,
+    "cv_skill_vs_zero": -0.0037748711677059177
+  },
+  "cv_rows": 2016,
+  "cot_policy": "all",
+  "cv_folds": 4,
+  "candidate_count": 46,
+  "cv_previous_ensemble": {
+    "rows": 2016,
+    "rmse": 0.1004620834493357,
+    "mae": 0.07254789803453293,
+    "direction_accuracy": 0.5590277777777778,
+    "correlation": 0.11406334500053456,
+    "r2_vs_zero": 0.012018456442146275,
+    "mean_prediction": 0.0014485978924892195,
+    "mean_actual": 0.013066796087019144,
+    "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+  },
+  "cv_previous_retuned": {
+    "rows": 2016,
+    "rmse": 0.10028678479985648,
+    "mae": 0.0724187056338146,
+    "direction_accuracy": 0.5525793650793651,
+    "correlation": 0.12326429246080348,
+    "r2_vs_zero": 0.015463352687737353,
+    "mean_prediction": 0.0013419687230828293,
+    "mean_actual": 0.013066796087019144,
+    "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+  },
+  "cv_selected": {
+    "rows": 2016,
+    "rmse": 0.10126186560897459,
+    "mae": 0.07336462419468803,
+    "direction_accuracy": 0.5248015873015873,
+    "correlation": 0.0229582931477125,
+    "r2_vs_zero": -0.0037748711677059177,
+    "mean_prediction": -0.001409193427956919,
+    "mean_actual": 0.013066796087019144,
+    "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+  },
+  "cv_zero": {
+    "rows": 2016,
+    "rmse": 0.10107127976886471,
+    "mae": 0.07343110162620006,
+    "direction_accuracy": 0.001488095238095238,
+    "correlation": null,
+    "r2_vs_zero": 0.0,
+    "mean_prediction": 0.0,
+    "mean_actual": 0.013066796087019144,
+    "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+  },
+  "holdout_start": "2022-01-03",
+  "holdout_end": "2026-08-10",
+  "holdout_refit_policy": "Quarterly with recipe frozen on pre-2022 expanding CV",
+  "holdout_metrics": [
+    {
+      "model": "selected",
+      "rows": 1157,
+      "rmse": 0.11115687610459453,
+      "mae": 0.08304798221704716,
+      "direction_accuracy": 0.5133967156439067,
+      "correlation": 0.02634829850356202,
+      "r2_vs_zero": 0.004273617722925671,
+      "mean_prediction": 0.002314140339247299,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "zero",
+      "rows": 1157,
+      "rmse": 0.1113951611293784,
+      "mae": 0.08336186590326267,
+      "direction_accuracy": 0.000864304235090752,
+      "correlation": null,
+      "r2_vs_zero": 0.0,
+      "mean_prediction": 0.0,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "historical_mean",
+      "rows": 1157,
+      "rmse": 0.11093801298017768,
+      "mae": 0.08343666557053281,
+      "direction_accuracy": 0.5151253241140882,
+      "correlation": -0.11771979062054809,
+      "r2_vs_zero": 0.008190842630340978,
+      "mean_prediction": 0.006884229139322185,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "previous_transferred_ensemble",
+      "rows": 1157,
+      "rmse": 0.11540512941581058,
+      "mae": 0.08702735329647796,
+      "direction_accuracy": 0.5168539325842697,
+      "correlation": -0.04584816211418475,
+      "r2_vs_zero": -0.07329121012515794,
+      "mean_prediction": 0.008484099454647493,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "previous_cv_ensemble",
+      "rows": 1157,
+      "rmse": 0.11557944039143388,
+      "mae": 0.08702109609708393,
+      "direction_accuracy": 0.5159896283491789,
+      "correlation": -0.04047776739766798,
+      "r2_vs_zero": -0.07653591387580527,
+      "mean_prediction": 0.004685341621752092,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "compact_legacy",
+      "rows": 1157,
+      "rmse": 0.1100101743618482,
+      "mae": 0.08330757148376132,
+      "direction_accuracy": 0.5410544511668107,
+      "correlation": 0.170429756604224,
+      "r2_vs_zero": 0.024711610749278856,
+      "mean_prediction": 0.003636255078002607,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    },
+    {
+      "model": "prior_price_recipe",
+      "rows": 1157,
+      "rmse": 0.10962160198518968,
+      "mae": 0.0818788283063422,
+      "direction_accuracy": 0.5453759723422644,
+      "correlation": 0.1917741191019118,
+      "r2_vs_zero": 0.0315891716652581,
+      "mean_prediction": 0.002071354458148076,
+      "mean_actual": 0.012704674229930844,
+      "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."
+    }
+  ],
+  "direction_baselines": {
+    "training_majority_direction": 0.4840103716508211,
+    "always_up_direction": 0.5151253241140882
+  },
+  "block_comparisons": {
+    "zero": {
+      "rmse_difference": -0.00023828502478387414,
+      "rmse_difference_95pct_block_interval": [
+        -0.00127965335892984,
+        0.0011924480165441038
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "historical_mean": {
+      "rmse_difference": 0.00021886312441685152,
+      "rmse_difference_95pct_block_interval": [
+        -0.0010458011156496212,
+        0.0012876206288283956
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "previous_transferred_ensemble": {
+      "rmse_difference": -0.0042482533112160464,
+      "rmse_difference_95pct_block_interval": [
+        -0.009443403843500408,
+        0.0003730512366239942
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "previous_cv_ensemble": {
+      "rmse_difference": -0.004422564286839348,
+      "rmse_difference_95pct_block_interval": [
+        -0.009065392534575854,
+        -0.0005372667074662197
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "compact_legacy": {
+      "rmse_difference": 0.0011467017427463227,
+      "rmse_difference_95pct_block_interval": [
+        -0.0035637000056901375,
+        0.0060879614302422405
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "prior_price_recipe": {
+      "rmse_difference": 0.0015352741194048503,
+      "rmse_difference_95pct_block_interval": [
+        0.000244569527730356,
+        0.002900562047447767
+      ],
+      "block_sessions": 60,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    }
+  },
+  "zero_bootstrap_block_sensitivity": {
+    "30": {
+      "rmse_difference": -0.00023828502478387414,
+      "rmse_difference_95pct_block_interval": [
+        -0.0013021598679140226,
+        0.001223583421502137
+      ],
+      "block_sessions": 30,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    },
+    "90": {
+      "rmse_difference": -0.00023828502478387414,
+      "rmse_difference_95pct_block_interval": [
+        -0.00140943471071535,
+        0.0011536602913139508
+      ],
+      "block_sessions": 90,
+      "bootstrap_draws": 1000,
+      "interpretation": "Negative favors selected; exploratory dependence-aware interval."
+    }
+  },
+  "empirical_80pct_band_holdout_coverage": 0.7519446845289542,
+  "cv_absolute_error_q80": 0.11628596321581912,
+  "data": {
+    "price": {
+      "source": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/data/yahoo/arabica_coffee_futures_history.csv",
+      "rows": 6690,
+      "rejected_rows": 0,
+      "first_date": "2000-01-03",
+      "last_date": "2026-09-09",
+      "invalid_ohlc_rows_masked": 719,
+      "zero_or_one_volume_rows_masked": 308,
+      "policy": "Positive-close observed sessions only; invalid OHLC and volume <= 1 are missing with quality flags. No interpolation, backwards fill, or certification of contract rolls."
+    },
+    "cot": {
+      "source_file": "data/COT/coffee_c_all_cot_data.csv",
+      "feature_schema_version": 2,
+      "backcast_policy": "Retain prelaunch disaggregated archives; current-only history before 2009-10-20, full-history predictors after archive/dependency publication on the next observed session; never replace a newer positioning snapshot with an old archive report",
+      "reports": 2447,
+      "features": 449,
+      "excluded_prelaunch_disaggregated_backcasts": 0,
+      "retained_prelaunch_disaggregated_backcasts": 168,
+      "backcast_publication_date": "2009-10-20",
+      "source_field_coverage": {
+        "legacy_futures_only": {
+          "included_source_fields": {
+            "Open_Interest_All": {
+              "feature": "cot_legacy_source_open_interest_all",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Tot_Rept_Positions_Long_All": {
+              "feature": "cot_legacy_source_tot_rept_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_All": {
+              "feature": "cot_legacy_source_tot_rept_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_All": {
+              "feature": "cot_legacy_source_nonrept_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_All": {
+              "feature": "cot_legacy_source_nonrept_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Open_Interest_Old": {
+              "feature": "cot_legacy_source_open_interest_old",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Tot_Rept_Positions_Long_Old": {
+              "feature": "cot_legacy_source_tot_rept_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_Old": {
+              "feature": "cot_legacy_source_tot_rept_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_Old": {
+              "feature": "cot_legacy_source_nonrept_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_Old": {
+              "feature": "cot_legacy_source_nonrept_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Open_Interest_Other": {
+              "feature": "cot_legacy_source_open_interest_other",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Tot_Rept_Positions_Long_Other": {
+              "feature": "cot_legacy_source_tot_rept_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_Other": {
+              "feature": "cot_legacy_source_tot_rept_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_Other": {
+              "feature": "cot_legacy_source_nonrept_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_Other": {
+              "feature": "cot_legacy_source_nonrept_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Open_Interest_All": {
+              "feature": "cot_legacy_source_change_in_open_interest_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Tot_Rept_Long_All": {
+              "feature": "cot_legacy_source_change_in_tot_rept_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Tot_Rept_Short_All": {
+              "feature": "cot_legacy_source_change_in_tot_rept_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonRept_Long_All": {
+              "feature": "cot_legacy_source_change_in_nonrept_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonRept_Short_All": {
+              "feature": "cot_legacy_source_change_in_nonrept_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Pct_of_Open_Interest_All": {
+              "feature": "cot_legacy_source_pct_of_open_interest_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_All": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_All": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_All": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_All": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_Open_Interest_Old": {
+              "feature": "cot_legacy_source_pct_of_open_interest_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_Open_Interest_Other": {
+              "feature": "cot_legacy_source_pct_of_open_interest_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_nonrept_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Traders_Tot_All": {
+              "feature": "cot_legacy_source_traders_tot_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_All": {
+              "feature": "cot_legacy_source_traders_tot_rept_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_All": {
+              "feature": "cot_legacy_source_traders_tot_rept_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Old": {
+              "feature": "cot_legacy_source_traders_tot_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_Old": {
+              "feature": "cot_legacy_source_traders_tot_rept_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_Old": {
+              "feature": "cot_legacy_source_traders_tot_rept_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Other": {
+              "feature": "cot_legacy_source_traders_tot_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_Other": {
+              "feature": "cot_legacy_source_traders_tot_rept_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_Other": {
+              "feature": "cot_legacy_source_traders_tot_rept_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Conc_Gross_LE_4_TDR_Long_All": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_All": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_All": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_All": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_All": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_All": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_All": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_All": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Long_Old": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_Old": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_Old": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_Old": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_Old": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_Old": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_Old": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_Old": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Long_Other": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_Other": {
+              "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_Other": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_Other": {
+              "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_Other": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_Other": {
+              "feature": "cot_legacy_source_conc_net_le_4_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_Other": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_Other": {
+              "feature": "cot_legacy_source_conc_net_le_8_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "NonComm_Positions_Long_All": {
+              "feature": "cot_legacy_source_noncomm_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Short_All": {
+              "feature": "cot_legacy_source_noncomm_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Postions_Spread_All": {
+              "feature": "cot_legacy_source_noncomm_postions_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Long_All": {
+              "feature": "cot_legacy_source_comm_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Short_All": {
+              "feature": "cot_legacy_source_comm_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Long_Old": {
+              "feature": "cot_legacy_source_noncomm_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Short_Old": {
+              "feature": "cot_legacy_source_noncomm_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Spread_Old": {
+              "feature": "cot_legacy_source_noncomm_positions_spread_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Long_Old": {
+              "feature": "cot_legacy_source_comm_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Short_Old": {
+              "feature": "cot_legacy_source_comm_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Long_Other": {
+              "feature": "cot_legacy_source_noncomm_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Short_Other": {
+              "feature": "cot_legacy_source_noncomm_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonComm_Positions_Spread_Other": {
+              "feature": "cot_legacy_source_noncomm_positions_spread_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Long_Other": {
+              "feature": "cot_legacy_source_comm_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Comm_Positions_Short_Other": {
+              "feature": "cot_legacy_source_comm_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonComm_Long_All": {
+              "feature": "cot_legacy_source_change_in_noncomm_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonComm_Short_All": {
+              "feature": "cot_legacy_source_change_in_noncomm_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonComm_Spead_All": {
+              "feature": "cot_legacy_source_change_in_noncomm_spead_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Comm_Long_All": {
+              "feature": "cot_legacy_source_change_in_comm_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Comm_Short_All": {
+              "feature": "cot_legacy_source_change_in_comm_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Pct_of_OI_NonComm_Long_All": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Short_All": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Spread_All": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Long_All": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Short_All": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Long_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Short_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Spread_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Long_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Short_Old": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Long_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Short_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonComm_Spread_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Long_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Comm_Short_Other": {
+              "feature": "cot_legacy_source_pct_of_oi_comm_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Traders_NonComm_Long_All": {
+              "feature": "cot_legacy_source_traders_noncomm_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Short_All": {
+              "feature": "cot_legacy_source_traders_noncomm_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Spread_All": {
+              "feature": "cot_legacy_source_traders_noncomm_spread_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Long_All": {
+              "feature": "cot_legacy_source_traders_comm_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Short_All": {
+              "feature": "cot_legacy_source_traders_comm_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Long_Old": {
+              "feature": "cot_legacy_source_traders_noncomm_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Short_Old": {
+              "feature": "cot_legacy_source_traders_noncomm_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Spead_Old": {
+              "feature": "cot_legacy_source_traders_noncomm_spead_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Long_Old": {
+              "feature": "cot_legacy_source_traders_comm_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Short_Old": {
+              "feature": "cot_legacy_source_traders_comm_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Long_Other": {
+              "feature": "cot_legacy_source_traders_noncomm_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Short_Other": {
+              "feature": "cot_legacy_source_traders_noncomm_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_NonComm_Spread_Other": {
+              "feature": "cot_legacy_source_traders_noncomm_spread_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Long_Other": {
+              "feature": "cot_legacy_source_traders_comm_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Comm_Short_Other": {
+              "feature": "cot_legacy_source_traders_comm_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            }
+          },
+          "excluded_source_fields": {
+            "source_file": "identifier_or_text_metadata",
+            "source_dataset": "identifier_or_text_metadata",
+            "source_archive": "identifier_or_text_metadata",
+            "Market_and_Exchange_Names": "identifier_or_text_metadata",
+            "As_of_Date_In_Form_YYMMDD": "identifier_or_text_metadata",
+            "Report_Date_as_MM_DD_YYYY": "identifier_or_text_metadata",
+            "CFTC_Contract_Market_Code": "identifier_or_text_metadata",
+            "CFTC_Market_Code": "identifier_or_text_metadata",
+            "CFTC_Region_Code": "identifier_or_text_metadata",
+            "CFTC_Commodity_Code": "identifier_or_text_metadata",
+            "Prod_Merc_Positions_Long_ALL": "other_report_family_schema",
+            "Prod_Merc_Positions_Short_ALL": "other_report_family_schema",
+            "Swap_Positions_Long_All": "other_report_family_schema",
+            "Swap__Positions_Short_All": "other_report_family_schema",
+            "Swap__Positions_Spread_All": "other_report_family_schema",
+            "M_Money_Positions_Long_ALL": "other_report_family_schema",
+            "M_Money_Positions_Short_ALL": "other_report_family_schema",
+            "M_Money_Positions_Spread_ALL": "other_report_family_schema",
+            "Other_Rept_Positions_Long_ALL": "other_report_family_schema",
+            "Other_Rept_Positions_Short_ALL": "other_report_family_schema",
+            "Other_Rept_Positions_Spread_ALL": "other_report_family_schema",
+            "Prod_Merc_Positions_Long_Old": "other_report_family_schema",
+            "Prod_Merc_Positions_Short_Old": "other_report_family_schema",
+            "Swap_Positions_Long_Old": "other_report_family_schema",
+            "Swap_Positions_Short_Old": "other_report_family_schema",
+            "Swap_Positions_Spread_Old": "other_report_family_schema",
+            "M_Money_Positions_Long_Old": "other_report_family_schema",
+            "M_Money_Positions_Short_Old": "other_report_family_schema",
+            "M_Money_Positions_Spread_Old": "other_report_family_schema",
+            "Other_Rept_Positions_Long_Old": "other_report_family_schema",
+            "Other_Rept_Positions_Short_Old": "other_report_family_schema",
+            "Other_Rept_Positions_Spread_Old": "other_report_family_schema",
+            "Prod_Merc_Positions_Long_Other": "other_report_family_schema",
+            "Prod_Merc_Positions_Short_Other": "other_report_family_schema",
+            "Swap_Positions_Long_Other": "other_report_family_schema",
+            "Swap_Positions_Short_Other": "other_report_family_schema",
+            "Swap_Positions_Spread_Other": "other_report_family_schema",
+            "M_Money_Positions_Long_Other": "other_report_family_schema",
+            "M_Money_Positions_Short_Other": "other_report_family_schema",
+            "M_Money_Positions_Spread_Other": "other_report_family_schema",
+            "Other_Rept_Positions_Long_Other": "other_report_family_schema",
+            "Other_Rept_Positions_Short_Other": "other_report_family_schema",
+            "Other_Rept_Positions_Spread_Othr": "other_report_family_schema",
+            "Change_in_Prod_Merc_Long_All": "other_report_family_schema",
+            "Change_in_Prod_Merc_Short_All": "other_report_family_schema",
+            "Change_in_Swap_Long_All": "other_report_family_schema",
+            "Change_in_Swap_Short_All": "other_report_family_schema",
+            "Change_in_Swap_Spread_All": "other_report_family_schema",
+            "Change_in_M_Money_Long_All": "other_report_family_schema",
+            "Change_in_M_Money_Short_All": "other_report_family_schema",
+            "Change_in_M_Money_Spread_All": "other_report_family_schema",
+            "Change_in_Other_Rept_Long_All": "other_report_family_schema",
+            "Change_in_Other_Rept_Short_All": "other_report_family_schema",
+            "Change_in_Other_Rept_Spread_All": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Long_All": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Short_All": "other_report_family_schema",
+            "Pct_of_OI_Swap_Long_All": "other_report_family_schema",
+            "Pct_of_OI_Swap_Short_All": "other_report_family_schema",
+            "Pct_of_OI_Swap_Spread_All": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Long_All": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Short_All": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Spread_All": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Long_All": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Short_All": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Spread_All": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_Swap_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_Swap_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_Swap_Spread_Old": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Spread_Old": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Spread_Old": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_Prod_Merc_Short_Other": "other_report_family_schema",
+            "Pct_of_OI_Swap_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_Swap_Short_Other": "other_report_family_schema",
+            "Pct_of_OI_Swap_Spread_Other": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Short_Other": "other_report_family_schema",
+            "Pct_of_OI_M_Money_Spread_Other": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Short_Other": "other_report_family_schema",
+            "Pct_of_OI_Other_Rept_Spread_Othr": "other_report_family_schema",
+            "Traders_Prod_Merc_Long_All": "other_report_family_schema",
+            "Traders_Prod_Merc_Short_All": "other_report_family_schema",
+            "Traders_Swap_Long_All": "other_report_family_schema",
+            "Traders_Swap_Short_All": "other_report_family_schema",
+            "Traders_Swap_Spread_All": "other_report_family_schema",
+            "Traders_M_Money_Long_All": "other_report_family_schema",
+            "Traders_M_Money_Short_All": "other_report_family_schema",
+            "Traders_M_Money_Spread_All": "other_report_family_schema",
+            "Traders_Other_Rept_Long_All": "other_report_family_schema",
+            "Traders_Other_Rept_Short_All": "other_report_family_schema",
+            "Traders_Other_Rept_Spread_All": "other_report_family_schema",
+            "Traders_Prod_Merc_Long_Old": "other_report_family_schema",
+            "Traders_Prod_Merc_Short_Old": "other_report_family_schema",
+            "Traders_Swap_Long_Old": "other_report_family_schema",
+            "Traders_Swap_Short_Old": "other_report_family_schema",
+            "Traders_Swap_Spread_Old": "other_report_family_schema",
+            "Traders_M_Money_Long_Old": "other_report_family_schema",
+            "Traders_M_Money_Short_Old": "other_report_family_schema",
+            "Traders_M_Money_Spread_Old": "other_report_family_schema",
+            "Traders_Other_Rept_Long_Old": "other_report_family_schema",
+            "Traders_Other_Rept_Short_Old": "other_report_family_schema",
+            "Traders_Other_Rept_Spread_Old": "other_report_family_schema",
+            "Traders_Prod_Merc_Long_Other": "other_report_family_schema",
+            "Traders_Prod_Merc_Short_Other": "other_report_family_schema",
+            "Traders_Swap_Long_Other": "other_report_family_schema",
+            "Traders_Swap_Short_Other": "other_report_family_schema",
+            "Traders_Swap_Spread_Other": "other_report_family_schema",
+            "Traders_M_Money_Long_Other": "other_report_family_schema",
+            "Traders_M_Money_Short_Other": "other_report_family_schema",
+            "Traders_M_Money_Spread_Other": "other_report_family_schema",
+            "Traders_Other_Rept_Long_Other": "other_report_family_schema",
+            "Traders_Other_Rept_Short_Other": "other_report_family_schema",
+            "Traders_Other_Rept_Spread_Other": "other_report_family_schema",
+            "Contract_Units": "identifier_or_text_metadata",
+            "CFTC_SubGroup_Code": "identifier_or_text_metadata",
+            "FutOnly_or_Combined": "identifier_or_text_metadata"
+          },
+          "source_fields_with_observations": [
+            "Open_Interest_All",
+            "Tot_Rept_Positions_Long_All",
+            "Tot_Rept_Positions_Short_All",
+            "NonRept_Positions_Long_All",
+            "NonRept_Positions_Short_All",
+            "Open_Interest_Old",
+            "Tot_Rept_Positions_Long_Old",
+            "Tot_Rept_Positions_Short_Old",
+            "NonRept_Positions_Long_Old",
+            "NonRept_Positions_Short_Old",
+            "Open_Interest_Other",
+            "Tot_Rept_Positions_Long_Other",
+            "Tot_Rept_Positions_Short_Other",
+            "NonRept_Positions_Long_Other",
+            "NonRept_Positions_Short_Other",
+            "Change_in_Open_Interest_All",
+            "Change_in_Tot_Rept_Long_All",
+            "Change_in_Tot_Rept_Short_All",
+            "Change_in_NonRept_Long_All",
+            "Change_in_NonRept_Short_All",
+            "Pct_of_Open_Interest_All",
+            "Pct_of_OI_Tot_Rept_Long_All",
+            "Pct_of_OI_Tot_Rept_Short_All",
+            "Pct_of_OI_NonRept_Long_All",
+            "Pct_of_OI_NonRept_Short_All",
+            "Pct_of_Open_Interest_Old",
+            "Pct_of_OI_Tot_Rept_Long_Old",
+            "Pct_of_OI_Tot_Rept_Short_Old",
+            "Pct_of_OI_NonRept_Long_Old",
+            "Pct_of_OI_NonRept_Short_Old",
+            "Pct_of_Open_Interest_Other",
+            "Pct_of_OI_Tot_Rept_Long_Other",
+            "Pct_of_OI_Tot_Rept_Short_Other",
+            "Pct_of_OI_NonRept_Long_Other",
+            "Pct_of_OI_NonRept_Short_Other",
+            "Traders_Tot_All",
+            "Traders_Tot_Rept_Long_All",
+            "Traders_Tot_Rept_Short_All",
+            "Traders_Tot_Old",
+            "Traders_Tot_Rept_Long_Old",
+            "Traders_Tot_Rept_Short_Old",
+            "Traders_Tot_Other",
+            "Traders_Tot_Rept_Long_Other",
+            "Traders_Tot_Rept_Short_Other",
+            "Conc_Gross_LE_4_TDR_Long_All",
+            "Conc_Gross_LE_4_TDR_Short_All",
+            "Conc_Gross_LE_8_TDR_Long_All",
+            "Conc_Gross_LE_8_TDR_Short_All",
+            "Conc_Net_LE_4_TDR_Long_All",
+            "Conc_Net_LE_4_TDR_Short_All",
+            "Conc_Net_LE_8_TDR_Long_All",
+            "Conc_Net_LE_8_TDR_Short_All",
+            "Conc_Gross_LE_4_TDR_Long_Old",
+            "Conc_Gross_LE_4_TDR_Short_Old",
+            "Conc_Gross_LE_8_TDR_Long_Old",
+            "Conc_Gross_LE_8_TDR_Short_Old",
+            "Conc_Net_LE_4_TDR_Long_Old",
+            "Conc_Net_LE_4_TDR_Short_Old",
+            "Conc_Net_LE_8_TDR_Long_Old",
+            "Conc_Net_LE_8_TDR_Short_Old",
+            "Conc_Gross_LE_4_TDR_Long_Other",
+            "Conc_Gross_LE_4_TDR_Short_Other",
+            "Conc_Gross_LE_8_TDR_Long_Other",
+            "Conc_Gross_LE_8_TDR_Short_Other",
+            "Conc_Net_LE_4_TDR_Long_Other",
+            "Conc_Net_LE_4_TDR_Short_Other",
+            "Conc_Net_LE_8_TDR_Long_Other",
+            "Conc_Net_LE_8_TDR_Short_Other",
+            "NonComm_Positions_Long_All",
+            "NonComm_Positions_Short_All",
+            "NonComm_Postions_Spread_All",
+            "Comm_Positions_Long_All",
+            "Comm_Positions_Short_All",
+            "NonComm_Positions_Long_Old",
+            "NonComm_Positions_Short_Old",
+            "NonComm_Positions_Spread_Old",
+            "Comm_Positions_Long_Old",
+            "Comm_Positions_Short_Old",
+            "NonComm_Positions_Long_Other",
+            "NonComm_Positions_Short_Other",
+            "NonComm_Positions_Spread_Other",
+            "Comm_Positions_Long_Other",
+            "Comm_Positions_Short_Other",
+            "Change_in_NonComm_Long_All",
+            "Change_in_NonComm_Short_All",
+            "Change_in_NonComm_Spead_All",
+            "Change_in_Comm_Long_All",
+            "Change_in_Comm_Short_All",
+            "Pct_of_OI_NonComm_Long_All",
+            "Pct_of_OI_NonComm_Short_All",
+            "Pct_of_OI_NonComm_Spread_All",
+            "Pct_of_OI_Comm_Long_All",
+            "Pct_of_OI_Comm_Short_All",
+            "Pct_of_OI_NonComm_Long_Old",
+            "Pct_of_OI_NonComm_Short_Old",
+            "Pct_of_OI_NonComm_Spread_Old",
+            "Pct_of_OI_Comm_Long_Old",
+            "Pct_of_OI_Comm_Short_Old",
+            "Pct_of_OI_NonComm_Long_Other",
+            "Pct_of_OI_NonComm_Short_Other",
+            "Pct_of_OI_NonComm_Spread_Other",
+            "Pct_of_OI_Comm_Long_Other",
+            "Pct_of_OI_Comm_Short_Other",
+            "Traders_NonComm_Long_All",
+            "Traders_NonComm_Short_All",
+            "Traders_NonComm_Spread_All",
+            "Traders_Comm_Long_All",
+            "Traders_Comm_Short_All",
+            "Traders_NonComm_Long_Old",
+            "Traders_NonComm_Short_Old",
+            "Traders_NonComm_Spead_Old",
+            "Traders_Comm_Long_Old",
+            "Traders_Comm_Short_Old",
+            "Traders_NonComm_Long_Other",
+            "Traders_NonComm_Short_Other",
+            "Traders_NonComm_Spread_Other",
+            "Traders_Comm_Long_Other",
+            "Traders_Comm_Short_Other"
+          ]
+        },
+        "disaggregated_futures_only": {
+          "included_source_fields": {
+            "Open_Interest_All": {
+              "feature": "cot_disagg_source_open_interest_all",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Prod_Merc_Positions_Long_ALL": {
+              "feature": "cot_disagg_source_prod_merc_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Prod_Merc_Positions_Short_ALL": {
+              "feature": "cot_disagg_source_prod_merc_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Long_All": {
+              "feature": "cot_disagg_source_swap_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap__Positions_Short_All": {
+              "feature": "cot_disagg_source_swap_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap__Positions_Spread_All": {
+              "feature": "cot_disagg_source_swap_positions_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Long_ALL": {
+              "feature": "cot_disagg_source_m_money_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Short_ALL": {
+              "feature": "cot_disagg_source_m_money_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Spread_ALL": {
+              "feature": "cot_disagg_source_m_money_positions_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Long_ALL": {
+              "feature": "cot_disagg_source_other_rept_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Short_ALL": {
+              "feature": "cot_disagg_source_other_rept_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Spread_ALL": {
+              "feature": "cot_disagg_source_other_rept_positions_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Long_All": {
+              "feature": "cot_disagg_source_tot_rept_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_All": {
+              "feature": "cot_disagg_source_tot_rept_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_All": {
+              "feature": "cot_disagg_source_nonrept_positions_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_All": {
+              "feature": "cot_disagg_source_nonrept_positions_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Open_Interest_Old": {
+              "feature": "cot_disagg_source_open_interest_old",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Prod_Merc_Positions_Long_Old": {
+              "feature": "cot_disagg_source_prod_merc_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Prod_Merc_Positions_Short_Old": {
+              "feature": "cot_disagg_source_prod_merc_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Long_Old": {
+              "feature": "cot_disagg_source_swap_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Short_Old": {
+              "feature": "cot_disagg_source_swap_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Spread_Old": {
+              "feature": "cot_disagg_source_swap_positions_spread_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Long_Old": {
+              "feature": "cot_disagg_source_m_money_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Short_Old": {
+              "feature": "cot_disagg_source_m_money_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Spread_Old": {
+              "feature": "cot_disagg_source_m_money_positions_spread_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Long_Old": {
+              "feature": "cot_disagg_source_other_rept_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Short_Old": {
+              "feature": "cot_disagg_source_other_rept_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Spread_Old": {
+              "feature": "cot_disagg_source_other_rept_positions_spread_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Long_Old": {
+              "feature": "cot_disagg_source_tot_rept_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_Old": {
+              "feature": "cot_disagg_source_tot_rept_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_Old": {
+              "feature": "cot_disagg_source_nonrept_positions_long_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_Old": {
+              "feature": "cot_disagg_source_nonrept_positions_short_old",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Open_Interest_Other": {
+              "feature": "cot_disagg_source_open_interest_other",
+              "transform": "nonnegative_log1p_open_interest"
+            },
+            "Prod_Merc_Positions_Long_Other": {
+              "feature": "cot_disagg_source_prod_merc_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Prod_Merc_Positions_Short_Other": {
+              "feature": "cot_disagg_source_prod_merc_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Long_Other": {
+              "feature": "cot_disagg_source_swap_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Short_Other": {
+              "feature": "cot_disagg_source_swap_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Swap_Positions_Spread_Other": {
+              "feature": "cot_disagg_source_swap_positions_spread_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Long_Other": {
+              "feature": "cot_disagg_source_m_money_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Short_Other": {
+              "feature": "cot_disagg_source_m_money_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "M_Money_Positions_Spread_Other": {
+              "feature": "cot_disagg_source_m_money_positions_spread_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Long_Other": {
+              "feature": "cot_disagg_source_other_rept_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Short_Other": {
+              "feature": "cot_disagg_source_other_rept_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Other_Rept_Positions_Spread_Othr": {
+              "feature": "cot_disagg_source_other_rept_positions_spread_othr",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Long_Other": {
+              "feature": "cot_disagg_source_tot_rept_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Tot_Rept_Positions_Short_Other": {
+              "feature": "cot_disagg_source_tot_rept_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Long_Other": {
+              "feature": "cot_disagg_source_nonrept_positions_long_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "NonRept_Positions_Short_Other": {
+              "feature": "cot_disagg_source_nonrept_positions_short_other",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Open_Interest_All": {
+              "feature": "cot_disagg_source_change_in_open_interest_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Prod_Merc_Long_All": {
+              "feature": "cot_disagg_source_change_in_prod_merc_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Prod_Merc_Short_All": {
+              "feature": "cot_disagg_source_change_in_prod_merc_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Swap_Long_All": {
+              "feature": "cot_disagg_source_change_in_swap_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Swap_Short_All": {
+              "feature": "cot_disagg_source_change_in_swap_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Swap_Spread_All": {
+              "feature": "cot_disagg_source_change_in_swap_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_M_Money_Long_All": {
+              "feature": "cot_disagg_source_change_in_m_money_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_M_Money_Short_All": {
+              "feature": "cot_disagg_source_change_in_m_money_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_M_Money_Spread_All": {
+              "feature": "cot_disagg_source_change_in_m_money_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Other_Rept_Long_All": {
+              "feature": "cot_disagg_source_change_in_other_rept_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Other_Rept_Short_All": {
+              "feature": "cot_disagg_source_change_in_other_rept_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Other_Rept_Spread_All": {
+              "feature": "cot_disagg_source_change_in_other_rept_spread_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Tot_Rept_Long_All": {
+              "feature": "cot_disagg_source_change_in_tot_rept_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_Tot_Rept_Short_All": {
+              "feature": "cot_disagg_source_change_in_tot_rept_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonRept_Long_All": {
+              "feature": "cot_disagg_source_change_in_nonrept_long_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Change_in_NonRept_Short_All": {
+              "feature": "cot_disagg_source_change_in_nonrept_short_all",
+              "transform": "contracts_divided_by_current_all_open_interest"
+            },
+            "Pct_of_Open_Interest_All": {
+              "feature": "cot_disagg_source_pct_of_open_interest_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Spread_All": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_spread_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Spread_All": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_spread_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Spread_All": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_All": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_All": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_Open_Interest_Old": {
+              "feature": "cot_disagg_source_pct_of_open_interest_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Spread_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_spread_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Spread_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_spread_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Spread_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_Old": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_Open_Interest_Other": {
+              "feature": "cot_disagg_source_pct_of_open_interest_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Prod_Merc_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Swap_Spread_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_swap_spread_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_M_Money_Spread_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_m_money_spread_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Other_Rept_Spread_Othr": {
+              "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_othr",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_Tot_Rept_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Long_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Pct_of_OI_NonRept_Short_Other": {
+              "feature": "cot_disagg_source_pct_of_oi_nonrept_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Traders_Tot_All": {
+              "feature": "cot_disagg_source_traders_tot_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Long_All": {
+              "feature": "cot_disagg_source_traders_prod_merc_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Short_All": {
+              "feature": "cot_disagg_source_traders_prod_merc_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Long_All": {
+              "feature": "cot_disagg_source_traders_swap_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Short_All": {
+              "feature": "cot_disagg_source_traders_swap_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Spread_All": {
+              "feature": "cot_disagg_source_traders_swap_spread_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Long_All": {
+              "feature": "cot_disagg_source_traders_m_money_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Short_All": {
+              "feature": "cot_disagg_source_traders_m_money_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Spread_All": {
+              "feature": "cot_disagg_source_traders_m_money_spread_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Long_All": {
+              "feature": "cot_disagg_source_traders_other_rept_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Short_All": {
+              "feature": "cot_disagg_source_traders_other_rept_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Spread_All": {
+              "feature": "cot_disagg_source_traders_other_rept_spread_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_All": {
+              "feature": "cot_disagg_source_traders_tot_rept_long_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_All": {
+              "feature": "cot_disagg_source_traders_tot_rept_short_all",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Old": {
+              "feature": "cot_disagg_source_traders_tot_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Long_Old": {
+              "feature": "cot_disagg_source_traders_prod_merc_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Short_Old": {
+              "feature": "cot_disagg_source_traders_prod_merc_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Long_Old": {
+              "feature": "cot_disagg_source_traders_swap_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Short_Old": {
+              "feature": "cot_disagg_source_traders_swap_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Spread_Old": {
+              "feature": "cot_disagg_source_traders_swap_spread_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Long_Old": {
+              "feature": "cot_disagg_source_traders_m_money_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Short_Old": {
+              "feature": "cot_disagg_source_traders_m_money_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Spread_Old": {
+              "feature": "cot_disagg_source_traders_m_money_spread_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Long_Old": {
+              "feature": "cot_disagg_source_traders_other_rept_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Short_Old": {
+              "feature": "cot_disagg_source_traders_other_rept_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Spread_Old": {
+              "feature": "cot_disagg_source_traders_other_rept_spread_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_Old": {
+              "feature": "cot_disagg_source_traders_tot_rept_long_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_Old": {
+              "feature": "cot_disagg_source_traders_tot_rept_short_old",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Other": {
+              "feature": "cot_disagg_source_traders_tot_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Long_Other": {
+              "feature": "cot_disagg_source_traders_prod_merc_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Prod_Merc_Short_Other": {
+              "feature": "cot_disagg_source_traders_prod_merc_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Long_Other": {
+              "feature": "cot_disagg_source_traders_swap_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Short_Other": {
+              "feature": "cot_disagg_source_traders_swap_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Swap_Spread_Other": {
+              "feature": "cot_disagg_source_traders_swap_spread_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Long_Other": {
+              "feature": "cot_disagg_source_traders_m_money_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Short_Other": {
+              "feature": "cot_disagg_source_traders_m_money_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_M_Money_Spread_Other": {
+              "feature": "cot_disagg_source_traders_m_money_spread_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Long_Other": {
+              "feature": "cot_disagg_source_traders_other_rept_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Short_Other": {
+              "feature": "cot_disagg_source_traders_other_rept_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Other_Rept_Spread_Other": {
+              "feature": "cot_disagg_source_traders_other_rept_spread_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Long_Other": {
+              "feature": "cot_disagg_source_traders_tot_rept_long_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Traders_Tot_Rept_Short_Other": {
+              "feature": "cot_disagg_source_traders_tot_rept_short_other",
+              "transform": "nonnegative_log1p_trader_count"
+            },
+            "Conc_Gross_LE_4_TDR_Long_All": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_All": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_All": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_All": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_All": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_All": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_All": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_long_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_All": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_short_all",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Long_Old": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_Old": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_Old": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_Old": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_Old": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_Old": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_Old": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_long_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_Old": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_short_old",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Long_Other": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_4_TDR_Short_Other": {
+              "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Long_Other": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Gross_LE_8_TDR_Short_Other": {
+              "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Long_Other": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_4_TDR_Short_Other": {
+              "feature": "cot_disagg_source_conc_net_le_4_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Long_Other": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_long_other",
+              "transform": "percentage_divided_by_100"
+            },
+            "Conc_Net_LE_8_TDR_Short_Other": {
+              "feature": "cot_disagg_source_conc_net_le_8_tdr_short_other",
+              "transform": "percentage_divided_by_100"
+            }
+          },
+          "excluded_source_fields": {
+            "source_file": "identifier_or_text_metadata",
+            "source_dataset": "identifier_or_text_metadata",
+            "source_archive": "identifier_or_text_metadata",
+            "Market_and_Exchange_Names": "identifier_or_text_metadata",
+            "As_of_Date_In_Form_YYMMDD": "identifier_or_text_metadata",
+            "Report_Date_as_MM_DD_YYYY": "identifier_or_text_metadata",
+            "CFTC_Contract_Market_Code": "identifier_or_text_metadata",
+            "CFTC_Market_Code": "identifier_or_text_metadata",
+            "CFTC_Region_Code": "identifier_or_text_metadata",
+            "CFTC_Commodity_Code": "identifier_or_text_metadata",
+            "Contract_Units": "identifier_or_text_metadata",
+            "CFTC_SubGroup_Code": "identifier_or_text_metadata",
+            "FutOnly_or_Combined": "identifier_or_text_metadata",
+            "NonComm_Positions_Long_All": "other_report_family_schema",
+            "NonComm_Positions_Short_All": "other_report_family_schema",
+            "NonComm_Postions_Spread_All": "other_report_family_schema",
+            "Comm_Positions_Long_All": "other_report_family_schema",
+            "Comm_Positions_Short_All": "other_report_family_schema",
+            "NonComm_Positions_Long_Old": "other_report_family_schema",
+            "NonComm_Positions_Short_Old": "other_report_family_schema",
+            "NonComm_Positions_Spread_Old": "other_report_family_schema",
+            "Comm_Positions_Long_Old": "other_report_family_schema",
+            "Comm_Positions_Short_Old": "other_report_family_schema",
+            "NonComm_Positions_Long_Other": "other_report_family_schema",
+            "NonComm_Positions_Short_Other": "other_report_family_schema",
+            "NonComm_Positions_Spread_Other": "other_report_family_schema",
+            "Comm_Positions_Long_Other": "other_report_family_schema",
+            "Comm_Positions_Short_Other": "other_report_family_schema",
+            "Change_in_NonComm_Long_All": "other_report_family_schema",
+            "Change_in_NonComm_Short_All": "other_report_family_schema",
+            "Change_in_NonComm_Spead_All": "other_report_family_schema",
+            "Change_in_Comm_Long_All": "other_report_family_schema",
+            "Change_in_Comm_Short_All": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Long_All": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Short_All": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Spread_All": "other_report_family_schema",
+            "Pct_of_OI_Comm_Long_All": "other_report_family_schema",
+            "Pct_of_OI_Comm_Short_All": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Spread_Old": "other_report_family_schema",
+            "Pct_of_OI_Comm_Long_Old": "other_report_family_schema",
+            "Pct_of_OI_Comm_Short_Old": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Short_Other": "other_report_family_schema",
+            "Pct_of_OI_NonComm_Spread_Other": "other_report_family_schema",
+            "Pct_of_OI_Comm_Long_Other": "other_report_family_schema",
+            "Pct_of_OI_Comm_Short_Other": "other_report_family_schema",
+            "Traders_NonComm_Long_All": "other_report_family_schema",
+            "Traders_NonComm_Short_All": "other_report_family_schema",
+            "Traders_NonComm_Spread_All": "other_report_family_schema",
+            "Traders_Comm_Long_All": "other_report_family_schema",
+            "Traders_Comm_Short_All": "other_report_family_schema",
+            "Traders_NonComm_Long_Old": "other_report_family_schema",
+            "Traders_NonComm_Short_Old": "other_report_family_schema",
+            "Traders_NonComm_Spead_Old": "other_report_family_schema",
+            "Traders_Comm_Long_Old": "other_report_family_schema",
+            "Traders_Comm_Short_Old": "other_report_family_schema",
+            "Traders_NonComm_Long_Other": "other_report_family_schema",
+            "Traders_NonComm_Short_Other": "other_report_family_schema",
+            "Traders_NonComm_Spread_Other": "other_report_family_schema",
+            "Traders_Comm_Long_Other": "other_report_family_schema",
+            "Traders_Comm_Short_Other": "other_report_family_schema"
+          },
+          "source_fields_with_observations": [
+            "Open_Interest_All",
+            "Prod_Merc_Positions_Long_ALL",
+            "Prod_Merc_Positions_Short_ALL",
+            "Swap_Positions_Long_All",
+            "Swap__Positions_Short_All",
+            "Swap__Positions_Spread_All",
+            "M_Money_Positions_Long_ALL",
+            "M_Money_Positions_Short_ALL",
+            "M_Money_Positions_Spread_ALL",
+            "Other_Rept_Positions_Long_ALL",
+            "Other_Rept_Positions_Short_ALL",
+            "Other_Rept_Positions_Spread_ALL",
+            "Tot_Rept_Positions_Long_All",
+            "Tot_Rept_Positions_Short_All",
+            "NonRept_Positions_Long_All",
+            "NonRept_Positions_Short_All",
+            "Open_Interest_Old",
+            "Prod_Merc_Positions_Long_Old",
+            "Prod_Merc_Positions_Short_Old",
+            "Swap_Positions_Long_Old",
+            "Swap_Positions_Short_Old",
+            "Swap_Positions_Spread_Old",
+            "M_Money_Positions_Long_Old",
+            "M_Money_Positions_Short_Old",
+            "M_Money_Positions_Spread_Old",
+            "Other_Rept_Positions_Long_Old",
+            "Other_Rept_Positions_Short_Old",
+            "Other_Rept_Positions_Spread_Old",
+            "Tot_Rept_Positions_Long_Old",
+            "Tot_Rept_Positions_Short_Old",
+            "NonRept_Positions_Long_Old",
+            "NonRept_Positions_Short_Old",
+            "Open_Interest_Other",
+            "Prod_Merc_Positions_Long_Other",
+            "Prod_Merc_Positions_Short_Other",
+            "Swap_Positions_Long_Other",
+            "Swap_Positions_Short_Other",
+            "Swap_Positions_Spread_Other",
+            "M_Money_Positions_Long_Other",
+            "M_Money_Positions_Short_Other",
+            "M_Money_Positions_Spread_Other",
+            "Other_Rept_Positions_Long_Other",
+            "Other_Rept_Positions_Short_Other",
+            "Other_Rept_Positions_Spread_Othr",
+            "Tot_Rept_Positions_Long_Other",
+            "Tot_Rept_Positions_Short_Other",
+            "NonRept_Positions_Long_Other",
+            "NonRept_Positions_Short_Other",
+            "Change_in_Open_Interest_All",
+            "Change_in_Prod_Merc_Long_All",
+            "Change_in_Prod_Merc_Short_All",
+            "Change_in_Swap_Long_All",
+            "Change_in_Swap_Short_All",
+            "Change_in_Swap_Spread_All",
+            "Change_in_M_Money_Long_All",
+            "Change_in_M_Money_Short_All",
+            "Change_in_M_Money_Spread_All",
+            "Change_in_Other_Rept_Long_All",
+            "Change_in_Other_Rept_Short_All",
+            "Change_in_Other_Rept_Spread_All",
+            "Change_in_Tot_Rept_Long_All",
+            "Change_in_Tot_Rept_Short_All",
+            "Change_in_NonRept_Long_All",
+            "Change_in_NonRept_Short_All",
+            "Pct_of_Open_Interest_All",
+            "Pct_of_OI_Prod_Merc_Long_All",
+            "Pct_of_OI_Prod_Merc_Short_All",
+            "Pct_of_OI_Swap_Long_All",
+            "Pct_of_OI_Swap_Short_All",
+            "Pct_of_OI_Swap_Spread_All",
+            "Pct_of_OI_M_Money_Long_All",
+            "Pct_of_OI_M_Money_Short_All",
+            "Pct_of_OI_M_Money_Spread_All",
+            "Pct_of_OI_Other_Rept_Long_All",
+            "Pct_of_OI_Other_Rept_Short_All",
+            "Pct_of_OI_Other_Rept_Spread_All",
+            "Pct_of_OI_Tot_Rept_Long_All",
+            "Pct_of_OI_Tot_Rept_Short_All",
+            "Pct_of_OI_NonRept_Long_All",
+            "Pct_of_OI_NonRept_Short_All",
+            "Pct_of_Open_Interest_Old",
+            "Pct_of_OI_Prod_Merc_Long_Old",
+            "Pct_of_OI_Prod_Merc_Short_Old",
+            "Pct_of_OI_Swap_Long_Old",
+            "Pct_of_OI_Swap_Short_Old",
+            "Pct_of_OI_Swap_Spread_Old",
+            "Pct_of_OI_M_Money_Long_Old",
+            "Pct_of_OI_M_Money_Short_Old",
+            "Pct_of_OI_M_Money_Spread_Old",
+            "Pct_of_OI_Other_Rept_Long_Old",
+            "Pct_of_OI_Other_Rept_Short_Old",
+            "Pct_of_OI_Other_Rept_Spread_Old",
+            "Pct_of_OI_Tot_Rept_Long_Old",
+            "Pct_of_OI_Tot_Rept_Short_Old",
+            "Pct_of_OI_NonRept_Long_Old",
+            "Pct_of_OI_NonRept_Short_Old",
+            "Pct_of_Open_Interest_Other",
+            "Pct_of_OI_Prod_Merc_Long_Other",
+            "Pct_of_OI_Prod_Merc_Short_Other",
+            "Pct_of_OI_Swap_Long_Other",
+            "Pct_of_OI_Swap_Short_Other",
+            "Pct_of_OI_Swap_Spread_Other",
+            "Pct_of_OI_M_Money_Long_Other",
+            "Pct_of_OI_M_Money_Short_Other",
+            "Pct_of_OI_M_Money_Spread_Other",
+            "Pct_of_OI_Other_Rept_Long_Other",
+            "Pct_of_OI_Other_Rept_Short_Other",
+            "Pct_of_OI_Other_Rept_Spread_Othr",
+            "Pct_of_OI_Tot_Rept_Long_Other",
+            "Pct_of_OI_Tot_Rept_Short_Other",
+            "Pct_of_OI_NonRept_Long_Other",
+            "Pct_of_OI_NonRept_Short_Other",
+            "Traders_Tot_All",
+            "Traders_Prod_Merc_Long_All",
+            "Traders_Prod_Merc_Short_All",
+            "Traders_Swap_Long_All",
+            "Traders_Swap_Short_All",
+            "Traders_Swap_Spread_All",
+            "Traders_M_Money_Long_All",
+            "Traders_M_Money_Short_All",
+            "Traders_M_Money_Spread_All",
+            "Traders_Other_Rept_Long_All",
+            "Traders_Other_Rept_Short_All",
+            "Traders_Other_Rept_Spread_All",
+            "Traders_Tot_Rept_Long_All",
+            "Traders_Tot_Rept_Short_All",
+            "Traders_Tot_Old",
+            "Traders_Prod_Merc_Long_Old",
+            "Traders_Prod_Merc_Short_Old",
+            "Traders_Swap_Long_Old",
+            "Traders_Swap_Short_Old",
+            "Traders_Swap_Spread_Old",
+            "Traders_M_Money_Long_Old",
+            "Traders_M_Money_Short_Old",
+            "Traders_M_Money_Spread_Old",
+            "Traders_Other_Rept_Long_Old",
+            "Traders_Other_Rept_Short_Old",
+            "Traders_Other_Rept_Spread_Old",
+            "Traders_Tot_Rept_Long_Old",
+            "Traders_Tot_Rept_Short_Old",
+            "Traders_Tot_Other",
+            "Traders_Prod_Merc_Long_Other",
+            "Traders_Prod_Merc_Short_Other",
+            "Traders_Swap_Long_Other",
+            "Traders_Swap_Short_Other",
+            "Traders_Swap_Spread_Other",
+            "Traders_M_Money_Long_Other",
+            "Traders_M_Money_Short_Other",
+            "Traders_M_Money_Spread_Other",
+            "Traders_Other_Rept_Long_Other",
+            "Traders_Other_Rept_Short_Other",
+            "Traders_Other_Rept_Spread_Other",
+            "Traders_Tot_Rept_Long_Other",
+            "Traders_Tot_Rept_Short_Other",
+            "Conc_Gross_LE_4_TDR_Long_All",
+            "Conc_Gross_LE_4_TDR_Short_All",
+            "Conc_Gross_LE_8_TDR_Long_All",
+            "Conc_Gross_LE_8_TDR_Short_All",
+            "Conc_Net_LE_4_TDR_Long_All",
+            "Conc_Net_LE_4_TDR_Short_All",
+            "Conc_Net_LE_8_TDR_Long_All",
+            "Conc_Net_LE_8_TDR_Short_All",
+            "Conc_Gross_LE_4_TDR_Long_Old",
+            "Conc_Gross_LE_4_TDR_Short_Old",
+            "Conc_Gross_LE_8_TDR_Long_Old",
+            "Conc_Gross_LE_8_TDR_Short_Old",
+            "Conc_Net_LE_4_TDR_Long_Old",
+            "Conc_Net_LE_4_TDR_Short_Old",
+            "Conc_Net_LE_8_TDR_Long_Old",
+            "Conc_Net_LE_8_TDR_Short_Old",
+            "Conc_Gross_LE_4_TDR_Long_Other",
+            "Conc_Gross_LE_4_TDR_Short_Other",
+            "Conc_Gross_LE_8_TDR_Long_Other",
+            "Conc_Gross_LE_8_TDR_Short_Other",
+            "Conc_Net_LE_4_TDR_Long_Other",
+            "Conc_Net_LE_4_TDR_Short_Other",
+            "Conc_Net_LE_8_TDR_Long_Other",
+            "Conc_Net_LE_8_TDR_Short_Other"
+          ]
+        }
+      },
+      "alignment": "Backward as-of on first observed trading session strictly after publication; no backfill",
+      "normal_release_rule": "Estimated max(three federal business days after position date, report-week Friday); Friday snapshots use next Friday; 15:30 ET; dates labelled estimated",
+      "override_schema": "MonthFu/data/cot_release_overrides.csv (preferred) or data/COT/cot_release_overrides.csv: report_date,publication_date,source",
+      "weekly_windows": "Ordered weekly reports; pre-archive current-only windows, full archive history activates only after its publication/dependency dates; latest snapshot always wins",
+      "release_method_counts": {
+        "estimated_three_federal_business_days_friday_floor": 2194,
+        "announced_2009_disaggregated_backcast_archive": 168,
+        "announced_2025_revised_schedule": 26,
+        "announced_2019_catchup_schedule": 20,
+        "confirmed_2023_ion": 14,
+        "conservative_2013_catchup_bound": 8,
+        "announced_2026_calendar": 6,
+        "announced_2013_restart": 2,
+        "announced_2014_holiday": 2,
+        "confirmed_2020_holiday": 2,
+        "announced_2021_juneteenth": 2,
+        "announced_mourning_delay": 2,
+        "announced_2008_holiday": 1
+      },
+      "known_corrected_archive_reports": 7,
+      "sources": {
+        "regular": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+        "release_faq": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+        "special": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalSpecialAnnouncements/index.htm",
+        "shutdown_2013": "https://www.cftc.gov/PressRoom/PressReleases/6745-13",
+        "shutdown_2019": "https://www.cftc.gov/PressRoom/PressReleases/7864-19",
+        "shutdown_2025": "https://www.cftc.gov/PressRoom/PressReleases/9147-25",
+        "disaggregated_launch": "https://www.cftc.gov/PressRoom/PressReleases/5710-09",
+        "historical_backcast": "https://www.cftc.gov/PressRoom/PressReleases/5737-09",
+        "coffee_first_disaggregated_report": "https://www.cftc.gov/sites/default/files/files/dea/cotarchives/2009/futures/ag_lf090109.htm",
+        "coffee_hours": "https://www.ice.com/products/15/Coffee-C-Futures"
+      },
+      "limitations": [
+        "Raw historical archives may contain subsequent revisions; original as-published data vintages are unavailable.",
+        "Known Coffee futures corrections (2010-05-18, 2018-09-18 legacy concentration, 2019-03-26) and the non-market-specific 2012-11-27 update are withheld until their announced correction dates; unannounced/unidentified revisions remain possible.",
+        "Ordinary historical release dates are estimates, not a complete verified historical publication calendar.",
+        "2013 intermediate backlog reports are withheld until the announced completion bound; 2019 catch-up dates follow the announced twice-weekly schedule.",
+        "Pre-September-2009 disaggregated backcasts are retained, but cannot seed live/rolling predictors before October 20, 2009; archive publication time is unspecified, so first use is the following observed session. Classification history was backcast rather than measured contemporaneously.",
+        "Observed price dates provide the trading calendar; a missing price session can conservatively postpone availability."
+      ]
+    },
+    "external": {
+      "weather": {
+        "path": "data/weather/open_meteo_coffee_regions_daily.csv",
+        "available": true,
+        "availability_lag_calendar_days": 5,
+        "maximum_carry_after_availability_calendar_days": 7,
+        "alignment": "Daily calendar rollups; source Date + 5 calendar days; backward asof; stale weather values become NaN after 7 further days; no backward fill.",
+        "climatology": "Previous five same-calendar-month occurrences only, excluding the entire current month/year; at least two prior months and 45 valid observations.",
+        "vintage_limitation": "Local Open-Meteo historical reanalysis has no archived publication vintages. A 5-day availability proxy reduces timing leakage but cannot remove historical revisions. Results are conditional on this proxy.",
+        "crop_interactions": "Broad Brazil flowering Sep-Nov, harvest May-Sep, winter Jun-Aug indicators are modeling hypotheses; not location-specific crop surveys. Vietnam is an indirect competing-origin proxy.",
+        "rows": 9747,
+        "regions": {
+          "brazil_minas_gerais": {
+            "observations": 9747,
+            "start": "2000-01-03",
+            "end": "2026-09-09",
+            "fresh_match_fraction": 0.9992526158445441,
+            "latest_used_source": "2026-09-04"
+          },
+          "colombia_huila": {
+            "observations": 9747,
+            "start": "2000-01-03",
+            "end": "2026-09-09",
+            "fresh_match_fraction": 0.9992526158445441,
+            "latest_used_source": "2026-09-04"
+          },
+          "vietnam_dak_lak": {
+            "observations": 9747,
+            "start": "2000-01-03",
+            "end": "2026-09-09",
+            "fresh_match_fraction": 0.9992526158445441,
+            "latest_used_source": "2026-09-04"
+          }
+        }
+      },
+      "news": {
+        "daily_path": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv",
+        "weekly_path": "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv",
+        "daily_available": true,
+        "weekly_available": true,
+        "availability_lag_observed_sessions": 6,
+        "maximum_source_age_calendar_days": 35,
+        "daily_source_columns": [
+          "trading_date",
+          "event_count",
+          "bullish_events",
+          "bearish_events"
+        ],
+        "weekly_source_columns": [
+          "period_end",
+          "event_count",
+          "bullish_event_count",
+          "bearish_event_count",
+          "explicit_coffee_event_count",
+          "mean_event_intensity_score_0_1",
+          "top_event_digest"
+        ],
+        "excluded": "All future-return, price-response, impact, deterministic-score and LLM-score columns. Embedded digest numbers are not parsed.",
+        "status": "exploratory_retrospectively_selected_not_point_in_time_certified",
+        "limitation": "Event retention/ranking used subsequent 5-session returns and year/full-history fallback return quantiles. Six observed sessions delay direct return maturity; it cannot reverse retrospective normalization, selection, revised data or missing publication snapshots. Keep news an optional exploratory ablation, excluded from the default deployable feature group.",
+        "missingness": "Absent source rows remain missing, not zero-event days. Six-session lag uses the supplied complete price calendar. Weekly features expire after 35 calendar days from period end.",
+        "daily_rows": 6692,
+        "daily_span": {
+          "start": "2000-01-03",
+          "end": "2026-09-09"
+        },
+        "weekly_rows": 1393,
+        "weekly_span": {
+          "start": "2000-01-09",
+          "end": "2026-09-13"
+        }
+      },
+      "feature_counts": {
+        "weather": 281,
+        "news": 37
+      },
+      "feature_missing_fraction": {
+        "weather_brazil_minas_gerais_temp_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_temp_max_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_rain_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_soil_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_vpd_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_water_balance_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_temp_seasonal_z_7d": 0.07473841554559044,
+        "weather_brazil_minas_gerais_rain_seasonal_z_7d": 0.07473841554559044,
+        "weather_brazil_minas_gerais_soil_seasonal_z_7d": 0.07473841554559044,
+        "weather_brazil_minas_gerais_dry_share_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_heat_degrees_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_cold_share_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_heavy_rain_share_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_temp_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_temp_max_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_rain_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_soil_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_vpd_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_water_balance_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_temp_seasonal_z_14d": 0.07533632286995516,
+        "weather_brazil_minas_gerais_rain_seasonal_z_14d": 0.07533632286995516,
+        "weather_brazil_minas_gerais_soil_seasonal_z_14d": 0.07533632286995516,
+        "weather_brazil_minas_gerais_dry_share_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_heat_degrees_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_cold_share_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_heavy_rain_share_14d": 0.0016442451420029896,
+        "weather_brazil_minas_gerais_temp_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_max_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_rain_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_soil_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_vpd_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_water_balance_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_seasonal_z_28d": 0.07623318385650224,
+        "weather_brazil_minas_gerais_rain_seasonal_z_28d": 0.07623318385650224,
+        "weather_brazil_minas_gerais_soil_seasonal_z_28d": 0.07623318385650224,
+        "weather_brazil_minas_gerais_dry_share_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_heat_degrees_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_cold_share_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_heavy_rain_share_28d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_max_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_rain_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_soil_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_vpd_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_water_balance_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_seasonal_z_30d": 0.07638266068759342,
+        "weather_brazil_minas_gerais_rain_seasonal_z_30d": 0.07638266068759342,
+        "weather_brazil_minas_gerais_soil_seasonal_z_30d": 0.07638266068759342,
+        "weather_brazil_minas_gerais_dry_share_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_heat_degrees_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_cold_share_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_heavy_rain_share_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_temp_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_temp_max_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_rain_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_soil_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_vpd_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_water_balance_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_temp_seasonal_z_60d": 0.07892376681614349,
+        "weather_brazil_minas_gerais_rain_seasonal_z_60d": 0.07892376681614349,
+        "weather_brazil_minas_gerais_soil_seasonal_z_60d": 0.07892376681614349,
+        "weather_brazil_minas_gerais_dry_share_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_heat_degrees_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_cold_share_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_heavy_rain_share_60d": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_temp_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_temp_max_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_rain_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_soil_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_vpd_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_water_balance_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_temp_seasonal_z_90d": 0.08131539611360239,
+        "weather_brazil_minas_gerais_rain_seasonal_z_90d": 0.08131539611360239,
+        "weather_brazil_minas_gerais_soil_seasonal_z_90d": 0.08131539611360239,
+        "weather_brazil_minas_gerais_dry_share_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_heat_degrees_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_cold_share_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_heavy_rain_share_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_dry_spell_days": 0.0007473841554559044,
+        "weather_brazil_minas_gerais_rain_acceleration": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_soil_change_30d": 0.004334828101644245,
+        "weather_brazil_minas_gerais_heat_vpd_stress_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_max_dry_spell_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_dry_heat_stress_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_rain_trend_30_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_soil_trend_30_90d": 0.007922272047832586,
+        "weather_brazil_minas_gerais_water_deficit_30d": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_min_temperature_7d": 0.001195814648729447,
+        "weather_brazil_minas_gerais_flowering_water_deficit": 0.0053811659192825115,
+        "weather_brazil_minas_gerais_harvest_rain": 0.0028400597907324364,
+        "weather_brazil_minas_gerais_winter_cold_risk": 0.001195814648729447,
+        "weather_brazil_minas_gerais_source_age_days": 0.0007473841554559044,
+        "weather_brazil_minas_gerais_stale": 0.0,
+        "weather_colombia_huila_temp_7d": 0.001195814648729447,
+        "weather_colombia_huila_temp_max_7d": 0.001195814648729447,
+        "weather_colombia_huila_rain_7d": 0.001195814648729447,
+        "weather_colombia_huila_soil_7d": 0.001195814648729447,
+        "weather_colombia_huila_vpd_7d": 0.001195814648729447,
+        "weather_colombia_huila_water_balance_7d": 0.001195814648729447,
+        "weather_colombia_huila_temp_seasonal_z_7d": 0.07473841554559044,
+        "weather_colombia_huila_rain_seasonal_z_7d": 0.07473841554559044,
+        "weather_colombia_huila_soil_seasonal_z_7d": 0.07473841554559044,
+        "weather_colombia_huila_dry_share_7d": 0.001195814648729447,
+        "weather_colombia_huila_heat_degrees_7d": 0.001195814648729447,
+        "weather_colombia_huila_cold_share_7d": 0.001195814648729447,
+        "weather_colombia_huila_heavy_rain_share_7d": 0.001195814648729447,
+        "weather_colombia_huila_temp_14d": 0.0016442451420029896,
+        "weather_colombia_huila_temp_max_14d": 0.0016442451420029896,
+        "weather_colombia_huila_rain_14d": 0.0016442451420029896,
+        "weather_colombia_huila_soil_14d": 0.0016442451420029896,
+        "weather_colombia_huila_vpd_14d": 0.0016442451420029896,
+        "weather_colombia_huila_water_balance_14d": 0.0016442451420029896,
+        "weather_colombia_huila_temp_seasonal_z_14d": 0.07533632286995516,
+        "weather_colombia_huila_rain_seasonal_z_14d": 0.07533632286995516,
+        "weather_colombia_huila_soil_seasonal_z_14d": 0.07533632286995516,
+        "weather_colombia_huila_dry_share_14d": 0.0016442451420029896,
+        "weather_colombia_huila_heat_degrees_14d": 0.0016442451420029896,
+        "weather_colombia_huila_cold_share_14d": 0.0016442451420029896,
+        "weather_colombia_huila_heavy_rain_share_14d": 0.0016442451420029896,
+        "weather_colombia_huila_temp_28d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_max_28d": 0.0028400597907324364,
+        "weather_colombia_huila_rain_28d": 0.0028400597907324364,
+        "weather_colombia_huila_soil_28d": 0.0028400597907324364,
+        "weather_colombia_huila_vpd_28d": 0.0028400597907324364,
+        "weather_colombia_huila_water_balance_28d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_seasonal_z_28d": 0.07623318385650224,
+        "weather_colombia_huila_rain_seasonal_z_28d": 0.07623318385650224,
+        "weather_colombia_huila_soil_seasonal_z_28d": 0.07623318385650224,
+        "weather_colombia_huila_dry_share_28d": 0.0028400597907324364,
+        "weather_colombia_huila_heat_degrees_28d": 0.0028400597907324364,
+        "weather_colombia_huila_cold_share_28d": 0.0028400597907324364,
+        "weather_colombia_huila_heavy_rain_share_28d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_30d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_max_30d": 0.0028400597907324364,
+        "weather_colombia_huila_rain_30d": 0.0028400597907324364,
+        "weather_colombia_huila_soil_30d": 0.0028400597907324364,
+        "weather_colombia_huila_vpd_30d": 0.0028400597907324364,
+        "weather_colombia_huila_water_balance_30d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_seasonal_z_30d": 0.07638266068759342,
+        "weather_colombia_huila_rain_seasonal_z_30d": 0.07638266068759342,
+        "weather_colombia_huila_soil_seasonal_z_30d": 0.07638266068759342,
+        "weather_colombia_huila_dry_share_30d": 0.0028400597907324364,
+        "weather_colombia_huila_heat_degrees_30d": 0.0028400597907324364,
+        "weather_colombia_huila_cold_share_30d": 0.0028400597907324364,
+        "weather_colombia_huila_heavy_rain_share_30d": 0.0028400597907324364,
+        "weather_colombia_huila_temp_60d": 0.0053811659192825115,
+        "weather_colombia_huila_temp_max_60d": 0.0053811659192825115,
+        "weather_colombia_huila_rain_60d": 0.0053811659192825115,
+        "weather_colombia_huila_soil_60d": 0.0053811659192825115,
+        "weather_colombia_huila_vpd_60d": 0.0053811659192825115,
+        "weather_colombia_huila_water_balance_60d": 0.0053811659192825115,
+        "weather_colombia_huila_temp_seasonal_z_60d": 0.07892376681614349,
+        "weather_colombia_huila_rain_seasonal_z_60d": 0.07892376681614349,
+        "weather_colombia_huila_soil_seasonal_z_60d": 0.07892376681614349,
+        "weather_colombia_huila_dry_share_60d": 0.0053811659192825115,
+        "weather_colombia_huila_heat_degrees_60d": 0.0053811659192825115,
+        "weather_colombia_huila_cold_share_60d": 0.0053811659192825115,
+        "weather_colombia_huila_heavy_rain_share_60d": 0.0053811659192825115,
+        "weather_colombia_huila_temp_90d": 0.007922272047832586,
+        "weather_colombia_huila_temp_max_90d": 0.007922272047832586,
+        "weather_colombia_huila_rain_90d": 0.007922272047832586,
+        "weather_colombia_huila_soil_90d": 0.007922272047832586,
+        "weather_colombia_huila_vpd_90d": 0.007922272047832586,
+        "weather_colombia_huila_water_balance_90d": 0.007922272047832586,
+        "weather_colombia_huila_temp_seasonal_z_90d": 0.08131539611360239,
+        "weather_colombia_huila_rain_seasonal_z_90d": 0.08131539611360239,
+        "weather_colombia_huila_soil_seasonal_z_90d": 0.08131539611360239,
+        "weather_colombia_huila_dry_share_90d": 0.007922272047832586,
+        "weather_colombia_huila_heat_degrees_90d": 0.007922272047832586,
+        "weather_colombia_huila_cold_share_90d": 0.007922272047832586,
+        "weather_colombia_huila_heavy_rain_share_90d": 0.007922272047832586,
+        "weather_colombia_huila_dry_spell_days": 0.0007473841554559044,
+        "weather_colombia_huila_rain_acceleration": 0.0028400597907324364,
+        "weather_colombia_huila_soil_change_30d": 0.004334828101644245,
+        "weather_colombia_huila_heat_vpd_stress_30d": 0.0028400597907324364,
+        "weather_colombia_huila_max_dry_spell_30d": 0.0028400597907324364,
+        "weather_colombia_huila_dry_heat_stress_30d": 0.0028400597907324364,
+        "weather_colombia_huila_rain_trend_30_90d": 0.007922272047832586,
+        "weather_colombia_huila_soil_trend_30_90d": 0.007922272047832586,
+        "weather_colombia_huila_water_deficit_30d": 0.0028400597907324364,
+        "weather_colombia_huila_min_temperature_7d": 0.001195814648729447,
+        "weather_colombia_huila_source_age_days": 0.0007473841554559044,
+        "weather_colombia_huila_stale": 0.0,
+        "weather_vietnam_dak_lak_temp_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_temp_max_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_rain_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_soil_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_vpd_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_water_balance_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_temp_seasonal_z_7d": 0.07473841554559044,
+        "weather_vietnam_dak_lak_rain_seasonal_z_7d": 0.07473841554559044,
+        "weather_vietnam_dak_lak_soil_seasonal_z_7d": 0.07473841554559044,
+        "weather_vietnam_dak_lak_dry_share_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_heat_degrees_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_cold_share_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_heavy_rain_share_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_temp_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_temp_max_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_rain_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_soil_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_vpd_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_water_balance_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_temp_seasonal_z_14d": 0.07533632286995516,
+        "weather_vietnam_dak_lak_rain_seasonal_z_14d": 0.07533632286995516,
+        "weather_vietnam_dak_lak_soil_seasonal_z_14d": 0.07533632286995516,
+        "weather_vietnam_dak_lak_dry_share_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_heat_degrees_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_cold_share_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_heavy_rain_share_14d": 0.0016442451420029896,
+        "weather_vietnam_dak_lak_temp_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_max_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_rain_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_soil_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_vpd_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_water_balance_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_seasonal_z_28d": 0.07623318385650224,
+        "weather_vietnam_dak_lak_rain_seasonal_z_28d": 0.07623318385650224,
+        "weather_vietnam_dak_lak_soil_seasonal_z_28d": 0.07623318385650224,
+        "weather_vietnam_dak_lak_dry_share_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_heat_degrees_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_cold_share_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_heavy_rain_share_28d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_max_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_rain_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_soil_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_vpd_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_water_balance_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_seasonal_z_30d": 0.07638266068759342,
+        "weather_vietnam_dak_lak_rain_seasonal_z_30d": 0.07638266068759342,
+        "weather_vietnam_dak_lak_soil_seasonal_z_30d": 0.07638266068759342,
+        "weather_vietnam_dak_lak_dry_share_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_heat_degrees_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_cold_share_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_heavy_rain_share_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_temp_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_temp_max_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_rain_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_soil_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_vpd_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_water_balance_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_temp_seasonal_z_60d": 0.07892376681614349,
+        "weather_vietnam_dak_lak_rain_seasonal_z_60d": 0.07892376681614349,
+        "weather_vietnam_dak_lak_soil_seasonal_z_60d": 0.07892376681614349,
+        "weather_vietnam_dak_lak_dry_share_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_heat_degrees_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_cold_share_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_heavy_rain_share_60d": 0.0053811659192825115,
+        "weather_vietnam_dak_lak_temp_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_temp_max_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_rain_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_soil_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_vpd_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_water_balance_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_temp_seasonal_z_90d": 0.08131539611360239,
+        "weather_vietnam_dak_lak_rain_seasonal_z_90d": 0.08131539611360239,
+        "weather_vietnam_dak_lak_soil_seasonal_z_90d": 0.08131539611360239,
+        "weather_vietnam_dak_lak_dry_share_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_heat_degrees_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_cold_share_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_heavy_rain_share_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_dry_spell_days": 0.0007473841554559044,
+        "weather_vietnam_dak_lak_rain_acceleration": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_soil_change_30d": 0.004334828101644245,
+        "weather_vietnam_dak_lak_heat_vpd_stress_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_max_dry_spell_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_dry_heat_stress_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_rain_trend_30_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_soil_trend_30_90d": 0.007922272047832586,
+        "weather_vietnam_dak_lak_water_deficit_30d": 0.0028400597907324364,
+        "weather_vietnam_dak_lak_min_temperature_7d": 0.001195814648729447,
+        "weather_vietnam_dak_lak_source_age_days": 0.0007473841554559044,
+        "weather_vietnam_dak_lak_stale": 0.0,
+        "weather_arabica_region_mean_rain_seasonal_z_30d": 0.07638266068759342,
+        "weather_arabica_region_difference_rain_seasonal_z_30d": 0.07638266068759342,
+        "weather_arabica_region_mean_temp_seasonal_z_30d": 0.07638266068759342,
+        "weather_arabica_region_difference_temp_seasonal_z_30d": 0.07638266068759342,
+        "weather_arabica_region_mean_rain_seasonal_z_90d": 0.08131539611360239,
+        "weather_arabica_region_difference_rain_seasonal_z_90d": 0.08131539611360239,
+        "weather_arabica_region_mean_water_balance_60d": 0.0053811659192825115,
+        "weather_arabica_region_difference_water_balance_60d": 0.0053811659192825115,
+        "news_daily_event_count_log_5s": 0.0010463378176382662,
+        "news_daily_bull_minus_bear_share_5s": 0.0010463378176382662,
+        "news_daily_event_count_log_20s": 0.002242152466367713,
+        "news_daily_bull_minus_bear_share_20s": 0.002242152466367713,
+        "news_daily_event_count_log_21s": 0.002242152466367713,
+        "news_daily_bull_minus_bear_share_21s": 0.002242152466367713,
+        "news_daily_event_count_log_28s": 0.0028400597907324364,
+        "news_daily_bull_minus_bear_share_28s": 0.0028400597907324364,
+        "news_daily_event_count_log_30s": 0.0029895366218236174,
+        "news_daily_bull_minus_bear_share_30s": 0.0029895366218236174,
+        "news_daily_event_count_log_60s": 0.00523168908819133,
+        "news_daily_bull_minus_bear_share_60s": 0.00523168908819133,
+        "news_daily_direction_change": 0.0029895366218236174,
+        "news_daily_volume_change": 0.0029895366218236174,
+        "news_daily_observed_fraction_30s": 0.0008968609865470852,
+        "news_daily_source_age_days": 0.0008968609865470852,
+        "news_daily_stale": 0.0,
+        "news_weekly_event_count_log": 0.0014947683109118087,
+        "news_weekly_bull_minus_bear_share": 0.0014947683109118087,
+        "news_weekly_direction_concentration": 0.0014947683109118087,
+        "news_weekly_explicit_coffee_share": 0.0014947683109118087,
+        "news_weekly_mean_event_intensity": 0.0014947683109118087,
+        "news_weekly_text_disruption": 0.0014947683109118087,
+        "news_weekly_text_support": 0.0014947683109118087,
+        "news_weekly_text_coffee": 0.0014947683109118087,
+        "news_weekly_event_count_log_20s": 0.0028400597907324364,
+        "news_weekly_bull_minus_bear_share_20s": 0.0028400597907324364,
+        "news_weekly_event_count_log_21s": 0.0028400597907324364,
+        "news_weekly_bull_minus_bear_share_21s": 0.0028400597907324364,
+        "news_weekly_event_count_log_28s": 0.0034379671150971598,
+        "news_weekly_bull_minus_bear_share_28s": 0.0034379671150971598,
+        "news_weekly_event_count_log_30s": 0.003587443946188341,
+        "news_weekly_bull_minus_bear_share_30s": 0.003587443946188341,
+        "news_weekly_event_count_log_60s": 0.005829596412556054,
+        "news_weekly_bull_minus_bear_share_60s": 0.005829596412556054,
+        "news_weekly_source_age_days": 0.0014947683109118087,
+        "news_weekly_stale": 0.0
+      }
+    },
+    "feature_counts": {
+      "previous_technical": 18,
+      "previous_history": 13,
+      "compact_legacy": 18,
+      "price": 245,
+      "price_cot": 694,
+      "price_cot_weather": 975,
+      "monthly_core": 104,
+      "monthly_core_all_cot": 521,
+      "engineered": 1032,
+      "experimental_news": 1069
+    },
+    "signal_time": "After daily Coffee C close; close-to-close research returns",
+    "feature_policy": "Only trailing observations; no backwards fill, target-based full-history selection, or full-history scaling. OHLCV enters only previous_technical.",
+    "cot_policy": "all",
+    "required_cot_features": [
+      "cot_legacy_log_open_interest",
+      "cot_legacy_oi_change_1w",
+      "cot_legacy_oi_change_4w",
+      "cot_legacy_oi_change_13w",
+      "cot_legacy_oi_z_52w",
+      "cot_legacy_report_gap_days",
+      "cot_legacy_old_crop_oi_share",
+      "cot_legacy_trader_count_log",
+      "cot_legacy_contracts_per_trader",
+      "cot_legacy_commercial_net_oi",
+      "cot_legacy_commercial_long_oi",
+      "cot_legacy_commercial_short_oi",
+      "cot_legacy_commercial_gross_oi",
+      "cot_legacy_commercial_long_short_balance",
+      "cot_legacy_commercial_net_change_1w",
+      "cot_legacy_commercial_net_change_4w",
+      "cot_legacy_commercial_net_change_13w",
+      "cot_legacy_commercial_net_acceleration_4w",
+      "cot_legacy_commercial_net_z_26w",
+      "cot_legacy_commercial_net_z_52w",
+      "cot_legacy_commercial_net_change_z_26w",
+      "cot_legacy_commercial_index_52w",
+      "cot_legacy_commercial_index_156w",
+      "cot_legacy_noncommercial_net_oi",
+      "cot_legacy_noncommercial_long_oi",
+      "cot_legacy_noncommercial_short_oi",
+      "cot_legacy_noncommercial_gross_oi",
+      "cot_legacy_noncommercial_long_short_balance",
+      "cot_legacy_noncommercial_net_change_1w",
+      "cot_legacy_noncommercial_net_change_4w",
+      "cot_legacy_noncommercial_net_change_13w",
+      "cot_legacy_noncommercial_net_acceleration_4w",
+      "cot_legacy_noncommercial_net_z_26w",
+      "cot_legacy_noncommercial_net_z_52w",
+      "cot_legacy_noncommercial_net_change_z_26w",
+      "cot_legacy_noncommercial_spread_oi",
+      "cot_legacy_noncommercial_index_52w",
+      "cot_legacy_noncommercial_index_156w",
+      "cot_legacy_nonreportable_net_oi",
+      "cot_legacy_nonreportable_long_oi",
+      "cot_legacy_nonreportable_short_oi",
+      "cot_legacy_nonreportable_gross_oi",
+      "cot_legacy_nonreportable_long_short_balance",
+      "cot_legacy_nonreportable_net_change_1w",
+      "cot_legacy_nonreportable_net_change_4w",
+      "cot_legacy_nonreportable_net_change_13w",
+      "cot_legacy_nonreportable_net_acceleration_4w",
+      "cot_legacy_nonreportable_net_z_26w",
+      "cot_legacy_nonreportable_net_z_52w",
+      "cot_legacy_nonreportable_net_change_z_26w",
+      "cot_legacy_nonreportable_index_52w",
+      "cot_legacy_nonreportable_index_156w",
+      "cot_legacy_concentration_gross_4_imbalance",
+      "cot_legacy_concentration_net_4_imbalance",
+      "cot_legacy_concentration_gross_8_imbalance",
+      "cot_legacy_concentration_net_8_imbalance",
+      "cot_legacy_source_open_interest_all",
+      "cot_legacy_source_tot_rept_positions_long_all",
+      "cot_legacy_source_tot_rept_positions_short_all",
+      "cot_legacy_source_nonrept_positions_long_all",
+      "cot_legacy_source_nonrept_positions_short_all",
+      "cot_legacy_source_open_interest_old",
+      "cot_legacy_source_tot_rept_positions_long_old",
+      "cot_legacy_source_tot_rept_positions_short_old",
+      "cot_legacy_source_nonrept_positions_long_old",
+      "cot_legacy_source_nonrept_positions_short_old",
+      "cot_legacy_source_open_interest_other",
+      "cot_legacy_source_tot_rept_positions_long_other",
+      "cot_legacy_source_tot_rept_positions_short_other",
+      "cot_legacy_source_nonrept_positions_long_other",
+      "cot_legacy_source_nonrept_positions_short_other",
+      "cot_legacy_source_change_in_open_interest_all",
+      "cot_legacy_source_change_in_tot_rept_long_all",
+      "cot_legacy_source_change_in_tot_rept_short_all",
+      "cot_legacy_source_change_in_nonrept_long_all",
+      "cot_legacy_source_change_in_nonrept_short_all",
+      "cot_legacy_source_pct_of_open_interest_all",
+      "cot_legacy_source_pct_of_oi_tot_rept_long_all",
+      "cot_legacy_source_pct_of_oi_tot_rept_short_all",
+      "cot_legacy_source_pct_of_oi_nonrept_long_all",
+      "cot_legacy_source_pct_of_oi_nonrept_short_all",
+      "cot_legacy_source_pct_of_open_interest_old",
+      "cot_legacy_source_pct_of_oi_tot_rept_long_old",
+      "cot_legacy_source_pct_of_oi_tot_rept_short_old",
+      "cot_legacy_source_pct_of_oi_nonrept_long_old",
+      "cot_legacy_source_pct_of_oi_nonrept_short_old",
+      "cot_legacy_source_pct_of_open_interest_other",
+      "cot_legacy_source_pct_of_oi_tot_rept_long_other",
+      "cot_legacy_source_pct_of_oi_tot_rept_short_other",
+      "cot_legacy_source_pct_of_oi_nonrept_long_other",
+      "cot_legacy_source_pct_of_oi_nonrept_short_other",
+      "cot_legacy_source_traders_tot_all",
+      "cot_legacy_source_traders_tot_rept_long_all",
+      "cot_legacy_source_traders_tot_rept_short_all",
+      "cot_legacy_source_traders_tot_old",
+      "cot_legacy_source_traders_tot_rept_long_old",
+      "cot_legacy_source_traders_tot_rept_short_old",
+      "cot_legacy_source_traders_tot_other",
+      "cot_legacy_source_traders_tot_rept_long_other",
+      "cot_legacy_source_traders_tot_rept_short_other",
+      "cot_legacy_source_conc_gross_le_4_tdr_long_all",
+      "cot_legacy_source_conc_gross_le_4_tdr_short_all",
+      "cot_legacy_source_conc_gross_le_8_tdr_long_all",
+      "cot_legacy_source_conc_gross_le_8_tdr_short_all",
+      "cot_legacy_source_conc_net_le_4_tdr_long_all",
+      "cot_legacy_source_conc_net_le_4_tdr_short_all",
+      "cot_legacy_source_conc_net_le_8_tdr_long_all",
+      "cot_legacy_source_conc_net_le_8_tdr_short_all",
+      "cot_legacy_source_conc_gross_le_4_tdr_long_old",
+      "cot_legacy_source_conc_gross_le_4_tdr_short_old",
+      "cot_legacy_source_conc_gross_le_8_tdr_long_old",
+      "cot_legacy_source_conc_gross_le_8_tdr_short_old",
+      "cot_legacy_source_conc_net_le_4_tdr_long_old",
+      "cot_legacy_source_conc_net_le_4_tdr_short_old",
+      "cot_legacy_source_conc_net_le_8_tdr_long_old",
+      "cot_legacy_source_conc_net_le_8_tdr_short_old",
+      "cot_legacy_source_conc_gross_le_4_tdr_long_other",
+      "cot_legacy_source_conc_gross_le_4_tdr_short_other",
+      "cot_legacy_source_conc_gross_le_8_tdr_long_other",
+      "cot_legacy_source_conc_gross_le_8_tdr_short_other",
+      "cot_legacy_source_conc_net_le_4_tdr_long_other",
+      "cot_legacy_source_conc_net_le_4_tdr_short_other",
+      "cot_legacy_source_conc_net_le_8_tdr_long_other",
+      "cot_legacy_source_conc_net_le_8_tdr_short_other",
+      "cot_legacy_source_noncomm_positions_long_all",
+      "cot_legacy_source_noncomm_positions_short_all",
+      "cot_legacy_source_noncomm_postions_spread_all",
+      "cot_legacy_source_comm_positions_long_all",
+      "cot_legacy_source_comm_positions_short_all",
+      "cot_legacy_source_noncomm_positions_long_old",
+      "cot_legacy_source_noncomm_positions_short_old",
+      "cot_legacy_source_noncomm_positions_spread_old",
+      "cot_legacy_source_comm_positions_long_old",
+      "cot_legacy_source_comm_positions_short_old",
+      "cot_legacy_source_noncomm_positions_long_other",
+      "cot_legacy_source_noncomm_positions_short_other",
+      "cot_legacy_source_noncomm_positions_spread_other",
+      "cot_legacy_source_comm_positions_long_other",
+      "cot_legacy_source_comm_positions_short_other",
+      "cot_legacy_source_change_in_noncomm_long_all",
+      "cot_legacy_source_change_in_noncomm_short_all",
+      "cot_legacy_source_change_in_noncomm_spead_all",
+      "cot_legacy_source_change_in_comm_long_all",
+      "cot_legacy_source_change_in_comm_short_all",
+      "cot_legacy_source_pct_of_oi_noncomm_long_all",
+      "cot_legacy_source_pct_of_oi_noncomm_short_all",
+      "cot_legacy_source_pct_of_oi_noncomm_spread_all",
+      "cot_legacy_source_pct_of_oi_comm_long_all",
+      "cot_legacy_source_pct_of_oi_comm_short_all",
+      "cot_legacy_source_pct_of_oi_noncomm_long_old",
+      "cot_legacy_source_pct_of_oi_noncomm_short_old",
+      "cot_legacy_source_pct_of_oi_noncomm_spread_old",
+      "cot_legacy_source_pct_of_oi_comm_long_old",
+      "cot_legacy_source_pct_of_oi_comm_short_old",
+      "cot_legacy_source_pct_of_oi_noncomm_long_other",
+      "cot_legacy_source_pct_of_oi_noncomm_short_other",
+      "cot_legacy_source_pct_of_oi_noncomm_spread_other",
+      "cot_legacy_source_pct_of_oi_comm_long_other",
+      "cot_legacy_source_pct_of_oi_comm_short_other",
+      "cot_legacy_source_traders_noncomm_long_all",
+      "cot_legacy_source_traders_noncomm_short_all",
+      "cot_legacy_source_traders_noncomm_spread_all",
+      "cot_legacy_source_traders_comm_long_all",
+      "cot_legacy_source_traders_comm_short_all",
+      "cot_legacy_source_traders_noncomm_long_old",
+      "cot_legacy_source_traders_noncomm_short_old",
+      "cot_legacy_source_traders_noncomm_spead_old",
+      "cot_legacy_source_traders_comm_long_old",
+      "cot_legacy_source_traders_comm_short_old",
+      "cot_legacy_source_traders_noncomm_long_other",
+      "cot_legacy_source_traders_noncomm_short_other",
+      "cot_legacy_source_traders_noncomm_spread_other",
+      "cot_legacy_source_traders_comm_long_other",
+      "cot_legacy_source_traders_comm_short_other",
+      "cot_legacy_available",
+      "cot_legacy_snapshot_age_days",
+      "cot_legacy_release_age_days",
+      "cot_legacy_release_lag_days",
+      "cot_legacy_value_age_days",
+      "cot_legacy_dependency_delay_days",
+      "cot_legacy_known_revised_archive",
+      "cot_legacy_release_estimated",
+      "cot_legacy_new_release_session",
+      "cot_legacy_stale_14d",
+      "cot_disagg_log_open_interest",
+      "cot_disagg_oi_change_1w",
+      "cot_disagg_oi_change_4w",
+      "cot_disagg_oi_change_13w",
+      "cot_disagg_oi_z_52w",
+      "cot_disagg_report_gap_days",
+      "cot_disagg_old_crop_oi_share",
+      "cot_disagg_trader_count_log",
+      "cot_disagg_contracts_per_trader",
+      "cot_disagg_managed_money_net_oi",
+      "cot_disagg_managed_money_long_oi",
+      "cot_disagg_managed_money_short_oi",
+      "cot_disagg_managed_money_gross_oi",
+      "cot_disagg_managed_money_long_short_balance",
+      "cot_disagg_managed_money_net_change_1w",
+      "cot_disagg_managed_money_net_change_4w",
+      "cot_disagg_managed_money_net_change_13w",
+      "cot_disagg_managed_money_net_acceleration_4w",
+      "cot_disagg_managed_money_net_z_26w",
+      "cot_disagg_managed_money_net_z_52w",
+      "cot_disagg_managed_money_net_change_z_26w",
+      "cot_disagg_managed_money_spread_oi",
+      "cot_disagg_managed_money_index_52w",
+      "cot_disagg_managed_money_index_156w",
+      "cot_disagg_producer_net_oi",
+      "cot_disagg_producer_long_oi",
+      "cot_disagg_producer_short_oi",
+      "cot_disagg_producer_gross_oi",
+      "cot_disagg_producer_long_short_balance",
+      "cot_disagg_producer_net_change_1w",
+      "cot_disagg_producer_net_change_4w",
+      "cot_disagg_producer_net_change_13w",
+      "cot_disagg_producer_net_acceleration_4w",
+      "cot_disagg_producer_net_z_26w",
+      "cot_disagg_producer_net_z_52w",
+      "cot_disagg_producer_net_change_z_26w",
+      "cot_disagg_producer_index_52w",
+      "cot_disagg_producer_index_156w",
+      "cot_disagg_swap_net_oi",
+      "cot_disagg_swap_long_oi",
+      "cot_disagg_swap_short_oi",
+      "cot_disagg_swap_gross_oi",
+      "cot_disagg_swap_long_short_balance",
+      "cot_disagg_swap_net_change_1w",
+      "cot_disagg_swap_net_change_4w",
+      "cot_disagg_swap_net_change_13w",
+      "cot_disagg_swap_net_acceleration_4w",
+      "cot_disagg_swap_net_z_26w",
+      "cot_disagg_swap_net_z_52w",
+      "cot_disagg_swap_net_change_z_26w",
+      "cot_disagg_swap_spread_oi",
+      "cot_disagg_swap_index_52w",
+      "cot_disagg_swap_index_156w",
+      "cot_disagg_other_reportable_net_oi",
+      "cot_disagg_other_reportable_long_oi",
+      "cot_disagg_other_reportable_short_oi",
+      "cot_disagg_other_reportable_gross_oi",
+      "cot_disagg_other_reportable_long_short_balance",
+      "cot_disagg_other_reportable_net_change_1w",
+      "cot_disagg_other_reportable_net_change_4w",
+      "cot_disagg_other_reportable_net_change_13w",
+      "cot_disagg_other_reportable_net_acceleration_4w",
+      "cot_disagg_other_reportable_net_z_26w",
+      "cot_disagg_other_reportable_net_z_52w",
+      "cot_disagg_other_reportable_net_change_z_26w",
+      "cot_disagg_other_reportable_spread_oi",
+      "cot_disagg_other_reportable_index_52w",
+      "cot_disagg_other_reportable_index_156w",
+      "cot_disagg_concentration_gross_4_imbalance",
+      "cot_disagg_concentration_net_4_imbalance",
+      "cot_disagg_concentration_gross_8_imbalance",
+      "cot_disagg_concentration_net_8_imbalance",
+      "cot_disagg_source_open_interest_all",
+      "cot_disagg_source_prod_merc_positions_long_all",
+      "cot_disagg_source_prod_merc_positions_short_all",
+      "cot_disagg_source_swap_positions_long_all",
+      "cot_disagg_source_swap_positions_short_all",
+      "cot_disagg_source_swap_positions_spread_all",
+      "cot_disagg_source_m_money_positions_long_all",
+      "cot_disagg_source_m_money_positions_short_all",
+      "cot_disagg_source_m_money_positions_spread_all",
+      "cot_disagg_source_other_rept_positions_long_all",
+      "cot_disagg_source_other_rept_positions_short_all",
+      "cot_disagg_source_other_rept_positions_spread_all",
+      "cot_disagg_source_tot_rept_positions_long_all",
+      "cot_disagg_source_tot_rept_positions_short_all",
+      "cot_disagg_source_nonrept_positions_long_all",
+      "cot_disagg_source_nonrept_positions_short_all",
+      "cot_disagg_source_open_interest_old",
+      "cot_disagg_source_prod_merc_positions_long_old",
+      "cot_disagg_source_prod_merc_positions_short_old",
+      "cot_disagg_source_swap_positions_long_old",
+      "cot_disagg_source_swap_positions_short_old",
+      "cot_disagg_source_swap_positions_spread_old",
+      "cot_disagg_source_m_money_positions_long_old",
+      "cot_disagg_source_m_money_positions_short_old",
+      "cot_disagg_source_m_money_positions_spread_old",
+      "cot_disagg_source_other_rept_positions_long_old",
+      "cot_disagg_source_other_rept_positions_short_old",
+      "cot_disagg_source_other_rept_positions_spread_old",
+      "cot_disagg_source_tot_rept_positions_long_old",
+      "cot_disagg_source_tot_rept_positions_short_old",
+      "cot_disagg_source_nonrept_positions_long_old",
+      "cot_disagg_source_nonrept_positions_short_old",
+      "cot_disagg_source_open_interest_other",
+      "cot_disagg_source_prod_merc_positions_long_other",
+      "cot_disagg_source_prod_merc_positions_short_other",
+      "cot_disagg_source_swap_positions_long_other",
+      "cot_disagg_source_swap_positions_short_other",
+      "cot_disagg_source_swap_positions_spread_other",
+      "cot_disagg_source_m_money_positions_long_other",
+      "cot_disagg_source_m_money_positions_short_other",
+      "cot_disagg_source_m_money_positions_spread_other",
+      "cot_disagg_source_other_rept_positions_long_other",
+      "cot_disagg_source_other_rept_positions_short_other",
+      "cot_disagg_source_other_rept_positions_spread_othr",
+      "cot_disagg_source_tot_rept_positions_long_other",
+      "cot_disagg_source_tot_rept_positions_short_other",
+      "cot_disagg_source_nonrept_positions_long_other",
+      "cot_disagg_source_nonrept_positions_short_other",
+      "cot_disagg_source_change_in_open_interest_all",
+      "cot_disagg_source_change_in_prod_merc_long_all",
+      "cot_disagg_source_change_in_prod_merc_short_all",
+      "cot_disagg_source_change_in_swap_long_all",
+      "cot_disagg_source_change_in_swap_short_all",
+      "cot_disagg_source_change_in_swap_spread_all",
+      "cot_disagg_source_change_in_m_money_long_all",
+      "cot_disagg_source_change_in_m_money_short_all",
+      "cot_disagg_source_change_in_m_money_spread_all",
+      "cot_disagg_source_change_in_other_rept_long_all",
+      "cot_disagg_source_change_in_other_rept_short_all",
+      "cot_disagg_source_change_in_other_rept_spread_all",
+      "cot_disagg_source_change_in_tot_rept_long_all",
+      "cot_disagg_source_change_in_tot_rept_short_all",
+      "cot_disagg_source_change_in_nonrept_long_all",
+      "cot_disagg_source_change_in_nonrept_short_all",
+      "cot_disagg_source_pct_of_open_interest_all",
+      "cot_disagg_source_pct_of_oi_prod_merc_long_all",
+      "cot_disagg_source_pct_of_oi_prod_merc_short_all",
+      "cot_disagg_source_pct_of_oi_swap_long_all",
+      "cot_disagg_source_pct_of_oi_swap_short_all",
+      "cot_disagg_source_pct_of_oi_swap_spread_all",
+      "cot_disagg_source_pct_of_oi_m_money_long_all",
+      "cot_disagg_source_pct_of_oi_m_money_short_all",
+      "cot_disagg_source_pct_of_oi_m_money_spread_all",
+      "cot_disagg_source_pct_of_oi_other_rept_long_all",
+      "cot_disagg_source_pct_of_oi_other_rept_short_all",
+      "cot_disagg_source_pct_of_oi_other_rept_spread_all",
+      "cot_disagg_source_pct_of_oi_tot_rept_long_all",
+      "cot_disagg_source_pct_of_oi_tot_rept_short_all",
+      "cot_disagg_source_pct_of_oi_nonrept_long_all",
+      "cot_disagg_source_pct_of_oi_nonrept_short_all",
+      "cot_disagg_source_pct_of_open_interest_old",
+      "cot_disagg_source_pct_of_oi_prod_merc_long_old",
+      "cot_disagg_source_pct_of_oi_prod_merc_short_old",
+      "cot_disagg_source_pct_of_oi_swap_long_old",
+      "cot_disagg_source_pct_of_oi_swap_short_old",
+      "cot_disagg_source_pct_of_oi_swap_spread_old",
+      "cot_disagg_source_pct_of_oi_m_money_long_old",
+      "cot_disagg_source_pct_of_oi_m_money_short_old",
+      "cot_disagg_source_pct_of_oi_m_money_spread_old",
+      "cot_disagg_source_pct_of_oi_other_rept_long_old",
+      "cot_disagg_source_pct_of_oi_other_rept_short_old",
+      "cot_disagg_source_pct_of_oi_other_rept_spread_old",
+      "cot_disagg_source_pct_of_oi_tot_rept_long_old",
+      "cot_disagg_source_pct_of_oi_tot_rept_short_old",
+      "cot_disagg_source_pct_of_oi_nonrept_long_old",
+      "cot_disagg_source_pct_of_oi_nonrept_short_old",
+      "cot_disagg_source_pct_of_open_interest_other",
+      "cot_disagg_source_pct_of_oi_prod_merc_long_other",
+      "cot_disagg_source_pct_of_oi_prod_merc_short_other",
+      "cot_disagg_source_pct_of_oi_swap_long_other",
+      "cot_disagg_source_pct_of_oi_swap_short_other",
+      "cot_disagg_source_pct_of_oi_swap_spread_other",
+      "cot_disagg_source_pct_of_oi_m_money_long_other",
+      "cot_disagg_source_pct_of_oi_m_money_short_other",
+      "cot_disagg_source_pct_of_oi_m_money_spread_other",
+      "cot_disagg_source_pct_of_oi_other_rept_long_other",
+      "cot_disagg_source_pct_of_oi_other_rept_short_other",
+      "cot_disagg_source_pct_of_oi_other_rept_spread_othr",
+      "cot_disagg_source_pct_of_oi_tot_rept_long_other",
+      "cot_disagg_source_pct_of_oi_tot_rept_short_other",
+      "cot_disagg_source_pct_of_oi_nonrept_long_other",
+      "cot_disagg_source_pct_of_oi_nonrept_short_other",
+      "cot_disagg_source_traders_tot_all",
+      "cot_disagg_source_traders_prod_merc_long_all",
+      "cot_disagg_source_traders_prod_merc_short_all",
+      "cot_disagg_source_traders_swap_long_all",
+      "cot_disagg_source_traders_swap_short_all",
+      "cot_disagg_source_traders_swap_spread_all",
+      "cot_disagg_source_traders_m_money_long_all",
+      "cot_disagg_source_traders_m_money_short_all",
+      "cot_disagg_source_traders_m_money_spread_all",
+      "cot_disagg_source_traders_other_rept_long_all",
+      "cot_disagg_source_traders_other_rept_short_all",
+      "cot_disagg_source_traders_other_rept_spread_all",
+      "cot_disagg_source_traders_tot_rept_long_all",
+      "cot_disagg_source_traders_tot_rept_short_all",
+      "cot_disagg_source_traders_tot_old",
+      "cot_disagg_source_traders_prod_merc_long_old",
+      "cot_disagg_source_traders_prod_merc_short_old",
+      "cot_disagg_source_traders_swap_long_old",
+      "cot_disagg_source_traders_swap_short_old",
+      "cot_disagg_source_traders_swap_spread_old",
+      "cot_disagg_source_traders_m_money_long_old",
+      "cot_disagg_source_traders_m_money_short_old",
+      "cot_disagg_source_traders_m_money_spread_old",
+      "cot_disagg_source_traders_other_rept_long_old",
+      "cot_disagg_source_traders_other_rept_short_old",
+      "cot_disagg_source_traders_other_rept_spread_old",
+      "cot_disagg_source_traders_tot_rept_long_old",
+      "cot_disagg_source_traders_tot_rept_short_old",
+      "cot_disagg_source_traders_tot_other",
+      "cot_disagg_source_traders_prod_merc_long_other",
+      "cot_disagg_source_traders_prod_merc_short_other",
+      "cot_disagg_source_traders_swap_long_other",
+      "cot_disagg_source_traders_swap_short_other",
+      "cot_disagg_source_traders_swap_spread_other",
+      "cot_disagg_source_traders_m_money_long_other",
+      "cot_disagg_source_traders_m_money_short_other",
+      "cot_disagg_source_traders_m_money_spread_other",
+      "cot_disagg_source_traders_other_rept_long_other",
+      "cot_disagg_source_traders_other_rept_short_other",
+      "cot_disagg_source_traders_other_rept_spread_other",
+      "cot_disagg_source_traders_tot_rept_long_other",
+      "cot_disagg_source_traders_tot_rept_short_other",
+      "cot_disagg_source_conc_gross_le_4_tdr_long_all",
+      "cot_disagg_source_conc_gross_le_4_tdr_short_all",
+      "cot_disagg_source_conc_gross_le_8_tdr_long_all",
+      "cot_disagg_source_conc_gross_le_8_tdr_short_all",
+      "cot_disagg_source_conc_net_le_4_tdr_long_all",
+      "cot_disagg_source_conc_net_le_4_tdr_short_all",
+      "cot_disagg_source_conc_net_le_8_tdr_long_all",
+      "cot_disagg_source_conc_net_le_8_tdr_short_all",
+      "cot_disagg_source_conc_gross_le_4_tdr_long_old",
+      "cot_disagg_source_conc_gross_le_4_tdr_short_old",
+      "cot_disagg_source_conc_gross_le_8_tdr_long_old",
+      "cot_disagg_source_conc_gross_le_8_tdr_short_old",
+      "cot_disagg_source_conc_net_le_4_tdr_long_old",
+      "cot_disagg_source_conc_net_le_4_tdr_short_old",
+      "cot_disagg_source_conc_net_le_8_tdr_long_old",
+      "cot_disagg_source_conc_net_le_8_tdr_short_old",
+      "cot_disagg_source_conc_gross_le_4_tdr_long_other",
+      "cot_disagg_source_conc_gross_le_4_tdr_short_other",
+      "cot_disagg_source_conc_gross_le_8_tdr_long_other",
+      "cot_disagg_source_conc_gross_le_8_tdr_short_other",
+      "cot_disagg_source_conc_net_le_4_tdr_long_other",
+      "cot_disagg_source_conc_net_le_4_tdr_short_other",
+      "cot_disagg_source_conc_net_le_8_tdr_long_other",
+      "cot_disagg_source_conc_net_le_8_tdr_short_other",
+      "cot_disagg_available",
+      "cot_disagg_snapshot_age_days",
+      "cot_disagg_release_age_days",
+      "cot_disagg_release_lag_days",
+      "cot_disagg_value_age_days",
+      "cot_disagg_dependency_delay_days",
+      "cot_disagg_known_revised_archive",
+      "cot_disagg_release_estimated",
+      "cot_disagg_new_release_session",
+      "cot_disagg_stale_14d",
+      "cot_disagg_backcast_history_available",
+      "cot_disagg_backcast_history_age_days",
+      "cot_disagg_backcast_history_new_session",
+      "cot_managed_money_vs_noncommercial",
+      "cot_producer_vs_commercial"
+    ]
+  },
+  "input_sha256": {
+    "data/yahoo/arabica_coffee_futures_history.csv": "7ce02a2c875b325c83e6d6bab1898fa2bd9e523a2afb716396a307f7b6559022",
+    "data/COT/coffee_c_all_cot_data.csv": "4c12f364323bde992681225ca93bcb66a9d2e566cc03b3df0d2cb2c35b4c313d",
+    "data/weather/open_meteo_coffee_regions_daily.csv": "7367c4dda695577a36e6e732454709a82c6c6623c973c5594fdb833615e9c30b",
+    "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv": "ddd0ddf4c1d340cbfd47ca8c47b7cafa5d5836aff318f3e1c68d0cb6e2d0062a",
+    "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv": "5032edd5d0e88d6b08e19ed8be4a11ca72b464b572e61f1540297d5b3348d7d0"
+  },
+  "code_sha256": {
+    "MonthFu/__init__.py": "44ce51a14d034b70cd1a2144cee05b124d8dd86dbbe86978948bdfdcfa59e478",
+    "MonthFu/experiments/scripts/audit_direction_experiments.py": "8872c76b4eb2d8b2936b5d8ebcf132831fe034cb7bafb74dda2ae64c9019b1be",
+    "MonthFu/experiments/scripts/precision_recall_policies.py": "ff148198649d0eea232e00d9aee535d03cb750da8c967457d9777f07f035c9d2",
+    "MonthFu/experiments/scripts/predict.py": "ce98f42f67308b90e52f42d2c4e0263b784798ebdf5f46b825efaa62b00f4dc5",
+    "MonthFu/experiments/scripts/report_results.py": "bf8d2c09a98d498e4bd1915a41cad3ff77c411884bd1187e5b15cdfc5dbb03f3",
+    "MonthFu/experiments/scripts/run_paper_sweep.py": "5d552ed0d69c5fd4b2d46548d464ee8bad85129e1ff5d996d00cad06e3d465a9",
+    "MonthFu/experiments/scripts/train_direction.py": "f41a95e4b44abb2766b55ff567916d92c15aada73b78ce0102e5aa438ace6aa9",
+    "MonthFu/experiments/src/direction_features.py": "cf44cb9baf4038478cd41710f8f2559ef5ab866ffc0f07ef9f55493c5f2b6c32",
+    "MonthFu/experiments/src/direction_metrics.py": "c47a283b6b46900e3e621ffe7aac46265ae5c193bd5ad20d77be769e3ef99fba",
+    "MonthFu/experiments/src/experiment_models.py": "3c84b48947b0b153d2f237e6c434017b39214a1d2ed7e8d85b531a03a3931491",
+    "MonthFu/experiments/src/paper_sweep.py": "36c648876d83cf5bedc6c775c136d5b1777878c9e2010d6ca9fb72d19392e90f",
+    "MonthFu/experiments/tests/test_all_cot_audit.py": "0239559c6696460acaa0377307a3af2e7127bc7b364229adf0b2414f72bbf6f2",
+    "MonthFu/experiments/tests/test_all_cot_inference.py": "c051ceb59a9374616ed25f168a41192525b13110a53e319b35c2f00704fc8272",
+    "MonthFu/experiments/tests/test_direction_features.py": "2e25e0e61f2955ece9850aae681a6c4f415b65fc60000561614eaf43a4eb3f91",
+    "MonthFu/experiments/tests/test_direction_metrics.py": "f2496ac4b2d0aa049307ae1035115f1dc4d7eb57aceee0d5af177ea176424d0b",
+    "MonthFu/experiments/tests/test_experiment_models.py": "f9c2003b6fc677f5a8088f621f302ee9c160686c7c1e9c4c28bd28a4ac94467e",
+    "MonthFu/experiments/tests/test_paper_sweep.py": "771ed778cbd0320d2aa97c58ecdb7c1f5198f67a8ca4505d00db022dfbd239c6",
+    "MonthFu/experiments/tests/test_precision_recall_policies.py": "ecde4caf0c8a68aba26b229888ed6316a3332ff9a5c430738c91d8e9fa21fb0b",
+    "MonthFu/scripts/audit_artifacts.py": "5b162b5d83c522369b7416c21b80543cf801fd9eb7943bc3ab367605dc2f8f01",
+    "MonthFu/scripts/check_notebook.py": "50b4f667438bbf85804619cb40fc75f8427394520bf0625c27efd8652a43a121",
+    "MonthFu/scripts/cot_cycle_diagnostics.py": "8505e36244dabe671f5ce11c326e2cf659ac6361f94d60c098b56e5c810706cb",
+    "MonthFu/scripts/predict.py": "a59c0478a4e15cda2682dd320af6b7d29bd1d6f87bbd934b3227f158f6a67aee",
+    "MonthFu/scripts/resume_export.py": "590ee8af8506a2633cb6113329e3b44f8d41a227c9c11789465546bad8daa3b3",
+    "MonthFu/scripts/run_experiments.py": "77bba84b14fa14cedd522295032f21bec7204639ba71788e8bd426ed5b42df4b",
+    "MonthFu/scripts/train.py": "87087f4c1a152d0d2de32cec3a21adfa5566a1903734f6285181b9c53c20b65e",
+    "MonthFu/src/__init__.py": "8c7edba6d3599a826e03bf5c6e77b81b7472c52f50f603af7248c7852d68f6b9",
+    "MonthFu/src/cot_release_features.py": "7d716cc0811e21a35184563054d849512f412da2a9ec9e889e5048b0a8612553",
+    "MonthFu/src/external_return_features.py": "78728c5bc4ee5361ef2a3cbc552219cc1c342a55876ed1c51aa4d2599b56f115",
+    "MonthFu/src/features.py": "f8a3a3aabd616b1dd8ab40c057120c408bc97076dc260696ca20a2d55863f422",
+    "MonthFu/src/modeling.py": "dcdf3073771878acdc2b7cb386a21b2280ceea77eb6ea94491e38de2046d02c1",
+    "MonthFu/src/research_models.py": "ccff8295708621ca4350f3df572676377512ee8cd2f9a2db17c12b1c09b7050d",
+    "MonthFu/tests/test_all_cot_artifact_audit.py": "bc8d94846d5169b9a850dc8940d05ab92d0c42ffda64da748858116c9664a53b",
+    "MonthFu/tests/test_all_cot_policy.py": "8d2718d5dc6c8459c883ad3b19e937736f41b7a488f547525e48a6ec79ceb236",
+    "MonthFu/tests/test_cot_release_features.py": "aa5768a584837ad1b07bf6c45f5d2c36f0c6cdb91e1fe2c3f35476202c5d5ddb",
+    "MonthFu/tests/test_evaluation.py": "b9f56b360054ec49dcf58011a7ece7baa7a19e7b77bc6644b1d3eecd7569f2e2",
+    "MonthFu/tests/test_export.py": "d8ad9ff4b273dd2612b036f5f100f84f74386bde2636f4aaab2e1327a7f0e18c",
+    "MonthFu/tests/test_external_return_features.py": "645408994c3ab475f4a567fcba83cbadfa9975cb185911431276625b17232ab9",
+    "MonthFu/tests/test_features.py": "280a2f54ac635a88292ef17a954ec10b23866cda58ad7d070ce3c76505db8d9e"
+  },
+  "versions": {
+    "python": "3.12.13",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "limitations": [
+    "Historical holdout has been reused in project research; results are exploratory.",
+    "Previous ensemble is a method adaptation: five-day weights transferred, monthly RF/AR re-estimated on basic features, HW horizon extended; not the exact old saved model.",
+    "COT historical releases include estimates and correction guards; no complete original-vintage archive.",
+    "Weather cache is retrospective reanalysis; five-calendar-day lag does not remove future revisions.",
+    "News excluded from primary search; even delayed summaries retain retrospective selection bias.",
+    "Daily monthly labels overlap; block intervals and non-overlap samples account partly for dependence.",
+    "Continuous contract rolls, price quality, fees and execution are not modeled.",
+    "Latest forecast begins at last cached price date, with an approximate projected target date.",
+    "Selected-CV error bands are exploratory and do not guarantee future coverage."
+  ],
+  "elapsed_seconds": 1271.18
+}

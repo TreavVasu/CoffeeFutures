@@ -11,6 +11,7 @@ alignment, not a claim that the raw file contains original unrevised vintages.
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 import numpy as np
 import pandas as pd
@@ -101,6 +102,75 @@ FAMILIES = {
     }),
 }
 
+DISAGGREGATED_FIRST_POSITION_DATE = pd.Timestamp("2009-09-01")
+DISAGGREGATED_BACKCAST_PUBLICATION_DATE = pd.Timestamp("2009-10-20")
+
+
+def _source_field_map(frame: pd.DataFrame, family: str) -> tuple[dict, dict]:
+    """Cover every position/count/percentage field, keeping identifiers separate.
+
+    The combined cache has the union of both report schemas. Family membership
+    follows field names, never future nonmissing coverage or target correlations.
+    This keeps the predictor schema invariant when later report rows are removed.
+    """
+    short = FAMILIES[family][0]
+    included, excluded = {}, {}
+    disagg_groups = ("prod_merc", "swap", "m_money", "other_rept")
+    metadata_fields = {
+        "source_file", "source_dataset", "source_archive", "market_and_exchange_names",
+        "as_of_date_in_form_yymmdd", "report_date_as_mm_dd_yyyy", "contract_units",
+        "futonly_or_combined",
+    }
+    derived_fields = {
+        "report_date", "publication_date", "release_method", "release_source",
+        "release_date_estimated", "release_date_status", "known_revision_date",
+        "known_revision_source", "raw_value_available_date", "historical_backcast",
+    }
+    for name in frame.columns:
+        lowered = name.lower()
+        if lowered.startswith("cftc_") or lowered in metadata_fields:
+            excluded[name] = "identifier_or_text_metadata"
+            continue
+        if lowered in derived_fields:
+            continue
+        if ((family == "legacy_futures_only" and any(group in lowered for group in disagg_groups))
+                or (family == "disaggregated_futures_only" and ("noncomm" in lowered or "_comm_" in lowered or lowered.startswith("comm_")))):
+            excluded[name] = "other_report_family_schema"
+            continue
+        if lowered.startswith(("pct_of_", "conc_")):
+            transform = "percentage_divided_by_100"
+        elif lowered.startswith("traders_"):
+            transform = "nonnegative_log1p_trader_count"
+        elif lowered.startswith("open_interest_"):
+            transform = "nonnegative_log1p_open_interest"
+        elif "positions_" in lowered or "postions_" in lowered or lowered.startswith("change_in_"):
+            transform = "contracts_divided_by_current_all_open_interest"
+        else:
+            excluded[name] = "unrecognized_nonmeasurement_field"
+            continue
+        suffix = re.sub(r"[^a-z0-9]+", "_", lowered).strip("_")
+        included[name] = {"feature": f"cot_{short}_source_{suffix}", "transform": transform}
+    if len({value["feature"] for value in included.values()}) != len(included):
+        raise ValueError("COT source field names collide after normalization")
+    return included, excluded
+
+
+def _source_features(frame: pd.DataFrame, family: str) -> pd.DataFrame:
+    mapping, _ = _source_field_map(frame, family)
+    oi = _number(frame, "Open_Interest_All").where(lambda value: value > 0)
+    values = {}
+    for source, specification in mapping.items():
+        value = _number(frame, source)
+        transform = specification["transform"]
+        if transform == "percentage_divided_by_100":
+            value = value / 100
+        elif transform.startswith("nonnegative_log1p_"):
+            value = np.log1p(value.where(value >= 0))
+        else:
+            value = value / oi
+        values[specification["feature"]] = value
+    return pd.DataFrame(values, index=frame.index)
+
 
 def _number(frame: pd.DataFrame, name: str | None) -> pd.Series:
     if name is None or name not in frame:
@@ -159,7 +229,7 @@ def _weekly_features(frame: pd.DataFrame, family: str) -> pd.DataFrame:
             long = _number(frame, f"Conc_{kind}_LE_{size}_TDR_Long_All")
             short_position = _number(frame, f"Conc_{kind}_LE_{size}_TDR_Short_All")
             features[prefix + f"concentration_{kind.lower()}_{size}_imbalance"] = (long - short_position) / 100
-    return pd.DataFrame(features, index=frame.index)
+    return pd.concat([pd.DataFrame(features, index=frame.index), _source_features(frame, family)], axis=1)
 
 
 def _release_calendar(report_dates: pd.Series, root: Path) -> pd.DataFrame:
@@ -247,17 +317,23 @@ def build_cot_features(prices: pd.DataFrame, root: Path) -> tuple[pd.DataFrame, 
     if raw["report_date"].isna().any():
         raise ValueError("COT report dates must be nonmissing")
     raw = raw.loc[raw["source_dataset"].isin(FAMILIES)].copy()
-    # 2006-09 history was backcast and only published in October 2009. Excluding
-    # it entirely also prevents rolling features from using it before release.
-    backcast = raw["source_dataset"].eq("disaggregated_futures_only") & raw["report_date"].lt("2009-09-01")
-    excluded_backcast_rows = int(backcast.sum())
-    raw = raw.loc[~backcast].copy()
+    # Retain the historical archive, but its position dates are not publication
+    # dates. Its classifications were backcast and first public on October 20.
+    backcast = raw["source_dataset"].eq("disaggregated_futures_only") & raw["report_date"].lt(DISAGGREGATED_FIRST_POSITION_DATE)
+    raw["historical_backcast"] = backcast
+    retained_backcast_rows = int(backcast.sum())
     if raw.duplicated(["source_dataset", "report_date"]).any():
         raise ValueError("Duplicate report family/date keys in raw COT data")
     if raw.empty:
         raise ValueError("No supported COT reports")
     calendar = _release_calendar(pd.Series(raw["report_date"].unique()).sort_values(), root)
     raw = raw.merge(calendar, on="report_date", how="left", validate="many_to_one")
+    archive_release = raw["historical_backcast"] & raw["publication_date"].lt(DISAGGREGATED_BACKCAST_PUBLICATION_DATE)
+    raw.loc[archive_release, "publication_date"] = DISAGGREGATED_BACKCAST_PUBLICATION_DATE
+    raw.loc[archive_release, "release_method"] = "announced_2009_disaggregated_backcast_archive"
+    raw.loc[archive_release, "release_source"] = SOURCES["historical_backcast"]
+    raw.loc[archive_release, "release_date_estimated"] = False
+    raw.loc[archive_release, "release_date_status"] = "announced_archive_release"
     raw["known_revision_date"] = pd.NaT
     raw["known_revision_source"] = ""
     for (family, report), revision_date in KNOWN_REVISION_DATES.items():
@@ -266,26 +342,65 @@ def build_cot_features(prices: pd.DataFrame, root: Path) -> tuple[pd.DataFrame, 
         raw.loc[mask, "known_revision_source"] = SOURCES["special"]
     raw["raw_value_available_date"] = raw[["publication_date", "known_revision_date"]].max(axis=1)
     audits = []
+    field_coverage = {}
     session_array = daily["Date"].to_numpy(dtype="datetime64[ns]")
     for family, (short, _) in FAMILIES.items():
         weekly = raw.loc[raw["source_dataset"].eq(family)].sort_values("report_date").reset_index(drop=True)
         if weekly.empty:
             continue
+        source_map, excluded_fields = _source_field_map(weekly, family)
+        field_coverage[family] = {
+            "included_source_fields": source_map,
+            "excluded_source_fields": excluded_fields,
+            "source_fields_with_observations": [name for name in source_map if _number(weekly, name).notna().any()],
+        }
+        # Before October 20, 2009, the live disaggregated series must use only
+        # then-public reports. A second history adds the released archive at an
+        # explicit publication event, recomputing windows for the latest current
+        # position snapshot. Old backcasts never replace a newer live snapshot.
+        current = weekly.loc[~weekly["historical_backcast"]].copy()
+        current["feature_publication_date"] = current["raw_value_available_date"].cummax()
         features = _weekly_features(weekly, family)
-        # If a manual correction produces out-of-order publication, rolling
-        # calculations cannot use earlier reports until those too are published.
-        weekly["feature_publication_date"] = weekly["raw_value_available_date"].cummax()
+        expanded_publication = weekly["raw_value_available_date"].cummax()
+        if weekly["historical_backcast"].any():
+            archive_ready = weekly.loc[weekly["historical_backcast"], "raw_value_available_date"].max()
+            expanded_publication = expanded_publication.clip(lower=archive_ready)
+        else:
+            archive_ready = pd.NaT
+        weekly["feature_publication_date"] = expanded_publication
+        weekly.loc[current.index, "feature_publication_date"] = current["feature_publication_date"]
+        weekly["expanded_history_publication_date"] = expanded_publication
         indices = np.searchsorted(session_array, weekly["feature_publication_date"].to_numpy(dtype="datetime64[ns]"), side="right")
         weekly["first_usable_session"] = pd.to_datetime([session_array[i] if i < len(session_array) else np.datetime64("NaT", "ns") for i in indices])
-        audit = weekly[["source_dataset", "report_date", "publication_date", "known_revision_date", "known_revision_source", "raw_value_available_date", "feature_publication_date", "first_usable_session", "release_method", "release_source", "release_date_estimated", "release_date_status"]].copy()
-        audit["publication_time_et"] = "15:30 America/New_York"
+        audit = weekly[["source_dataset", "report_date", "historical_backcast", "publication_date", "known_revision_date", "known_revision_source", "raw_value_available_date", "feature_publication_date", "expanded_history_publication_date", "first_usable_session", "release_method", "release_source", "release_date_estimated", "release_date_status"]].copy()
+        audit["publication_time_et"] = np.where(audit["historical_backcast"], "archive time unspecified; next observed session", "15:30 America/New_York")
         audit["release_lag_calendar_days"] = (audit["publication_date"] - audit["report_date"]).dt.days
         audits.append(audit)
-        payload = pd.concat([weekly[["report_date", "publication_date", "raw_value_available_date", "feature_publication_date", "known_revision_date", "first_usable_session", "release_date_estimated"]], features], axis=1)
+        def make_payload(history, history_features, feature_dates, variant):
+            payload = history[["report_date", "publication_date", "raw_value_available_date", "known_revision_date", "release_date_estimated"]].copy()
+            payload["feature_publication_date"] = feature_dates
+            usable_indices = np.searchsorted(session_array, feature_dates.to_numpy(dtype="datetime64[ns]"), side="right")
+            payload["first_usable_session"] = pd.to_datetime([session_array[i] if i < len(session_array) else np.datetime64("NaT", "ns") for i in usable_indices])
+            payload["history_variant"] = variant
+            return pd.concat([payload, history_features], axis=1)
+
+        if weekly["historical_backcast"].any():
+            # Wait for every archived value required by this full-history variant,
+            # including a later verified override/correction, before activation.
+            baseline = make_payload(current, _weekly_features(current, family), current["feature_publication_date"], 0)
+            baseline = baseline.loc[baseline["feature_publication_date"].lt(archive_ready)]
+            expanded = make_payload(weekly, features, expanded_publication, 1)
+            payload = pd.concat([baseline, expanded], ignore_index=True)
+        else:
+            payload = make_payload(weekly, features, expanded_publication, 0)
         payload = payload.dropna(subset=["first_usable_session"]).sort_values(["first_usable_session", "report_date"])
         # Latest position snapshot wins if several backlog releases become usable
         # on the same session; all earlier reports remain in the weekly windows.
-        payload = payload.drop_duplicates("first_usable_session", keep="last")
+        payload = payload.sort_values(["first_usable_session", "report_date", "history_variant"]).drop_duplicates("first_usable_session", keep="last")
+        # A delayed old release, including an archive-only history, must never
+        # replace a more recent position snapshot already available to the model.
+        latest_date = payload["report_date"].cummax()
+        payload = payload.loc[payload["report_date"].eq(latest_date)]
         joined = pd.merge_asof(daily[["Date"]], payload, left_on="Date", right_on="first_usable_session", direction="backward")
         prefix = f"cot_{short}_"
         extra = {
@@ -300,6 +415,13 @@ def build_cot_features(prices: pd.DataFrame, root: Path) -> tuple[pd.DataFrame, 
             prefix + "new_release_session": joined["Date"].eq(joined["first_usable_session"]).astype(float),
         }
         extra[prefix + "stale_14d"] = (extra[prefix + "snapshot_age_days"] > 14).astype(float).where(joined["report_date"].notna())
+        if family == "disaggregated_futures_only":
+            history_active = joined["history_variant"].eq(1)
+            first_archive_index = np.searchsorted(session_array, np.datetime64(archive_ready, "ns"), side="right") if pd.notna(archive_ready) else len(session_array)
+            first_archive_session = pd.Timestamp(session_array[first_archive_index]) if first_archive_index < len(session_array) else pd.NaT
+            extra[prefix + "backcast_history_available"] = history_active.astype(float)
+            extra[prefix + "backcast_history_age_days"] = (joined["Date"] - archive_ready).dt.days.where(history_active)
+            extra[prefix + "backcast_history_new_session"] = joined["Date"].eq(first_archive_session).astype(float)
         daily = pd.concat([daily, joined[features.columns], pd.DataFrame(extra)], axis=1)
     if {"cot_disagg_managed_money_net_oi", "cot_legacy_noncommercial_net_oi"}.issubset(daily):
         daily["cot_managed_money_vs_noncommercial"] = daily["cot_disagg_managed_money_net_oi"] - daily["cot_legacy_noncommercial_net_oi"]
@@ -307,12 +429,17 @@ def build_cot_features(prices: pd.DataFrame, root: Path) -> tuple[pd.DataFrame, 
     audit_frame = pd.concat(audits, ignore_index=True).sort_values(["report_date", "source_dataset"]).reset_index(drop=True)
     metadata = {
         "source_file": str(path.relative_to(root)),
+        "feature_schema_version": 2,
+        "backcast_policy": "Retain prelaunch disaggregated archives; current-only history before 2009-10-20, full-history predictors after archive/dependency publication on the next observed session; never replace a newer positioning snapshot with an old archive report",
         "reports": int(len(audit_frame)), "features": int(daily.shape[1] - 1),
-        "excluded_prelaunch_disaggregated_backcasts": excluded_backcast_rows,
+        "excluded_prelaunch_disaggregated_backcasts": 0,
+        "retained_prelaunch_disaggregated_backcasts": retained_backcast_rows,
+        "backcast_publication_date": DISAGGREGATED_BACKCAST_PUBLICATION_DATE.date().isoformat(),
+        "source_field_coverage": field_coverage,
         "alignment": "Backward as-of on first observed trading session strictly after publication; no backfill",
         "normal_release_rule": "Estimated max(three federal business days after position date, report-week Friday); Friday snapshots use next Friday; 15:30 ET; dates labelled estimated",
         "override_schema": "MonthFu/data/cot_release_overrides.csv (preferred) or data/COT/cot_release_overrides.csv: report_date,publication_date,source",
-        "weekly_windows": "Changes/index/z-scores computed on ordered weekly reports before daily alignment",
+        "weekly_windows": "Ordered weekly reports; pre-archive current-only windows, full archive history activates only after its publication/dependency dates; latest snapshot always wins",
         "release_method_counts": audit_frame["release_method"].value_counts().to_dict(),
         "known_corrected_archive_reports": int(audit_frame["known_revision_date"].notna().sum()),
         "sources": SOURCES,
@@ -321,7 +448,7 @@ def build_cot_features(prices: pd.DataFrame, root: Path) -> tuple[pd.DataFrame, 
             "Known Coffee futures corrections (2010-05-18, 2018-09-18 legacy concentration, 2019-03-26) and the non-market-specific 2012-11-27 update are withheld until their announced correction dates; unannounced/unidentified revisions remain possible.",
             "Ordinary historical release dates are estimates, not a complete verified historical publication calendar.",
             "2013 intermediate backlog reports are withheld until the announced completion bound; 2019 catch-up dates follow the announced twice-weekly schedule.",
-            "All pre-September-2009 disaggregated backcasts are excluded, including from rolling windows.",
+            "Pre-September-2009 disaggregated backcasts are retained, but cannot seed live/rolling predictors before October 20, 2009; archive publication time is unspecified, so first use is the following observed session. Classification history was backcast rather than measured contemporaneously.",
             "Observed price dates provide the trading calendar; a missing price session can conservatively postpone availability.",
         ],
     }

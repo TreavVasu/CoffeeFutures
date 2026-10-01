@@ -1,0 +1,654 @@
+feature,groups,family,missing_fraction
+price_return_1,"['basic', 'direction_core', 'engineered_direction']",price,0.00014947683109118088
+price_return_5,"['basic', 'direction_core', 'engineered_direction']",price,0.0007473841554559044
+price_return_21,"['basic', 'direction_core', 'engineered_direction']",price,0.003139013452914798
+price_return_63,"['basic', 'direction_core', 'engineered_direction']",price,0.009417040358744395
+price_vol_21,"['basic', 'direction_core', 'engineered_direction']",price,0.0014947683109118087
+price_vol_63,"['basic', 'direction_core', 'engineered_direction']",price,0.004633781763826607
+price_vs_ma_21,"['basic', 'direction_core', 'engineered_direction']",price,0.0013452914798206279
+price_vs_ma_63,"['basic', 'direction_core', 'engineered_direction']",price,0.004484304932735426
+price_rsi_30,"['basic', 'direction_core', 'engineered_direction']",price,0.002242152466367713
+price_range_position_30,"['basic', 'direction_core', 'engineered_direction']",price,0.0020926756352765323
+price_drawdown_63,"['basic', 'direction_core', 'engineered_direction']",price,0.004484304932735426
+price_signed_volume_21,"['basic', 'direction_core', 'engineered_direction']",price,0.0014947683109118087
+price_volume_relative_21,"['basic', 'direction_core', 'engineered_direction']",price,0.04738415545590433
+price_gap_return,"['basic', 'direction_core', 'engineered_direction']",price,0.10762331838565023
+price_intraday_return,"['basic', 'direction_core', 'engineered_direction']",price,0.10747384155455904
+price_vol_ratio_21_63,"['basic', 'direction_core', 'engineered_direction']",price,0.004633781763826607
+price_ema_spread_21_63,"['basic', 'direction_core', 'engineered_direction']",price,0.009267563527653214
+price_season_sin_1,"['basic', 'direction_core', 'engineered_direction']",price,0.0
+price_season_cos_1,"['basic', 'direction_core', 'engineered_direction']",price,0.0
+price_low_volume,"['basic', 'direction_core', 'engineered_direction']",price,0.0
+price_return_10,['engineered_direction'],price,0.0014947683109118087
+price_vol_10,['engineered_direction'],price,0.0007473841554559044
+price_trend_signal_10,['engineered_direction'],price,0.0014947683109118087
+price_return_30,['engineered_direction'],price,0.004484304932735426
+price_vol_30,['engineered_direction'],price,0.002242152466367713
+price_trend_signal_30,['engineered_direction'],price,0.004484304932735426
+price_return_126,['engineered_direction'],price,0.01883408071748879
+price_vol_126,['engineered_direction'],price,0.009417040358744395
+price_trend_signal_126,['engineered_direction'],price,0.01883408071748879
+price_rsi_14,['engineered_direction'],price,0.0010463378176382662
+price_skew_30,['engineered_direction'],price,0.002242152466367713
+price_vol_asymmetry_30,['engineered_direction'],price,0.002242152466367713
+price_directional_efficiency_30,['engineered_direction'],price,0.004484304932735426
+price_efficiency_30,['engineered_direction'],price,0.004484304932735426
+price_atr_21,['engineered_direction'],price,0.004334828101644245
+price_gap_variance_share_21,['engineered_direction'],price,0.004484304932735426
+price_parkinson_vol_21,['engineered_direction'],price,0.004334828101644245
+price_close_location,['engineered_direction'],price,0.1576980568011958
+price_ema_spread_5_21,['engineered_direction'],price,0.0029895366218236174
+price_vol_of_vol_30,['engineered_direction'],price,0.0026905829596412557
+price_month_progress,['engineered_direction'],price,0.0
+price_days_to_month_end,['engineered_direction'],price,0.0
+price_invalid_ohlc,['engineered_direction'],price,0.0
+cot_legacy_noncommercial_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.0014947683109118087
+cot_legacy_noncommercial_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.003587443946188341
+cot_legacy_noncommercial_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_noncommercial_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_commercial_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.0014947683109118087
+cot_legacy_commercial_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.003587443946188341
+cot_legacy_commercial_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_commercial_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_disagg_managed_money_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_managed_money_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.36367713004484303
+cot_disagg_managed_money_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_managed_money_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_producer_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_producer_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.36367713004484303
+cot_disagg_producer_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_legacy_snapshot_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_release_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_dependency_delay_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_new_release_session,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_legacy_stale_14d,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_oi_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.003587443946188341
+cot_disagg_snapshot_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_release_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_dependency_delay_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_new_release_session,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_disagg_stale_14d,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_oi_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.36367713004484303
+weather_brazil_minas_gerais_rain_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_brazil_minas_gerais_temp_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_brazil_minas_gerais_soil_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_brazil_minas_gerais_dry_heat_stress_30d,['engineered_direction'],weather,0.0028400597907324364
+weather_brazil_minas_gerais_water_deficit_30d,['engineered_direction'],weather,0.0028400597907324364
+weather_brazil_minas_gerais_rain_acceleration,['engineered_direction'],weather,0.0028400597907324364
+weather_brazil_minas_gerais_soil_change_30d,['engineered_direction'],weather,0.004334828101644245
+weather_brazil_minas_gerais_source_age_days,['engineered_direction'],weather,0.0007473841554559044
+weather_brazil_minas_gerais_stale,['engineered_direction'],weather,0.0
+weather_colombia_huila_rain_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_colombia_huila_temp_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_colombia_huila_soil_seasonal_z_30d,['engineered_direction'],weather,0.07638266068759342
+weather_colombia_huila_dry_heat_stress_30d,['engineered_direction'],weather,0.0028400597907324364
+weather_colombia_huila_water_deficit_30d,['engineered_direction'],weather,0.0028400597907324364
+weather_colombia_huila_rain_acceleration,['engineered_direction'],weather,0.0028400597907324364
+weather_colombia_huila_soil_change_30d,['engineered_direction'],weather,0.004334828101644245
+weather_colombia_huila_source_age_days,['engineered_direction'],weather,0.0007473841554559044
+weather_colombia_huila_stale,['engineered_direction'],weather,0.0
+weather_brazil_minas_gerais_flowering_water_deficit,['engineered_direction'],weather,0.0053811659192825115
+weather_brazil_minas_gerais_harvest_rain,['engineered_direction'],weather,0.0028400597907324364
+weather_brazil_minas_gerais_winter_cold_risk,['engineered_direction'],weather,0.001195814648729447
+direction_price_signed_streak_log,"['direction_core', 'engineered_direction']",price,0.00014947683109118088
+direction_price_streak_exhaustion,['engineered_direction'],price,0.00014947683109118088
+direction_price_gap_intraday_disagreement,['engineered_direction'],price,0.10762331838565023
+direction_price_short_monthly_disagreement,"['direction_core', 'engineered_direction']",price,0.003139013452914798
+direction_price_gap_intraday_balance,['engineered_direction'],price,0.10896860986547086
+direction_price_volume_pressure_change,"['direction_core', 'engineered_direction']",price,0.01554559043348281
+direction_price_ema_acceleration,['engineered_direction'],price,0.0037369207772795215
+direction_price_signed_session_share_5,['engineered_direction'],price,0.0004484304932735426
+direction_price_semivariance_balance_5,['engineered_direction'],price,0.0004484304932735426
+direction_price_reversal_share_5,['engineered_direction'],price,0.0005979073243647235
+direction_price_direction_persistence_5,['engineered_direction'],price,0.07563527653213752
+direction_price_prior_high_distance_atr_5,['engineered_direction'],price,0.004334828101644245
+direction_price_prior_low_distance_atr_5,['engineered_direction'],price,0.004334828101644245
+direction_price_signed_path_efficiency_5,['engineered_direction'],price,0.0007473841554559044
+direction_price_up_down_magnitude_balance_5,['engineered_direction'],price,0.05724962630792227
+direction_price_volume_direction_divergence_5,['engineered_direction'],price,0.014499252615844544
+direction_price_signed_session_share_21,"['direction_core', 'engineered_direction']",price,0.0014947683109118087
+direction_price_semivariance_balance_21,"['direction_core', 'engineered_direction']",price,0.0014947683109118087
+direction_price_reversal_share_21,"['direction_core', 'engineered_direction']",price,0.0016442451420029896
+direction_price_direction_persistence_21,['engineered_direction'],price,0.0016442451420029896
+direction_price_prior_high_distance_atr_21,"['direction_core', 'engineered_direction']",price,0.006128550074738416
+direction_price_prior_low_distance_atr_21,"['direction_core', 'engineered_direction']",price,0.006128550074738416
+direction_price_signed_path_efficiency_21,"['direction_core', 'engineered_direction']",price,0.003139013452914798
+direction_price_up_down_magnitude_balance_21,['engineered_direction'],price,0.0014947683109118087
+direction_price_volume_direction_divergence_21,['engineered_direction'],price,0.0014947683109118087
+direction_price_signed_session_share_63,['engineered_direction'],price,0.004633781763826607
+direction_price_semivariance_balance_63,['engineered_direction'],price,0.004633781763826607
+direction_price_reversal_share_63,['engineered_direction'],price,0.004783258594917788
+direction_price_direction_persistence_63,['engineered_direction'],price,0.004783258594917788
+direction_price_prior_high_distance_atr_63,['engineered_direction'],price,0.012406576980568011
+direction_price_prior_low_distance_atr_63,['engineered_direction'],price,0.012406576980568011
+direction_price_signed_path_efficiency_63,['engineered_direction'],price,0.009417040358744395
+direction_price_up_down_magnitude_balance_63,['engineered_direction'],price,0.004633781763826607
+direction_price_volume_direction_divergence_63,['engineered_direction'],price,0.004633781763826607
+direction_price_momentum_5_rank_63,['engineered_direction'],price,0.00523168908819133
+direction_price_momentum_5_rank_252,"['direction_core', 'engineered_direction']",price,0.01943198804185351
+direction_price_momentum_21_rank_63,['engineered_direction'],price,0.007623318385650224
+direction_price_momentum_21_rank_252,"['direction_core', 'engineered_direction']",price,0.021823617339312408
+direction_price_momentum_63_rank_63,['engineered_direction'],price,0.01390134529147982
+direction_price_momentum_63_rank_252,"['direction_core', 'engineered_direction']",price,0.028101644245142002
+direction_price_return_autocorrelation_lag5_21,['engineered_direction'],price,0.002242152466367713
+direction_price_drift_tstat_21,"['direction_core', 'engineered_direction']",price,0.0014947683109118087
+direction_price_breakout_state_21,['engineered_direction'],price,0.003139013452914798
+direction_price_extreme_reversal_21,"['direction_core', 'engineered_direction']",price,0.003139013452914798
+direction_price_reversal_strength_21,['engineered_direction'],price,0.0014947683109118087
+direction_price_return_autocorrelation_lag5_63,['engineered_direction'],price,0.0053811659192825115
+direction_price_drift_tstat_63,"['direction_core', 'engineered_direction']",price,0.004633781763826607
+direction_price_breakout_state_63,['engineered_direction'],price,0.009417040358744395
+direction_price_extreme_reversal_63,['engineered_direction'],price,0.009417040358744395
+direction_price_reversal_strength_63,['engineered_direction'],price,0.004633781763826607
+direction_price_brazil_flowering_trend,"['direction_core', 'engineered_direction']",price,0.003139013452914798
+direction_price_brazil_flowering_reversal,['engineered_direction'],price,0.0007473841554559044
+direction_price_brazil_harvest_trend,['engineered_direction'],price,0.003139013452914798
+direction_price_brazil_harvest_reversal,['engineered_direction'],price,0.0007473841554559044
+direction_price_brazil_winter_trend,['engineered_direction'],price,0.003139013452914798
+direction_price_brazil_winter_reversal,['engineered_direction'],price,0.0007473841554559044
+direction_cot_legacy_noncommercial_crowded_long,['engineered_direction'],cot,0.01883408071748879
+direction_cot_legacy_noncommercial_crowded_short,['engineered_direction'],cot,0.01883408071748879
+direction_cot_legacy_noncommercial_fresh_flow,"['direction_core', 'engineered_direction']",cot,0.0014947683109118087
+direction_cot_legacy_noncommercial_flow_reversal,"['direction_core', 'engineered_direction']",cot,0.003587443946188341
+direction_cot_legacy_noncommercial_price_flow_divergence,"['direction_core', 'engineered_direction']",cot,0.003587443946188341
+direction_cot_legacy_noncommercial_crowding_reversal,"['direction_core', 'engineered_direction']",cot,0.01883408071748879
+direction_cot_legacy_noncommercial_fresh_flow_trend,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_noncommercial_flow_acceleration,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_noncommercial_released_net_rank_13,"['direction_core', 'engineered_direction']",cot,0.005082212257100149
+direction_cot_legacy_noncommercial_released_flow_rank_13,['engineered_direction'],cot,0.005680119581464873
+direction_cot_legacy_noncommercial_released_flow_streak,['engineered_direction'],cot,0.0014947683109118087
+direction_cot_legacy_noncommercial_released_net_extreme_distance_26,['engineered_direction'],cot,0.009417040358744395
+direction_cot_legacy_commercial_crowded_long,['engineered_direction'],cot,0.01883408071748879
+direction_cot_legacy_commercial_crowded_short,['engineered_direction'],cot,0.01883408071748879
+direction_cot_legacy_commercial_fresh_flow,['engineered_direction'],cot,0.0014947683109118087
+direction_cot_legacy_commercial_flow_reversal,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_commercial_price_flow_divergence,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_commercial_crowding_reversal,['engineered_direction'],cot,0.01883408071748879
+direction_cot_legacy_commercial_fresh_flow_trend,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_commercial_flow_acceleration,['engineered_direction'],cot,0.003587443946188341
+direction_cot_legacy_commercial_released_net_rank_13,['engineered_direction'],cot,0.005082212257100149
+direction_cot_legacy_commercial_released_flow_rank_13,['engineered_direction'],cot,0.005680119581464873
+direction_cot_legacy_commercial_released_flow_streak,['engineered_direction'],cot,0.0014947683109118087
+direction_cot_legacy_commercial_released_net_extreme_distance_26,['engineered_direction'],cot,0.009417040358744395
+direction_cot_disagg_managed_money_crowded_long,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_managed_money_crowded_short,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_managed_money_fresh_flow,"['direction_core', 'engineered_direction']",cot,0.3614349775784753
+direction_cot_disagg_managed_money_flow_reversal,"['direction_core', 'engineered_direction']",cot,0.36367713004484303
+direction_cot_disagg_managed_money_price_flow_divergence,"['direction_core', 'engineered_direction']",cot,0.36367713004484303
+direction_cot_disagg_managed_money_crowding_reversal,"['direction_core', 'engineered_direction']",cot,0.3654708520179372
+direction_cot_disagg_managed_money_fresh_flow_trend,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_managed_money_flow_acceleration,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_managed_money_released_net_rank_13,"['direction_core', 'engineered_direction']",cot,0.36517189835575486
+direction_cot_disagg_managed_money_released_flow_rank_13,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_managed_money_released_flow_streak,['engineered_direction'],cot,0.3614349775784753
+direction_cot_disagg_managed_money_released_net_extreme_distance_26,['engineered_direction'],cot,0.36890881913303436
+direction_cot_disagg_producer_crowded_long,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_producer_crowded_short,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_producer_fresh_flow,['engineered_direction'],cot,0.3614349775784753
+direction_cot_disagg_producer_flow_reversal,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_producer_price_flow_divergence,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_producer_crowding_reversal,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_producer_fresh_flow_trend,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_producer_flow_acceleration,['engineered_direction'],cot,0.36367713004484303
+direction_cot_disagg_producer_released_net_rank_13,['engineered_direction'],cot,0.36517189835575486
+direction_cot_disagg_producer_released_flow_rank_13,['engineered_direction'],cot,0.3654708520179372
+direction_cot_disagg_producer_released_flow_streak,['engineered_direction'],cot,0.3614349775784753
+direction_cot_disagg_producer_released_net_extreme_distance_26,['engineered_direction'],cot,0.36890881913303436
+direction_cot_legacy_freshness,['engineered_direction'],cot,0.0007473841554559044
+direction_cot_legacy_publication_delay,['engineered_direction'],cot,0.0007473841554559044
+direction_cot_disagg_freshness,['engineered_direction'],cot,0.3608370702541106
+direction_cot_disagg_publication_delay,['engineered_direction'],cot,0.3608370702541106
+direction_weather_brazil_minas_gerais_drought_heat_severity,"['direction_core', 'engineered_direction']",weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_excess_rain_severity,"['direction_core', 'engineered_direction']",weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_dry_soil_compound,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_heat_soil_compound,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_water_deficit_log,['engineered_direction'],weather,0.0028400597907324364
+direction_weather_brazil_minas_gerais_cold_severity,['engineered_direction'],weather,0.001195814648729447
+direction_weather_brazil_minas_gerais_stress_rank_126,['engineered_direction'],weather,0.08565022421524664
+direction_weather_brazil_minas_gerais_stress_change_5,"['direction_core', 'engineered_direction']",weather,0.07713004484304933
+direction_weather_brazil_minas_gerais_rain_z_change_5,['engineered_direction'],weather,0.07713004484304933
+direction_weather_brazil_minas_gerais_stress_change_21,['engineered_direction'],weather,0.07952167414050822
+direction_weather_brazil_minas_gerais_rain_z_change_21,['engineered_direction'],weather,0.07952167414050822
+direction_weather_brazil_minas_gerais_stress_trend_divergence,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_stress_short_reversal,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_brazil_flowering_stress,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_brazil_harvest_stress,['engineered_direction'],weather,0.07638266068759342
+direction_weather_brazil_minas_gerais_brazil_winter_stress,['engineered_direction'],weather,0.07638266068759342
+direction_weather_colombia_huila_drought_heat_severity,"['direction_core', 'engineered_direction']",weather,0.07638266068759342
+direction_weather_colombia_huila_excess_rain_severity,"['direction_core', 'engineered_direction']",weather,0.07638266068759342
+direction_weather_colombia_huila_dry_soil_compound,['engineered_direction'],weather,0.07638266068759342
+direction_weather_colombia_huila_heat_soil_compound,['engineered_direction'],weather,0.07638266068759342
+direction_weather_colombia_huila_water_deficit_log,['engineered_direction'],weather,0.0028400597907324364
+direction_weather_colombia_huila_cold_severity,['engineered_direction'],weather,0.001195814648729447
+direction_weather_colombia_huila_stress_rank_126,['engineered_direction'],weather,0.08565022421524664
+direction_weather_colombia_huila_stress_change_5,"['direction_core', 'engineered_direction']",weather,0.07713004484304933
+direction_weather_colombia_huila_rain_z_change_5,['engineered_direction'],weather,0.07713004484304933
+direction_weather_colombia_huila_stress_change_21,['engineered_direction'],weather,0.07952167414050822
+direction_weather_colombia_huila_rain_z_change_21,['engineered_direction'],weather,0.07952167414050822
+direction_weather_colombia_huila_stress_trend_divergence,['engineered_direction'],weather,0.07638266068759342
+direction_weather_colombia_huila_stress_short_reversal,['engineered_direction'],weather,0.07638266068759342
+direction_weather_arabica_severity_mean,['engineered_direction'],weather,0.07638266068759342
+direction_weather_arabica_severity_difference,['engineered_direction'],weather,0.07638266068759342
+direction_weather_arabica_stress_agreement,['engineered_direction'],weather,0.07638266068759342
+cot_legacy_log_open_interest,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_oi_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.0014947683109118087
+cot_legacy_oi_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_oi_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_report_gap_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0014947683109118087
+cot_legacy_old_crop_oi_share,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_trader_count_log,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_contracts_per_trader,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_commercial_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_commercial_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.006427503736920777
+cot_legacy_commercial_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.009417040358744395
+cot_legacy_commercial_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_commercial_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.05605381165919283
+cot_legacy_noncommercial_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_noncommercial_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.006427503736920777
+cot_legacy_noncommercial_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.009417040358744395
+cot_legacy_noncommercial_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_noncommercial_spread_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_noncommercial_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.05605381165919283
+cot_legacy_nonreportable_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_nonreportable_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_nonreportable_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_nonreportable_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_nonreportable_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_nonreportable_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.0014947683109118087
+cot_legacy_nonreportable_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.003587443946188341
+cot_legacy_nonreportable_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_nonreportable_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.006427503736920777
+cot_legacy_nonreportable_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.009417040358744395
+cot_legacy_nonreportable_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_nonreportable_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.010164424514200299
+cot_legacy_nonreportable_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.01883408071748879
+cot_legacy_nonreportable_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.05605381165919283
+cot_legacy_concentration_gross_4_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_concentration_net_4_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_concentration_gross_8_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_concentration_net_8_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_open_interest_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_open_interest_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_tot_rept_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_nonrept_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_nonrept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_nonrept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_open_interest_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_open_interest_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_tot_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_nonrept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_tot_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_4_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_gross_le_8_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_4_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_conc_net_le_8_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_postions_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_noncomm_positions_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_comm_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_noncomm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_noncomm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_noncomm_spead_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_comm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_change_in_comm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_noncomm_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_pct_of_oi_comm_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_spead_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_noncomm_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_source_traders_comm_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_available,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_legacy_release_lag_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_value_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_known_revised_archive,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_legacy_release_estimated,"['basic', 'direction_core', 'engineered_direction']",cot,0.0007473841554559044
+cot_disagg_log_open_interest,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_oi_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_oi_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_oi_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_report_gap_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_old_crop_oi_share,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_trader_count_log,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_contracts_per_trader,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_managed_money_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_managed_money_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_managed_money_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_managed_money_spread_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_managed_money_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_producer_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_producer_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_producer_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_producer_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_producer_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_swap_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.36367713004484303
+cot_disagg_swap_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_spread_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_swap_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_swap_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_net_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_long_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_short_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_gross_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_long_short_balance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_net_change_1w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3614349775784753
+cot_disagg_other_reportable_net_change_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.36367713004484303
+cot_disagg_other_reportable_net_change_13w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_net_acceleration_4w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_net_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_net_z_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_net_change_z_26w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_spread_oi,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_other_reportable_index_52w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_other_reportable_index_156w,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_concentration_gross_4_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_concentration_net_4_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_concentration_gross_8_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_concentration_net_8_imbalance,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_open_interest_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_open_interest_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_prod_merc_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_swap_positions_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_m_money_positions_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_other_rept_positions_spread_othr,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_tot_rept_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_nonrept_positions_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_prod_merc_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_prod_merc_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_swap_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_swap_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_swap_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_m_money_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_m_money_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_m_money_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_other_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_other_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_other_rept_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_nonrept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_change_in_nonrept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_open_interest_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_open_interest_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_open_interest_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_prod_merc_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_swap_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_m_money_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_other_rept_spread_othr,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_tot_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_pct_of_oi_nonrept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_prod_merc_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_prod_merc_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_swap_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_swap_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_swap_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_m_money_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_m_money_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_m_money_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_other_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_other_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_other_rept_spread_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_rept_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_rept_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_prod_merc_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36935724962630795
+cot_disagg_source_traders_prod_merc_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_swap_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36606875934230193
+cot_disagg_source_traders_swap_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3721973094170404
+cot_disagg_source_traders_swap_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.4557548579970105
+cot_disagg_source_traders_m_money_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36606875934230193
+cot_disagg_source_traders_m_money_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36457399103139015
+cot_disagg_source_traders_m_money_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3668161434977579
+cot_disagg_source_traders_other_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36292974588938715
+cot_disagg_source_traders_other_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3708520179372197
+cot_disagg_source_traders_other_rept_spread_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.43811659192825114
+cot_disagg_source_traders_tot_rept_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.36935724962630795
+cot_disagg_source_traders_tot_rept_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_prod_merc_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_prod_merc_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_swap_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.364424514200299
+cot_disagg_source_traders_swap_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.39581464872944694
+cot_disagg_source_traders_swap_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.4732436472346786
+cot_disagg_source_traders_m_money_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.46068759342301946
+cot_disagg_source_traders_m_money_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.4717488789237668
+cot_disagg_source_traders_m_money_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.5926756352765321
+cot_disagg_source_traders_other_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3720478325859492
+cot_disagg_source_traders_other_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3710014947683109
+cot_disagg_source_traders_other_rept_spread_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3943198804185351
+cot_disagg_source_traders_tot_rept_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_traders_tot_rept_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_long_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_short_all,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_long_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_short_old,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_4_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_gross_le_8_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_4_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_long_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_source_conc_net_le_8_tdr_short_other,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_available,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_disagg_release_lag_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_value_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_known_revised_archive,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_release_estimated,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_disagg_backcast_history_available,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_disagg_backcast_history_age_days,"['basic', 'direction_core', 'engineered_direction']",cot,0.3654708520179372
+cot_disagg_backcast_history_new_session,"['basic', 'direction_core', 'engineered_direction']",cot,0.0
+cot_managed_money_vs_noncommercial,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106
+cot_producer_vs_commercial,"['basic', 'direction_core', 'engineered_direction']",cot,0.3608370702541106

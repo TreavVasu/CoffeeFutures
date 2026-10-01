@@ -1,0 +1,506 @@
+[
+  {
+    "name": "class__basic__linear_0",
+    "group": "basic",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__basic__linear_1",
+    "group": "basic",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__basic__xgb_0",
+    "group": "basic",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__basic__xgb_1",
+    "group": "basic",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__basic__forest_0",
+    "group": "basic",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__basic__forest_1",
+    "group": "basic",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "class__direction_core__linear_0",
+    "group": "direction_core",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__direction_core__linear_1",
+    "group": "direction_core",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__direction_core__xgb_0",
+    "group": "direction_core",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__direction_core__xgb_1",
+    "group": "direction_core",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__direction_core__forest_0",
+    "group": "direction_core",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__direction_core__forest_1",
+    "group": "direction_core",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "class__price_direction__linear_0",
+    "group": "price_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__price_direction__linear_1",
+    "group": "price_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__price_direction__xgb_0",
+    "group": "price_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__price_direction__xgb_1",
+    "group": "price_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__price_direction__forest_0",
+    "group": "price_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__price_direction__forest_1",
+    "group": "price_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "class__cot_direction__linear_0",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__cot_direction__linear_1",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__cot_direction__xgb_0",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__cot_direction__xgb_1",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__cot_direction__forest_0",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__cot_direction__forest_1",
+    "group": "cot_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "class__weather_direction__linear_0",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__weather_direction__linear_1",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__weather_direction__xgb_0",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__weather_direction__xgb_1",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__weather_direction__forest_0",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__weather_direction__forest_1",
+    "group": "weather_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "class__engineered_direction__linear_0",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "class__engineered_direction__linear_1",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "class__engineered_direction__xgb_0",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "class__engineered_direction__xgb_1",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "class__engineered_direction__forest_0",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "class__engineered_direction__forest_1",
+    "group": "engineered_direction",
+    "task": "class",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__basic__linear_0",
+    "group": "basic",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__basic__linear_1",
+    "group": "basic",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__basic__xgb_0",
+    "group": "basic",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__basic__xgb_1",
+    "group": "basic",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__basic__forest_0",
+    "group": "basic",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__basic__forest_1",
+    "group": "basic",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__direction_core__linear_0",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__direction_core__linear_1",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__direction_core__xgb_0",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__direction_core__xgb_1",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__direction_core__forest_0",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__direction_core__forest_1",
+    "group": "direction_core",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__price_direction__linear_0",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__price_direction__linear_1",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__price_direction__xgb_0",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__price_direction__xgb_1",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__price_direction__forest_0",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__price_direction__forest_1",
+    "group": "price_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__cot_direction__linear_0",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__cot_direction__linear_1",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__cot_direction__xgb_0",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__cot_direction__xgb_1",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__cot_direction__forest_0",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__cot_direction__forest_1",
+    "group": "cot_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__weather_direction__linear_0",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__weather_direction__linear_1",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__weather_direction__xgb_0",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__weather_direction__xgb_1",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__weather_direction__forest_0",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__weather_direction__forest_1",
+    "group": "weather_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "name": "reg__engineered_direction__linear_0",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "name": "reg__engineered_direction__linear_1",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "name": "reg__engineered_direction__xgb_0",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "name": "reg__engineered_direction__xgb_1",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "name": "reg__engineered_direction__forest_0",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "name": "reg__engineered_direction__forest_1",
+    "group": "engineered_direction",
+    "task": "reg",
+    "family": "forest",
+    "variant": 1
+  }
+]

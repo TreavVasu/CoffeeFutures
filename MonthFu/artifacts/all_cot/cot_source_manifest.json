@@ -1,0 +1,11 @@
+{
+  "source": "data/COT/coffee_c_all_cot_data.csv",
+  "source_sha256": "4c12f364323bde992681225ca93bcb66a9d2e566cc03b3df0d2cb2c35b4c313d",
+  "rows": 2447,
+  "columns": 241,
+  "family_counts": {
+    "legacy_futures_only": 1391,
+    "disaggregated_futures_only": 1056
+  },
+  "policy": "Complete original cached source reports; source identifiers are retained here as metadata and excluded from predictor columns."
+}

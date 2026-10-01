@@ -37,6 +37,8 @@ def parse_args():
     parser.add_argument("--cv-test-size",type=int,default=504)
     parser.add_argument("--include-experimental-news",action="store_true")
     parser.add_argument("--quick",action="store_true")
+    parser.add_argument("--cot-policy",choices=["all","benchmark"],default="all",
+                        help="Require every numeric COT feature in selected members, or allow source ablations")
     parser.add_argument("--output-dir",type=Path)
     parser.add_argument("--resume-export",action="store_true",help="Verify saved CV/holdout tables and rebuild bundle/reports without repeating evaluation fits")
     return parser.parse_args()
@@ -88,33 +90,42 @@ def latest_forecast(bundle,frame):
         "cv_empirical_lower_80":forecast-band,"cv_empirical_upper_80":forecast+band,
         "interval_policy":"Selected-CV absolute error band; no prospective coverage guarantee",
         "recipe":bundle["recipe"]["name"],
+        "cot_policy":bundle.get("cot_policy","benchmark"),
+        "cot_feature_count":len(bundle.get("required_cot_features",[])),
         "data_status":"Forecast from last cached price close; not a live current-market quote"}])
 
 
 def train(args,shared_features=None):
     started = time.perf_counter()
     key = f"{args.horizon}{'calendar' if args.horizon_unit=='calendar' else 'sessions'}"
-    out = (args.output_dir or MONTHFU / "artifacts" / key).resolve()
+    require_all_cot = getattr(args,"cot_policy","all") == "all"
+    artifact_root = MONTHFU / "artifacts" / ("all_cot" if require_all_cot else "benchmark_updated")
+    out = (args.output_dir or artifact_root / key).resolve()
     if not out.is_relative_to(MONTHFU):
         raise ValueError("Keep experiment outputs inside MonthFu.")
     out.mkdir(parents=True,exist_ok=True)
     print(f"[{key}] Building targets and availability-aware features",flush=True)
     base,manifest,audits = build_feature_frame(ROOT) if shared_features is None else shared_features
     groups = manifest["groups"]
+    cot_columns = [c for c in base if c.startswith("cot_") and pd.api.types.is_numeric_dtype(base[c])]
     frame = add_targets(base,args.horizon,args.horizon_unit)
     metadata = dict(audits["metadata"])
     metadata.update(feature_counts={k:len(v) for k,v in groups.items()},
-                    signal_time="After daily Coffee C close; close-to-close research returns")
+                    signal_time="After daily Coffee C close; close-to-close research returns",
+                    cot_policy="all" if require_all_cot else "benchmark",
+                    required_cot_features=cot_columns if require_all_cot else [])
     cutoff = pd.Timestamp(args.holdout_start)
     # Common validation origins across default horizons; each target purges its own labels.
     anchor = add_targets(base,max(30,args.horizon) if args.horizon_unit=="sessions" else 30,"sessions")
     fold_anchors = expanding_folds(anchor,cutoff,args.cv_splits,args.cv_test_size)
-    specs = candidates(args.include_experimental_news,args.quick)
+    specs = candidates(args.include_experimental_news,args.quick,require_all_cot=require_all_cot)
     lookup = {s.name:s for s in specs}
     if getattr(args,"resume_export",False):
+        if require_all_cot:
+            raise ValueError("All-COT runs require fresh evaluation; benchmark checkpoints cannot be reused")
         from resume_export import resume_export
         return resume_export(args,out,frame,groups,metadata,audits,lookup,started)
-    cv_rows,oof_parts,fold_audit = [],[],[]
+    cv_rows,oof_parts,fold_audit,cot_fit_rows = [],[],[],[]
     for number,(_,valid_anchor) in enumerate(fold_anchors,1):
         valid = frame.loc[frame.Date.isin(valid_anchor.Date)].copy()
         if valid.target_return.isna().any() or not valid.target_end_date.lt(cutoff).all():
@@ -128,6 +139,8 @@ def train(args,shared_features=None):
             fitted = fit_candidate(spec,fit_train,groups[spec.group],args.quick,
                                   price_history=frame.loc[frame.Date.lt(valid.Date.iloc[0])])
             prediction = predict_member(fitted,valid)
+            cot_fit_rows.extend({"stage":"cv","cutoff":valid.Date.iloc[0],"member":spec.name,**row}
+                                for row in fitted.get("cot_feature_audit",[]))
             part[spec.name] = prediction
             cv_rows.append({"fold":number,"candidate":spec.name,"feature_group":spec.group,
                             "train_rows":len(fit_train),"features":len(fitted["features"]),
@@ -140,8 +153,9 @@ def train(args,shared_features=None):
     oof = pd.concat(oof_parts,ignore_index=True)
     previous_recipe,_ = select_recipe(oof,[lookup[n] for n in PREVIOUS_WEIGHTS])
     previous_recipe["name"] = "previous_cv_ensemble"
-    recipe,ranking = select_recipe(oof,specs)
-    if previous_recipe["cv_rmse"] < recipe["cv_rmse"]:
+    eligible = {s.name for s in specs if s.require_all_cot} if require_all_cot else None
+    recipe,ranking = select_recipe(oof,specs,eligible_names=eligible)
+    if not require_all_cot and previous_recipe["cv_rmse"] < recipe["cv_rmse"]:
         recipe = previous_recipe.copy()
     oof["previous_cv_ensemble"] = sum(oof[n]*w for n,w in previous_recipe["weights"].items())
     ranking = pd.concat([ranking,pd.DataFrame([{"recipe":"previous_cv_ensemble",
@@ -154,6 +168,9 @@ def train(args,shared_features=None):
     selection = {"recipe":recipe,"previous_cv_recipe":previous_recipe,"candidates":[asdict(s) for s in specs],
                  "holdout_start":str(cutoff.date()),"refit_policy":"Quarterly; only labels ending strictly before refit",
                  "primary_metric":"Pooled expanding-CV RMSE; horizons compared by skill vs zero",
+                 "cot_policy":"all" if require_all_cot else "benchmark",
+                 "required_cot_features":cot_columns if require_all_cot else [],
+                 "eligible_candidates":sorted(eligible) if eligible is not None else [s.name for s in specs],
                  "horizon_selection":"30 calendar days fixed as primary before holdout; alternatives are sensitivity experiments"}
     (out / "selection.json").write_text(json.dumps(selection,indent=2))
     holdout = frame.loc[frame.Date.ge(cutoff) & frame.target_return.notna()].copy()
@@ -164,6 +181,8 @@ def train(args,shared_features=None):
         "previous_transferred_ensemble":{"name":"previous_transferred_ensemble","weights":PREVIOUS_WEIGHTS},
         "previous_cv_ensemble":previous_recipe,
         "compact_legacy":{"name":"compact_legacy","weights":{"compact_legacy":1}}}
+    if require_all_cot:
+        recipes["prior_price_recipe"] = {"name":"prior_price_recipe","weights":{"price_extra":.5}}
     holdout_parts,refit_rows = [],[]
     for period,block in holdout.groupby(holdout.Date.dt.to_period("Q"),sort=True):
         block_start = block.Date.iloc[0]
@@ -174,6 +193,9 @@ def train(args,shared_features=None):
             bundle = fit_recipe(this_recipe,lookup,frame,groups,block_start,args.quick,cache)
             part[name] = predict_bundle(bundle,block)
             for member in bundle["members"]:
+                cot_fit_rows.extend({"stage":"holdout","comparison":name,"cutoff":block_start,
+                                     "member":member["spec"]["name"],**row}
+                                    for row in member.get("cot_feature_audit",[]))
                 refit_rows.append({"quarter":str(period),"comparison":name,"member":member["spec"]["name"],
                     "weight":member["weight"],"first_prediction_date":block_start,"train_rows":member["train_rows"],
                     "train_last_date":member["train_last_date"],"train_last_target_date":member["train_last_target_date"],
@@ -197,16 +219,29 @@ def train(args,shared_features=None):
     latest_bundle = fit_recipe(recipe,lookup,frame,groups,frame.Date.max()+pd.Timedelta(days=1),args.quick)
     latest_bundle.update(horizon=args.horizon,horizon_unit=args.horizon_unit,cv_absolute_error_q80=error_q80,
         feature_metadata=metadata,fitted_as_of=str(frame.Date.max().date()),
-        status="experimental_news" if args.include_experimental_news else "research",bundle_version=1)
+        status="experimental_news" if args.include_experimental_news else "research",bundle_version=2,
+        cot_policy="all" if require_all_cot else "benchmark",
+        required_cot_features=cot_columns if require_all_cot else [],
+        cot_policy_version=metadata["cot"].get("feature_schema_version"),
+        cot_backcast_policy=metadata["cot"].get("backcast_policy"))
+    if require_all_cot:
+        for member in latest_bundle["members"]:
+            if set(member["required_cot_features"]) != set(cot_columns):
+                raise ValueError("Selected model does not contain the complete COT feature schema")
+    for member in latest_bundle["members"]:
+        cot_fit_rows.extend({"stage":"final","cutoff":frame.Date.max()+pd.Timedelta(days=1),
+                             "member":member["spec"]["name"],**row}
+                            for row in member.get("cot_feature_audit",[]))
     latest = latest_forecast(latest_bundle,frame)
     comparisons = {name:block_comparison(predictions.target_return,predictions.selected,predictions[name],block=60)
-                   for name in ["zero","historical_mean","previous_transferred_ensemble","previous_cv_ensemble","compact_legacy"]}
+                   for name in recipes if name != "selected"}
     sensitivity = {str(b):block_comparison(predictions.target_return,predictions.selected,predictions.zero,block=b) for b in [30,90]}
     inputs = [ROOT / p for p in ["data/yahoo/arabica_coffee_futures_history.csv","data/COT/coffee_c_all_cot_data.csv",
         "data/weather/open_meteo_coffee_regions_daily.csv","data/COT/cot_release_overrides.csv","MonthFu/data/cot_release_overrides.csv",
         "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_daily_summary.csv",
         "Scripts/project/artifacts/outputs/gdelt_coffee_events_2000_2026_weekly_summary.csv"]]
     summary = {"horizon":args.horizon,"horizon_unit":args.horizon_unit,"selection":recipe,"cv_rows":len(oof),
+        "cot_policy":"all" if require_all_cot else "benchmark",
         "cv_folds":len(fold_anchors),"candidate_count":len(specs),"cv_previous_ensemble":cv_previous,
         "cv_previous_retuned":metrics(oof.target_return,oof.previous_cv_ensemble),
         "cv_selected":metrics(oof.target_return,oof.selected),"cv_zero":metrics(oof.target_return,oof.zero),
@@ -241,6 +276,14 @@ def train(args,shared_features=None):
     pd.DataFrame([{"group":g,"feature":c} for g,cols in groups.items() for c in cols]).to_csv(out / "feature_manifest.csv",index=False)
     age_cols = [c for c in frame if c.startswith(("cot_","weather_","news_")) and any(s in c for s in ["age","stale","available_date","report_date","publication_date","source_date"])]
     frame[["Date",*age_cols]].to_csv(out / "availability_rows.csv",index=False)
+    if require_all_cot:
+        training = mature_training_rows(frame,frame.Date.max()+pd.Timedelta(days=1))
+        training.to_csv(out / "training_dataset.csv.gz",index=False,compression="gzip")
+        base.to_csv(out / "prediction_inputs.csv.gz",index=False,compression="gzip")
+        pd.DataFrame(cot_fit_rows).to_csv(out / "cot_feature_inclusion.csv.gz",index=False,compression="gzip")
+        (out / "feature_schema.json").write_text(json.dumps({"cot_policy":"all",
+            "required_cot_features":cot_columns,"source_field_manifest":audits["metadata"]["cot"],
+            "retention_policy":"Every numeric COT feature retained; fold-local median/empty-value imputation and missing indicators. Inclusion does not imply nonzero model importance."},indent=2,default=str))
     (out / "metrics.json").write_text(json.dumps(json_ready(summary),indent=2,default=str,allow_nan=False))
     joblib.dump(latest_bundle,out / "model.joblib",compress=3)
     write_report(out,summary,latest)

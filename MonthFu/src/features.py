@@ -232,6 +232,7 @@ def _feature_groups(frame: pd.DataFrame, market: pd.DataFrame, cot: pd.DataFrame
         "price_cot": price + cot_cols,
         "price_cot_weather": price + cot_cols + weather,
         "monthly_core": core_price + core_cot + core_weather + core_interactions,
+        "monthly_core_all_cot": core_price + cot_cols + core_weather + core_interactions,
         "engineered": price + cot_cols + weather + list(interactions),
         "experimental_news": price + cot_cols + weather + list(interactions) + news,
     }

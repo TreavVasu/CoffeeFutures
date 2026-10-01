@@ -1,0 +1,5 @@
+model,task,as_of_date,target_date_estimate,horizon_days,value,probability_up,predicted_return,direction,threshold,cached_close,data_status
+selected_direction,class,2026-09-09,2026-10-09,30,0.6196810007095337,0.6196810007095337,,Up,0.4750000000000001,319.20001220703125,Latest cached origin; not a current market quote
+selected_return,reg,2026-09-09,2026-10-09,30,0.004734332207590342,,0.004734332207590342,Up,0.0,319.20001220703125,Latest cached origin; not a current market quote
+class__basic__equal_ensemble,class,2026-09-09,2026-10-09,30,0.6405703395054224,0.6405703395054224,,Up,0.45000000000000007,319.20001220703125,Latest cached origin; not a current market quote
+reg__basic__equal_ensemble,reg,2026-09-09,2026-10-09,30,0.021976857210877204,,0.021976857210877204,Up,0.0,319.20001220703125,Latest cached origin; not a current market quote

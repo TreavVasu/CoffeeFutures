@@ -15,7 +15,7 @@ import pandas as pd
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--bundle",type=Path,default=MONTHFU / "artifacts/30calendar/model.joblib")
+    parser.add_argument("--bundle",type=Path,default=MONTHFU / "artifacts/all_cot/30calendar/model.joblib")
     parser.add_argument("--output",type=Path)
     parser.add_argument("--replay-date",help="Use saved out-of-sample prediction for a historical holdout origin")
     args = parser.parse_args()
@@ -28,7 +28,15 @@ def main():
         result["mode"] = "Saved walk-forward replay; no use of final refitted model"
     else:
         bundle = joblib.load(args.bundle)
-        base,_,_ = build_feature_frame(ROOT)
+        base,_,audits = build_feature_frame(ROOT)
+        if bundle.get("cot_policy") == "all":
+            current = {c for c in base if c.startswith("cot_") and pd.api.types.is_numeric_dtype(base[c])}
+            if current != set(bundle["required_cot_features"]):
+                raise ValueError("COT schema changed since training; retrain the all-COT model")
+            cot = audits["metadata"]["cot"]
+            if (bundle.get("cot_policy_version") != cot.get("feature_schema_version") or
+                    bundle.get("cot_backcast_policy") != cot.get("backcast_policy")):
+                raise ValueError("COT availability policy changed since training; retrain the all-COT model")
         frame = add_targets(base,bundle["horizon"],bundle["horizon_unit"])
         if frame.Date.max().strftime("%Y-%m-%d") < bundle["fitted_as_of"]:
             raise ValueError("Cache predates the fitted model; use saved holdout replay for history.")

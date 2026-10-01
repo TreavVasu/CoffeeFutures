@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from functools import lru_cache
 
 import numpy as np
@@ -58,9 +58,11 @@ class Candidate:
     train_years: int = 0
     normalized: bool = False
     half_life_years: float = 0
+    require_all_cot: bool = False
 
 
-def candidates(include_news: bool = False, quick: bool = False) -> list[Candidate]:
+def candidates(include_news: bool = False, quick: bool = False,
+               require_all_cot: bool = False) -> list[Candidate]:
     result = [Candidate("zero", "monthly_core", "zero"),
               Candidate("historical_mean", "monthly_core", "mean"),
               Candidate("compact_legacy", "compact_legacy", "hist", 10, 40),
@@ -93,6 +95,13 @@ def candidates(include_news: bool = False, quick: bool = False) -> list[Candidat
     if include_news:
         result += [Candidate("experimental_news_ridge", "experimental_news", "ridge", 10000),
                    Candidate("experimental_news_hist", "experimental_news", "hist", 10, 100)]
+    if require_all_cot:
+        result = [replace(spec,
+                    group="monthly_core_all_cot" if spec.group == "monthly_core" else spec.group,
+                    require_all_cot=True)
+                  if spec.group in {"price_cot", "price_cot_weather", "monthly_core", "engineered", "experimental_news"}
+                     and spec.kind not in {"zero", "mean"} else spec
+                  for spec in result]
     return result
 
 
@@ -170,7 +179,11 @@ def fit_candidate(spec: Candidate, train: pd.DataFrame, columns: list[str], quic
         return {"spec": asdict(spec), "features": ["Close"],
                 "state": _cached_holt_winters(tuple(history.Close)),
                 "state_as_of": history.Date.iloc[-1]}
-    usable = [c for c in columns if train[c].notna().mean() >= .20 and train[c].nunique(dropna=True) > 1]
+    required_cot = [c for c in columns if c.startswith("cot_")] if spec.require_all_cot else []
+    if spec.require_all_cot and not required_cot:
+        raise ValueError("All-COT candidates require COT predictors")
+    usable = [c for c in columns if c in required_cot or
+              (train[c].notna().mean() >= .20 and train[c].nunique(dropna=True) > 1)]
     if not usable:
         raise ValueError(f"No train-time usable features for {spec.name}")
     target = train.target_return.to_numpy()
@@ -181,10 +194,19 @@ def fit_candidate(spec: Candidate, train: pd.DataFrame, columns: list[str], quic
         age = (train.Date.max() - train.Date).dt.days / 365.25
         fit_args["model__sample_weight"] = np.power(.5, age / spec.half_life_years).to_numpy()
     estimator = make_estimator(spec, quick).fit(train[usable], target, **fit_args)
-    return {"spec": asdict(spec), "features": usable, "estimator": estimator}
+    return {"spec": asdict(spec), "features": usable, "estimator": estimator,
+            "required_cot_features": required_cot,
+            "cot_feature_audit": [{"feature": c, "observed_rows": int(train[c].notna().sum()),
+                "training_rows": len(train), "unique_observed_values": int(train[c].nunique(dropna=True)),
+                "retained": c in usable, "required": c in required_cot}
+                for c in columns if c.startswith("cot_")]}
 
 
 def predict_member(member: dict, frame: pd.DataFrame) -> np.ndarray:
+    if member["spec"].get("require_all_cot"):
+        required = set(member.get("required_cot_features", []))
+        if not required or not required.issubset(member["features"]) or not required.issubset(frame.columns):
+            raise ValueError("All-COT predictor schema is incomplete; rebuild features and retrain")
     if member["spec"]["kind"] == "holt_winters":
         if not frame.Date.is_monotonic_increasing or frame.Date.duplicated().any():
             raise ValueError("Stateful forecasts require unique sorted origin dates.")
@@ -220,12 +242,13 @@ def metrics(actual, predicted) -> dict:
             "direction_note": "Zero forecasts are neutral; direction is reported alongside a training-only majority-class benchmark."}
 
 
-def select_recipe(oof: pd.DataFrame, specs: list[Candidate]):
+def select_recipe(oof: pd.DataFrame, specs: list[Candidate], eligible_names: set[str] | None = None):
     rows = [{"recipe": spec.name, "weights": {spec.name: 1.0},
              **metrics(oof.target_return, oof[spec.name])} for spec in specs]
     rows.append({"recipe": "previous_transferred_ensemble", "weights": PREVIOUS_WEIGHTS,
                  **metrics(oof.target_return, sum(oof[n]*w for n,w in PREVIOUS_WEIGHTS.items()))})
-    nontrivial = sorted([r for r in rows if r["recipe"] not in {"zero", "historical_mean"}],
+    nontrivial = sorted([r for r in rows if r["recipe"] not in {"zero", "historical_mean"}
+                        and (eligible_names is None or r["recipe"] in eligible_names)],
                         key=lambda r: r["rmse"])
     # Mixtures contain only actual candidate columns, chosen from pre-holdout CV.
     leaders = [r["recipe"] for r in nontrivial if r["recipe"] in oof][:3]
@@ -245,10 +268,15 @@ def select_recipe(oof: pd.DataFrame, specs: list[Candidate]):
             p = sum(oof[name]*weight for name,weight in weights.items())
             rows.append({"recipe":f"blend_{index}_shrink_{shrink:g}", "weights":weights,
                          **metrics(oof.target_return,p)})
-    best = min(rows,key=lambda r:r["rmse"])
+    def eligible(row):
+        return eligible_names is None or set(row["weights"]).issubset(eligible_names)
+    allowed = [row for row in rows if eligible(row)]
+    if not allowed:
+        raise ValueError("No eligible model recipe")
+    best = min(allowed,key=lambda r:r["rmse"])
     recipe = {"name":best["recipe"], "weights":best["weights"], "cv_rmse":best["rmse"],
               "cv_skill_vs_zero":best["r2_vs_zero"]}
-    return recipe, pd.DataFrame(rows).sort_values("rmse").reset_index(drop=True)
+    return recipe, pd.DataFrame([{**row, "eligible_for_selection": eligible(row)} for row in rows]).sort_values("rmse").reset_index(drop=True)
 
 
 def nonoverlap_positions(frame: pd.DataFrame, offset: int = 0) -> list[int]:

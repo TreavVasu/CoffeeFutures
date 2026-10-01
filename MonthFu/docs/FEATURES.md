@@ -29,7 +29,7 @@ Raw OHLCV is reserved for the `previous_technical` reference group. The larger e
 
 `MonthFu/src/cot_release_features.py` owns source-family mappings and publication availability. It distinguishes the position snapshot date, the publication date and the first usable observed Coffee C session. Reports normally publish after the Coffee C trading session, so the first usable date is strictly later than publication. Known interruptions and announced exceptions override normal estimated processing dates. Historical CFTC archives may contain subsequent revisions; the release audit does not certify original unrevised vintages.
 
-Weekly positioning features are calculated **before** carrying a report onto daily rows. A net change over four reports therefore represents a real report-to-report change, rather than four daily forward-filled rows. The bank includes participant net/gross/open-interest shares, weekly positioning flow, crowding relative to trailing report history, open-interest changes, concentration and age/quality indicators. The legacy and disaggregated definitions remain separate. The disaggregated historical backcast is excluded before its public launch.
+Weekly positioning features are calculated **before** carrying a report onto daily rows. A net change over four reports therefore represents a real report-to-report change, rather than four daily forward-filled rows. The bank includes participant net/gross/open-interest shares, weekly positioning flow, crowding relative to trailing report history, open-interest changes, concentration and age/quality indicators. The legacy and disaggregated definitions remain separate. Pre-launch disaggregated backcasts are retained but cannot influence predictors before their October 20, 2009 archive publication; the next observed session activates their historical windows. Pre-2009 legacy positioning is available after its own report releases.
 
 Daily alignment uses backward as-of joins from the first usable session. There is no Tuesday snapshot-to-Tuesday predictor join and no backwards fill of early missing reports. The per-report CSV audit records publication and availability dates, exceptions and estimates. During an interruption, freshness/age features make carried values visible as older information. Missing unreleased values remain missing for training-fitted imputation.
 
@@ -57,7 +57,7 @@ The underlying retained events were selected using future five-session price res
 
 ## Fixed groups and validation
 
-With the supplied cache, the feature manifest contains:
+The updated supplied-cache feature manifest contains (original benchmark groups had 150 COT features):
 
 | Group | Features | Purpose |
 | --- | ---: | --- |
@@ -65,13 +65,14 @@ With the supplied cache, the feature manifest contains:
 | `previous_history` | 13 | Trailing technical history for the original autoregressive recipe |
 | `compact_legacy` | 18 | Small price/COT/weather reference; not an exact reproduction of old weights |
 | `price` | 245 | Full trailing price/volume/calendar bank |
-| `price_cot` | 395 | Price plus release-aligned positioning |
-| `price_cot_weather` | 676 | Source ablation with regional weather |
-| `monthly_core` | 104 | Curated monthly trend/flow/stress signals with limited dimension |
-| `engineered` | 733 | Full non-news bank plus fixed interactions |
-| `experimental_news` | 770 | Explicitly experimental additional news signals |
+| `price_cot` | 694 | Price plus release-aligned positioning |
+| `price_cot_weather` | 975 | Source ablation with regional weather |
+| `monthly_core` | 104 | Original curated benchmark group |
+| `monthly_core_all_cot` | 521 | Curated price/weather/interaction core plus all 449 COT predictors |
+| `engineered` | 1032 | Full non-news bank plus fixed interactions |
+| `experimental_news` | 1069 | Explicitly experimental additional news signals |
 
-Counts describe candidate predictors, not the number necessarily retained in a fitted model. Availability/variance screening, imputation, scaling, supervised selection and regularization must use training rows inside each fold. The manifest's full-cache missing fractions are audit metadata, not a basis for selecting usable predictors.
+All-COT mode retains every one of the 449 numeric COT predictors in each selected fit, including sparse/constant/empty fields. The source measurement map covers 118 legacy and 178 disaggregated columns, including All/Old/Other crop positions, declared changes, percentages, trader counts and concentration. Positions and changes are divided by current All open interest, percentages by 100, and nonnegative counts/open interest use log1p. Identifiers remain metadata. Non-COT counts describe candidate predictors, rather than the number necessarily retained in a fitted model. Availability/variance screening, imputation, scaling, supervised selection and regularization must use training rows inside each fold. The manifest's full-cache missing fractions are audit metadata, not a basis for selecting usable predictors.
 
 The focused tests verify that changing future OHLCV cannot alter earlier features, rebuilding a price prefix reproduces the full-history prefix exactly, source-added target fields are rejected, monthly returns count observed sessions, weather cannot arrive before its lag, climatology excludes future/current-month observations, missing rainfall interrupts dry spells, stale gaps remain missing, and news timing and whitelists remain intact.
 

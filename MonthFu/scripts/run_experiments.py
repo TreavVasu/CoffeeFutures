@@ -15,10 +15,12 @@ import pandas as pd
 HORIZONS = [(30,"calendar"),(21,"sessions"),(28,"calendar"),(21,"calendar"),(30,"sessions")]
 
 
-def run_one(horizon,unit,quick,news,holdout_start):
+def run_one(horizon,unit,quick,news,holdout_start,cot_policy="all"):
+    family = "all_cot" if cot_policy == "all" else "benchmark_updated"
     args = argparse.Namespace(horizon=horizon,horizon_unit=unit,holdout_start=holdout_start,
         cv_splits=4,cv_test_size=504,include_experimental_news=news,quick=quick,
-        output_dir=MONTHFU / "artifacts" / ("quick" if quick else "") / f"{horizon}{unit}")
+        cot_policy=cot_policy,
+        output_dir=MONTHFU / "artifacts" / family / ("quick" if quick else "") / f"{horizon}{unit}")
     return train(args)
 
 
@@ -71,7 +73,8 @@ def summarize(artifact_root=None,report_name="RESULTS.md"):
     if "30calendar" in summaries:
         primary_summary = summaries["30calendar"]
         selected = primary_summary["selection"]
-        lines += ["",f"Primary selected recipe: `{selected['weights']}`. The larger engineered COT/weather groups were tested but did not beat this conservative price model in validation.","",
+        policy = primary_summary.get("cot_policy","benchmark")
+        lines += ["",f"Primary selected recipe: `{selected['weights']}`. COT selection policy: `{policy}`; all-COT runs constrain every selected member to receive the complete numeric COT feature schema.","",
             f"Primary 60-session block interval for RMSE difference versus adapted previous: `{primary_summary['block_comparisons']['previous_transferred_ensemble']['rmse_difference_95pct_block_interval']}`; versus zero: `{primary_summary['block_comparisons']['zero']['rmse_difference_95pct_block_interval']}`. The zero-reference interval spans zero, so a reliable edge over no change is not established."]
     (MONTHFU / report_name).write_text("\n".join(lines)+"\n")
     print(table.to_string(index=False),flush=True)
@@ -84,6 +87,7 @@ def main():
     parser.add_argument("--quick",action="store_true")
     parser.add_argument("--include-experimental-news",action="store_true")
     parser.add_argument("--holdout-start",default="2022-01-01")
+    parser.add_argument("--cot-policy",choices=["all","benchmark"],default="all")
     parser.add_argument("--summarize-only",action="store_true")
     args = parser.parse_args()
     if args.jobs < 1 or args.jobs > 4:
@@ -92,10 +96,12 @@ def main():
         if args.include_experimental_news:
             raise ValueError("Run optional news ablations with train.py into a separate MonthFu output directory.")
         with ProcessPoolExecutor(max_workers=args.jobs) as pool:
-            futures = [pool.submit(run_one,h,u,args.quick,False,args.holdout_start) for h,u in HORIZONS]
+            futures = [pool.submit(run_one,h,u,args.quick,False,args.holdout_start,args.cot_policy) for h,u in HORIZONS]
             for future in as_completed(futures):
                 future.result()
-    summarize(MONTHFU / "artifacts" / ("quick" if args.quick else ""),"RESULTS_QUICK.md" if args.quick else "RESULTS.md")
+    family = "all_cot" if args.cot_policy == "all" else "benchmark_updated"
+    summarize(MONTHFU / "artifacts" / family / ("quick" if args.quick else ""),
+              f"RESULTS_{family.upper()}{'_QUICK' if args.quick else ''}.md")
 
 
 if __name__=="__main__":

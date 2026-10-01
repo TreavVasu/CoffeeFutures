@@ -1,0 +1,272 @@
+{
+  "status": "passed",
+  "artifacts_dir": "MonthFu/artifacts/all_cot",
+  "rerun_command": ".venv/bin/python MonthFu/scripts/audit_artifacts.py --artifacts-dir MonthFu/artifacts/all_cot",
+  "experiments": [
+    {
+      "experiment": "30calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1157,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 210,
+      "cot_audit_rows": 2447,
+      "latest_bundle_replay_absolute_error": 9.367506770274758e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.11253742489373522,
+      "skill_vs_zero": 0.005056631480830354,
+      "rmse_improvement_vs_transferred": 0.036661784404258047,
+      "rmse_improvement_vs_retuned_previous": 0.03821231217876064,
+      "majority_direction_accuracy": 0.4814174589455488,
+      "selected_direction_accuracy": 0.5082108902333622,
+      "empirical_band_coverage": 0.7579948141745895,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.25",
+        "weights": {
+          "engineered_extra": 0.25
+        },
+        "cv_rmse": 0.10113689752325156,
+        "cv_skill_vs_zero": -0.0056307786286033945
+      },
+      "selected_groups": [
+        "engineered"
+      ],
+      "cot_policy": "all",
+      "all_cot_dataset_audit": {
+        "features": 449,
+        "reports": 2447,
+        "retained_backcasts": 168,
+        "training_rows": 6669,
+        "prediction_input_rows": 6690,
+        "verified_feature_fit_rows": 71840
+      },
+      "selected_minus_zero_interval": [
+        -0.0014444890978575662,
+        0.0011215202650153404
+      ],
+      "selected_minus_retuned_interval": [
+        -0.008634828194113025,
+        -0.0006981188189198254
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "21sessions",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1157,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 210,
+      "cot_audit_rows": 2447,
+      "latest_bundle_replay_absolute_error": 8.326672684688674e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.11115687610459452,
+      "skill_vs_zero": 0.004273617722925671,
+      "rmse_improvement_vs_transferred": 0.03681165068416803,
+      "rmse_improvement_vs_retuned_previous": 0.038264281881460915,
+      "majority_direction_accuracy": 0.4840103716508211,
+      "selected_direction_accuracy": 0.5133967156439067,
+      "empirical_band_coverage": 0.7519446845289542,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.25",
+        "weights": {
+          "engineered_extra": 0.25
+        },
+        "cv_rmse": 0.10126186560897459,
+        "cv_skill_vs_zero": -0.0037748711677059177
+      },
+      "selected_groups": [
+        "engineered"
+      ],
+      "cot_policy": "all",
+      "all_cot_dataset_audit": {
+        "features": 449,
+        "reports": 2447,
+        "retained_backcasts": 168,
+        "training_rows": 6669,
+        "prediction_input_rows": 6690,
+        "verified_feature_fit_rows": 71840
+      },
+      "selected_minus_zero_interval": [
+        -0.00127965335892984,
+        0.0011924480165441038
+      ],
+      "selected_minus_retuned_interval": [
+        -0.009065392534575854,
+        -0.0005372667074662197
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "28calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1159,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 210,
+      "cot_audit_rows": 2447,
+      "latest_bundle_replay_absolute_error": 7.806255641895632e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.1078538024428461,
+      "skill_vs_zero": 0.006346144081674332,
+      "rmse_improvement_vs_transferred": 0.03237263514825506,
+      "rmse_improvement_vs_retuned_previous": 0.012105394094166777,
+      "majority_direction_accuracy": 0.4771354616048318,
+      "selected_direction_accuracy": 0.5314926660914582,
+      "empirical_band_coverage": 0.7368421052631579,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.25",
+        "weights": {
+          "engineered_extra": 0.25
+        },
+        "cv_rmse": 0.09685630633041305,
+        "cv_skill_vs_zero": -0.006519438369629871
+      },
+      "selected_groups": [
+        "engineered"
+      ],
+      "cot_policy": "all",
+      "all_cot_dataset_audit": {
+        "features": 449,
+        "reports": 2447,
+        "retained_backcasts": 168,
+        "training_rows": 6671,
+        "prediction_input_rows": 6690,
+        "verified_feature_fit_rows": 71840
+      },
+      "selected_minus_zero_interval": [
+        -0.001405593737048826,
+        0.0009369487925219466
+      ],
+      "selected_minus_retuned_interval": [
+        -0.0024764565701802816,
+        -0.00010807559356630556
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "21calendar",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1164,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 210,
+      "cot_audit_rows": 2447,
+      "latest_bundle_replay_absolute_error": 1.8214596497756474e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.09275135087430532,
+      "skill_vs_zero": 0.009903385187719715,
+      "rmse_improvement_vs_transferred": 0.02146966592033328,
+      "rmse_improvement_vs_retuned_previous": 0.008552862061373734,
+      "majority_direction_accuracy": 0.4896907216494845,
+      "selected_direction_accuracy": 0.5515463917525774,
+      "empirical_band_coverage": 0.7362542955326461,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.25",
+        "weights": {
+          "price_cot_weather_extra": 0.25
+        },
+        "cv_rmse": 0.08335981759601199,
+        "cv_skill_vs_zero": -0.003313844370403718
+      },
+      "selected_groups": [
+        "price_cot_weather"
+      ],
+      "cot_policy": "all",
+      "all_cot_dataset_audit": {
+        "features": 449,
+        "reports": 2447,
+        "retained_backcasts": 168,
+        "training_rows": 6676,
+        "prediction_input_rows": 6690,
+        "verified_feature_fit_rows": 71840
+      },
+      "selected_minus_zero_interval": [
+        -0.0012109685945617507,
+        0.00042387694445124183
+      ],
+      "selected_minus_retuned_interval": [
+        -0.0017129203536043463,
+        5.9482113673110615e-05
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    },
+    {
+      "experiment": "30sessions",
+      "status": "passed",
+      "cv_rows": 2016,
+      "holdout_rows": 1148,
+      "quarterly_refits": 19,
+      "verified_candidate_fold_scores": 184,
+      "verified_disjoint_sample_scores": 210,
+      "cot_audit_rows": 2447,
+      "latest_bundle_replay_absolute_error": 3.859759734048396e-17,
+      "noncritical_code_changes": [
+        "MonthFu/scripts/audit_artifacts.py",
+        "MonthFu/scripts/check_notebook.py"
+      ],
+      "rmse": 0.126135019402765,
+      "skill_vs_zero": 0.012567305360669523,
+      "rmse_improvement_vs_transferred": 0.06656177986538037,
+      "rmse_improvement_vs_retuned_previous": 0.03191754285946957,
+      "majority_direction_accuracy": 0.4651567944250871,
+      "selected_direction_accuracy": 0.5470383275261324,
+      "empirical_band_coverage": 0.7195121951219512,
+      "selected_recipe": {
+        "name": "blend_0_shrink_0.25",
+        "weights": {
+          "engineered_xgb": 0.25
+        },
+        "cv_rmse": 0.1206293153288496,
+        "cv_skill_vs_zero": -0.0022639458402697876
+      },
+      "selected_groups": [
+        "engineered"
+      ],
+      "cot_policy": "all",
+      "all_cot_dataset_audit": {
+        "features": 449,
+        "reports": 2447,
+        "retained_backcasts": 168,
+        "training_rows": 6660,
+        "prediction_input_rows": 6690,
+        "verified_feature_fit_rows": 71840
+      },
+      "selected_minus_zero_interval": [
+        -0.002029243019270772,
+        0.0008245210953397474
+      ],
+      "selected_minus_retuned_interval": [
+        -0.0069127703061058095,
+        -0.0017732833165105836
+      ],
+      "latest_origin": "2026-09-09",
+      "checkpoint_export": null
+    }
+  ],
+  "pending": [],
+  "horizon_comparison": {
+    "status": "passed",
+    "common_origin_rows": 1148
+  }
+}

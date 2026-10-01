@@ -1,0 +1,28 @@
+[
+  {
+    "horizon": 30,
+    "cv_rows": 2016,
+    "holdout_rows": 1157,
+    "configuration_count": 54,
+    "all_checks_passed": true,
+    "forecast_replay_models": 12,
+    "direction_change_interval_60": {
+      "measured": 0.01384083044982698,
+      "lower_95": -0.056244598098530704,
+      "upper_95": 0.07973914339511284
+    }
+  },
+  {
+    "horizon": 28,
+    "cv_rows": 2016,
+    "holdout_rows": 1159,
+    "configuration_count": 54,
+    "all_checks_passed": true,
+    "forecast_replay_models": 12,
+    "direction_change_interval_60": {
+      "measured": -0.04745470232959448,
+      "lower_95": -0.08714408973252807,
+      "upper_95": 0.007765314926660882
+    }
+  }
+]

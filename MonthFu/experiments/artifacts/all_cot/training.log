@@ -1,0 +1,68 @@
+[28calendar] CV 1: 3446 train, 504 origins, 36 models
+[30calendar] CV 1: 3445 train, 504 origins, 36 models
+[28calendar] CV 2: 3950 train, 504 origins, 36 models
+[30calendar] CV 2: 3948 train, 504 origins, 36 models
+[28calendar] CV 3: 4454 train, 504 origins, 36 models
+[30calendar] CV 3: 4452 train, 504 origins, 36 models
+[28calendar] CV 4: 4958 train, 504 origins, 36 models
+[30calendar] CV 4: 4957 train, 504 origins, 36 models
+[28calendar] Frozen direction: {'name': 'class__basic__xgb', 'task': 'class', 'group': 'basic', 'weights': {'class__basic__xgb_0': 1.0}, 'threshold': 0.4}; return: {'name': 'reg__direction_core__xgb', 'task': 'reg', 'group': 'direction_core', 'weights': {'reg__direction_core__xgb_0': 1.0}, 'threshold': 0.5}
+[28calendar] Holdout 2022Q1: 18 distinct models
+[30calendar] Frozen direction: {'name': 'class__engineered_direction__xgb', 'task': 'class', 'group': 'engineered_direction', 'weights': {'class__engineered_direction__xgb_1': 1.0}, 'threshold': 0.4}; return: {'name': 'reg__basic__xgb', 'task': 'reg', 'group': 'basic', 'weights': {'reg__basic__xgb_0': 1.0}, 'threshold': 0.5}
+[30calendar] Holdout 2022Q1: 18 distinct models
+[28calendar] Holdout 2022Q2: 18 distinct models
+[30calendar] Holdout 2022Q2: 18 distinct models
+[28calendar] Holdout 2022Q3: 18 distinct models
+[30calendar] Holdout 2022Q3: 18 distinct models
+[28calendar] Holdout 2022Q4: 18 distinct models
+[30calendar] Holdout 2022Q4: 18 distinct models
+[28calendar] Holdout 2023Q1: 18 distinct models
+[30calendar] Holdout 2023Q1: 18 distinct models
+[28calendar] Holdout 2023Q2: 18 distinct models
+[30calendar] Holdout 2023Q2: 18 distinct models
+[28calendar] Holdout 2023Q3: 18 distinct models
+[30calendar] Holdout 2023Q3: 18 distinct models
+[28calendar] Holdout 2023Q4: 18 distinct models
+[28calendar] Holdout 2024Q1: 18 distinct models
+[30calendar] Holdout 2023Q4: 18 distinct models
+[28calendar] Holdout 2024Q2: 18 distinct models
+[30calendar] Holdout 2024Q1: 18 distinct models
+[28calendar] Holdout 2024Q3: 18 distinct models
+[30calendar] Holdout 2024Q2: 18 distinct models
+[28calendar] Holdout 2024Q4: 18 distinct models
+[30calendar] Holdout 2024Q3: 18 distinct models
+[28calendar] Holdout 2025Q1: 18 distinct models
+[30calendar] Holdout 2024Q4: 18 distinct models
+[28calendar] Holdout 2025Q2: 18 distinct models
+[30calendar] Holdout 2025Q1: 18 distinct models
+[28calendar] Holdout 2025Q3: 18 distinct models
+[30calendar] Holdout 2025Q2: 18 distinct models
+[28calendar] Holdout 2025Q4: 18 distinct models
+[30calendar] Holdout 2025Q3: 18 distinct models
+[28calendar] Holdout 2026Q1: 18 distinct models
+Exception ignored on calling ctypes callback function: <bound method DataIter._next_wrapper of <xgboost.core.SingleBatchInternalIter object at 0x119d24680>>
+Traceback (most recent call last):
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/.venv/lib/python3.12/site-packages/xgboost/core.py", line 425, in _next_wrapper
+    def _next_wrapper(self, this: None) -> int:  # pylint: disable=unused-argument
+
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/experiments/scripts/train_direction.py", line 407, in <module>
+    main()
+  File "/Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/experiments/scripts/train_direction.py", line 398, in main
+    results = list(pool.map(train, args.horizons, [args.quick]*len(args.horizons),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/process.py", line 636, in _chain_from_iterable_of_lists
+    for element in iterable:
+                   ^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 451, in result
+    self._condition.wait(timeout)
+  File "/Users/treav/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/threading.py", line 355, in wait
+    waiter.acquire()
+KeyboardInterrupt

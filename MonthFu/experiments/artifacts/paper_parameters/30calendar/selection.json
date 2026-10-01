@@ -1,0 +1,998 @@
+{
+  "rmse_model": "ar_lags5_ridge1000",
+  "macro_f1_model": "ar_lags63_ridge100",
+  "family_rmse_models": {
+    "ar": "ar_lags5_ridge1000",
+    "arima": "arima_111_no_drift_w1260",
+    "elm": "elm_h32_a1000_relu_s42",
+    "holt": "holt_s0_phi098_w252",
+    "legacy_arima": "legacy_fixed_arima_111",
+    "legacy_holt": "legacy_fixed_holt_5",
+    "smoothing": "simple_smoothing_w1260"
+  },
+  "family_macro_f1_models": {
+    "ar": "ar_lags63_ridge100",
+    "arima": "arima_100_w252",
+    "elm": "elm_h32_a10_relu_s42",
+    "holt": "holt_s21_phi098_w252",
+    "legacy_arima": "legacy_fixed_arima_111",
+    "legacy_holt": "legacy_fixed_holt_5",
+    "smoothing": "simple_smoothing_w252"
+  },
+  "frozen_on": "Four matched pre-2022 OOF blocks; no holdout-based selection",
+  "specs": [
+    {
+      "name": "arima_010_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        0,
+        1,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_110_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_011_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        0,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_111_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_211_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        2,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_100_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_201_w252",
+      "family": "arima",
+      "window": 252,
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_010_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        0,
+        1,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_110_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_011_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        0,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_111_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_211_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        2,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_100_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_201_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "arima_111_no_drift_w1260",
+      "family": "arima",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": false,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "legacy_fixed_arima_111",
+      "family": "legacy_arima",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "legacy_fixed_holt_5",
+      "family": "legacy_holt",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 5,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags5_ridge2",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 5,
+      "alpha": 2.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags5_ridge100",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 5,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags5_ridge1000",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 5,
+      "alpha": 1000.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags21_ridge2",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 2.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags21_ridge100",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags21_ridge1000",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 1000.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags63_ridge2",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 63,
+      "alpha": 2.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags63_ridge100",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 63,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "ar_lags63_ridge1000",
+      "family": "ar",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 63,
+      "alpha": 1000.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a10_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 10.0,
+      "n_hidden": 32,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a10_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 10.0,
+      "n_hidden": 32,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a100_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 32,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a100_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 32,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a1000_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 1000.0,
+      "n_hidden": 32,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h32_a1000_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 1000.0,
+      "n_hidden": 32,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a10_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 10.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a10_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 10.0,
+      "n_hidden": 128,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a100_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a100_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a1000_tanh_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 1000.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a1000_relu_s42",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 1000.0,
+      "n_hidden": 128,
+      "activation": "relu",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a100_tanh_s314",
+      "family": "elm",
+      "window": 0,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 314,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "elm_h128_a100_tanh_recent5y",
+      "family": "elm",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s0_phi10_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s0_phi098_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 0.98
+    },
+    {
+      "name": "holt_s5_phi10_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 5,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s5_phi098_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 5,
+      "damping": 0.98
+    },
+    {
+      "name": "holt_s21_phi10_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 21,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s21_phi098_w252",
+      "family": "holt",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 21,
+      "damping": 0.98
+    },
+    {
+      "name": "simple_smoothing_w252",
+      "family": "smoothing",
+      "window": 252,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s0_phi10_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s0_phi098_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 0.98
+    },
+    {
+      "name": "holt_s5_phi10_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 5,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s5_phi098_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 5,
+      "damping": 0.98
+    },
+    {
+      "name": "holt_s21_phi10_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 21,
+      "damping": 1.0
+    },
+    {
+      "name": "holt_s21_phi098_w1260",
+      "family": "holt",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 21,
+      "damping": 0.98
+    },
+    {
+      "name": "simple_smoothing_w1260",
+      "family": "smoothing",
+      "window": 1260,
+      "order": [
+        1,
+        1,
+        1
+      ],
+      "drift": true,
+      "lag_count": 21,
+      "alpha": 100.0,
+      "n_hidden": 128,
+      "activation": "tanh",
+      "seed": 42,
+      "season": 0,
+      "damping": 1.0
+    }
+  ],
+  "tie_rule": "Exact-zero actual returns excluded from binary metrics; predicted-zero tie assigned Up"
+}

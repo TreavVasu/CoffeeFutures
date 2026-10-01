@@ -1,0 +1,176 @@
+[30calendar] Building targets and availability-aware features
+[21sessions] Building targets and availability-aware features
+[21sessions] CV 1/4: 3445 mature train rows; 2013-11-12–2015-11-12
+[30calendar] CV 1/4: 3445 mature train rows; 2013-11-12–2015-11-12
+[21sessions] CV 2/4: 3949 mature train rows; 2015-11-13–2017-11-15
+[30calendar] CV 2/4: 3948 mature train rows; 2015-11-13–2017-11-15
+[21sessions] CV 3/4: 4453 mature train rows; 2017-11-16–2019-11-18
+[30calendar] CV 3/4: 4452 mature train rows; 2017-11-16–2019-11-18
+[21sessions] CV 4/4: 4957 mature train rows; 2019-11-19–2021-11-17
+[30calendar] CV 4/4: 4957 mature train rows; 2019-11-19–2021-11-17
+[21sessions] Frozen CV recipe: {'name': 'blend_0_shrink_0.25', 'weights': {'engineered_extra': 0.25}, 'cv_rmse': 0.10126186560897459, 'cv_skill_vs_zero': -0.0037748711677059177}
+[21sessions] Walk-forward 2022Q1
+[30calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.25', 'weights': {'engineered_extra': 0.25}, 'cv_rmse': 0.10113689752325156, 'cv_skill_vs_zero': -0.0056307786286033945}
+[30calendar] Walk-forward 2022Q1
+[21sessions] Walk-forward 2022Q2
+[30calendar] Walk-forward 2022Q2
+[21sessions] Walk-forward 2022Q3
+[30calendar] Walk-forward 2022Q3
+[21sessions] Walk-forward 2022Q4
+[30calendar] Walk-forward 2022Q4
+[21sessions] Walk-forward 2023Q1
+[30calendar] Walk-forward 2023Q1
+[21sessions] Walk-forward 2023Q2
+[30calendar] Walk-forward 2023Q2
+[21sessions] Walk-forward 2023Q3
+[30calendar] Walk-forward 2023Q3
+[21sessions] Walk-forward 2023Q4
+[30calendar] Walk-forward 2023Q4
+[21sessions] Walk-forward 2024Q1
+[30calendar] Walk-forward 2024Q1
+[21sessions] Walk-forward 2024Q2
+[30calendar] Walk-forward 2024Q2
+[21sessions] Walk-forward 2024Q3
+[30calendar] Walk-forward 2024Q3
+[21sessions] Walk-forward 2024Q4
+[30calendar] Walk-forward 2024Q4
+[21sessions] Walk-forward 2025Q1
+[30calendar] Walk-forward 2025Q1
+[21sessions] Walk-forward 2025Q2
+[30calendar] Walk-forward 2025Q2
+[21sessions] Walk-forward 2025Q3
+[30calendar] Walk-forward 2025Q3
+[21sessions] Walk-forward 2025Q4
+[30calendar] Walk-forward 2025Q4
+[21sessions] Walk-forward 2026Q1
+[30calendar] Walk-forward 2026Q1
+[21sessions] Walk-forward 2026Q2
+[30calendar] Walk-forward 2026Q2
+[21sessions] Walk-forward 2026Q3
+[30calendar] Walk-forward 2026Q3
+[21sessions]                         model     rmse  direction_accuracy  r2_vs_zero
+                     selected 0.111157            0.513397    0.004274
+                         zero 0.111395            0.000864    0.000000
+              historical_mean 0.110938            0.515125    0.008191
+previous_transferred_ensemble 0.115405            0.516854   -0.073291
+         previous_cv_ensemble 0.115579            0.515990   -0.076536
+               compact_legacy 0.110010            0.541054    0.024712
+           prior_price_recipe 0.109622            0.545376    0.031589
+[21sessions] Saved /Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/artifacts/all_cot/21sessions; 1271.18 seconds
+[28calendar] Building targets and availability-aware features
+[28calendar] CV 1/4: 3446 mature train rows; 2013-11-12–2015-11-12
+[30calendar]                         model     rmse  direction_accuracy  r2_vs_zero
+                     selected 0.112537            0.508211    0.005057
+                         zero 0.112823            0.000864    0.000000
+              historical_mean 0.112379            0.517718    0.007847
+previous_transferred_ensemble 0.116820            0.503889   -0.072114
+         previous_cv_ensemble 0.117009            0.507347   -0.075573
+               compact_legacy 0.111858            0.543647    0.017039
+           prior_price_recipe 0.111114            0.549697    0.030059
+[30calendar] Saved /Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/artifacts/all_cot/30calendar; 1311.27 seconds
+[21calendar] Building targets and availability-aware features
+[21calendar] CV 1/4: 3451 mature train rows; 2013-11-12–2015-11-12
+[28calendar] CV 2/4: 3950 mature train rows; 2015-11-13–2017-11-15
+[21calendar] CV 2/4: 3955 mature train rows; 2015-11-13–2017-11-15
+[28calendar] CV 3/4: 4454 mature train rows; 2017-11-16–2019-11-18
+[21calendar] CV 3/4: 4459 mature train rows; 2017-11-16–2019-11-18
+[28calendar] CV 4/4: 4958 mature train rows; 2019-11-19–2021-11-17
+[21calendar] CV 4/4: 4963 mature train rows; 2019-11-19–2021-11-17
+[28calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.25', 'weights': {'engineered_extra': 0.25}, 'cv_rmse': 0.09685630633041305, 'cv_skill_vs_zero': -0.006519438369629871}
+[28calendar] Walk-forward 2022Q1
+[28calendar] Walk-forward 2022Q2
+[21calendar] Frozen CV recipe: {'name': 'blend_0_shrink_0.25', 'weights': {'price_cot_weather_extra': 0.25}, 'cv_rmse': 0.08335981759601199, 'cv_skill_vs_zero': -0.003313844370403718}
+[21calendar] Walk-forward 2022Q1
+[28calendar] Walk-forward 2022Q3
+[21calendar] Walk-forward 2022Q2
+[28calendar] Walk-forward 2022Q4
+[21calendar] Walk-forward 2022Q3
+[28calendar] Walk-forward 2023Q1
+[21calendar] Walk-forward 2022Q4
+[28calendar] Walk-forward 2023Q2
+[21calendar] Walk-forward 2023Q1
+[28calendar] Walk-forward 2023Q3
+[21calendar] Walk-forward 2023Q2
+[28calendar] Walk-forward 2023Q4
+[21calendar] Walk-forward 2023Q3
+[28calendar] Walk-forward 2024Q1
+[21calendar] Walk-forward 2023Q4
+[28calendar] Walk-forward 2024Q2
+[21calendar] Walk-forward 2024Q1
+[28calendar] Walk-forward 2024Q3
+[21calendar] Walk-forward 2024Q2
+[28calendar] Walk-forward 2024Q4
+[21calendar] Walk-forward 2024Q3
+[28calendar] Walk-forward 2025Q1
+[21calendar] Walk-forward 2024Q4
+[28calendar] Walk-forward 2025Q2
+[21calendar] Walk-forward 2025Q1
+[28calendar] Walk-forward 2025Q3
+[21calendar] Walk-forward 2025Q2
+[28calendar] Walk-forward 2025Q4
+[21calendar] Walk-forward 2025Q3
+[28calendar] Walk-forward 2026Q1
+[21calendar] Walk-forward 2025Q4
+[28calendar] Walk-forward 2026Q2
+[21calendar] Walk-forward 2026Q1
+[28calendar] Walk-forward 2026Q3
+[21calendar] Walk-forward 2026Q2
+[21calendar] Walk-forward 2026Q3
+[28calendar]                         model     rmse  direction_accuracy  r2_vs_zero
+                     selected 0.107854            0.531493    0.006346
+                         zero 0.108198            0.000000    0.000000
+              historical_mean 0.107768            0.522865    0.007928
+previous_transferred_ensemble 0.111462            0.534081   -0.061253
+         previous_cv_ensemble 0.109175            0.539258   -0.018155
+               compact_legacy 0.107743            0.553063    0.008387
+           prior_price_recipe 0.106232            0.560828    0.036000
+[28calendar] Saved /Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/artifacts/all_cot/28calendar; 1626.19 seconds
+[30sessions] Building targets and availability-aware features
+[30sessions] CV 1/4: 3436 mature train rows; 2013-11-12–2015-11-12
+[21calendar]                         model     rmse  direction_accuracy  r2_vs_zero
+                     selected 0.092751            0.551546    0.009903
+                         zero 0.093214            0.000859    0.000000
+              historical_mean 0.092929            0.509450    0.006110
+previous_transferred_ensemble 0.094786            0.510309   -0.034020
+         previous_cv_ensemble 0.093551            0.505155   -0.007253
+               compact_legacy 0.092317            0.535223    0.019164
+           prior_price_recipe 0.092172            0.530069    0.022234
+[21calendar] Saved /Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/artifacts/all_cot/21calendar; 1653.76 seconds
+[30sessions] CV 2/4: 3940 mature train rows; 2015-11-13–2017-11-15
+[30sessions] CV 3/4: 4444 mature train rows; 2017-11-16–2019-11-18
+[30sessions] CV 4/4: 4948 mature train rows; 2019-11-19–2021-11-17
+[30sessions] Frozen CV recipe: {'name': 'blend_0_shrink_0.25', 'weights': {'engineered_xgb': 0.25}, 'cv_rmse': 0.1206293153288496, 'cv_skill_vs_zero': -0.0022639458402697876}
+[30sessions] Walk-forward 2022Q1
+[30sessions] Walk-forward 2022Q2
+[30sessions] Walk-forward 2022Q3
+[30sessions] Walk-forward 2022Q4
+[30sessions] Walk-forward 2023Q1
+[30sessions] Walk-forward 2023Q2
+[30sessions] Walk-forward 2023Q3
+[30sessions] Walk-forward 2023Q4
+[30sessions] Walk-forward 2024Q1
+[30sessions] Walk-forward 2024Q2
+[30sessions] Walk-forward 2024Q3
+[30sessions] Walk-forward 2024Q4
+[30sessions] Walk-forward 2025Q1
+[30sessions] Walk-forward 2025Q2
+[30sessions] Walk-forward 2025Q3
+[30sessions] Walk-forward 2025Q4
+[30sessions] Walk-forward 2026Q1
+[30sessions] Walk-forward 2026Q2
+[30sessions] Walk-forward 2026Q3
+[30sessions]                         model     rmse  direction_accuracy  r2_vs_zero
+                     selected 0.126135            0.547038    0.012567
+                         zero 0.126935            0.000871    0.000000
+              historical_mean 0.126275            0.533972    0.010381
+previous_transferred_ensemble 0.135129            0.439024   -0.133278
+         previous_cv_ensemble 0.130294            0.425958   -0.053617
+               compact_legacy 0.128739            0.495645   -0.028620
+           prior_price_recipe 0.124750            0.518293    0.034136
+[30sessions] Saved /Users/treav/Desktop/Repo/Test/ArabicaFutures/MonthFu/artifacts/all_cot/30sessions; 886.58 seconds
+ horizon     unit experiment  primary  cv_skill_vs_zero  cv_rmse  cv_previous_rmse  cv_rmse_improvement_vs_previous  common_holdout_rows  holdout_rmse  previous_rmse  zero_rmse  holdout_skill_vs_zero  holdout_rmse_improvement_vs_previous  retuned_previous_rmse  holdout_rmse_improvement_vs_retuned_previous  direction_accuracy  always_up_accuracy  training_majority_accuracy              recipe
+      30 calendar 30calendar     True         -0.005631 0.101137          0.100247                        -0.008879                 1148      0.112924       0.117084   0.113209               0.005027                              0.035524               0.117278                                      0.037121            0.507840            0.517422                    0.481707 blend_0_shrink_0.25
+      21 sessions 21sessions    False         -0.003775 0.101262          0.100462                        -0.007961                 1148      0.111524       0.115662   0.111760               0.004222                              0.035782               0.115839                                      0.037249            0.512195            0.513937                    0.485192 blend_0_shrink_0.25
+      28 calendar 28calendar    False         -0.006519 0.096856          0.096182                        -0.007011                 1148      0.108237       0.111768   0.108582               0.006350                              0.031591               0.109560                                      0.012075            0.530488            0.521777                    0.478223 blend_0_shrink_0.25
+      21 calendar 21calendar    False         -0.003314 0.083360          0.083230                        -0.001566                 1148      0.092736       0.094895   0.093209               0.010116                              0.022752               0.093627                                      0.009518            0.550523            0.507840                    0.491289 blend_0_shrink_0.25
+      30 sessions 30sessions    False         -0.002264 0.120629          0.120336                        -0.002440                 1148      0.126135       0.135129   0.126935               0.012567                              0.066562               0.130294                                      0.031918            0.547038            0.533972                    0.465157 blend_0_shrink_0.25
