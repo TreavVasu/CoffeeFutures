@@ -1,0 +1,205 @@
+{
+  "horizon_days": 30,
+  "splits": 4,
+  "test_size": 504,
+  "outer_folds": 4,
+  "family_sizes": {
+    "price": 245,
+    "cot": 449,
+    "weather": 281,
+    "interaction": 57
+  },
+  "selection_policy": "Grouped, forward and nested strategies are ranked by nested outer-fold score. The 2022+ holdout is reported once and never used to choose between approaches.",
+  "tasks": {
+    "direction": {
+      "folds": 4,
+      "grouped": {
+        "families": [
+          "price",
+          "interaction"
+        ],
+        "columns": 302,
+        "spec": "forest{'max_depth': 5, 'min_samples_leaf': 40, 'max_features': 0.4}k0",
+        "cv": {
+          "primary": 0.5344758862653627,
+          "folds_scored": 4,
+          "macro_f1": 0.534475346039498,
+          "balanced_accuracy": 0.540225864614216,
+          "accuracy": 0.540862917731705
+        },
+        "group_alone": {
+          "price": 0.5386636652534227,
+          "cot": 0.49958690274318973,
+          "weather": 0.5238350578303097,
+          "interaction": 0.5295753652367776
+        }
+      },
+      "forward": {
+        "families": [
+          "cot",
+          "price"
+        ],
+        "columns": 4,
+        "spec": "hist{'learning_rate': 0.03, 'max_leaf_nodes': 7, 'min_samples_leaf': 40, 'l2': 1.0}k0",
+        "chosen": [
+          "cot_disagg_source_pct_of_oi_other_rept_short_all",
+          "cot_disagg_other_reportable_index_156w",
+          "price_trend_signal_21",
+          "cot_disagg_other_reportable_long_short_balance"
+        ],
+        "cv": {
+          "primary": 0.5881253250998171,
+          "folds_scored": 4,
+          "macro_f1": 0.5881247372405471,
+          "balanced_accuracy": 0.5878592699004701,
+          "accuracy": 0.6069662501183376
+        }
+      },
+      "nested_grouped": {
+        "outer_folds": 4,
+        "selected_families": [
+          [
+            "interaction"
+          ],
+          [
+            "interaction",
+            "weather"
+          ],
+          [
+            "price",
+            "cot"
+          ],
+          [
+            "cot",
+            "price"
+          ]
+        ],
+        "mean_macro_f1": 0.5706631277417228,
+        "std_macro_f1": 0.03609255953059626,
+        "mean_balanced_accuracy": 0.5741676387784451,
+        "std_balanced_accuracy": 0.03637265115819631,
+        "mean_accuracy": 0.5871048392186564,
+        "std_accuracy": 0.03387596665594597
+      },
+      "holdout": {
+        "grouped": {
+          "holdout_rows": 1157,
+          "train_rows": 5491,
+          "families": [
+            "price",
+            "interaction"
+          ],
+          "columns": 302,
+          "spec": "forest{'max_depth': 5, 'min_samples_leaf': 40, 'max_features': 0.4}k0",
+          "primary": 0.5501722147650985,
+          "folds_scored": 1,
+          "macro_f1": 0.5501716639278263,
+          "balanced_accuracy": 0.5508372721741501,
+          "accuracy": 0.5501730103806228
+        },
+        "forward": {
+          "holdout_rows": 1157,
+          "train_rows": 5491,
+          "families": [
+            "cot",
+            "price"
+          ],
+          "columns": 4,
+          "spec": "hist{'learning_rate': 0.03, 'max_leaf_nodes': 7, 'min_samples_leaf': 40, 'l2': 1.0}k0",
+          "primary": 0.49232678427588383,
+          "folds_scored": 1,
+          "macro_f1": 0.4923262663600277,
+          "balanced_accuracy": 0.5179158561696184,
+          "accuracy": 0.5103806228373703
+        }
+      },
+      "rank_basis": "nested outer-fold macro F1"
+    },
+    "return": {
+      "folds": 4,
+      "grouped": {
+        "families": [
+          "price"
+        ],
+        "columns": 245,
+        "spec": "forest{'max_depth': 5, 'min_samples_leaf': 40, 'max_features': 0.4}k0",
+        "cv": {
+          "primary": -0.09734054707454644,
+          "folds_scored": 4,
+          "rmse": 0.09734054707454644
+        },
+        "group_alone": {
+          "price": -0.09734054707454644,
+          "cot": -0.10059252505740518,
+          "weather": -0.09765971856026105,
+          "interaction": -0.09791488285005015
+        }
+      },
+      "forward": {
+        "families": [
+          "price"
+        ],
+        "columns": 2,
+        "spec": "forest{'max_depth': 8, 'min_samples_leaf': 20, 'max_features': 0.6}k0",
+        "chosen": [
+          "price_trend_signal_21",
+          "price_trend_signal_20"
+        ],
+        "cv": {
+          "primary": -0.0969665826103544,
+          "folds_scored": 4,
+          "rmse": 0.0969665826103544
+        }
+      },
+      "nested_grouped": {
+        "outer_folds": 4,
+        "selected_families": [
+          [
+            "price"
+          ],
+          [
+            "price",
+            "cot"
+          ],
+          [
+            "cot",
+            "interaction"
+          ],
+          [
+            "cot"
+          ]
+        ],
+        "mean_rmse": 0.09645823825049375,
+        "std_rmse": 0.02275785174952778
+      },
+      "holdout": {
+        "grouped": {
+          "holdout_rows": 1157,
+          "train_rows": 5491,
+          "families": [
+            "price"
+          ],
+          "columns": 245,
+          "spec": "forest{'max_depth': 5, 'min_samples_leaf': 40, 'max_features': 0.4}k0",
+          "primary": -0.11049813577834695,
+          "folds_scored": 1,
+          "rmse": 0.11049813577834695
+        },
+        "forward": {
+          "holdout_rows": 1157,
+          "train_rows": 5491,
+          "families": [
+            "price"
+          ],
+          "columns": 2,
+          "spec": "forest{'max_depth': 8, 'min_samples_leaf': 20, 'max_features': 0.6}k0",
+          "primary": -0.11148139996859628,
+          "folds_scored": 1,
+          "rmse": 0.11148139996859628
+        }
+      },
+      "rank_basis": "nested outer-fold negative RMSE"
+    }
+  },
+  "elapsed_seconds": 5627.447002709028
+}
