@@ -1,0 +1,1737 @@
+{
+  "holdout_start": "2022-01-01",
+  "decision_rule": "UP when p_up >= up_threshold and p_down < down_threshold; DOWN when the reverse holds; NEUTRAL otherwise.",
+  "objective": "each side's own positive-class F1 on pre-holdout development rows",
+  "grid": {
+    "L5_k5": {
+      "lookback": 5,
+      "forward": 5
+    },
+    "L5_k7": {
+      "lookback": 5,
+      "forward": 7
+    },
+    "L10_k5": {
+      "lookback": 10,
+      "forward": 5
+    },
+    "L10_k7": {
+      "lookback": 10,
+      "forward": 7
+    },
+    "L15_k5": {
+      "lookback": 15,
+      "forward": 5
+    },
+    "L15_k7": {
+      "lookback": 15,
+      "forward": 7
+    },
+    "L21_k5": {
+      "lookback": 21,
+      "forward": 5
+    },
+    "L21_k7": {
+      "lookback": 21,
+      "forward": 7
+    }
+  },
+  "cells": {
+    "S2_plus_weather|L5_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.35,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.4896933941181729,
+            "balanced_accuracy": 0.4900042706181471,
+            "accuracy": 0.489785749875436,
+            "neutral_accuracy": 0.489785749875436,
+            "coverage": 1.0,
+            "up_recall": 0.5090725806451613,
+            "down_recall": 0.470935960591133
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L5_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.5258023758377813,
+            "balanced_accuracy": 0.5262013212898928,
+            "accuracy": 0.5261324041811847,
+            "neutral_accuracy": 0.5186660029865605,
+            "coverage": 0.9885515181682429,
+            "up_recall": 0.5538922155688623,
+            "down_recall": 0.4985104270109235
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L10_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.35,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.4896933941181729,
+            "balanced_accuracy": 0.4900042706181471,
+            "accuracy": 0.489785749875436,
+            "neutral_accuracy": 0.489785749875436,
+            "coverage": 1.0,
+            "up_recall": 0.5090725806451613,
+            "down_recall": 0.470935960591133
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L10_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__forest_1",
+          "group": "candles",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.675,
+          "threshold": 0.575
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.575,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.575,
+            "macro_f1": 0.5363140494549428,
+            "balanced_accuracy": 0.539269524506102,
+            "accuracy": 0.5390741662518665,
+            "neutral_accuracy": 0.4435042309606769,
+            "coverage": 0.8198108511697362,
+            "up_recall": 0.6177644710578842,
+            "down_recall": 0.46077457795431975
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L15_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.35,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.4896933941181729,
+            "balanced_accuracy": 0.4900042706181471,
+            "accuracy": 0.489785749875436,
+            "neutral_accuracy": 0.489785749875436,
+            "coverage": 1.0,
+            "up_recall": 0.5090725806451613,
+            "down_recall": 0.470935960591133
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L15_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.5258023758377813,
+            "balanced_accuracy": 0.5262013212898928,
+            "accuracy": 0.5261324041811847,
+            "neutral_accuracy": 0.5186660029865605,
+            "coverage": 0.9885515181682429,
+            "up_recall": 0.5538922155688623,
+            "down_recall": 0.4985104270109235
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L21_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.35,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.4896933941181729,
+            "balanced_accuracy": 0.4900042706181471,
+            "accuracy": 0.489785749875436,
+            "neutral_accuracy": 0.489785749875436,
+            "coverage": 1.0,
+            "up_recall": 0.5090725806451613,
+            "down_recall": 0.470935960591133
+          }
+        }
+      }
+    },
+    "S2_plus_weather|L21_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.5258023758377813,
+            "balanced_accuracy": 0.5262013212898928,
+            "accuracy": 0.5261324041811847,
+            "neutral_accuracy": 0.5186660029865605,
+            "coverage": 0.9885515181682429,
+            "up_recall": 0.5538922155688623,
+            "down_recall": 0.4985104270109235
+          }
+        }
+      }
+    },
+    "S3_plus_all|L5_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.49603206085760077,
+            "balanced_accuracy": 0.5046753337041157,
+            "accuracy": 0.5032386646736422,
+            "neutral_accuracy": 0.5032386646736422,
+            "coverage": 1.0,
+            "up_recall": 0.6300403225806451,
+            "down_recall": 0.3793103448275862
+          }
+        }
+      }
+    },
+    "S3_plus_all|L5_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_0",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.575
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.575,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.575,
+            "macro_f1": 0.5234546897110186,
+            "balanced_accuracy": 0.5236964006445897,
+            "accuracy": 0.5236436037829766,
+            "neutral_accuracy": 0.39621702339472376,
+            "coverage": 0.7555998008959681,
+            "up_recall": 0.5449101796407185,
+            "down_recall": 0.5024826216484608
+          }
+        }
+      }
+    },
+    "S3_plus_all|L10_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.49603206085760077,
+            "balanced_accuracy": 0.5046753337041157,
+            "accuracy": 0.5032386646736422,
+            "neutral_accuracy": 0.5032386646736422,
+            "coverage": 1.0,
+            "up_recall": 0.6300403225806451,
+            "down_recall": 0.3793103448275862
+          }
+        }
+      }
+    },
+    "S3_plus_all|L10_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_0",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__basic__forest_1",
+          "group": "basic",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.575
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.575,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.575,
+            "macro_f1": 0.5234546897110186,
+            "balanced_accuracy": 0.5236964006445897,
+            "accuracy": 0.5236436037829766,
+            "neutral_accuracy": 0.39621702339472376,
+            "coverage": 0.7555998008959681,
+            "up_recall": 0.5449101796407185,
+            "down_recall": 0.5024826216484608
+          }
+        }
+      }
+    },
+    "S3_plus_all|L15_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.49603206085760077,
+            "balanced_accuracy": 0.5046753337041157,
+            "accuracy": 0.5032386646736422,
+            "neutral_accuracy": 0.5032386646736422,
+            "coverage": 1.0,
+            "up_recall": 0.6300403225806451,
+            "down_recall": 0.3793103448275862
+          }
+        }
+      }
+    },
+    "S3_plus_all|L15_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_0",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.675
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.675,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.675,
+            "macro_f1": 0.5184926966080265,
+            "balanced_accuracy": 0.5190740663657789,
+            "accuracy": 0.519163763066202,
+            "neutral_accuracy": 0.28222996515679444,
+            "coverage": 0.5345943255350921,
+            "up_recall": 0.48303393213572854,
+            "down_recall": 0.5551142005958292
+          }
+        }
+      }
+    },
+    "S3_plus_all|L21_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.49603206085760077,
+            "balanced_accuracy": 0.5046753337041157,
+            "accuracy": 0.5032386646736422,
+            "neutral_accuracy": 0.5032386646736422,
+            "coverage": 1.0,
+            "up_recall": 0.6300403225806451,
+            "down_recall": 0.3793103448275862
+          }
+        }
+      }
+    },
+    "S3_plus_all|L21_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_0",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.7
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.7,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.7,
+            "macro_f1": 0.5184926966080265,
+            "balanced_accuracy": 0.5190740663657789,
+            "accuracy": 0.519163763066202,
+            "neutral_accuracy": 0.25933300149328026,
+            "coverage": 0.4883026381284221,
+            "up_recall": 0.48303393213572854,
+            "down_recall": 0.5551142005958292
+          }
+        }
+      }
+    },
+    "S0_price_candles|L5_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_1",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__basic__xgb_1",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5019644488536377,
+            "balanced_accuracy": 0.5350285038932148,
+            "accuracy": 0.5321375186846039,
+            "neutral_accuracy": 0.5321375186846039,
+            "coverage": 1.0,
+            "up_recall": 0.7872983870967742,
+            "down_recall": 0.2827586206896552
+          }
+        }
+      }
+    },
+    "S0_price_candles|L5_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.5202571864080718,
+            "balanced_accuracy": 0.5207321206643317,
+            "accuracy": 0.520657043305127,
+            "neutral_accuracy": 0.520657043305127,
+            "coverage": 1.0,
+            "up_recall": 0.5508982035928144,
+            "down_recall": 0.49056603773584906
+          }
+        }
+      }
+    },
+    "S0_price_candles|L10_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__basic__xgb_1",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__basic__xgb_1",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5019644488536377,
+            "balanced_accuracy": 0.5350285038932148,
+            "accuracy": 0.5321375186846039,
+            "neutral_accuracy": 0.5321375186846039,
+            "coverage": 1.0,
+            "up_recall": 0.7872983870967742,
+            "down_recall": 0.2827586206896552
+          }
+        }
+      }
+    },
+    "S0_price_candles|L10_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.35,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.525,
+            "macro_f1": 0.5211451932606541,
+            "balanced_accuracy": 0.5211691810024439,
+            "accuracy": 0.5211548033847685,
+            "neutral_accuracy": 0.43653558984569435,
+            "coverage": 0.839223494275759,
+            "up_recall": 0.5269461077844312,
+            "down_recall": 0.5153922542204568
+          }
+        }
+      }
+    },
+    "S0_price_candles|L15_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.65,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5087935419526293,
+            "balanced_accuracy": 0.523598641347529,
+            "accuracy": 0.5216741405082213,
+            "neutral_accuracy": 0.47234678624813153,
+            "coverage": 0.8938714499252616,
+            "up_recall": 0.6915322580645161,
+            "down_recall": 0.3556650246305419
+          }
+        }
+      }
+    },
+    "S0_price_candles|L15_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__candles__xgb_0",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.675,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.5216407113908614,
+            "balanced_accuracy": 0.5216434063352937,
+            "accuracy": 0.5216525634644101,
+            "neutral_accuracy": 0.485813837730214,
+            "coverage": 0.9352911896465903,
+            "up_recall": 0.5179640718562875,
+            "down_recall": 0.5253227408142999
+          }
+        }
+      }
+    },
+    "S0_price_candles|L21_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__basic__xgb_1",
+          "group": "basic",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.675,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.675,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5065636238284235,
+            "balanced_accuracy": 0.5290387136500874,
+            "accuracy": 0.5266567015445939,
+            "neutral_accuracy": 0.49078226208271053,
+            "coverage": 0.9202790234180369,
+            "up_recall": 0.7368951612903226,
+            "down_recall": 0.3211822660098522
+          }
+        }
+      }
+    },
+    "S0_price_candles|L21_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.5
+        },
+        "down": {
+          "candidate": "down__candles__xgb_0",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.625,
+          "threshold": 0.5
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.625,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.5,
+          "down_threshold": 0.5,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.5,
+            "down_threshold": 0.5,
+            "macro_f1": 0.523641715383672,
+            "balanced_accuracy": 0.5236518026509047,
+            "accuracy": 0.5236436037829766,
+            "neutral_accuracy": 0.49029367844698857,
+            "coverage": 0.9357889497262319,
+            "up_recall": 0.5269461077844312,
+            "down_recall": 0.5203574975173784
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L5_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.48293410428922473,
+            "balanced_accuracy": 0.48306352296202126,
+            "accuracy": 0.4833084205281515,
+            "neutral_accuracy": 0.4833084205281515,
+            "coverage": 1.0,
+            "up_recall": 0.46169354838709675,
+            "down_recall": 0.5044334975369458
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L5_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__forest_0",
+          "group": "candles",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.325,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5250633385669427,
+            "balanced_accuracy": 0.5251091659778755,
+            "accuracy": 0.5251368840219014,
+            "neutral_accuracy": 0.41612742658038826,
+            "coverage": 0.7954206072672971,
+            "up_recall": 0.5139720558882236,
+            "down_recall": 0.5362462760675273
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L10_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.3,
+          "threshold": 0.4
+        },
+        "down": {
+          "candidate": "down__candles__xgb_0",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.4,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.4,
+            "down_threshold": 0.55,
+            "macro_f1": 0.511099776186922,
+            "balanced_accuracy": 0.518536965676148,
+            "accuracy": 0.5171898355754858,
+            "neutral_accuracy": 0.34778276033881417,
+            "coverage": 0.6766317887394121,
+            "up_recall": 0.6360887096774194,
+            "down_recall": 0.4009852216748768
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L10_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__forest_0",
+          "group": "candles",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.35,
+          "threshold": 0.375
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.35,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.375,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.375,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5190380542542328,
+            "balanced_accuracy": 0.5202826719946403,
+            "accuracy": 0.5201592832254853,
+            "neutral_accuracy": 0.3369835739173718,
+            "coverage": 0.6381284221005475,
+            "up_recall": 0.5698602794411177,
+            "down_recall": 0.47070506454816285
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L15_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.48293410428922473,
+            "balanced_accuracy": 0.48306352296202126,
+            "accuracy": 0.4833084205281515,
+            "neutral_accuracy": 0.4833084205281515,
+            "coverage": 1.0,
+            "up_recall": 0.46169354838709675,
+            "down_recall": 0.5044334975369458
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L15_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__forest_1",
+          "group": "candles",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.3,
+          "threshold": 0.45
+        },
+        "down": {
+          "candidate": "down__candles__forest_1",
+          "group": "candles",
+          "family": "forest",
+          "variant": 1,
+          "side_threshold": 0.7,
+          "threshold": 0.65
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.45,
+          "down_threshold": 0.65,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.45,
+            "down_threshold": 0.65,
+            "macro_f1": 0.5198518208705524,
+            "balanced_accuracy": 0.522325755638673,
+            "accuracy": 0.5221503235440518,
+            "neutral_accuracy": 0.34992533598805375,
+            "coverage": 0.670980587356894,
+            "up_recall": 0.592814371257485,
+            "down_recall": 0.45183714001986097
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L21_k5": {
+      "selection": {
+        "up": {
+          "candidate": "up__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.3,
+          "threshold": 0.475
+        },
+        "down": {
+          "candidate": "down__engineered__forest_0",
+          "group": "engineered",
+          "family": "forest",
+          "variant": 0,
+          "side_threshold": 0.7,
+          "threshold": 0.525
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.3,
+          "rows": 2007
+        },
+        "down": {
+          "side_threshold": 0.7,
+          "rows": 2007
+        },
+        "joint": {
+          "up_threshold": 0.475,
+          "down_threshold": 0.525,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2007,
+          "selection_start": "2013-12-18",
+          "selection_end": "2021-12-23",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.475,
+            "down_threshold": 0.525,
+            "macro_f1": 0.48293410428922473,
+            "balanced_accuracy": 0.48306352296202126,
+            "accuracy": 0.4833084205281515,
+            "neutral_accuracy": 0.4833084205281515,
+            "coverage": 1.0,
+            "up_recall": 0.46169354838709675,
+            "down_recall": 0.5044334975369458
+          }
+        }
+      }
+    },
+    "S1_plus_cot|L21_k7": {
+      "selection": {
+        "up": {
+          "candidate": "up__candles__xgb_1",
+          "group": "candles",
+          "family": "xgb",
+          "variant": 1,
+          "side_threshold": 0.325,
+          "threshold": 0.4
+        },
+        "down": {
+          "candidate": "down__engineered__xgb_0",
+          "group": "engineered",
+          "family": "xgb",
+          "variant": 0,
+          "side_threshold": 0.65,
+          "threshold": 0.55
+        }
+      },
+      "thresholds": {
+        "up": {
+          "side_threshold": 0.325,
+          "rows": 2009
+        },
+        "down": {
+          "side_threshold": 0.65,
+          "rows": 2009
+        },
+        "joint": {
+          "up_threshold": 0.4,
+          "down_threshold": 0.55,
+          "objective": "joint_macro_f1_of_the_combined_call",
+          "selection_rows": 2009,
+          "selection_start": "2013-12-16",
+          "selection_end": "2021-12-21",
+          "latest_label_end": "2021-12-31",
+          "holdout_start": "2022-01-01",
+          "selection_source": "pre_holdout_development",
+          "search_size": 289,
+          "selection_metrics": {
+            "up_threshold": 0.4,
+            "down_threshold": 0.55,
+            "macro_f1": 0.5197770488385167,
+            "balanced_accuracy": 0.5207668079927533,
+            "accuracy": 0.520657043305127,
+            "neutral_accuracy": 0.4076655052264808,
+            "coverage": 0.7745146839223495,
+            "up_recall": 0.564870259481038,
+            "down_recall": 0.4766633565044687
+          }
+        }
+      }
+    }
+  }
+}
