@@ -1,0 +1,218 @@
+[
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "basic",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "candles",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "up",
+    "group": "engineered",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "basic",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "candles",
+    "family": "forest",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "linear",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "linear",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "xgb",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "xgb",
+    "variant": 1
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "forest",
+    "variant": 0
+  },
+  {
+    "polarity": "down",
+    "group": "engineered",
+    "family": "forest",
+    "variant": 1
+  }
+]

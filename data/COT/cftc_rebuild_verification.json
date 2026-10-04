@@ -1,0 +1,16 @@
+{
+  "compressed_page": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalCompressed/index.htm",
+  "viewable_page": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalViewable/index.htm",
+  "rebuilt_rows": 2447,
+  "committed_rows": 2447,
+  "rebuilt_numeric_fields": 232,
+  "rebuilt_digest": "fff3a0b15ee2163e9a669394233c248d0224b088d1440c9322ae6ca191cc4fb1",
+  "committed_numeric_fields": 232,
+  "committed_digest": "fff3a0b15ee2163e9a669394233c248d0224b088d1440c9322ae6ca191cc4fb1",
+  "key_set_match": true,
+  "row_count_match": true,
+  "field_count_match": true,
+  "digest_match": true,
+  "matches": true,
+  "committed_source_sha256": "4c12f364323bde992681225ca93bcb66a9d2e566cc03b3df0d2cb2c35b4c313d"
+}

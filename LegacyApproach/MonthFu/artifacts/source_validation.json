@@ -1,0 +1,76 @@
+{
+  "data_dir": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/DATA",
+  "prices": {
+    "path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/DATA/yahoo/arabica_coffee_futures_history.csv",
+    "sha256": "7ce02a2c875b325c83e6d6bab1898fa2bd9e523a2afb716396a307f7b6559022",
+    "rows": 6690,
+    "rejected_rows": 0,
+    "first_session": "2000-01-03",
+    "last_session": "2026-09-09",
+    "unique_sessions": true,
+    "strictly_increasing": true,
+    "positive_closes_only": true,
+    "nan_closes": 0,
+    "duplicate_dates": 0,
+    "invalid_ohlc_rows": 719,
+    "low_volume_rows": 308,
+    "max_calendar_gap_days": 7,
+    "implied_sessions_per_year": 250.7
+  },
+  "weather": {
+    "path": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/DATA/weather/open_meteo_coffee_regions_daily.csv",
+    "sha256": "7367c4dda695577a36e6e732454709a82c6c6623c973c5594fdb833615e9c30b",
+    "rows": 9747,
+    "columns": 37,
+    "date_column": "Date",
+    "first_date": "2000-01-03",
+    "last_date": "2026-09-09",
+    "unique_dates": true,
+    "null_dates": 0,
+    "regions": [
+      "brazil",
+      "colombia",
+      "vietnam"
+    ],
+    "per_region": {
+      "brazil": {
+        "variables": 12,
+        "fully_observed": true,
+        "observed_fraction": 1.0
+      },
+      "colombia": {
+        "variables": 12,
+        "fully_observed": true,
+        "observed_fraction": 1.0
+      },
+      "vietnam": {
+        "variables": 12,
+        "fully_observed": true,
+        "observed_fraction": 1.0
+      }
+    },
+    "all_regions_fully_observed": true
+  },
+  "label_drift": {
+    "30": {
+      "status": "passed",
+      "horizon_days": 30,
+      "origins": 6690,
+      "target_end_date_mismatches": 0,
+      "target_return_mismatches": 0,
+      "label_presence_mismatches": 0,
+      "unmatured_origins": 21,
+      "note": "A non-zero count means the price file moved relative to the frozen run and every saved metric must be regenerated."
+    },
+    "28": {
+      "status": "passed",
+      "horizon_days": 28,
+      "origins": 6690,
+      "target_end_date_mismatches": 0,
+      "target_return_mismatches": 0,
+      "label_presence_mismatches": 0,
+      "unmatured_origins": 19,
+      "note": "A non-zero count means the price file moved relative to the frozen run and every saved metric must be regenerated."
+    }
+  }
+}

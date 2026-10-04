@@ -1,0 +1,2548 @@
+{
+  "built_seconds": 0.42773112503346056,
+  "price": {
+    "source": "/Users/treav/Desktop/Repo/Test/ArabicaFutures/LegacyApproach/../DATA/yahoo/arabica_coffee_futures_history.csv",
+    "rows": 6690,
+    "rejected_rows": 0,
+    "first_date": "2000-01-03",
+    "last_date": "2026-09-09",
+    "invalid_ohlc_rows_masked": 719,
+    "zero_or_one_volume_rows_masked": 308,
+    "policy": "Positive-close observed sessions only; invalid OHLC and volume <= 1 are missing with quality flags. No interpolation, backwards fill, or certification of contract rolls."
+  },
+  "cot": {
+    "source_file": "../DATA/COT/coffee_c_all_cot_data.csv",
+    "feature_schema_version": 2,
+    "backcast_policy": "Retain prelaunch disaggregated archives; current-only history before 2009-10-20, full-history predictors after archive/dependency publication on the next observed session; never replace a newer positioning snapshot with an old archive report",
+    "reports": 2447,
+    "features": 449,
+    "excluded_prelaunch_disaggregated_backcasts": 0,
+    "retained_prelaunch_disaggregated_backcasts": 168,
+    "backcast_publication_date": "2009-10-20",
+    "source_field_coverage": {
+      "legacy_futures_only": {
+        "included_source_fields": {
+          "Open_Interest_All": {
+            "feature": "cot_legacy_source_open_interest_all",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Tot_Rept_Positions_Long_All": {
+            "feature": "cot_legacy_source_tot_rept_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_All": {
+            "feature": "cot_legacy_source_tot_rept_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_All": {
+            "feature": "cot_legacy_source_nonrept_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_All": {
+            "feature": "cot_legacy_source_nonrept_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Open_Interest_Old": {
+            "feature": "cot_legacy_source_open_interest_old",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Tot_Rept_Positions_Long_Old": {
+            "feature": "cot_legacy_source_tot_rept_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_Old": {
+            "feature": "cot_legacy_source_tot_rept_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_Old": {
+            "feature": "cot_legacy_source_nonrept_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_Old": {
+            "feature": "cot_legacy_source_nonrept_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Open_Interest_Other": {
+            "feature": "cot_legacy_source_open_interest_other",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Tot_Rept_Positions_Long_Other": {
+            "feature": "cot_legacy_source_tot_rept_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_Other": {
+            "feature": "cot_legacy_source_tot_rept_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_Other": {
+            "feature": "cot_legacy_source_nonrept_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_Other": {
+            "feature": "cot_legacy_source_nonrept_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Open_Interest_All": {
+            "feature": "cot_legacy_source_change_in_open_interest_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Tot_Rept_Long_All": {
+            "feature": "cot_legacy_source_change_in_tot_rept_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Tot_Rept_Short_All": {
+            "feature": "cot_legacy_source_change_in_tot_rept_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonRept_Long_All": {
+            "feature": "cot_legacy_source_change_in_nonrept_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonRept_Short_All": {
+            "feature": "cot_legacy_source_change_in_nonrept_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Pct_of_Open_Interest_All": {
+            "feature": "cot_legacy_source_pct_of_open_interest_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_All": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_All": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_All": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_All": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_Open_Interest_Old": {
+            "feature": "cot_legacy_source_pct_of_open_interest_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_Open_Interest_Other": {
+            "feature": "cot_legacy_source_pct_of_open_interest_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_tot_rept_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_nonrept_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Traders_Tot_All": {
+            "feature": "cot_legacy_source_traders_tot_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_All": {
+            "feature": "cot_legacy_source_traders_tot_rept_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_All": {
+            "feature": "cot_legacy_source_traders_tot_rept_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Old": {
+            "feature": "cot_legacy_source_traders_tot_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_Old": {
+            "feature": "cot_legacy_source_traders_tot_rept_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_Old": {
+            "feature": "cot_legacy_source_traders_tot_rept_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Other": {
+            "feature": "cot_legacy_source_traders_tot_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_Other": {
+            "feature": "cot_legacy_source_traders_tot_rept_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_Other": {
+            "feature": "cot_legacy_source_traders_tot_rept_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Conc_Gross_LE_4_TDR_Long_All": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_All": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_All": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_All": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_All": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_All": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_All": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_All": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Long_Old": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_Old": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_Old": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_Old": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_Old": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_Old": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_Old": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_Old": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Long_Other": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_Other": {
+            "feature": "cot_legacy_source_conc_gross_le_4_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_Other": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_Other": {
+            "feature": "cot_legacy_source_conc_gross_le_8_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_Other": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_Other": {
+            "feature": "cot_legacy_source_conc_net_le_4_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_Other": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_Other": {
+            "feature": "cot_legacy_source_conc_net_le_8_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "NonComm_Positions_Long_All": {
+            "feature": "cot_legacy_source_noncomm_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Short_All": {
+            "feature": "cot_legacy_source_noncomm_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Postions_Spread_All": {
+            "feature": "cot_legacy_source_noncomm_postions_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Long_All": {
+            "feature": "cot_legacy_source_comm_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Short_All": {
+            "feature": "cot_legacy_source_comm_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Long_Old": {
+            "feature": "cot_legacy_source_noncomm_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Short_Old": {
+            "feature": "cot_legacy_source_noncomm_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Spread_Old": {
+            "feature": "cot_legacy_source_noncomm_positions_spread_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Long_Old": {
+            "feature": "cot_legacy_source_comm_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Short_Old": {
+            "feature": "cot_legacy_source_comm_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Long_Other": {
+            "feature": "cot_legacy_source_noncomm_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Short_Other": {
+            "feature": "cot_legacy_source_noncomm_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonComm_Positions_Spread_Other": {
+            "feature": "cot_legacy_source_noncomm_positions_spread_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Long_Other": {
+            "feature": "cot_legacy_source_comm_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Comm_Positions_Short_Other": {
+            "feature": "cot_legacy_source_comm_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonComm_Long_All": {
+            "feature": "cot_legacy_source_change_in_noncomm_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonComm_Short_All": {
+            "feature": "cot_legacy_source_change_in_noncomm_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonComm_Spead_All": {
+            "feature": "cot_legacy_source_change_in_noncomm_spead_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Comm_Long_All": {
+            "feature": "cot_legacy_source_change_in_comm_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Comm_Short_All": {
+            "feature": "cot_legacy_source_change_in_comm_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Pct_of_OI_NonComm_Long_All": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Short_All": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Spread_All": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Long_All": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Short_All": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Long_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Short_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Spread_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Long_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Short_Old": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Long_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Short_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonComm_Spread_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_noncomm_spread_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Long_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Comm_Short_Other": {
+            "feature": "cot_legacy_source_pct_of_oi_comm_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Traders_NonComm_Long_All": {
+            "feature": "cot_legacy_source_traders_noncomm_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Short_All": {
+            "feature": "cot_legacy_source_traders_noncomm_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Spread_All": {
+            "feature": "cot_legacy_source_traders_noncomm_spread_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Long_All": {
+            "feature": "cot_legacy_source_traders_comm_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Short_All": {
+            "feature": "cot_legacy_source_traders_comm_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Long_Old": {
+            "feature": "cot_legacy_source_traders_noncomm_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Short_Old": {
+            "feature": "cot_legacy_source_traders_noncomm_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Spead_Old": {
+            "feature": "cot_legacy_source_traders_noncomm_spead_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Long_Old": {
+            "feature": "cot_legacy_source_traders_comm_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Short_Old": {
+            "feature": "cot_legacy_source_traders_comm_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Long_Other": {
+            "feature": "cot_legacy_source_traders_noncomm_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Short_Other": {
+            "feature": "cot_legacy_source_traders_noncomm_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_NonComm_Spread_Other": {
+            "feature": "cot_legacy_source_traders_noncomm_spread_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Long_Other": {
+            "feature": "cot_legacy_source_traders_comm_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Comm_Short_Other": {
+            "feature": "cot_legacy_source_traders_comm_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          }
+        },
+        "excluded_source_fields": {
+          "source_file": "identifier_or_text_metadata",
+          "source_dataset": "identifier_or_text_metadata",
+          "source_archive": "identifier_or_text_metadata",
+          "Market_and_Exchange_Names": "identifier_or_text_metadata",
+          "As_of_Date_In_Form_YYMMDD": "identifier_or_text_metadata",
+          "Report_Date_as_MM_DD_YYYY": "identifier_or_text_metadata",
+          "CFTC_Contract_Market_Code": "identifier_or_text_metadata",
+          "CFTC_Market_Code": "identifier_or_text_metadata",
+          "CFTC_Region_Code": "identifier_or_text_metadata",
+          "CFTC_Commodity_Code": "identifier_or_text_metadata",
+          "Prod_Merc_Positions_Long_ALL": "other_report_family_schema",
+          "Prod_Merc_Positions_Short_ALL": "other_report_family_schema",
+          "Swap_Positions_Long_All": "other_report_family_schema",
+          "Swap__Positions_Short_All": "other_report_family_schema",
+          "Swap__Positions_Spread_All": "other_report_family_schema",
+          "M_Money_Positions_Long_ALL": "other_report_family_schema",
+          "M_Money_Positions_Short_ALL": "other_report_family_schema",
+          "M_Money_Positions_Spread_ALL": "other_report_family_schema",
+          "Other_Rept_Positions_Long_ALL": "other_report_family_schema",
+          "Other_Rept_Positions_Short_ALL": "other_report_family_schema",
+          "Other_Rept_Positions_Spread_ALL": "other_report_family_schema",
+          "Prod_Merc_Positions_Long_Old": "other_report_family_schema",
+          "Prod_Merc_Positions_Short_Old": "other_report_family_schema",
+          "Swap_Positions_Long_Old": "other_report_family_schema",
+          "Swap_Positions_Short_Old": "other_report_family_schema",
+          "Swap_Positions_Spread_Old": "other_report_family_schema",
+          "M_Money_Positions_Long_Old": "other_report_family_schema",
+          "M_Money_Positions_Short_Old": "other_report_family_schema",
+          "M_Money_Positions_Spread_Old": "other_report_family_schema",
+          "Other_Rept_Positions_Long_Old": "other_report_family_schema",
+          "Other_Rept_Positions_Short_Old": "other_report_family_schema",
+          "Other_Rept_Positions_Spread_Old": "other_report_family_schema",
+          "Prod_Merc_Positions_Long_Other": "other_report_family_schema",
+          "Prod_Merc_Positions_Short_Other": "other_report_family_schema",
+          "Swap_Positions_Long_Other": "other_report_family_schema",
+          "Swap_Positions_Short_Other": "other_report_family_schema",
+          "Swap_Positions_Spread_Other": "other_report_family_schema",
+          "M_Money_Positions_Long_Other": "other_report_family_schema",
+          "M_Money_Positions_Short_Other": "other_report_family_schema",
+          "M_Money_Positions_Spread_Other": "other_report_family_schema",
+          "Other_Rept_Positions_Long_Other": "other_report_family_schema",
+          "Other_Rept_Positions_Short_Other": "other_report_family_schema",
+          "Other_Rept_Positions_Spread_Othr": "other_report_family_schema",
+          "Change_in_Prod_Merc_Long_All": "other_report_family_schema",
+          "Change_in_Prod_Merc_Short_All": "other_report_family_schema",
+          "Change_in_Swap_Long_All": "other_report_family_schema",
+          "Change_in_Swap_Short_All": "other_report_family_schema",
+          "Change_in_Swap_Spread_All": "other_report_family_schema",
+          "Change_in_M_Money_Long_All": "other_report_family_schema",
+          "Change_in_M_Money_Short_All": "other_report_family_schema",
+          "Change_in_M_Money_Spread_All": "other_report_family_schema",
+          "Change_in_Other_Rept_Long_All": "other_report_family_schema",
+          "Change_in_Other_Rept_Short_All": "other_report_family_schema",
+          "Change_in_Other_Rept_Spread_All": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Long_All": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Short_All": "other_report_family_schema",
+          "Pct_of_OI_Swap_Long_All": "other_report_family_schema",
+          "Pct_of_OI_Swap_Short_All": "other_report_family_schema",
+          "Pct_of_OI_Swap_Spread_All": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Long_All": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Short_All": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Spread_All": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Long_All": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Short_All": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Spread_All": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_Swap_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_Swap_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_Swap_Spread_Old": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Spread_Old": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Spread_Old": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_Prod_Merc_Short_Other": "other_report_family_schema",
+          "Pct_of_OI_Swap_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_Swap_Short_Other": "other_report_family_schema",
+          "Pct_of_OI_Swap_Spread_Other": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Short_Other": "other_report_family_schema",
+          "Pct_of_OI_M_Money_Spread_Other": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Short_Other": "other_report_family_schema",
+          "Pct_of_OI_Other_Rept_Spread_Othr": "other_report_family_schema",
+          "Traders_Prod_Merc_Long_All": "other_report_family_schema",
+          "Traders_Prod_Merc_Short_All": "other_report_family_schema",
+          "Traders_Swap_Long_All": "other_report_family_schema",
+          "Traders_Swap_Short_All": "other_report_family_schema",
+          "Traders_Swap_Spread_All": "other_report_family_schema",
+          "Traders_M_Money_Long_All": "other_report_family_schema",
+          "Traders_M_Money_Short_All": "other_report_family_schema",
+          "Traders_M_Money_Spread_All": "other_report_family_schema",
+          "Traders_Other_Rept_Long_All": "other_report_family_schema",
+          "Traders_Other_Rept_Short_All": "other_report_family_schema",
+          "Traders_Other_Rept_Spread_All": "other_report_family_schema",
+          "Traders_Prod_Merc_Long_Old": "other_report_family_schema",
+          "Traders_Prod_Merc_Short_Old": "other_report_family_schema",
+          "Traders_Swap_Long_Old": "other_report_family_schema",
+          "Traders_Swap_Short_Old": "other_report_family_schema",
+          "Traders_Swap_Spread_Old": "other_report_family_schema",
+          "Traders_M_Money_Long_Old": "other_report_family_schema",
+          "Traders_M_Money_Short_Old": "other_report_family_schema",
+          "Traders_M_Money_Spread_Old": "other_report_family_schema",
+          "Traders_Other_Rept_Long_Old": "other_report_family_schema",
+          "Traders_Other_Rept_Short_Old": "other_report_family_schema",
+          "Traders_Other_Rept_Spread_Old": "other_report_family_schema",
+          "Traders_Prod_Merc_Long_Other": "other_report_family_schema",
+          "Traders_Prod_Merc_Short_Other": "other_report_family_schema",
+          "Traders_Swap_Long_Other": "other_report_family_schema",
+          "Traders_Swap_Short_Other": "other_report_family_schema",
+          "Traders_Swap_Spread_Other": "other_report_family_schema",
+          "Traders_M_Money_Long_Other": "other_report_family_schema",
+          "Traders_M_Money_Short_Other": "other_report_family_schema",
+          "Traders_M_Money_Spread_Other": "other_report_family_schema",
+          "Traders_Other_Rept_Long_Other": "other_report_family_schema",
+          "Traders_Other_Rept_Short_Other": "other_report_family_schema",
+          "Traders_Other_Rept_Spread_Other": "other_report_family_schema",
+          "Contract_Units": "identifier_or_text_metadata",
+          "CFTC_SubGroup_Code": "identifier_or_text_metadata",
+          "FutOnly_or_Combined": "identifier_or_text_metadata"
+        },
+        "source_fields_with_observations": [
+          "Open_Interest_All",
+          "Tot_Rept_Positions_Long_All",
+          "Tot_Rept_Positions_Short_All",
+          "NonRept_Positions_Long_All",
+          "NonRept_Positions_Short_All",
+          "Open_Interest_Old",
+          "Tot_Rept_Positions_Long_Old",
+          "Tot_Rept_Positions_Short_Old",
+          "NonRept_Positions_Long_Old",
+          "NonRept_Positions_Short_Old",
+          "Open_Interest_Other",
+          "Tot_Rept_Positions_Long_Other",
+          "Tot_Rept_Positions_Short_Other",
+          "NonRept_Positions_Long_Other",
+          "NonRept_Positions_Short_Other",
+          "Change_in_Open_Interest_All",
+          "Change_in_Tot_Rept_Long_All",
+          "Change_in_Tot_Rept_Short_All",
+          "Change_in_NonRept_Long_All",
+          "Change_in_NonRept_Short_All",
+          "Pct_of_Open_Interest_All",
+          "Pct_of_OI_Tot_Rept_Long_All",
+          "Pct_of_OI_Tot_Rept_Short_All",
+          "Pct_of_OI_NonRept_Long_All",
+          "Pct_of_OI_NonRept_Short_All",
+          "Pct_of_Open_Interest_Old",
+          "Pct_of_OI_Tot_Rept_Long_Old",
+          "Pct_of_OI_Tot_Rept_Short_Old",
+          "Pct_of_OI_NonRept_Long_Old",
+          "Pct_of_OI_NonRept_Short_Old",
+          "Pct_of_Open_Interest_Other",
+          "Pct_of_OI_Tot_Rept_Long_Other",
+          "Pct_of_OI_Tot_Rept_Short_Other",
+          "Pct_of_OI_NonRept_Long_Other",
+          "Pct_of_OI_NonRept_Short_Other",
+          "Traders_Tot_All",
+          "Traders_Tot_Rept_Long_All",
+          "Traders_Tot_Rept_Short_All",
+          "Traders_Tot_Old",
+          "Traders_Tot_Rept_Long_Old",
+          "Traders_Tot_Rept_Short_Old",
+          "Traders_Tot_Other",
+          "Traders_Tot_Rept_Long_Other",
+          "Traders_Tot_Rept_Short_Other",
+          "Conc_Gross_LE_4_TDR_Long_All",
+          "Conc_Gross_LE_4_TDR_Short_All",
+          "Conc_Gross_LE_8_TDR_Long_All",
+          "Conc_Gross_LE_8_TDR_Short_All",
+          "Conc_Net_LE_4_TDR_Long_All",
+          "Conc_Net_LE_4_TDR_Short_All",
+          "Conc_Net_LE_8_TDR_Long_All",
+          "Conc_Net_LE_8_TDR_Short_All",
+          "Conc_Gross_LE_4_TDR_Long_Old",
+          "Conc_Gross_LE_4_TDR_Short_Old",
+          "Conc_Gross_LE_8_TDR_Long_Old",
+          "Conc_Gross_LE_8_TDR_Short_Old",
+          "Conc_Net_LE_4_TDR_Long_Old",
+          "Conc_Net_LE_4_TDR_Short_Old",
+          "Conc_Net_LE_8_TDR_Long_Old",
+          "Conc_Net_LE_8_TDR_Short_Old",
+          "Conc_Gross_LE_4_TDR_Long_Other",
+          "Conc_Gross_LE_4_TDR_Short_Other",
+          "Conc_Gross_LE_8_TDR_Long_Other",
+          "Conc_Gross_LE_8_TDR_Short_Other",
+          "Conc_Net_LE_4_TDR_Long_Other",
+          "Conc_Net_LE_4_TDR_Short_Other",
+          "Conc_Net_LE_8_TDR_Long_Other",
+          "Conc_Net_LE_8_TDR_Short_Other",
+          "NonComm_Positions_Long_All",
+          "NonComm_Positions_Short_All",
+          "NonComm_Postions_Spread_All",
+          "Comm_Positions_Long_All",
+          "Comm_Positions_Short_All",
+          "NonComm_Positions_Long_Old",
+          "NonComm_Positions_Short_Old",
+          "NonComm_Positions_Spread_Old",
+          "Comm_Positions_Long_Old",
+          "Comm_Positions_Short_Old",
+          "NonComm_Positions_Long_Other",
+          "NonComm_Positions_Short_Other",
+          "NonComm_Positions_Spread_Other",
+          "Comm_Positions_Long_Other",
+          "Comm_Positions_Short_Other",
+          "Change_in_NonComm_Long_All",
+          "Change_in_NonComm_Short_All",
+          "Change_in_NonComm_Spead_All",
+          "Change_in_Comm_Long_All",
+          "Change_in_Comm_Short_All",
+          "Pct_of_OI_NonComm_Long_All",
+          "Pct_of_OI_NonComm_Short_All",
+          "Pct_of_OI_NonComm_Spread_All",
+          "Pct_of_OI_Comm_Long_All",
+          "Pct_of_OI_Comm_Short_All",
+          "Pct_of_OI_NonComm_Long_Old",
+          "Pct_of_OI_NonComm_Short_Old",
+          "Pct_of_OI_NonComm_Spread_Old",
+          "Pct_of_OI_Comm_Long_Old",
+          "Pct_of_OI_Comm_Short_Old",
+          "Pct_of_OI_NonComm_Long_Other",
+          "Pct_of_OI_NonComm_Short_Other",
+          "Pct_of_OI_NonComm_Spread_Other",
+          "Pct_of_OI_Comm_Long_Other",
+          "Pct_of_OI_Comm_Short_Other",
+          "Traders_NonComm_Long_All",
+          "Traders_NonComm_Short_All",
+          "Traders_NonComm_Spread_All",
+          "Traders_Comm_Long_All",
+          "Traders_Comm_Short_All",
+          "Traders_NonComm_Long_Old",
+          "Traders_NonComm_Short_Old",
+          "Traders_NonComm_Spead_Old",
+          "Traders_Comm_Long_Old",
+          "Traders_Comm_Short_Old",
+          "Traders_NonComm_Long_Other",
+          "Traders_NonComm_Short_Other",
+          "Traders_NonComm_Spread_Other",
+          "Traders_Comm_Long_Other",
+          "Traders_Comm_Short_Other"
+        ]
+      },
+      "disaggregated_futures_only": {
+        "included_source_fields": {
+          "Open_Interest_All": {
+            "feature": "cot_disagg_source_open_interest_all",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Prod_Merc_Positions_Long_ALL": {
+            "feature": "cot_disagg_source_prod_merc_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Prod_Merc_Positions_Short_ALL": {
+            "feature": "cot_disagg_source_prod_merc_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Long_All": {
+            "feature": "cot_disagg_source_swap_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap__Positions_Short_All": {
+            "feature": "cot_disagg_source_swap_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap__Positions_Spread_All": {
+            "feature": "cot_disagg_source_swap_positions_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Long_ALL": {
+            "feature": "cot_disagg_source_m_money_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Short_ALL": {
+            "feature": "cot_disagg_source_m_money_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Spread_ALL": {
+            "feature": "cot_disagg_source_m_money_positions_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Long_ALL": {
+            "feature": "cot_disagg_source_other_rept_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Short_ALL": {
+            "feature": "cot_disagg_source_other_rept_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Spread_ALL": {
+            "feature": "cot_disagg_source_other_rept_positions_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Long_All": {
+            "feature": "cot_disagg_source_tot_rept_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_All": {
+            "feature": "cot_disagg_source_tot_rept_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_All": {
+            "feature": "cot_disagg_source_nonrept_positions_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_All": {
+            "feature": "cot_disagg_source_nonrept_positions_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Open_Interest_Old": {
+            "feature": "cot_disagg_source_open_interest_old",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Prod_Merc_Positions_Long_Old": {
+            "feature": "cot_disagg_source_prod_merc_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Prod_Merc_Positions_Short_Old": {
+            "feature": "cot_disagg_source_prod_merc_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Long_Old": {
+            "feature": "cot_disagg_source_swap_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Short_Old": {
+            "feature": "cot_disagg_source_swap_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Spread_Old": {
+            "feature": "cot_disagg_source_swap_positions_spread_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Long_Old": {
+            "feature": "cot_disagg_source_m_money_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Short_Old": {
+            "feature": "cot_disagg_source_m_money_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Spread_Old": {
+            "feature": "cot_disagg_source_m_money_positions_spread_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Long_Old": {
+            "feature": "cot_disagg_source_other_rept_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Short_Old": {
+            "feature": "cot_disagg_source_other_rept_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Spread_Old": {
+            "feature": "cot_disagg_source_other_rept_positions_spread_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Long_Old": {
+            "feature": "cot_disagg_source_tot_rept_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_Old": {
+            "feature": "cot_disagg_source_tot_rept_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_Old": {
+            "feature": "cot_disagg_source_nonrept_positions_long_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_Old": {
+            "feature": "cot_disagg_source_nonrept_positions_short_old",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Open_Interest_Other": {
+            "feature": "cot_disagg_source_open_interest_other",
+            "transform": "nonnegative_log1p_open_interest"
+          },
+          "Prod_Merc_Positions_Long_Other": {
+            "feature": "cot_disagg_source_prod_merc_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Prod_Merc_Positions_Short_Other": {
+            "feature": "cot_disagg_source_prod_merc_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Long_Other": {
+            "feature": "cot_disagg_source_swap_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Short_Other": {
+            "feature": "cot_disagg_source_swap_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Swap_Positions_Spread_Other": {
+            "feature": "cot_disagg_source_swap_positions_spread_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Long_Other": {
+            "feature": "cot_disagg_source_m_money_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Short_Other": {
+            "feature": "cot_disagg_source_m_money_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "M_Money_Positions_Spread_Other": {
+            "feature": "cot_disagg_source_m_money_positions_spread_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Long_Other": {
+            "feature": "cot_disagg_source_other_rept_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Short_Other": {
+            "feature": "cot_disagg_source_other_rept_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Other_Rept_Positions_Spread_Othr": {
+            "feature": "cot_disagg_source_other_rept_positions_spread_othr",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Long_Other": {
+            "feature": "cot_disagg_source_tot_rept_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Tot_Rept_Positions_Short_Other": {
+            "feature": "cot_disagg_source_tot_rept_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Long_Other": {
+            "feature": "cot_disagg_source_nonrept_positions_long_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "NonRept_Positions_Short_Other": {
+            "feature": "cot_disagg_source_nonrept_positions_short_other",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Open_Interest_All": {
+            "feature": "cot_disagg_source_change_in_open_interest_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Prod_Merc_Long_All": {
+            "feature": "cot_disagg_source_change_in_prod_merc_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Prod_Merc_Short_All": {
+            "feature": "cot_disagg_source_change_in_prod_merc_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Swap_Long_All": {
+            "feature": "cot_disagg_source_change_in_swap_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Swap_Short_All": {
+            "feature": "cot_disagg_source_change_in_swap_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Swap_Spread_All": {
+            "feature": "cot_disagg_source_change_in_swap_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_M_Money_Long_All": {
+            "feature": "cot_disagg_source_change_in_m_money_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_M_Money_Short_All": {
+            "feature": "cot_disagg_source_change_in_m_money_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_M_Money_Spread_All": {
+            "feature": "cot_disagg_source_change_in_m_money_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Other_Rept_Long_All": {
+            "feature": "cot_disagg_source_change_in_other_rept_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Other_Rept_Short_All": {
+            "feature": "cot_disagg_source_change_in_other_rept_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Other_Rept_Spread_All": {
+            "feature": "cot_disagg_source_change_in_other_rept_spread_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Tot_Rept_Long_All": {
+            "feature": "cot_disagg_source_change_in_tot_rept_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_Tot_Rept_Short_All": {
+            "feature": "cot_disagg_source_change_in_tot_rept_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonRept_Long_All": {
+            "feature": "cot_disagg_source_change_in_nonrept_long_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Change_in_NonRept_Short_All": {
+            "feature": "cot_disagg_source_change_in_nonrept_short_all",
+            "transform": "contracts_divided_by_current_all_open_interest"
+          },
+          "Pct_of_Open_Interest_All": {
+            "feature": "cot_disagg_source_pct_of_open_interest_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Spread_All": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_spread_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Spread_All": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_spread_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Spread_All": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_All": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_All": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_Open_Interest_Old": {
+            "feature": "cot_disagg_source_pct_of_open_interest_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Spread_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_spread_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Spread_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_spread_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Spread_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_Old": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_Open_Interest_Other": {
+            "feature": "cot_disagg_source_pct_of_open_interest_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Prod_Merc_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_prod_merc_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Swap_Spread_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_swap_spread_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_M_Money_Spread_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_m_money_spread_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Other_Rept_Spread_Othr": {
+            "feature": "cot_disagg_source_pct_of_oi_other_rept_spread_othr",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_Tot_Rept_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_tot_rept_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Long_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Pct_of_OI_NonRept_Short_Other": {
+            "feature": "cot_disagg_source_pct_of_oi_nonrept_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Traders_Tot_All": {
+            "feature": "cot_disagg_source_traders_tot_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Long_All": {
+            "feature": "cot_disagg_source_traders_prod_merc_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Short_All": {
+            "feature": "cot_disagg_source_traders_prod_merc_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Long_All": {
+            "feature": "cot_disagg_source_traders_swap_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Short_All": {
+            "feature": "cot_disagg_source_traders_swap_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Spread_All": {
+            "feature": "cot_disagg_source_traders_swap_spread_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Long_All": {
+            "feature": "cot_disagg_source_traders_m_money_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Short_All": {
+            "feature": "cot_disagg_source_traders_m_money_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Spread_All": {
+            "feature": "cot_disagg_source_traders_m_money_spread_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Long_All": {
+            "feature": "cot_disagg_source_traders_other_rept_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Short_All": {
+            "feature": "cot_disagg_source_traders_other_rept_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Spread_All": {
+            "feature": "cot_disagg_source_traders_other_rept_spread_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_All": {
+            "feature": "cot_disagg_source_traders_tot_rept_long_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_All": {
+            "feature": "cot_disagg_source_traders_tot_rept_short_all",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Old": {
+            "feature": "cot_disagg_source_traders_tot_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Long_Old": {
+            "feature": "cot_disagg_source_traders_prod_merc_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Short_Old": {
+            "feature": "cot_disagg_source_traders_prod_merc_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Long_Old": {
+            "feature": "cot_disagg_source_traders_swap_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Short_Old": {
+            "feature": "cot_disagg_source_traders_swap_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Spread_Old": {
+            "feature": "cot_disagg_source_traders_swap_spread_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Long_Old": {
+            "feature": "cot_disagg_source_traders_m_money_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Short_Old": {
+            "feature": "cot_disagg_source_traders_m_money_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Spread_Old": {
+            "feature": "cot_disagg_source_traders_m_money_spread_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Long_Old": {
+            "feature": "cot_disagg_source_traders_other_rept_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Short_Old": {
+            "feature": "cot_disagg_source_traders_other_rept_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Spread_Old": {
+            "feature": "cot_disagg_source_traders_other_rept_spread_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_Old": {
+            "feature": "cot_disagg_source_traders_tot_rept_long_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_Old": {
+            "feature": "cot_disagg_source_traders_tot_rept_short_old",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Other": {
+            "feature": "cot_disagg_source_traders_tot_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Long_Other": {
+            "feature": "cot_disagg_source_traders_prod_merc_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Prod_Merc_Short_Other": {
+            "feature": "cot_disagg_source_traders_prod_merc_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Long_Other": {
+            "feature": "cot_disagg_source_traders_swap_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Short_Other": {
+            "feature": "cot_disagg_source_traders_swap_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Swap_Spread_Other": {
+            "feature": "cot_disagg_source_traders_swap_spread_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Long_Other": {
+            "feature": "cot_disagg_source_traders_m_money_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Short_Other": {
+            "feature": "cot_disagg_source_traders_m_money_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_M_Money_Spread_Other": {
+            "feature": "cot_disagg_source_traders_m_money_spread_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Long_Other": {
+            "feature": "cot_disagg_source_traders_other_rept_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Short_Other": {
+            "feature": "cot_disagg_source_traders_other_rept_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Other_Rept_Spread_Other": {
+            "feature": "cot_disagg_source_traders_other_rept_spread_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Long_Other": {
+            "feature": "cot_disagg_source_traders_tot_rept_long_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Traders_Tot_Rept_Short_Other": {
+            "feature": "cot_disagg_source_traders_tot_rept_short_other",
+            "transform": "nonnegative_log1p_trader_count"
+          },
+          "Conc_Gross_LE_4_TDR_Long_All": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_All": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_All": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_All": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_All": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_All": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_All": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_long_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_All": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_short_all",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Long_Old": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_Old": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_Old": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_Old": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_Old": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_Old": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_Old": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_long_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_Old": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_short_old",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Long_Other": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_4_TDR_Short_Other": {
+            "feature": "cot_disagg_source_conc_gross_le_4_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Long_Other": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Gross_LE_8_TDR_Short_Other": {
+            "feature": "cot_disagg_source_conc_gross_le_8_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Long_Other": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_4_TDR_Short_Other": {
+            "feature": "cot_disagg_source_conc_net_le_4_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Long_Other": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_long_other",
+            "transform": "percentage_divided_by_100"
+          },
+          "Conc_Net_LE_8_TDR_Short_Other": {
+            "feature": "cot_disagg_source_conc_net_le_8_tdr_short_other",
+            "transform": "percentage_divided_by_100"
+          }
+        },
+        "excluded_source_fields": {
+          "source_file": "identifier_or_text_metadata",
+          "source_dataset": "identifier_or_text_metadata",
+          "source_archive": "identifier_or_text_metadata",
+          "Market_and_Exchange_Names": "identifier_or_text_metadata",
+          "As_of_Date_In_Form_YYMMDD": "identifier_or_text_metadata",
+          "Report_Date_as_MM_DD_YYYY": "identifier_or_text_metadata",
+          "CFTC_Contract_Market_Code": "identifier_or_text_metadata",
+          "CFTC_Market_Code": "identifier_or_text_metadata",
+          "CFTC_Region_Code": "identifier_or_text_metadata",
+          "CFTC_Commodity_Code": "identifier_or_text_metadata",
+          "Contract_Units": "identifier_or_text_metadata",
+          "CFTC_SubGroup_Code": "identifier_or_text_metadata",
+          "FutOnly_or_Combined": "identifier_or_text_metadata",
+          "NonComm_Positions_Long_All": "other_report_family_schema",
+          "NonComm_Positions_Short_All": "other_report_family_schema",
+          "NonComm_Postions_Spread_All": "other_report_family_schema",
+          "Comm_Positions_Long_All": "other_report_family_schema",
+          "Comm_Positions_Short_All": "other_report_family_schema",
+          "NonComm_Positions_Long_Old": "other_report_family_schema",
+          "NonComm_Positions_Short_Old": "other_report_family_schema",
+          "NonComm_Positions_Spread_Old": "other_report_family_schema",
+          "Comm_Positions_Long_Old": "other_report_family_schema",
+          "Comm_Positions_Short_Old": "other_report_family_schema",
+          "NonComm_Positions_Long_Other": "other_report_family_schema",
+          "NonComm_Positions_Short_Other": "other_report_family_schema",
+          "NonComm_Positions_Spread_Other": "other_report_family_schema",
+          "Comm_Positions_Long_Other": "other_report_family_schema",
+          "Comm_Positions_Short_Other": "other_report_family_schema",
+          "Change_in_NonComm_Long_All": "other_report_family_schema",
+          "Change_in_NonComm_Short_All": "other_report_family_schema",
+          "Change_in_NonComm_Spead_All": "other_report_family_schema",
+          "Change_in_Comm_Long_All": "other_report_family_schema",
+          "Change_in_Comm_Short_All": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Long_All": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Short_All": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Spread_All": "other_report_family_schema",
+          "Pct_of_OI_Comm_Long_All": "other_report_family_schema",
+          "Pct_of_OI_Comm_Short_All": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Spread_Old": "other_report_family_schema",
+          "Pct_of_OI_Comm_Long_Old": "other_report_family_schema",
+          "Pct_of_OI_Comm_Short_Old": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Short_Other": "other_report_family_schema",
+          "Pct_of_OI_NonComm_Spread_Other": "other_report_family_schema",
+          "Pct_of_OI_Comm_Long_Other": "other_report_family_schema",
+          "Pct_of_OI_Comm_Short_Other": "other_report_family_schema",
+          "Traders_NonComm_Long_All": "other_report_family_schema",
+          "Traders_NonComm_Short_All": "other_report_family_schema",
+          "Traders_NonComm_Spread_All": "other_report_family_schema",
+          "Traders_Comm_Long_All": "other_report_family_schema",
+          "Traders_Comm_Short_All": "other_report_family_schema",
+          "Traders_NonComm_Long_Old": "other_report_family_schema",
+          "Traders_NonComm_Short_Old": "other_report_family_schema",
+          "Traders_NonComm_Spead_Old": "other_report_family_schema",
+          "Traders_Comm_Long_Old": "other_report_family_schema",
+          "Traders_Comm_Short_Old": "other_report_family_schema",
+          "Traders_NonComm_Long_Other": "other_report_family_schema",
+          "Traders_NonComm_Short_Other": "other_report_family_schema",
+          "Traders_NonComm_Spread_Other": "other_report_family_schema",
+          "Traders_Comm_Long_Other": "other_report_family_schema",
+          "Traders_Comm_Short_Other": "other_report_family_schema"
+        },
+        "source_fields_with_observations": [
+          "Open_Interest_All",
+          "Prod_Merc_Positions_Long_ALL",
+          "Prod_Merc_Positions_Short_ALL",
+          "Swap_Positions_Long_All",
+          "Swap__Positions_Short_All",
+          "Swap__Positions_Spread_All",
+          "M_Money_Positions_Long_ALL",
+          "M_Money_Positions_Short_ALL",
+          "M_Money_Positions_Spread_ALL",
+          "Other_Rept_Positions_Long_ALL",
+          "Other_Rept_Positions_Short_ALL",
+          "Other_Rept_Positions_Spread_ALL",
+          "Tot_Rept_Positions_Long_All",
+          "Tot_Rept_Positions_Short_All",
+          "NonRept_Positions_Long_All",
+          "NonRept_Positions_Short_All",
+          "Open_Interest_Old",
+          "Prod_Merc_Positions_Long_Old",
+          "Prod_Merc_Positions_Short_Old",
+          "Swap_Positions_Long_Old",
+          "Swap_Positions_Short_Old",
+          "Swap_Positions_Spread_Old",
+          "M_Money_Positions_Long_Old",
+          "M_Money_Positions_Short_Old",
+          "M_Money_Positions_Spread_Old",
+          "Other_Rept_Positions_Long_Old",
+          "Other_Rept_Positions_Short_Old",
+          "Other_Rept_Positions_Spread_Old",
+          "Tot_Rept_Positions_Long_Old",
+          "Tot_Rept_Positions_Short_Old",
+          "NonRept_Positions_Long_Old",
+          "NonRept_Positions_Short_Old",
+          "Open_Interest_Other",
+          "Prod_Merc_Positions_Long_Other",
+          "Prod_Merc_Positions_Short_Other",
+          "Swap_Positions_Long_Other",
+          "Swap_Positions_Short_Other",
+          "Swap_Positions_Spread_Other",
+          "M_Money_Positions_Long_Other",
+          "M_Money_Positions_Short_Other",
+          "M_Money_Positions_Spread_Other",
+          "Other_Rept_Positions_Long_Other",
+          "Other_Rept_Positions_Short_Other",
+          "Other_Rept_Positions_Spread_Othr",
+          "Tot_Rept_Positions_Long_Other",
+          "Tot_Rept_Positions_Short_Other",
+          "NonRept_Positions_Long_Other",
+          "NonRept_Positions_Short_Other",
+          "Change_in_Open_Interest_All",
+          "Change_in_Prod_Merc_Long_All",
+          "Change_in_Prod_Merc_Short_All",
+          "Change_in_Swap_Long_All",
+          "Change_in_Swap_Short_All",
+          "Change_in_Swap_Spread_All",
+          "Change_in_M_Money_Long_All",
+          "Change_in_M_Money_Short_All",
+          "Change_in_M_Money_Spread_All",
+          "Change_in_Other_Rept_Long_All",
+          "Change_in_Other_Rept_Short_All",
+          "Change_in_Other_Rept_Spread_All",
+          "Change_in_Tot_Rept_Long_All",
+          "Change_in_Tot_Rept_Short_All",
+          "Change_in_NonRept_Long_All",
+          "Change_in_NonRept_Short_All",
+          "Pct_of_Open_Interest_All",
+          "Pct_of_OI_Prod_Merc_Long_All",
+          "Pct_of_OI_Prod_Merc_Short_All",
+          "Pct_of_OI_Swap_Long_All",
+          "Pct_of_OI_Swap_Short_All",
+          "Pct_of_OI_Swap_Spread_All",
+          "Pct_of_OI_M_Money_Long_All",
+          "Pct_of_OI_M_Money_Short_All",
+          "Pct_of_OI_M_Money_Spread_All",
+          "Pct_of_OI_Other_Rept_Long_All",
+          "Pct_of_OI_Other_Rept_Short_All",
+          "Pct_of_OI_Other_Rept_Spread_All",
+          "Pct_of_OI_Tot_Rept_Long_All",
+          "Pct_of_OI_Tot_Rept_Short_All",
+          "Pct_of_OI_NonRept_Long_All",
+          "Pct_of_OI_NonRept_Short_All",
+          "Pct_of_Open_Interest_Old",
+          "Pct_of_OI_Prod_Merc_Long_Old",
+          "Pct_of_OI_Prod_Merc_Short_Old",
+          "Pct_of_OI_Swap_Long_Old",
+          "Pct_of_OI_Swap_Short_Old",
+          "Pct_of_OI_Swap_Spread_Old",
+          "Pct_of_OI_M_Money_Long_Old",
+          "Pct_of_OI_M_Money_Short_Old",
+          "Pct_of_OI_M_Money_Spread_Old",
+          "Pct_of_OI_Other_Rept_Long_Old",
+          "Pct_of_OI_Other_Rept_Short_Old",
+          "Pct_of_OI_Other_Rept_Spread_Old",
+          "Pct_of_OI_Tot_Rept_Long_Old",
+          "Pct_of_OI_Tot_Rept_Short_Old",
+          "Pct_of_OI_NonRept_Long_Old",
+          "Pct_of_OI_NonRept_Short_Old",
+          "Pct_of_Open_Interest_Other",
+          "Pct_of_OI_Prod_Merc_Long_Other",
+          "Pct_of_OI_Prod_Merc_Short_Other",
+          "Pct_of_OI_Swap_Long_Other",
+          "Pct_of_OI_Swap_Short_Other",
+          "Pct_of_OI_Swap_Spread_Other",
+          "Pct_of_OI_M_Money_Long_Other",
+          "Pct_of_OI_M_Money_Short_Other",
+          "Pct_of_OI_M_Money_Spread_Other",
+          "Pct_of_OI_Other_Rept_Long_Other",
+          "Pct_of_OI_Other_Rept_Short_Other",
+          "Pct_of_OI_Other_Rept_Spread_Othr",
+          "Pct_of_OI_Tot_Rept_Long_Other",
+          "Pct_of_OI_Tot_Rept_Short_Other",
+          "Pct_of_OI_NonRept_Long_Other",
+          "Pct_of_OI_NonRept_Short_Other",
+          "Traders_Tot_All",
+          "Traders_Prod_Merc_Long_All",
+          "Traders_Prod_Merc_Short_All",
+          "Traders_Swap_Long_All",
+          "Traders_Swap_Short_All",
+          "Traders_Swap_Spread_All",
+          "Traders_M_Money_Long_All",
+          "Traders_M_Money_Short_All",
+          "Traders_M_Money_Spread_All",
+          "Traders_Other_Rept_Long_All",
+          "Traders_Other_Rept_Short_All",
+          "Traders_Other_Rept_Spread_All",
+          "Traders_Tot_Rept_Long_All",
+          "Traders_Tot_Rept_Short_All",
+          "Traders_Tot_Old",
+          "Traders_Prod_Merc_Long_Old",
+          "Traders_Prod_Merc_Short_Old",
+          "Traders_Swap_Long_Old",
+          "Traders_Swap_Short_Old",
+          "Traders_Swap_Spread_Old",
+          "Traders_M_Money_Long_Old",
+          "Traders_M_Money_Short_Old",
+          "Traders_M_Money_Spread_Old",
+          "Traders_Other_Rept_Long_Old",
+          "Traders_Other_Rept_Short_Old",
+          "Traders_Other_Rept_Spread_Old",
+          "Traders_Tot_Rept_Long_Old",
+          "Traders_Tot_Rept_Short_Old",
+          "Traders_Tot_Other",
+          "Traders_Prod_Merc_Long_Other",
+          "Traders_Prod_Merc_Short_Other",
+          "Traders_Swap_Long_Other",
+          "Traders_Swap_Short_Other",
+          "Traders_Swap_Spread_Other",
+          "Traders_M_Money_Long_Other",
+          "Traders_M_Money_Short_Other",
+          "Traders_M_Money_Spread_Other",
+          "Traders_Other_Rept_Long_Other",
+          "Traders_Other_Rept_Short_Other",
+          "Traders_Other_Rept_Spread_Other",
+          "Traders_Tot_Rept_Long_Other",
+          "Traders_Tot_Rept_Short_Other",
+          "Conc_Gross_LE_4_TDR_Long_All",
+          "Conc_Gross_LE_4_TDR_Short_All",
+          "Conc_Gross_LE_8_TDR_Long_All",
+          "Conc_Gross_LE_8_TDR_Short_All",
+          "Conc_Net_LE_4_TDR_Long_All",
+          "Conc_Net_LE_4_TDR_Short_All",
+          "Conc_Net_LE_8_TDR_Long_All",
+          "Conc_Net_LE_8_TDR_Short_All",
+          "Conc_Gross_LE_4_TDR_Long_Old",
+          "Conc_Gross_LE_4_TDR_Short_Old",
+          "Conc_Gross_LE_8_TDR_Long_Old",
+          "Conc_Gross_LE_8_TDR_Short_Old",
+          "Conc_Net_LE_4_TDR_Long_Old",
+          "Conc_Net_LE_4_TDR_Short_Old",
+          "Conc_Net_LE_8_TDR_Long_Old",
+          "Conc_Net_LE_8_TDR_Short_Old",
+          "Conc_Gross_LE_4_TDR_Long_Other",
+          "Conc_Gross_LE_4_TDR_Short_Other",
+          "Conc_Gross_LE_8_TDR_Long_Other",
+          "Conc_Gross_LE_8_TDR_Short_Other",
+          "Conc_Net_LE_4_TDR_Long_Other",
+          "Conc_Net_LE_4_TDR_Short_Other",
+          "Conc_Net_LE_8_TDR_Long_Other",
+          "Conc_Net_LE_8_TDR_Short_Other"
+        ]
+      }
+    },
+    "alignment": "Backward as-of on first observed trading session strictly after publication; no backfill",
+    "normal_release_rule": "Estimated max(three federal business days after position date, report-week Friday); Friday snapshots use next Friday; 15:30 ET; dates labelled estimated",
+    "override_schema": "MonthFu/data/cot_release_overrides.csv (preferred) or ../DATA/COT/cot_release_overrides.csv: report_date,publication_date,source",
+    "weekly_windows": "Ordered weekly reports; pre-archive current-only windows, full archive history activates only after its publication/dependency dates; latest snapshot always wins",
+    "release_method_counts": {
+      "estimated_three_federal_business_days_friday_floor": 2194,
+      "announced_2009_disaggregated_backcast_archive": 168,
+      "announced_2025_revised_schedule": 26,
+      "announced_2019_catchup_schedule": 20,
+      "confirmed_2023_ion": 14,
+      "conservative_2013_catchup_bound": 8,
+      "announced_2026_calendar": 6,
+      "announced_2013_restart": 2,
+      "announced_2014_holiday": 2,
+      "confirmed_2020_holiday": 2,
+      "announced_2021_juneteenth": 2,
+      "announced_mourning_delay": 2,
+      "announced_2008_holiday": 1
+    },
+    "known_corrected_archive_reports": 7,
+    "sources": {
+      "regular": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm",
+      "release_faq": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm",
+      "special": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalSpecialAnnouncements/index.htm",
+      "shutdown_2013": "https://www.cftc.gov/PressRoom/PressReleases/6745-13",
+      "shutdown_2019": "https://www.cftc.gov/PressRoom/PressReleases/7864-19",
+      "shutdown_2025": "https://www.cftc.gov/PressRoom/PressReleases/9147-25",
+      "disaggregated_launch": "https://www.cftc.gov/PressRoom/PressReleases/5710-09",
+      "historical_backcast": "https://www.cftc.gov/PressRoom/PressReleases/5737-09",
+      "coffee_first_disaggregated_report": "https://www.cftc.gov/sites/default/files/files/dea/cotarchives/2009/futures/ag_lf090109.htm",
+      "coffee_hours": "https://www.ice.com/products/15/Coffee-C-Futures"
+    },
+    "limitations": [
+      "Raw historical archives may contain subsequent revisions; original as-published data vintages are unavailable.",
+      "Known Coffee futures corrections (2010-05-18, 2018-09-18 legacy concentration, 2019-03-26) and the non-market-specific 2012-11-27 update are withheld until their announced correction dates; unannounced/unidentified revisions remain possible.",
+      "Ordinary historical release dates are estimates, not a complete verified historical publication calendar.",
+      "2013 intermediate backlog reports are withheld until the announced completion bound; 2019 catch-up dates follow the announced twice-weekly schedule.",
+      "Pre-September-2009 disaggregated backcasts are retained, but cannot seed live/rolling predictors before October 20, 2009; archive publication time is unspecified, so first use is the following observed session. Classification history was backcast rather than measured contemporaneously.",
+      "Observed price dates provide the trading calendar; a missing price session can conservatively postpone availability."
+    ]
+  },
+  "external": {
+    "weather": {
+      "path": "../DATA/weather/open_meteo_coffee_regions_daily.csv",
+      "available": true,
+      "availability_lag_calendar_days": 5,
+      "maximum_carry_after_availability_calendar_days": 7,
+      "alignment": "Daily calendar rollups; source Date + 5 calendar days; backward asof; stale weather values become NaN after 7 further days; no backward fill.",
+      "climatology": "Previous five same-calendar-month occurrences only, excluding the entire current month/year; at least two prior months and 45 valid observations.",
+      "vintage_limitation": "Local Open-Meteo historical reanalysis has no archived publication vintages. A 5-day availability proxy reduces timing leakage but cannot remove historical revisions. Results are conditional on this proxy.",
+      "crop_interactions": "Broad Brazil flowering Sep-Nov, harvest May-Sep, winter Jun-Aug indicators are modeling hypotheses; not location-specific crop surveys. Vietnam is an indirect competing-origin proxy.",
+      "rows": 9747,
+      "regions": {
+        "brazil_minas_gerais": {
+          "observations": 9747,
+          "start": "2000-01-03",
+          "end": "2026-09-09",
+          "fresh_match_fraction": 0.9992526158445441,
+          "latest_used_source": "2026-09-04"
+        },
+        "colombia_huila": {
+          "observations": 9747,
+          "start": "2000-01-03",
+          "end": "2026-09-09",
+          "fresh_match_fraction": 0.9992526158445441,
+          "latest_used_source": "2026-09-04"
+        },
+        "vietnam_dak_lak": {
+          "observations": 9747,
+          "start": "2000-01-03",
+          "end": "2026-09-09",
+          "fresh_match_fraction": 0.9992526158445441,
+          "latest_used_source": "2026-09-04"
+        }
+      }
+    },
+    "excluded_sources": {
+      "news": "The GDELT event layer was removed. Its retention/ranking used subsequent 5-session returns and full-history normalization, which a delay cannot reverse, and no primary candidate group used it."
+    },
+    "feature_counts": {
+      "weather": 281,
+      "news": 0
+    },
+    "feature_missing_fraction": {
+      "weather_brazil_minas_gerais_temp_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_temp_max_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_rain_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_soil_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_vpd_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_water_balance_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_temp_seasonal_z_7d": 0.07473841554559044,
+      "weather_brazil_minas_gerais_rain_seasonal_z_7d": 0.07473841554559044,
+      "weather_brazil_minas_gerais_soil_seasonal_z_7d": 0.07473841554559044,
+      "weather_brazil_minas_gerais_dry_share_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_heat_degrees_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_cold_share_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_heavy_rain_share_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_temp_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_temp_max_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_rain_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_soil_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_vpd_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_water_balance_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_temp_seasonal_z_14d": 0.07533632286995516,
+      "weather_brazil_minas_gerais_rain_seasonal_z_14d": 0.07533632286995516,
+      "weather_brazil_minas_gerais_soil_seasonal_z_14d": 0.07533632286995516,
+      "weather_brazil_minas_gerais_dry_share_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_heat_degrees_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_cold_share_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_heavy_rain_share_14d": 0.0016442451420029896,
+      "weather_brazil_minas_gerais_temp_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_max_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_rain_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_soil_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_vpd_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_water_balance_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_seasonal_z_28d": 0.07623318385650224,
+      "weather_brazil_minas_gerais_rain_seasonal_z_28d": 0.07623318385650224,
+      "weather_brazil_minas_gerais_soil_seasonal_z_28d": 0.07623318385650224,
+      "weather_brazil_minas_gerais_dry_share_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_heat_degrees_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_cold_share_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_heavy_rain_share_28d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_max_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_rain_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_soil_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_vpd_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_water_balance_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_seasonal_z_30d": 0.07638266068759342,
+      "weather_brazil_minas_gerais_rain_seasonal_z_30d": 0.07638266068759342,
+      "weather_brazil_minas_gerais_soil_seasonal_z_30d": 0.07638266068759342,
+      "weather_brazil_minas_gerais_dry_share_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_heat_degrees_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_cold_share_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_heavy_rain_share_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_temp_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_temp_max_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_rain_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_soil_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_vpd_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_water_balance_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_temp_seasonal_z_60d": 0.07892376681614349,
+      "weather_brazil_minas_gerais_rain_seasonal_z_60d": 0.07892376681614349,
+      "weather_brazil_minas_gerais_soil_seasonal_z_60d": 0.07892376681614349,
+      "weather_brazil_minas_gerais_dry_share_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_heat_degrees_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_cold_share_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_heavy_rain_share_60d": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_temp_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_temp_max_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_rain_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_soil_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_vpd_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_water_balance_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_temp_seasonal_z_90d": 0.08131539611360239,
+      "weather_brazil_minas_gerais_rain_seasonal_z_90d": 0.08131539611360239,
+      "weather_brazil_minas_gerais_soil_seasonal_z_90d": 0.08131539611360239,
+      "weather_brazil_minas_gerais_dry_share_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_heat_degrees_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_cold_share_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_heavy_rain_share_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_dry_spell_days": 0.0007473841554559044,
+      "weather_brazil_minas_gerais_rain_acceleration": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_soil_change_30d": 0.004334828101644245,
+      "weather_brazil_minas_gerais_heat_vpd_stress_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_max_dry_spell_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_dry_heat_stress_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_rain_trend_30_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_soil_trend_30_90d": 0.007922272047832586,
+      "weather_brazil_minas_gerais_water_deficit_30d": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_min_temperature_7d": 0.001195814648729447,
+      "weather_brazil_minas_gerais_flowering_water_deficit": 0.0053811659192825115,
+      "weather_brazil_minas_gerais_harvest_rain": 0.0028400597907324364,
+      "weather_brazil_minas_gerais_winter_cold_risk": 0.001195814648729447,
+      "weather_brazil_minas_gerais_source_age_days": 0.0007473841554559044,
+      "weather_brazil_minas_gerais_stale": 0.0,
+      "weather_colombia_huila_temp_7d": 0.001195814648729447,
+      "weather_colombia_huila_temp_max_7d": 0.001195814648729447,
+      "weather_colombia_huila_rain_7d": 0.001195814648729447,
+      "weather_colombia_huila_soil_7d": 0.001195814648729447,
+      "weather_colombia_huila_vpd_7d": 0.001195814648729447,
+      "weather_colombia_huila_water_balance_7d": 0.001195814648729447,
+      "weather_colombia_huila_temp_seasonal_z_7d": 0.07473841554559044,
+      "weather_colombia_huila_rain_seasonal_z_7d": 0.07473841554559044,
+      "weather_colombia_huila_soil_seasonal_z_7d": 0.07473841554559044,
+      "weather_colombia_huila_dry_share_7d": 0.001195814648729447,
+      "weather_colombia_huila_heat_degrees_7d": 0.001195814648729447,
+      "weather_colombia_huila_cold_share_7d": 0.001195814648729447,
+      "weather_colombia_huila_heavy_rain_share_7d": 0.001195814648729447,
+      "weather_colombia_huila_temp_14d": 0.0016442451420029896,
+      "weather_colombia_huila_temp_max_14d": 0.0016442451420029896,
+      "weather_colombia_huila_rain_14d": 0.0016442451420029896,
+      "weather_colombia_huila_soil_14d": 0.0016442451420029896,
+      "weather_colombia_huila_vpd_14d": 0.0016442451420029896,
+      "weather_colombia_huila_water_balance_14d": 0.0016442451420029896,
+      "weather_colombia_huila_temp_seasonal_z_14d": 0.07533632286995516,
+      "weather_colombia_huila_rain_seasonal_z_14d": 0.07533632286995516,
+      "weather_colombia_huila_soil_seasonal_z_14d": 0.07533632286995516,
+      "weather_colombia_huila_dry_share_14d": 0.0016442451420029896,
+      "weather_colombia_huila_heat_degrees_14d": 0.0016442451420029896,
+      "weather_colombia_huila_cold_share_14d": 0.0016442451420029896,
+      "weather_colombia_huila_heavy_rain_share_14d": 0.0016442451420029896,
+      "weather_colombia_huila_temp_28d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_max_28d": 0.0028400597907324364,
+      "weather_colombia_huila_rain_28d": 0.0028400597907324364,
+      "weather_colombia_huila_soil_28d": 0.0028400597907324364,
+      "weather_colombia_huila_vpd_28d": 0.0028400597907324364,
+      "weather_colombia_huila_water_balance_28d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_seasonal_z_28d": 0.07623318385650224,
+      "weather_colombia_huila_rain_seasonal_z_28d": 0.07623318385650224,
+      "weather_colombia_huila_soil_seasonal_z_28d": 0.07623318385650224,
+      "weather_colombia_huila_dry_share_28d": 0.0028400597907324364,
+      "weather_colombia_huila_heat_degrees_28d": 0.0028400597907324364,
+      "weather_colombia_huila_cold_share_28d": 0.0028400597907324364,
+      "weather_colombia_huila_heavy_rain_share_28d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_30d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_max_30d": 0.0028400597907324364,
+      "weather_colombia_huila_rain_30d": 0.0028400597907324364,
+      "weather_colombia_huila_soil_30d": 0.0028400597907324364,
+      "weather_colombia_huila_vpd_30d": 0.0028400597907324364,
+      "weather_colombia_huila_water_balance_30d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_seasonal_z_30d": 0.07638266068759342,
+      "weather_colombia_huila_rain_seasonal_z_30d": 0.07638266068759342,
+      "weather_colombia_huila_soil_seasonal_z_30d": 0.07638266068759342,
+      "weather_colombia_huila_dry_share_30d": 0.0028400597907324364,
+      "weather_colombia_huila_heat_degrees_30d": 0.0028400597907324364,
+      "weather_colombia_huila_cold_share_30d": 0.0028400597907324364,
+      "weather_colombia_huila_heavy_rain_share_30d": 0.0028400597907324364,
+      "weather_colombia_huila_temp_60d": 0.0053811659192825115,
+      "weather_colombia_huila_temp_max_60d": 0.0053811659192825115,
+      "weather_colombia_huila_rain_60d": 0.0053811659192825115,
+      "weather_colombia_huila_soil_60d": 0.0053811659192825115,
+      "weather_colombia_huila_vpd_60d": 0.0053811659192825115,
+      "weather_colombia_huila_water_balance_60d": 0.0053811659192825115,
+      "weather_colombia_huila_temp_seasonal_z_60d": 0.07892376681614349,
+      "weather_colombia_huila_rain_seasonal_z_60d": 0.07892376681614349,
+      "weather_colombia_huila_soil_seasonal_z_60d": 0.07892376681614349,
+      "weather_colombia_huila_dry_share_60d": 0.0053811659192825115,
+      "weather_colombia_huila_heat_degrees_60d": 0.0053811659192825115,
+      "weather_colombia_huila_cold_share_60d": 0.0053811659192825115,
+      "weather_colombia_huila_heavy_rain_share_60d": 0.0053811659192825115,
+      "weather_colombia_huila_temp_90d": 0.007922272047832586,
+      "weather_colombia_huila_temp_max_90d": 0.007922272047832586,
+      "weather_colombia_huila_rain_90d": 0.007922272047832586,
+      "weather_colombia_huila_soil_90d": 0.007922272047832586,
+      "weather_colombia_huila_vpd_90d": 0.007922272047832586,
+      "weather_colombia_huila_water_balance_90d": 0.007922272047832586,
+      "weather_colombia_huila_temp_seasonal_z_90d": 0.08131539611360239,
+      "weather_colombia_huila_rain_seasonal_z_90d": 0.08131539611360239,
+      "weather_colombia_huila_soil_seasonal_z_90d": 0.08131539611360239,
+      "weather_colombia_huila_dry_share_90d": 0.007922272047832586,
+      "weather_colombia_huila_heat_degrees_90d": 0.007922272047832586,
+      "weather_colombia_huila_cold_share_90d": 0.007922272047832586,
+      "weather_colombia_huila_heavy_rain_share_90d": 0.007922272047832586,
+      "weather_colombia_huila_dry_spell_days": 0.0007473841554559044,
+      "weather_colombia_huila_rain_acceleration": 0.0028400597907324364,
+      "weather_colombia_huila_soil_change_30d": 0.004334828101644245,
+      "weather_colombia_huila_heat_vpd_stress_30d": 0.0028400597907324364,
+      "weather_colombia_huila_max_dry_spell_30d": 0.0028400597907324364,
+      "weather_colombia_huila_dry_heat_stress_30d": 0.0028400597907324364,
+      "weather_colombia_huila_rain_trend_30_90d": 0.007922272047832586,
+      "weather_colombia_huila_soil_trend_30_90d": 0.007922272047832586,
+      "weather_colombia_huila_water_deficit_30d": 0.0028400597907324364,
+      "weather_colombia_huila_min_temperature_7d": 0.001195814648729447,
+      "weather_colombia_huila_source_age_days": 0.0007473841554559044,
+      "weather_colombia_huila_stale": 0.0,
+      "weather_vietnam_dak_lak_temp_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_temp_max_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_rain_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_soil_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_vpd_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_water_balance_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_temp_seasonal_z_7d": 0.07473841554559044,
+      "weather_vietnam_dak_lak_rain_seasonal_z_7d": 0.07473841554559044,
+      "weather_vietnam_dak_lak_soil_seasonal_z_7d": 0.07473841554559044,
+      "weather_vietnam_dak_lak_dry_share_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_heat_degrees_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_cold_share_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_heavy_rain_share_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_temp_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_temp_max_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_rain_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_soil_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_vpd_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_water_balance_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_temp_seasonal_z_14d": 0.07533632286995516,
+      "weather_vietnam_dak_lak_rain_seasonal_z_14d": 0.07533632286995516,
+      "weather_vietnam_dak_lak_soil_seasonal_z_14d": 0.07533632286995516,
+      "weather_vietnam_dak_lak_dry_share_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_heat_degrees_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_cold_share_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_heavy_rain_share_14d": 0.0016442451420029896,
+      "weather_vietnam_dak_lak_temp_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_max_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_rain_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_soil_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_vpd_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_water_balance_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_seasonal_z_28d": 0.07623318385650224,
+      "weather_vietnam_dak_lak_rain_seasonal_z_28d": 0.07623318385650224,
+      "weather_vietnam_dak_lak_soil_seasonal_z_28d": 0.07623318385650224,
+      "weather_vietnam_dak_lak_dry_share_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_heat_degrees_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_cold_share_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_heavy_rain_share_28d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_max_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_rain_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_soil_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_vpd_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_water_balance_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_seasonal_z_30d": 0.07638266068759342,
+      "weather_vietnam_dak_lak_rain_seasonal_z_30d": 0.07638266068759342,
+      "weather_vietnam_dak_lak_soil_seasonal_z_30d": 0.07638266068759342,
+      "weather_vietnam_dak_lak_dry_share_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_heat_degrees_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_cold_share_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_heavy_rain_share_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_temp_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_temp_max_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_rain_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_soil_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_vpd_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_water_balance_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_temp_seasonal_z_60d": 0.07892376681614349,
+      "weather_vietnam_dak_lak_rain_seasonal_z_60d": 0.07892376681614349,
+      "weather_vietnam_dak_lak_soil_seasonal_z_60d": 0.07892376681614349,
+      "weather_vietnam_dak_lak_dry_share_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_heat_degrees_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_cold_share_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_heavy_rain_share_60d": 0.0053811659192825115,
+      "weather_vietnam_dak_lak_temp_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_temp_max_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_rain_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_soil_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_vpd_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_water_balance_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_temp_seasonal_z_90d": 0.08131539611360239,
+      "weather_vietnam_dak_lak_rain_seasonal_z_90d": 0.08131539611360239,
+      "weather_vietnam_dak_lak_soil_seasonal_z_90d": 0.08131539611360239,
+      "weather_vietnam_dak_lak_dry_share_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_heat_degrees_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_cold_share_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_heavy_rain_share_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_dry_spell_days": 0.0007473841554559044,
+      "weather_vietnam_dak_lak_rain_acceleration": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_soil_change_30d": 0.004334828101644245,
+      "weather_vietnam_dak_lak_heat_vpd_stress_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_max_dry_spell_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_dry_heat_stress_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_rain_trend_30_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_soil_trend_30_90d": 0.007922272047832586,
+      "weather_vietnam_dak_lak_water_deficit_30d": 0.0028400597907324364,
+      "weather_vietnam_dak_lak_min_temperature_7d": 0.001195814648729447,
+      "weather_vietnam_dak_lak_source_age_days": 0.0007473841554559044,
+      "weather_vietnam_dak_lak_stale": 0.0,
+      "weather_arabica_region_mean_rain_seasonal_z_30d": 0.07638266068759342,
+      "weather_arabica_region_difference_rain_seasonal_z_30d": 0.07638266068759342,
+      "weather_arabica_region_mean_temp_seasonal_z_30d": 0.07638266068759342,
+      "weather_arabica_region_difference_temp_seasonal_z_30d": 0.07638266068759342,
+      "weather_arabica_region_mean_rain_seasonal_z_90d": 0.08131539611360239,
+      "weather_arabica_region_difference_rain_seasonal_z_90d": 0.08131539611360239,
+      "weather_arabica_region_mean_water_balance_60d": 0.0053811659192825115,
+      "weather_arabica_region_difference_water_balance_60d": 0.0053811659192825115
+    }
+  },
+  "feature_counts": {
+    "previous_technical": 18,
+    "previous_history": 13,
+    "compact_legacy": 18,
+    "price": 245,
+    "price_cot": 694,
+    "price_cot_weather": 975,
+    "monthly_core": 104,
+    "monthly_core_all_cot": 521,
+    "engineered": 1032
+  },
+  "candle_columns": [
+    "candle_bullish_engulfing",
+    "candle_hammer",
+    "candle_morning_star",
+    "candle_piercing_line",
+    "candle_bullish_harami",
+    "candle_three_white_soldiers",
+    "candle_inverted_hammer",
+    "candle_dragonfly_doji_bullish",
+    "candle_bullish_abandoned_baby",
+    "candle_three_inside_up",
+    "candle_three_outside_up",
+    "candle_bullish_kicker",
+    "candle_tweezer_bottom",
+    "candle_rising_three_methods",
+    "candle_concealing_baby_swallow",
+    "candle_mat_hold",
+    "candle_bullish_separating_lines",
+    "candle_bullish_belt_hold",
+    "candle_three_line_strike_bull",
+    "candle_ladder_bottom",
+    "candle_meeting_lines",
+    "candle_bearish_engulfing",
+    "candle_bearish_belt_hold",
+    "candle_three_black_crows",
+    "candle_three_line_strike_bear",
+    "candle_hanging_man",
+    "candle_upside_gap_two_crows",
+    "candle_bearish_evening_star",
+    "candle_shooting_star",
+    "candle_bearish_harami",
+    "candle_bearish_doji_star",
+    "candle_bearish_abandoned_baby",
+    "candle_bearish_tweezer_top",
+    "candle_bearish_kicker",
+    "candle_bearish_three_inside_down",
+    "candle_bearish_three_outside_down",
+    "candle_bearish_mat_hold",
+    "candle_dark_cloud_cover",
+    "candle_bullish_engulfing_count@5",
+    "candle_hammer_count@5",
+    "candle_morning_star_count@5",
+    "candle_piercing_line_count@5",
+    "candle_bullish_harami_count@5",
+    "candle_three_white_soldiers_count@5",
+    "candle_inverted_hammer_count@5",
+    "candle_dragonfly_doji_bullish_count@5",
+    "candle_bullish_abandoned_baby_count@5",
+    "candle_three_inside_up_count@5",
+    "candle_three_outside_up_count@5",
+    "candle_bullish_kicker_count@5",
+    "candle_tweezer_bottom_count@5",
+    "candle_rising_three_methods_count@5",
+    "candle_concealing_baby_swallow_count@5",
+    "candle_mat_hold_count@5",
+    "candle_bullish_separating_lines_count@5",
+    "candle_bullish_belt_hold_count@5",
+    "candle_three_line_strike_bull_count@5",
+    "candle_ladder_bottom_count@5",
+    "candle_meeting_lines_count@5",
+    "candle_bearish_engulfing_count@5",
+    "candle_bearish_belt_hold_count@5",
+    "candle_three_black_crows_count@5",
+    "candle_three_line_strike_bear_count@5",
+    "candle_hanging_man_count@5",
+    "candle_upside_gap_two_crows_count@5",
+    "candle_bearish_evening_star_count@5",
+    "candle_shooting_star_count@5",
+    "candle_bearish_harami_count@5",
+    "candle_bearish_doji_star_count@5",
+    "candle_bearish_abandoned_baby_count@5",
+    "candle_bearish_tweezer_top_count@5",
+    "candle_bearish_kicker_count@5",
+    "candle_bearish_three_inside_down_count@5",
+    "candle_bearish_three_outside_down_count@5",
+    "candle_bearish_mat_hold_count@5",
+    "candle_dark_cloud_cover_count@5",
+    "candle_bullish_engulfing_recency@5",
+    "candle_hammer_recency@5",
+    "candle_morning_star_recency@5",
+    "candle_piercing_line_recency@5",
+    "candle_bullish_harami_recency@5",
+    "candle_three_white_soldiers_recency@5",
+    "candle_inverted_hammer_recency@5",
+    "candle_dragonfly_doji_bullish_recency@5",
+    "candle_bullish_abandoned_baby_recency@5",
+    "candle_three_inside_up_recency@5",
+    "candle_three_outside_up_recency@5",
+    "candle_bullish_kicker_recency@5",
+    "candle_tweezer_bottom_recency@5",
+    "candle_rising_three_methods_recency@5",
+    "candle_concealing_baby_swallow_recency@5",
+    "candle_mat_hold_recency@5",
+    "candle_bullish_separating_lines_recency@5",
+    "candle_bullish_belt_hold_recency@5",
+    "candle_three_line_strike_bull_recency@5",
+    "candle_ladder_bottom_recency@5",
+    "candle_meeting_lines_recency@5",
+    "candle_bearish_engulfing_recency@5",
+    "candle_bearish_belt_hold_recency@5",
+    "candle_three_black_crows_recency@5",
+    "candle_three_line_strike_bear_recency@5",
+    "candle_hanging_man_recency@5",
+    "candle_upside_gap_two_crows_recency@5",
+    "candle_bearish_evening_star_recency@5",
+    "candle_shooting_star_recency@5",
+    "candle_bearish_harami_recency@5",
+    "candle_bearish_doji_star_recency@5",
+    "candle_bearish_abandoned_baby_recency@5",
+    "candle_bearish_tweezer_top_recency@5",
+    "candle_bearish_kicker_recency@5",
+    "candle_bearish_three_inside_down_recency@5",
+    "candle_bearish_three_outside_down_recency@5",
+    "candle_bearish_mat_hold_recency@5",
+    "candle_dark_cloud_cover_recency@5",
+    "candle_bull_count@5",
+    "candle_bear_count@5",
+    "candle_net_pressure@5",
+    "candle_bull_active@5",
+    "candle_bear_active@5",
+    "candle_bullish_engulfing_count@10",
+    "candle_hammer_count@10",
+    "candle_morning_star_count@10",
+    "candle_piercing_line_count@10",
+    "candle_bullish_harami_count@10",
+    "candle_three_white_soldiers_count@10",
+    "candle_inverted_hammer_count@10",
+    "candle_dragonfly_doji_bullish_count@10",
+    "candle_bullish_abandoned_baby_count@10",
+    "candle_three_inside_up_count@10",
+    "candle_three_outside_up_count@10",
+    "candle_bullish_kicker_count@10",
+    "candle_tweezer_bottom_count@10",
+    "candle_rising_three_methods_count@10",
+    "candle_concealing_baby_swallow_count@10",
+    "candle_mat_hold_count@10",
+    "candle_bullish_separating_lines_count@10",
+    "candle_bullish_belt_hold_count@10",
+    "candle_three_line_strike_bull_count@10",
+    "candle_ladder_bottom_count@10",
+    "candle_meeting_lines_count@10",
+    "candle_bearish_engulfing_count@10",
+    "candle_bearish_belt_hold_count@10",
+    "candle_three_black_crows_count@10",
+    "candle_three_line_strike_bear_count@10",
+    "candle_hanging_man_count@10",
+    "candle_upside_gap_two_crows_count@10",
+    "candle_bearish_evening_star_count@10",
+    "candle_shooting_star_count@10",
+    "candle_bearish_harami_count@10",
+    "candle_bearish_doji_star_count@10",
+    "candle_bearish_abandoned_baby_count@10",
+    "candle_bearish_tweezer_top_count@10",
+    "candle_bearish_kicker_count@10",
+    "candle_bearish_three_inside_down_count@10",
+    "candle_bearish_three_outside_down_count@10",
+    "candle_bearish_mat_hold_count@10",
+    "candle_dark_cloud_cover_count@10",
+    "candle_bullish_engulfing_recency@10",
+    "candle_hammer_recency@10",
+    "candle_morning_star_recency@10",
+    "candle_piercing_line_recency@10",
+    "candle_bullish_harami_recency@10",
+    "candle_three_white_soldiers_recency@10",
+    "candle_inverted_hammer_recency@10",
+    "candle_dragonfly_doji_bullish_recency@10",
+    "candle_bullish_abandoned_baby_recency@10",
+    "candle_three_inside_up_recency@10",
+    "candle_three_outside_up_recency@10",
+    "candle_bullish_kicker_recency@10",
+    "candle_tweezer_bottom_recency@10",
+    "candle_rising_three_methods_recency@10",
+    "candle_concealing_baby_swallow_recency@10",
+    "candle_mat_hold_recency@10",
+    "candle_bullish_separating_lines_recency@10",
+    "candle_bullish_belt_hold_recency@10",
+    "candle_three_line_strike_bull_recency@10",
+    "candle_ladder_bottom_recency@10",
+    "candle_meeting_lines_recency@10",
+    "candle_bearish_engulfing_recency@10",
+    "candle_bearish_belt_hold_recency@10",
+    "candle_three_black_crows_recency@10",
+    "candle_three_line_strike_bear_recency@10",
+    "candle_hanging_man_recency@10",
+    "candle_upside_gap_two_crows_recency@10",
+    "candle_bearish_evening_star_recency@10",
+    "candle_shooting_star_recency@10",
+    "candle_bearish_harami_recency@10",
+    "candle_bearish_doji_star_recency@10",
+    "candle_bearish_abandoned_baby_recency@10",
+    "candle_bearish_tweezer_top_recency@10",
+    "candle_bearish_kicker_recency@10",
+    "candle_bearish_three_inside_down_recency@10",
+    "candle_bearish_three_outside_down_recency@10",
+    "candle_bearish_mat_hold_recency@10",
+    "candle_dark_cloud_cover_recency@10",
+    "candle_bull_count@10",
+    "candle_bear_count@10",
+    "candle_net_pressure@10",
+    "candle_bull_active@10",
+    "candle_bear_active@10",
+    "candle_bullish_engulfing_count@15",
+    "candle_hammer_count@15",
+    "candle_morning_star_count@15",
+    "candle_piercing_line_count@15",
+    "candle_bullish_harami_count@15",
+    "candle_three_white_soldiers_count@15",
+    "candle_inverted_hammer_count@15",
+    "candle_dragonfly_doji_bullish_count@15",
+    "candle_bullish_abandoned_baby_count@15",
+    "candle_three_inside_up_count@15",
+    "candle_three_outside_up_count@15",
+    "candle_bullish_kicker_count@15",
+    "candle_tweezer_bottom_count@15",
+    "candle_rising_three_methods_count@15",
+    "candle_concealing_baby_swallow_count@15",
+    "candle_mat_hold_count@15",
+    "candle_bullish_separating_lines_count@15",
+    "candle_bullish_belt_hold_count@15",
+    "candle_three_line_strike_bull_count@15",
+    "candle_ladder_bottom_count@15",
+    "candle_meeting_lines_count@15",
+    "candle_bearish_engulfing_count@15",
+    "candle_bearish_belt_hold_count@15",
+    "candle_three_black_crows_count@15",
+    "candle_three_line_strike_bear_count@15",
+    "candle_hanging_man_count@15",
+    "candle_upside_gap_two_crows_count@15",
+    "candle_bearish_evening_star_count@15",
+    "candle_shooting_star_count@15",
+    "candle_bearish_harami_count@15",
+    "candle_bearish_doji_star_count@15",
+    "candle_bearish_abandoned_baby_count@15",
+    "candle_bearish_tweezer_top_count@15",
+    "candle_bearish_kicker_count@15",
+    "candle_bearish_three_inside_down_count@15",
+    "candle_bearish_three_outside_down_count@15",
+    "candle_bearish_mat_hold_count@15",
+    "candle_dark_cloud_cover_count@15",
+    "candle_bullish_engulfing_recency@15",
+    "candle_hammer_recency@15",
+    "candle_morning_star_recency@15",
+    "candle_piercing_line_recency@15",
+    "candle_bullish_harami_recency@15",
+    "candle_three_white_soldiers_recency@15",
+    "candle_inverted_hammer_recency@15",
+    "candle_dragonfly_doji_bullish_recency@15",
+    "candle_bullish_abandoned_baby_recency@15",
+    "candle_three_inside_up_recency@15",
+    "candle_three_outside_up_recency@15",
+    "candle_bullish_kicker_recency@15",
+    "candle_tweezer_bottom_recency@15",
+    "candle_rising_three_methods_recency@15",
+    "candle_concealing_baby_swallow_recency@15",
+    "candle_mat_hold_recency@15",
+    "candle_bullish_separating_lines_recency@15",
+    "candle_bullish_belt_hold_recency@15",
+    "candle_three_line_strike_bull_recency@15",
+    "candle_ladder_bottom_recency@15",
+    "candle_meeting_lines_recency@15",
+    "candle_bearish_engulfing_recency@15",
+    "candle_bearish_belt_hold_recency@15",
+    "candle_three_black_crows_recency@15",
+    "candle_three_line_strike_bear_recency@15",
+    "candle_hanging_man_recency@15",
+    "candle_upside_gap_two_crows_recency@15",
+    "candle_bearish_evening_star_recency@15",
+    "candle_shooting_star_recency@15",
+    "candle_bearish_harami_recency@15",
+    "candle_bearish_doji_star_recency@15",
+    "candle_bearish_abandoned_baby_recency@15",
+    "candle_bearish_tweezer_top_recency@15",
+    "candle_bearish_kicker_recency@15",
+    "candle_bearish_three_inside_down_recency@15",
+    "candle_bearish_three_outside_down_recency@15",
+    "candle_bearish_mat_hold_recency@15",
+    "candle_dark_cloud_cover_recency@15",
+    "candle_bull_count@15",
+    "candle_bear_count@15",
+    "candle_net_pressure@15",
+    "candle_bull_active@15",
+    "candle_bear_active@15",
+    "candle_bullish_engulfing_count@21",
+    "candle_hammer_count@21",
+    "candle_morning_star_count@21",
+    "candle_piercing_line_count@21",
+    "candle_bullish_harami_count@21",
+    "candle_three_white_soldiers_count@21",
+    "candle_inverted_hammer_count@21",
+    "candle_dragonfly_doji_bullish_count@21",
+    "candle_bullish_abandoned_baby_count@21",
+    "candle_three_inside_up_count@21",
+    "candle_three_outside_up_count@21",
+    "candle_bullish_kicker_count@21",
+    "candle_tweezer_bottom_count@21",
+    "candle_rising_three_methods_count@21",
+    "candle_concealing_baby_swallow_count@21",
+    "candle_mat_hold_count@21",
+    "candle_bullish_separating_lines_count@21",
+    "candle_bullish_belt_hold_count@21",
+    "candle_three_line_strike_bull_count@21",
+    "candle_ladder_bottom_count@21",
+    "candle_meeting_lines_count@21",
+    "candle_bearish_engulfing_count@21",
+    "candle_bearish_belt_hold_count@21",
+    "candle_three_black_crows_count@21",
+    "candle_three_line_strike_bear_count@21",
+    "candle_hanging_man_count@21",
+    "candle_upside_gap_two_crows_count@21",
+    "candle_bearish_evening_star_count@21",
+    "candle_shooting_star_count@21",
+    "candle_bearish_harami_count@21",
+    "candle_bearish_doji_star_count@21",
+    "candle_bearish_abandoned_baby_count@21",
+    "candle_bearish_tweezer_top_count@21",
+    "candle_bearish_kicker_count@21",
+    "candle_bearish_three_inside_down_count@21",
+    "candle_bearish_three_outside_down_count@21",
+    "candle_bearish_mat_hold_count@21",
+    "candle_dark_cloud_cover_count@21",
+    "candle_bullish_engulfing_recency@21",
+    "candle_hammer_recency@21",
+    "candle_morning_star_recency@21",
+    "candle_piercing_line_recency@21",
+    "candle_bullish_harami_recency@21",
+    "candle_three_white_soldiers_recency@21",
+    "candle_inverted_hammer_recency@21",
+    "candle_dragonfly_doji_bullish_recency@21",
+    "candle_bullish_abandoned_baby_recency@21",
+    "candle_three_inside_up_recency@21",
+    "candle_three_outside_up_recency@21",
+    "candle_bullish_kicker_recency@21",
+    "candle_tweezer_bottom_recency@21",
+    "candle_rising_three_methods_recency@21",
+    "candle_concealing_baby_swallow_recency@21",
+    "candle_mat_hold_recency@21",
+    "candle_bullish_separating_lines_recency@21",
+    "candle_bullish_belt_hold_recency@21",
+    "candle_three_line_strike_bull_recency@21",
+    "candle_ladder_bottom_recency@21",
+    "candle_meeting_lines_recency@21",
+    "candle_bearish_engulfing_recency@21",
+    "candle_bearish_belt_hold_recency@21",
+    "candle_three_black_crows_recency@21",
+    "candle_three_line_strike_bear_recency@21",
+    "candle_hanging_man_recency@21",
+    "candle_upside_gap_two_crows_recency@21",
+    "candle_bearish_evening_star_recency@21",
+    "candle_shooting_star_recency@21",
+    "candle_bearish_harami_recency@21",
+    "candle_bearish_doji_star_recency@21",
+    "candle_bearish_abandoned_baby_recency@21",
+    "candle_bearish_tweezer_top_recency@21",
+    "candle_bearish_kicker_recency@21",
+    "candle_bearish_three_inside_down_recency@21",
+    "candle_bearish_three_outside_down_recency@21",
+    "candle_bearish_mat_hold_recency@21",
+    "candle_dark_cloud_cover_recency@21",
+    "candle_bull_count@21",
+    "candle_bear_count@21",
+    "candle_net_pressure@21",
+    "candle_bull_active@21",
+    "candle_bear_active@21"
+  ],
+  "candle_windows": [
+    5,
+    10,
+    15,
+    21
+  ],
+  "candle_patterns": [
+    "bullish_engulfing",
+    "hammer",
+    "morning_star",
+    "piercing_line",
+    "bullish_harami",
+    "three_white_soldiers",
+    "inverted_hammer",
+    "dragonfly_doji_bullish",
+    "bullish_abandoned_baby",
+    "three_inside_up",
+    "three_outside_up",
+    "bullish_kicker",
+    "tweezer_bottom",
+    "rising_three_methods",
+    "concealing_baby_swallow",
+    "mat_hold",
+    "bullish_separating_lines",
+    "bullish_belt_hold",
+    "three_line_strike_bull",
+    "ladder_bottom",
+    "meeting_lines",
+    "bearish_engulfing",
+    "bearish_belt_hold",
+    "three_black_crows",
+    "three_line_strike_bear",
+    "hanging_man",
+    "upside_gap_two_crows",
+    "bearish_evening_star",
+    "shooting_star",
+    "bearish_harami",
+    "bearish_doji_star",
+    "bearish_abandoned_baby",
+    "bearish_tweezer_top",
+    "bearish_kicker",
+    "bearish_three_inside_down",
+    "bearish_three_outside_down",
+    "bearish_mat_hold",
+    "dark_cloud_cover"
+  ],
+  "known_name_formula_mismatch": {
+    "three_line_strike_bull": "Implemented with the condition printed under 'Bullish Three-Line Strike' (three up closes then a long bear that closes below the first open). That condition is the standard BEARISH three-line strike; the reference table's label and formula disagree.",
+    "three_line_strike_bear": "Implemented with the condition printed under 'Bearish Three-Line Strike' (three down closes then a bull that closes above the first open). That condition is the standard BULLISH three-line strike.",
+    "mat_hold": "Identical condition to rising_three_methods in the reference table."
+  },
+  "signal_time": "After the observed session close; a feature on date t uses only bars through t.",
+  "stages": {
+    "S0_price_candles": {
+      "sources": [
+        "price"
+      ],
+      "label": "price + candlestick"
+    },
+    "S1_plus_cot": {
+      "sources": [
+        "price",
+        "cot"
+      ],
+      "label": "price + candlestick + COT"
+    },
+    "S2_plus_weather": {
+      "sources": [
+        "price",
+        "weather"
+      ],
+      "label": "price + candlestick + weather"
+    },
+    "S3_plus_all": {
+      "sources": [
+        "price",
+        "cot",
+        "weather"
+      ],
+      "label": "price + candlestick + COT + weather"
+    }
+  },
+  "shared_feature_counts": {
+    "S0_price_candles": 245,
+    "S1_plus_cot": 694,
+    "S2_plus_weather": 526,
+    "S3_plus_all": 975
+  },
+  "lookbacks": [
+    5,
+    10,
+    15,
+    21
+  ],
+  "forwards": [
+    5,
+    7
+  ],
+  "holdout_start": "2022-01-01",
+  "protocol": "Expanding purged folds wholly before the holdout; each polarity's candidate and threshold are frozen from development out-of-fold rows only. COT enters on the first observed session after publication; weather carries a five-calendar-day availability lag and a seven-day maximum carry."
+}
